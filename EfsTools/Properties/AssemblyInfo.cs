@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JohnBel")]
 [assembly: AssemblyProduct("EfsTools")]
-[assembly: AssemblyCopyright("Copyright (c) JohnBel 2018")]
+[assembly: AssemblyCopyright("Copyright (c) JohnBel 2018  (http://johnbel.github.io/)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
