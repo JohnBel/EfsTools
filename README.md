@@ -16,6 +16,9 @@
 ## Системные требования
 [.Net Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) и выше.
 
+## Установка
+Необходимо скачать архив релиза с [сайта разработчика](http://johnbel.github.io/). Затем распаковать его.
+
 ## Конфигурация
 Настройки программы храняьбся в файле EfsTools.exe.config. Перед началом работы необходимо указать имя COM-порта (параметр ***port***) и его скорость (***baudrate***).
 
@@ -101,3 +104,6 @@ EfsTools.exe <команда> [параметры команды]
 Программа использует библиотеку [Commandline](https://github.com/commandlineparser/commandline) Copyright (c) 2005 - 2015 Giacomo Stelluti Scala & Contributors
 
 Протокол работы с модемами Qualcomm был прочитан в проекте [libopenpst](https://github.com/openpst/libopenpst) Copyright (C) Gassan Idriss
+
+## Сайт
+[JohnBel](http://johnbel.github.io/)
