@@ -137,7 +137,7 @@ namespace EfsTools
 
         private static void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile, int permission, QcdmManager manager)
         {
-            var flags = EfsFileFlag.Writeonly | EfsFileFlag.Truncate;
+            var flags = EfsFileFlag.Writeonly;
             if (create)
             {
                 flags |= (EfsFileFlag.Create | EfsFileFlag.AutoDir);
@@ -230,7 +230,7 @@ namespace EfsTools
 
         private void EfsCreateDirectory(string path, bool recursive, QcdmManager manager)
         {
-            if (!string.IsNullOrEmpty(path))
+            if (!string.IsNullOrEmpty(path) && path != "/")
             {
                 var p = path;
                 if (p[p.Length - 1] == '/')
@@ -509,7 +509,7 @@ namespace EfsTools
                         var entryType = (DirectoryEntryType)int.Parse(entryTypeStr, NumberStyles.HexNumber);
                         isItemFile = (entryType == DirectoryEntryType.ItemFile);
                     }
-                    EfsWriteFile(computerPath, efsPath, true, isItemFile, mode, manager);
+                    EfsWriteFile(computerPath, efsPath, false, isItemFile, mode, manager);
                 }
             }
             catch (Exception e)
