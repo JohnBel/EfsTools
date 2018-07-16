@@ -137,20 +137,41 @@ namespace EfsTools
 
         private static void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile, int permission, QcdmManager manager)
         {
-            var flags = EfsFileFlag.Writeonly;
-            if (create)
-            {
-                flags |= (EfsFileFlag.Create | EfsFileFlag.AutoDir);
-            }
-            
             if (itemFile)
             {
-                flags = EfsFileFlag.Writeonly | EfsFileFlag.Truncate | EfsFileFlag.Create | EfsFileFlag.ItemFile;
+                var flags = EfsFileFlag.Writeonly | EfsFileFlag.Truncate | EfsFileFlag.Create | EfsFileFlag.ItemFile;
                 var data = ReadComputerFile(computerPath);
                 manager.Efs.PutItemFile(efsPath, flags, permission, data);
                 return;
             }
 
+            bool doSecondTry = true;
+            try
+            {
+                var fileExist = manager.Efs.FileExist(efsPath);
+                if (!fileExist && !create)
+                {
+                    doSecondTry = false;
+                    throw new QcdmManagerException(Strings.QcdmEfsErrorsDirEntNotFound);
+                }
+                EfsWriteFile(computerPath, efsPath, permission, EfsFileFlag.Writeonly | EfsFileFlag.Truncate, manager);
+            }
+            catch (Exception e)
+            {
+                if (doSecondTry)
+                {
+                    EfsWriteFile(computerPath, efsPath, permission, EfsFileFlag.Writeonly | EfsFileFlag.Create,
+                        manager);
+                }
+                else
+                {
+                    throw e;
+                }
+            }
+        }
+
+        private static void EfsWriteFile(string computerPath, string efsPath, int permission, EfsFileFlag flags, QcdmManager manager)
+        {
             using (var outFile = manager.Efs.OpenFile(efsPath, flags, permission))
             {
                 var buf = new byte[1024];
@@ -170,7 +191,7 @@ namespace EfsTools
                 outFile.Close();
             }
         }
-        
+
         private static byte[] ReadComputerFile(string path)
         {
             using (var inFile = File.Open(path, FileMode.Open, FileAccess.Read))
@@ -509,7 +530,7 @@ namespace EfsTools
                         var entryType = (DirectoryEntryType)int.Parse(entryTypeStr, NumberStyles.HexNumber);
                         isItemFile = (entryType == DirectoryEntryType.ItemFile);
                     }
-                    EfsWriteFile(computerPath, efsPath, false, isItemFile, mode, manager);
+                    EfsWriteFile(computerPath, efsPath, true, isItemFile, mode, manager);
                 }
             }
             catch (Exception e)

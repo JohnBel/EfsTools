@@ -9,8 +9,8 @@ namespace EfsTools.CommandLineOptions
         public string InComputerFilePath { get; set; }
         [Option('o', "outEfsFilePath", Required = true, HelpText = "Output EFS path")]
         public string OutEfsFilePath { get; set; }
-        [Option('c', "create", Required = false, HelpText = "Create EFS file if need", Default = true)]
-        public bool CreateEfsFile { get; set; }
+        [Option('n', "dontCreate", Required = false, HelpText = "Don't create EFS file if its not exist", Default = false)]
+        public bool DontCreateEfsFile { get; set; }
         [Option('t', "item", Required = false, HelpText = "Create Item file", Default = false)]
         public bool IsItemFile { get; set; }
     }

@@ -52,7 +52,7 @@ namespace EfsTools
                         .WithParsed<GetTaggetInfoOptions>(opts => tools.GetTaggetInfo())
                         .WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo())
                         .WithParsed<EfsReadFileOptions>(opts => tools.EfsReadFile(opts.InEfsFilePath, opts.OutComputerFilePath))
-                        .WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath, opts.OutEfsFilePath, opts.CreateEfsFile,
+                        .WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath, opts.OutEfsFilePath, !opts.DontCreateEfsFile,
                             opts.IsItemFile))
                         .WithParsed<EfsRenameFileOptions>(opts => tools.EfsRenameFile(opts.EfsFilePath, opts.NewEfsFilePath))
                         .WithParsed<EfsDowloadDirectoryOptions>(opts => tools.EfsDownloadDirectory(opts.InEfsPath, opts.OutComputerPath, opts.NoExtraData))

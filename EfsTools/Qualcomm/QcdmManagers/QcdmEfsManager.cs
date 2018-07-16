@@ -72,6 +72,32 @@ namespace EfsTools.Qualcomm.QcdmManagers
             return null;
         }
 
+        public bool FileExist(string path)
+        {
+            InitializeIfNeed();
+            try
+            {
+                if (_manager.TryGetTarget(out QcdmManager manager))
+                {
+                    if (manager.IsOpen)
+                    {
+                        var request = new EfsStatFileCommandRequest(path);
+                        var response = (EfsStatFileCommandResponse)manager.ExecuteQcdmCommandRequest(request);
+                        var stat = response.Stat;
+                        if (stat.Size > 0 || stat.LinkCount > 0)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public void RenameFile(string path, string newPath)
         {
             InitializeIfNeed();

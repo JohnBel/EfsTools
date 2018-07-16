@@ -199,7 +199,7 @@
     <value>Ошибка EFS. Код = {0}</value>
   </data>
   <data name="QcdmEfsErrorsDirEntNotFound" xml:space="preserve">
-    <value>Директория EFS не найдена</value>
+    <value>Элемент директории EFS не найден</value>
   </data>
   <data name="QcdmEfsErrorsDirNotOpen" xml:space="preserve">
     <value>Директория EFS не открыта</value>
