@@ -56,7 +56,7 @@ namespace EfsTools
                             opts.IsItemFile))
                         .WithParsed<EfsRenameFileOptions>(opts => tools.EfsRenameFile(opts.EfsFilePath, opts.NewEfsFilePath))
                         .WithParsed<EfsDowloadDirectoryOptions>(opts => tools.EfsDownloadDirectory(opts.InEfsPath, opts.OutComputerPath, opts.NoExtraData))
-                        .WithParsed<EfsUploadDirectoryOptions>(opts => tools.EfsUploadDirectory(opts.InComputerPath, opts.OutEfsPath))
+                        .WithParsed<EfsUploadDirectoryOptions>(opts => tools.EfsUploadDirectory(opts.InComputerPath, opts.OutEfsPath, opts.CreateItemFilesAsDefault))
                         .WithParsed<EfsFixFileNamesOptions>(opts => tools.EfsFixFileNames(opts.EfsPath))
                         .WithParsed<GetLogsOptions>(opts => tools.GetLog())
                         .WithParsed<EfsCreateDirectoryOptions>(opts => tools.EfsCreateDirectory(opts.Path, !opts.NoRecursive))

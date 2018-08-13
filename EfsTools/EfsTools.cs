@@ -228,7 +228,7 @@ namespace EfsTools
             }
         }
 
-        public void EfsUploadDirectory(string computerPath, string efsPath)
+        public void EfsUploadDirectory(string computerPath, string efsPath, bool createItemFilesAsDefault)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
             {
@@ -236,7 +236,7 @@ namespace EfsTools
                 {
                     var path1 = (computerPath.LastOrDefault() == '/' || computerPath.LastOrDefault() == '\\') ? computerPath : $"{computerPath}/";
                     var path2 = (efsPath.LastOrDefault() == '/') ? efsPath : $"{efsPath}/";
-                    EfsUploadDirectory(path1, path2, manager);
+                    EfsUploadDirectory(path1, path2, createItemFilesAsDefault, manager);
                 }
             }
         }
@@ -463,7 +463,7 @@ namespace EfsTools
             }
         }
 
-        private void EfsUploadDirectory(string computerPath, string efsPath, QcdmManager manager)
+        private void EfsUploadDirectory(string computerPath, string efsPath, bool createItemFilesAsDefault, QcdmManager manager)
         {
             try
             {
@@ -476,7 +476,7 @@ namespace EfsTools
                 {
                     var name = Path.GetFileName(directory);
                     var path = $"{efsPath}{name}/";
-                    EfsUploadDirectory(directory, path, manager);
+                    EfsUploadDirectory(directory, path, createItemFilesAsDefault, manager);
                 }
 
                 foreach (var file in files)
@@ -486,7 +486,7 @@ namespace EfsTools
                         var fileName = Path.GetFileName(file);
                         var ind = fileName.IndexOf("__", StringComparison.Ordinal);
                         var path = ind > 0 ? $"{efsPath}{fileName.Substring(0, ind)}" : $"{efsPath}{fileName}";
-                        UploadFile(file, path, manager);
+                        UploadFile(file, path, createItemFilesAsDefault, manager);
                     }
                 }
             }
@@ -512,7 +512,7 @@ namespace EfsTools
             }
         }
 
-        private void UploadFile(string computerPath, string efsPath, QcdmManager manager)
+        private void UploadFile(string computerPath, string efsPath, bool createItemFilesAsDefault, QcdmManager manager)
         {
             try
             {
@@ -529,6 +529,10 @@ namespace EfsTools
                         mode = int.Parse(modeStr, NumberStyles.HexNumber);
                         var entryType = (DirectoryEntryType)int.Parse(entryTypeStr, NumberStyles.HexNumber);
                         isItemFile = (entryType == DirectoryEntryType.ItemFile);
+                    }
+                    else
+                    {
+                        isItemFile = createItemFilesAsDefault;
                     }
                     EfsWriteFile(computerPath, efsPath, true, isItemFile, mode, manager);
                 }
