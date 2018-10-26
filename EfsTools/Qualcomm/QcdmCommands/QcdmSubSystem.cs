@@ -12,7 +12,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
         Zrex = 1, /* ZREX */
         Sd = 2, /* System Determination */
         Bt = 3, /* Bluetooth */
-        Wcdma = 4, /* WCDMA */
+        Wcdma = 4, /* Wcdma */
         Hdr = 5, /* 1xEvDO */
         Diablo = 6, /* DIABLO */
         Trex = 7, /* TREX - Off-target testing environments */
@@ -53,7 +53,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
         PsDataLogging = 42, /* Data Path Logging */
         Mflo = 43, /* MediaFLO */
         Dtv = 44, /* Digital TV */
-        Rrc = 45, /* WCDMA Radio Resource Control state */
+        Rrc = 45, /* Wcdma Radio Resource Control state */
         Prof = 46, /* Miscellaneous Profiling Related */
         Tcxomgr = 47,
         Nv = 48, /* Non Volatile Memory */
@@ -111,7 +111,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
         Nas = 84, /* Requested by 3GPP NAS team */
         CmAPI = 85, /* Requested by CMAPI */
         Ssm = 86,
-        Tdscdma = 87, /* Requested by TDSCDMA team */
+        Tdscdma = 87, /* Requested by TDSCdma team */
         SsmTest = 88,
         Mpower = 89, /* Requested by MPOWER team */
         Qdss = 90, /* For QDSS STM commands */

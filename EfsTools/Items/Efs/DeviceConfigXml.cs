@@ -1,0 +1,22 @@
+using System;
+using System.ComponentModel;
+using EfsTools.Attributes;
+
+namespace EfsTools.Items
+{
+    
+    [Serializable]
+	[EfsFile("/policyman/device_config.xml", false, 0x81FF)]
+	[Attributes(9)]
+	public class DeviceConfigXml
+    {
+		public DeviceConfigXml()
+		{
+        }
+
+	    [ElementsCount(1)]
+	    [ElementType("string[]")]
+	    [Description("")]
+	    public string[] Values { get; set; }
+    }
+}

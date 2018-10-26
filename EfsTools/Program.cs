@@ -47,7 +47,9 @@ namespace EfsTools
                             EfsDeleteDirectoryOptions,
                             EfsListDirectoryOptions,
                             EfsDowloadDirectoryOptions,
-                            EfsUploadDirectoryOptions
+                            EfsUploadDirectoryOptions,
+                            GetModemConfigOptions,
+                            SetModemConfigOptions
                         > (args)
                         .WithParsed<GetTaggetInfoOptions>(opts => tools.GetTaggetInfo())
                         .WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo())
@@ -63,6 +65,8 @@ namespace EfsTools
                         .WithParsed<EfsDeleteDirectoryOptions>(opts => tools.EfsDeleteDirectory(opts.Path, !opts.NoRecursive))
                         .WithParsed<EfsDeleteFileOptions>(opts => tools.EfsDeleteFile(opts.Path))
                         .WithParsed<EfsListDirectoryOptions>(opts => tools.EfsListDirectory(opts.Path, opts.Recursive))
+                        .WithParsed<GetModemConfigOptions>(opts => tools.GetModemConfig(opts.OutComputerFilePath))
+                        .WithParsed<SetModemConfigOptions>(opts => tools.SetModemConfig(opts.InComputerFilePath))
                         .WithNotParsed((errors => { }));
                 }
             }

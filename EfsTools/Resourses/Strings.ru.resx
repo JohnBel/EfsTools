@@ -171,6 +171,9 @@
   <data name="PressEnterToExit" xml:space="preserve">
     <value>Нажмите ENTER для выхода</value>
   </data>
+  <data name="QcdmApplyingModemConfig" xml:space="preserve">
+    <value>Применение конфигурации модема...</value>
+  </data>
   <data name="QcdmCantOpenEfsDirectoryFormat" xml:space="preserve">
     <value>Не возможно открыть EFS каталог '{0}'. {1}</value>
   </data>
@@ -287,6 +290,9 @@
   </data>
   <data name="QcdmFixFileNameFormat" xml:space="preserve">
     <value>Исправлено имя файла '{0}' на '{1}' в директории '{2}'</value>
+  </data>
+  <data name="QcdmGeneratingModemConfig" xml:space="preserve">
+    <value>Получение конфигурации модема...</value>
   </data>
   <data name="QcdmInvalidLogMask" xml:space="preserve">
     <value>Некорректная маска лога</value>

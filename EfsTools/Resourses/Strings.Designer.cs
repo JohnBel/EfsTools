@@ -223,6 +223,15 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Applying modem config....
+        /// </summary>
+        internal static string QcdmApplyingModemConfig {
+            get {
+                return ResourceManager.GetString("QcdmApplyingModemConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t open EFS directory &apos;{0}&apos;. {1}.
         /// </summary>
         internal static string QcdmCantOpenEfsDirectoryFormat {
@@ -570,6 +579,15 @@ namespace EfsTools.Resourses {
         internal static string QcdmFixFileNameFormat {
             get {
                 return ResourceManager.GetString("QcdmFixFileNameFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting modem config....
+        /// </summary>
+        internal static string QcdmGeneratingModemConfig {
+            get {
+                return ResourceManager.GetString("QcdmGeneratingModemConfig", resourceCulture);
             }
         }
         

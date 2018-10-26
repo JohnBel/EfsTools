@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Text;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
-namespace EfsTools.Qualcomm.QcdmCommands.Requests
+namespace EfsTools.Qualcomm.QcdmCommands.Requests.Nv
 {
     [QcdmCommand(QcdmCommand.NvRead)]
     internal class NvReadCommandRequest : BaseCommandRequest, IQcdmCommandRequest

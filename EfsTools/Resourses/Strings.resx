@@ -171,6 +171,9 @@
   <data name="PressEnterToExit" xml:space="preserve">
     <value>Press ENTER to exit</value>
   </data>
+  <data name="QcdmApplyingModemConfig" xml:space="preserve">
+    <value>Applying modem config...</value>
+  </data>
   <data name="QcdmCantOpenEfsDirectoryFormat" xml:space="preserve">
     <value>Can't open EFS directory '{0}'. {1}</value>
   </data>
@@ -287,6 +290,9 @@
   </data>
   <data name="QcdmFixFileNameFormat" xml:space="preserve">
     <value>Fixed file name '{0}' to '{1}' in folder '{2}'</value>
+  </data>
+  <data name="QcdmGeneratingModemConfig" xml:space="preserve">
+    <value>Getting modem config...</value>
   </data>
   <data name="QcdmInvalidLogMask" xml:space="preserve">
     <value>Invalid log mask</value>

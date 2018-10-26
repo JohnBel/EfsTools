@@ -28,6 +28,7 @@ namespace EfsTools.Qualcomm
             _gsm = new QcdmGsmManager(this);
             _callManager = new QcdmCallManager(this);
             _efs = new QcdmEfsManager(this);
+            _nv = new QcdmNvManager(this);
         }
 
         private readonly HdlcSerial _port;
@@ -170,28 +171,11 @@ namespace EfsTools.Qualcomm
             }
         }
 
-        public byte[] NvRead(ushort itemId)
-        {
-            if (IsOpen)
-            {
-                var request = new NvReadCommandRequest(itemId);
-                var response = (NvReadCommandResponse)ExecuteQcdmCommandRequest(request);
-                return response.Data;
-            }
-            return new byte[0];
-        }
-
-        public string NvReadString(ushort itemId)
-        {
-            var bytes = NvRead(itemId);
-            return Encoding.ASCII.GetString(bytes);
-        }
-
         public string Imei
         {
             get
             {
-                var bytes = NvRead(550);
+                var bytes = _nv.Read(550);
                 var imei = new StringBuilder(15);
                 for (var i = 1; i <= 8; ++i)
                 {
@@ -215,6 +199,7 @@ namespace EfsTools.Qualcomm
         public QcdmGsmManager Gsm => _gsm;
         public QcdmCallManager CallManager => _callManager;
         public QcdmEfsManager Efs => _efs;
+        public QcdmNvManager Nv => _nv;
 
         public IQcdmCommandResponse ExecuteQcdmCommandRequest(IQcdmCommandRequest request)
         {
@@ -274,6 +259,7 @@ namespace EfsTools.Qualcomm
         private readonly QcdmGsmManager _gsm;
         private readonly QcdmCallManager _callManager;
         private readonly QcdmEfsManager _efs;
+        private readonly QcdmNvManager _nv;
 
         private const int NvItemSize = 128;
         private const int NvPeekMaxSize = 32;

@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using EfsTools.Items;
 using EfsTools.Qualcomm;
 using EfsTools.Qualcomm.QcdmCommands.Requests.Efs;
 using EfsTools.Qualcomm.QcdmCommands.Responses.Efs;
 using EfsTools.Qualcomm.QcdmManagers;
 using EfsTools.Resourses;
+using EfsTools.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace EfsTools
 {
@@ -33,9 +37,9 @@ namespace EfsTools
                 var guid = manager.Guid;
                 var gsmVersion = manager.Gsm.Version;
                 var state = manager.CallManager.CallState;
-                var serialNo = manager.NvReadString(2824).TrimEnd('\0');
+                var serialNo = manager.Nv.ReadString(2824).TrimEnd('\0');
                 var imei = manager.Imei;
-                
+
                 _logger.LogInfo(
                     $"Imei: {imei}, " +
                     $"SerialNo: '{serialNo}', " +
@@ -120,6 +124,7 @@ namespace EfsTools
                         outFile.Close();
                     }
                 }
+
                 inFile.Close();
             }
         }
@@ -135,7 +140,8 @@ namespace EfsTools
             }
         }
 
-        private static void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile, int permission, QcdmManager manager)
+        private static void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile,
+            int permission, QcdmManager manager)
         {
             if (itemFile)
             {
@@ -154,6 +160,7 @@ namespace EfsTools
                     doSecondTry = false;
                     throw new QcdmManagerException(Strings.QcdmEfsErrorsDirEntNotFound);
                 }
+
                 EfsWriteFile(computerPath, efsPath, permission, EfsFileFlag.Writeonly | EfsFileFlag.Truncate, manager);
             }
             catch (Exception e)
@@ -170,7 +177,8 @@ namespace EfsTools
             }
         }
 
-        private static void EfsWriteFile(string computerPath, string efsPath, int permission, EfsFileFlag flags, QcdmManager manager)
+        private static void EfsWriteFile(string computerPath, string efsPath, int permission, EfsFileFlag flags,
+            QcdmManager manager)
         {
             using (var outFile = manager.Efs.OpenFile(efsPath, flags, permission))
             {
@@ -222,7 +230,9 @@ namespace EfsTools
                 using (var manager = OpenQcdmManager())
                 {
                     var path1 = (efsPath.LastOrDefault() == '/') ? efsPath : $"{efsPath}/";
-                    var path2 = (computerPath.LastOrDefault() == '/' || computerPath.LastOrDefault() == '\\') ? computerPath : $"{computerPath}/";
+                    var path2 = (computerPath.LastOrDefault() == '/' || computerPath.LastOrDefault() == '\\')
+                        ? computerPath
+                        : $"{computerPath}/";
                     EfsDownloadDirectory(path1, path2, noExtraData, manager);
                 }
             }
@@ -234,7 +244,9 @@ namespace EfsTools
             {
                 using (var manager = OpenQcdmManager())
                 {
-                    var path1 = (computerPath.LastOrDefault() == '/' || computerPath.LastOrDefault() == '\\') ? computerPath : $"{computerPath}/";
+                    var path1 = (computerPath.LastOrDefault() == '/' || computerPath.LastOrDefault() == '\\')
+                        ? computerPath
+                        : $"{computerPath}/";
                     var path2 = (efsPath.LastOrDefault() == '/') ? efsPath : $"{efsPath}/";
                     EfsUploadDirectory(path1, path2, createItemFilesAsDefault, manager);
                 }
@@ -258,6 +270,7 @@ namespace EfsTools
                 {
                     p = p.Substring(0, p.Length - 1);
                 }
+
                 if (recursive)
                 {
                     var ind = p.LastIndexOf('/');
@@ -346,6 +359,192 @@ namespace EfsTools
             {
                 _logger.LogInfo(string.Format(Strings.QcdmListOfDirectoryFormat, path));
                 EfsListDirectory(path, recursive, string.Empty, manager);
+            }
+        }
+
+        public void GetModemConfig(string path)
+        {
+            _logger.LogInfo(Strings.QcdmGeneratingModemConfig);
+            using (var manager = OpenQcdmManager())
+            {
+                using (var output = File.CreateText(path))
+                {
+                    var items = LoadItems(manager);
+                    ItemsJsonSerializer.SerializeItems(items, output);
+                    output.Flush();
+                    output.Close();
+                }
+            }
+        }
+
+        public void SetModemConfig(string path)
+        {
+            _logger.LogInfo(Strings.QcdmApplyingModemConfig);
+            using (var manager = OpenQcdmManager())
+            {
+                using (var input = File.OpenText(path))
+                {
+                    var configItems = GetConfigs(input);
+                    input.BaseStream.Seek(0, SeekOrigin.Begin);
+                    var items = LoadItems(manager, configItems);
+                    ItemsJsonSerializer.DeserializeItems(items, input);
+                    SaveItems(manager, items);
+                }
+            }
+        }
+
+        private void SaveItems(QcdmManager manager, Dictionary<string, object> items)
+        {
+            foreach (var item in items)
+            {
+                var type = item.Value.GetType();
+                var fileAttribute = EfsFileAttributeUtils.Get(type);
+                if (fileAttribute != null)
+                {
+                    var path = fileAttribute.Path;
+                    var subscriptionPath = $"{path}_Subscription01";
+                    if (manager.Efs.FileExist(subscriptionPath))
+                    {
+                        manager.Efs.DeleteFile(subscriptionPath);
+                    }
+                    if (fileAttribute.IsItemFile)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            ItemsBinarySerializer.Serialize(item.Value, stream);
+                            var buf = stream.ToArray();
+                            if (buf.Length > 0)
+                            {
+                                var flags = EfsFileFlag.Writeonly | EfsFileFlag.Truncate | EfsFileFlag.Create |
+                                            EfsFileFlag.ItemFile;
+                                manager.Efs.PutItemFile(path, flags, fileAttribute.Permissions, buf);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (manager.Efs.FileExist(path))
+                        {
+                            manager.Efs.DeleteFile(path);
+                        }
+                        using (var stream = manager.Efs.OpenFile(path, EfsFileFlag.Writeonly | EfsFileFlag.Create, fileAttribute.Permissions))
+                        {
+                            ItemsBinarySerializer.Serialize(item.Value, stream);
+                            stream.Flush();
+                            stream.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
+                    if (nvItemIdAttribute != null)
+                    {
+                        using (var stream = new MemoryStream())
+                        {
+                            ItemsBinarySerializer.Serialize(item.Value, stream);
+                            var buf = stream.ToArray();
+                            manager.Nv.Write((ushort)nvItemIdAttribute.Id, buf);
+                        }
+                    }
+                }
+            }
+        }
+
+        private HashSet<string> GetConfigs(TextReader reader)
+        {
+            var result = new HashSet<string>();
+            var str = reader.ReadToEnd();
+            var jsonObj = (JObject)JsonConvert.DeserializeObject(str);
+            
+            foreach (var jsonItem in jsonObj)
+            {
+                var type = jsonItem.Key;
+                result.Add(type);
+            }
+            return result;
+        }
+
+        private Dictionary<string, object> LoadItems(QcdmManager manager, HashSet<string> configItems)
+        {
+            var items = new Dictionary<string, object>();
+            foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
+            {
+                var item = ItemsFactory.CreateEfsFile(filePath);
+                var itemType = item.GetType();
+                if (configItems == null || configItems.Contains(itemType.Name))
+                {
+                    if (manager.Efs.FileExist(filePath))
+                    {
+                        using (var stream = manager.Efs.OpenFile(filePath, EfsFileFlag.Readonly, 0))
+                        {
+                            ItemsBinarySerializer.Deserialize(item, stream);
+                            stream.Close();
+                        }
+                    }
+                    items.Add(itemType.Name, item);
+                }
+            }
+
+            foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
+            {
+                var data = NvRead((ushort)nvItemId, manager);
+                var item = ItemsFactory.CreateNvItem(nvItemId);
+                var itemType = item.GetType();
+                if (configItems == null || configItems.Contains(itemType.Name))
+                {
+                    if (data != null && data.Length > 0)
+                    {
+                        ItemsBinarySerializer.Deserialize(item, new MemoryStream(data));
+                        items.Add(itemType.Name, item);
+                    }
+                }
+            }
+            return items;
+        }
+
+        private Dictionary<string, object> LoadItems(QcdmManager manager)
+        {
+            var items = new Dictionary<string, object>();
+            foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
+            {
+                if (manager.Efs.FileExist(filePath))
+                {
+                    var item = ItemsFactory.CreateEfsFile(filePath);
+                    var itemType = item.GetType();
+                    using (var stream = manager.Efs.OpenFile(filePath, EfsFileFlag.Readonly, 0))
+                    {
+                        ItemsBinarySerializer.Deserialize(item, stream);
+                        stream.Close();
+                    }
+                    items.Add(itemType.Name, item);
+                }
+            }
+
+            foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
+            {
+                var data = NvRead((ushort)nvItemId, manager);
+                var item = ItemsFactory.CreateNvItem(nvItemId);
+                var itemType = item.GetType();
+                if (data != null && data.Length > 0)
+                {
+                    ItemsBinarySerializer.Deserialize(item, new MemoryStream(data));
+                    items.Add(itemType.Name, item);
+                }
+            }
+            return items;
+        }
+
+        private byte[] NvRead(ushort nvItemId, QcdmManager manager)
+        {
+            try
+            {
+                var data = manager.Nv.Read((ushort)nvItemId);
+                return data;
+            }
+            catch
+            {
+                return null;
             }
         }
 

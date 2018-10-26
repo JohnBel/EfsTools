@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
-namespace EfsTools.Qualcomm.QcdmCommands.Responses
+namespace EfsTools.Qualcomm.QcdmCommands.Responses.Nv
 {
     [QcdmCommand(QcdmCommand.NvRead)]
     [QcdmMinResponseLength(133)]
