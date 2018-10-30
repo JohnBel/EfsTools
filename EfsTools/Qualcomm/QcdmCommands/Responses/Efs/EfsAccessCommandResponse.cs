@@ -1,17 +1,18 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Access)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Access)]
     [QcdmMinResponseLength(8)]
     internal class EfsAccessCommandResponse : BaseSubSystemCommandResponse
     {
         private EfsAccessCommandResponse()
         {
         }
+
+        public QcdmEfsErrors Error { get; private set; }
 
         public static EfsAccessCommandResponse Parse(byte[] data)
         {
@@ -21,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             result.Error = error;
             return result;
         }
-
-        public QcdmEfsErrors Error { get; private set; }
     }
 }

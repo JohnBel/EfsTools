@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EfsTools.Qualcomm.QcdmCommands
+﻿namespace EfsTools.Qualcomm.QcdmCommands
 {
     internal enum QcdmRuimConfigType : byte
     {
@@ -12,5 +6,5 @@ namespace EfsTools.Qualcomm.QcdmCommands
         Nv = 0x01,
         Pref = 0x02,
         Gsm1x = 0x03
-    };
+    }
 }

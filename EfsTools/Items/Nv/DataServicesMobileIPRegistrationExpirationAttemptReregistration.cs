@@ -2,22 +2,16 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(462)]
-	[Attributes(9)]
-	public class DataServicesMobileIpRegistrationExpirationAttemptReregistration
+    [Serializable]
+    [NvItemId(462)]
+    [Attributes(9)]
+    public class DataServicesMobileIpRegistrationExpirationAttemptReregistration
     {
-		public DataServicesMobileIpRegistrationExpirationAttemptReregistration()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Value { get; set; }
-
-		
-	}
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Value { get; set; }
+    }
 }

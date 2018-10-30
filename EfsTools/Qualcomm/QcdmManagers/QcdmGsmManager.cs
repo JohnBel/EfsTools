@@ -6,6 +6,8 @@ namespace EfsTools.Qualcomm.QcdmManagers
 {
     internal class QcdmGsmManager
     {
+        private readonly WeakReference<QcdmManager> _manager;
+
         public QcdmGsmManager(QcdmManager manager)
         {
             _manager = new WeakReference<QcdmManager>(manager);
@@ -16,20 +18,16 @@ namespace EfsTools.Qualcomm.QcdmManagers
         {
             get
             {
-                if (_manager.TryGetTarget(out QcdmManager manager))
-                {
+                if (_manager.TryGetTarget(out var manager))
                     if (manager.IsOpen)
                     {
                         var request = new GsmVersionCommandRequest();
                         var response = (GsmVersionCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                         return response.Version;
                     }
-                }
 
                 return null;
             }
         }
-
-        private readonly WeakReference<QcdmManager> _manager;
     }
 }

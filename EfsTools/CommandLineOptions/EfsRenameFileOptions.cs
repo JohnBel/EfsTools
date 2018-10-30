@@ -7,6 +7,7 @@ namespace EfsTools.CommandLineOptions
     {
         [Option('p', "efsFilePath", Required = true, HelpText = "EFS file path")]
         public string EfsFilePath { get; set; }
+
         [Option('n', "efsNewFilePath", Required = true, HelpText = "New EFS file path")]
         public string NewEfsFilePath { get; set; }
     }

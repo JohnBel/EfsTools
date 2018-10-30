@@ -12,53 +12,35 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             Initialize();
         }
 
+        public QcdmSubSystem SubSystem { get; private set; } = QcdmSubSystem.Legacy;
+
+        public ushort SubSystemCommand { get; private set; }
+
         private void Initialize()
         {
-            var type = this.GetType();
-            if (_subSystem == QcdmSubSystem.Legacy && type.GetCustomAttributes(typeof(QcdmSubSystemCommandAttribute), true).FirstOrDefault() is QcdmSubSystemCommandAttribute attribute)
+            var type = GetType();
+            if (SubSystem == QcdmSubSystem.Legacy &&
+                type.GetCustomAttributes(typeof(QcdmSubSystemCommandAttribute), true).FirstOrDefault() is
+                    QcdmSubSystemCommandAttribute attribute)
             {
-                _subSystem = attribute.SubSystem;
-                _subSystemCommand = attribute.Command;
+                SubSystem = attribute.SubSystem;
+                SubSystemCommand = attribute.Command;
             }
-        }
-
-        private QcdmSubSystem _subSystem = QcdmSubSystem.Legacy;
-        private ushort _subSystemCommand = 0;
-
-        public QcdmSubSystem SubSystem
-        {
-            get => _subSystem;
-        }
-
-        public ushort SubSystemCommand
-        {
-            get => _subSystemCommand;
         }
 
         public override void CheckResponse(byte[] data)
         {
-            if (data.Length < MinResponseLength)
-            {
-                throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
-            }
+            if (data.Length < MinResponseLength) throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
 
             var command = (QcdmCommand) data[0];
-            if (command != Command)
-            {
-                throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
-            }
+            if (command != Command) throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
 
-            var subSystem = (QcdmSubSystem)data[1];
-            if (subSystem != SubSystem)
-            {
-                throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
-            }
+            var subSystem = (QcdmSubSystem) data[1];
+            if (subSystem != SubSystem) throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
 
             var subSystemCommand = BitConverter.ToUInt16(data, 2);
             if (subSystemCommand != SubSystemCommand)
-            {
                 throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
-            }
         }
     }
 }

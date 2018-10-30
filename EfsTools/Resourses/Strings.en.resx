@@ -195,11 +195,17 @@
   <data name="QcdmCommandBadSpcMode" xml:space="preserve">
     <value>Bad SPC mode</value>
   </data>
+  <data name="QcdmDownloadingNvItems" xml:space="preserve">
+    <value>Downloading NV items ...</value>
+  </data>
   <data name="QcdmEfsErrorsBadFileNumber" xml:space="preserve">
     <value>Bad file number</value>
   </data>
   <data name="QcdmEfsErrorsDefaultFormat" xml:space="preserve">
     <value>EFS error. Code = {0}</value>
+  </data>
+  <data name="QcdmEfsErrorsDirectoryNotEmpty" xml:space="preserve">
+    <value>Directory not empty</value>
   </data>
   <data name="QcdmEfsErrorsDirEntNotFound" xml:space="preserve">
     <value>Directory entry not found</value>
@@ -326,6 +332,9 @@
   </data>
   <data name="QcdmUnsupportedSubsysCommandResponseFormat" xml:space="preserve">
     <value>Unsupported  subsystem command response ({0})</value>
+  </data>
+  <data name="QcdmUploadingNvItems" xml:space="preserve">
+    <value>Uploading NV items ...</value>
   </data>
   <data name="RepeatedOptionErrorFormat" xml:space="preserve">
     <value>Option '{0}' is defined multiple times.</value>

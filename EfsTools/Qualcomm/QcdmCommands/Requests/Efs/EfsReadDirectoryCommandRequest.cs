@@ -4,9 +4,12 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.ReadDir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.ReadDir)]
     internal class EfsReadDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly int _directory;
+        private readonly int _sequenceNumber;
+
         public EfsReadDirectoryCommandRequest(int dir, int sequenceNumber)
         {
             _directory = dir;
@@ -21,8 +24,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             Array.Copy(BitConverter.GetBytes(_sequenceNumber), 0, data, 8, 4);
             return data;
         }
-
-        private readonly int _directory;
-        private readonly int _sequenceNumber;
     }
 }

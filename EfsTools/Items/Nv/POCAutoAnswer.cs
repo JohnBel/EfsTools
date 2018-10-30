@@ -2,22 +2,16 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(3189)]
-	[Attributes(9)]
-	public class PocAutoAnswer
+    [Serializable]
+    [NvItemId(3189)]
+    [Attributes(9)]
+    public class PocAutoAnswer
     {
-		public PocAutoAnswer()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Value { get; set; }
-
-		
-	}
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Value { get; set; }
+    }
 }

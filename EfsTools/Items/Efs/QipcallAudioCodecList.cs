@@ -4,17 +4,13 @@ using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Efs
 {
     [Serializable]
-	[EfsFile("/nv/item_files/ims/qipcall_audio_codec_list", false, 0x81FF)]
-	[Attributes(9)]
-	public class QipcallAudioCodecList
+    [EfsFile("/nv/item_files/ims/qipcall_audio_codec_list", false, 0x81FF)]
+    [Attributes(9)]
+    public class QipcallAudioCodecList
     {
-		public QipcallAudioCodecList()
-		{
-		}
-
         [JsonIgnore]
         [ElementsCount(128)]
         [ElementType("uint8")]
@@ -23,8 +19,8 @@ namespace EfsTools.Items
 
         public string ValueString
         {
-            get { return StringUtils.GetString(Value); }
-            set { Value = StringUtils.GetBytes(value, 128); }
+            get => StringUtils.GetString(Value);
+            set => Value = StringUtils.GetBytes(value, 128);
         }
     }
 }

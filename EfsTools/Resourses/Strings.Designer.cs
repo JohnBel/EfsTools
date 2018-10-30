@@ -295,6 +295,15 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading NV items ....
+        /// </summary>
+        internal static string QcdmDownloadingNvItems {
+            get {
+                return ResourceManager.GetString("QcdmDownloadingNvItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bad file number.
         /// </summary>
         internal static string QcdmEfsErrorsBadFileNumber {
@@ -309,6 +318,15 @@ namespace EfsTools.Resourses {
         internal static string QcdmEfsErrorsDefaultFormat {
             get {
                 return ResourceManager.GetString("QcdmEfsErrorsDefaultFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory not empty.
+        /// </summary>
+        internal static string QcdmEfsErrorsDirectoryNotEmpty {
+            get {
+                return ResourceManager.GetString("QcdmEfsErrorsDirectoryNotEmpty", resourceCulture);
             }
         }
         
@@ -687,6 +705,15 @@ namespace EfsTools.Resourses {
         internal static string QcdmUnsupportedSubsysCommandResponseFormat {
             get {
                 return ResourceManager.GetString("QcdmUnsupportedSubsysCommandResponseFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uploading NV items ....
+        /// </summary>
+        internal static string QcdmUploadingNvItems {
+            get {
+                return ResourceManager.GetString("QcdmUploadingNvItems", resourceCulture);
             }
         }
         

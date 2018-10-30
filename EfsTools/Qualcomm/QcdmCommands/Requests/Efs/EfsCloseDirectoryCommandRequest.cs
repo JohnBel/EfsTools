@@ -4,9 +4,11 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.CloseDir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.CloseDir)]
     internal class EfsCloseDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly int _directory;
+
         public EfsCloseDirectoryCommandRequest(int dir)
         {
             _directory = dir;
@@ -19,7 +21,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             Array.Copy(BitConverter.GetBytes(_directory), 0, data, 4, 4);
             return data;
         }
-
-        private readonly int _directory;
     }
 }

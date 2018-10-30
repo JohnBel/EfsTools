@@ -4,29 +4,6 @@ namespace EfsTools.Utils
 {
     internal class Crc16
     {
-        public Crc16()
-        {
-        }
-
-        public ushort ComputeChecksum(byte[] bytes)
-        {
-            int crc = 0xFFFF;
-            for (int i = 0; i < bytes.Length; ++i)
-            {
-                crc = (int) (((crc >> 8) ^ _table[(crc ^ bytes[i]) & 0xFF]) & 0xFFFF);
-            }
-
-            crc = ~crc;
-            crc = ((crc >> 8) & 0xFF) | (crc << 8);
-            return (ushort) crc;
-        }
-
-        public byte[] ComputeChecksumBytes(byte[] bytes)
-        {
-            ushort crc = ComputeChecksum(bytes);
-            return BitConverter.GetBytes(crc);
-        }
-
         internal static readonly ushort[] _table =
         {
             0x0000, 0x1189, 0x2312, 0x329B, 0x4624, 0x57AD, 0x6536, 0x74BF,
@@ -62,5 +39,21 @@ namespace EfsTools.Utils
             0xF78F, 0xE606, 0xD49D, 0xC514, 0xB1AB, 0xA022, 0x92B9, 0x8330,
             0x7BC7, 0x6A4E, 0x58D5, 0x495C, 0x3DE3, 0x2C6A, 0x1EF1, 0x0F78
         };
+
+        public ushort ComputeChecksum(byte[] bytes)
+        {
+            var crc = 0xFFFF;
+            for (var i = 0; i < bytes.Length; ++i) crc = ((crc >> 8) ^ _table[(crc ^ bytes[i]) & 0xFF]) & 0xFFFF;
+
+            crc = ~crc;
+            crc = ((crc >> 8) & 0xFF) | (crc << 8);
+            return (ushort) crc;
+        }
+
+        public byte[] ComputeChecksumBytes(byte[] bytes)
+        {
+            var crc = ComputeChecksum(bytes);
+            return BitConverter.GetBytes(crc);
+        }
     }
 }

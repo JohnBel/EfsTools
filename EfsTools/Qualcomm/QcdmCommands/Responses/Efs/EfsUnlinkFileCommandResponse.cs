@@ -1,17 +1,18 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Unlink)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Unlink)]
     [QcdmMinResponseLength(8)]
     internal class EfsUnlinkFileCommandResponse : BaseSubSystemCommandResponse
     {
         private EfsUnlinkFileCommandResponse()
         {
         }
+
+        public QcdmEfsErrors Error { get; private set; }
 
         public static EfsUnlinkFileCommandResponse Parse(byte[] data)
         {
@@ -21,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             result.Error = error;
             return result;
         }
-
-        public QcdmEfsErrors Error { get; private set; }
     }
 }

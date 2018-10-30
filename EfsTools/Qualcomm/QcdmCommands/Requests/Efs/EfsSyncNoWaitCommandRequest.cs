@@ -5,9 +5,12 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.SyncNoWait)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.SyncNoWait)]
     internal class EfsSyncNoWaitCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly string _path;
+        private readonly ushort _sequence;
+
         public EfsSyncNoWaitCommandRequest(string path, ushort sequence)
         {
             _path = path;
@@ -23,8 +26,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[6 + _path.Length] = 0;
             return data;
         }
-
-        private readonly string _path;
-        private readonly ushort _sequence;
     }
 }

@@ -4,27 +4,23 @@ using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(71)]
-	[Attributes(9)]
-	public class Banner
+    [Serializable]
+    [NvItemId(71)]
+    [Attributes(9)]
+    public class Banner
     {
-		public Banner()
-		{
-		}
-
         [JsonIgnore]
-	    [ElementsCount(13)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] Value { get; set; }
+        [ElementsCount(13)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] Value { get; set; }
 
-	    public string ValueString
-	    {
-	        get { return StringUtils.GetString(Value); }
-	        set { Value = StringUtils.GetBytes(value, 13); }
-	    }
+        public string ValueString
+        {
+            get => StringUtils.GetString(Value);
+            set => Value = StringUtils.GetBytes(value, 13);
+        }
     }
 }

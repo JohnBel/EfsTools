@@ -1,6 +1,5 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.CallManager
 {
@@ -13,6 +12,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.CallManager
         {
         }
 
+        public ushort CallState { get; private set; }
+
         public static CallManagerStateInfoCommandResponse Parse(byte[] data)
         {
             var result = new CallManagerStateInfoCommandResponse();
@@ -20,7 +21,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.CallManager
             result.CallState = BitConverter.ToUInt16(data, 4);
             return result;
         }
-
-        public UInt16 CallState { get; private set; }
     }
 }

@@ -7,6 +7,7 @@ namespace EfsTools.CommandLineOptions
     {
         [Option('i', "inEfsFilePath", Required = true, HelpText = "EFS file path")]
         public string InEfsFilePath { get; set; }
+
         [Option('o', "outComputerFilePath", Required = false, HelpText = "Output file path in computer")]
         public string OutComputerFilePath { get; set; }
     }

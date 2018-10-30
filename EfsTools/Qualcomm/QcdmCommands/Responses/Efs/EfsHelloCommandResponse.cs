@@ -1,6 +1,5 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
@@ -31,26 +30,28 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             FeatureBits = featureBits;
         }
 
-        public int TargetPacketWindowSize { get; private set; }
-        public int TargetPacketWindowByteSize { get; private set; }
-        public int HostPacketWindowSize { get; private set; }
-        public int HostPacketWindowByteSize { get; private set; }
-        public int DirIteratorWindowSize { get; private set; }
-        public int DirIteratorWindowByteSize { get; private set; }
-        public int Version { get; private set; }
-        public int MinVersion { get; private set; }
-        public int MaxVersion { get; private set; }
-        public int FeatureBits { get; private set; }
+        public int TargetPacketWindowSize { get; }
+        public int TargetPacketWindowByteSize { get; }
+        public int HostPacketWindowSize { get; }
+        public int HostPacketWindowByteSize { get; }
+        public int DirIteratorWindowSize { get; }
+        public int DirIteratorWindowByteSize { get; }
+        public int Version { get; }
+        public int MinVersion { get; }
+        public int MaxVersion { get; }
+        public int FeatureBits { get; }
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Hello)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Hello)]
     [QcdmMinResponseLength(44)]
     internal class EfsHelloCommandResponse : BaseSubSystemCommandResponse
     {
         private EfsHelloCommandResponse()
         {
         }
+
+        public HelloInfo Info { get; private set; }
 
         public static EfsHelloCommandResponse Parse(byte[] data)
         {
@@ -72,7 +73,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
                 version, minVersion, maxVersion, featureBits);
             return result;
         }
-
-        public HelloInfo Info { get; private set; }
     }
 }

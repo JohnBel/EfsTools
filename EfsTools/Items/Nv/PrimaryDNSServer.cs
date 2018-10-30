@@ -2,22 +2,16 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(423)]
-	[Attributes(9)]
-	public class PrimaryDnsServer
+    [Serializable]
+    [NvItemId(423)]
+    [Attributes(9)]
+    public class PrimaryDnsServer
     {
-		public PrimaryDnsServer()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint32")]
-		[Description("")]
-		public uint Value { get; set; }
-
-		
-	}
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint Value { get; set; }
+    }
 }

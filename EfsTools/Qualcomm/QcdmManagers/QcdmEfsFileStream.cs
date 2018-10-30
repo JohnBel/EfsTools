@@ -1,12 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Qualcomm.QcdmCommands;
 using EfsTools.Qualcomm.QcdmCommands.Requests.Efs;
-using EfsTools.Qualcomm.QcdmCommands.Responses.CallManager;
 using EfsTools.Qualcomm.QcdmCommands.Responses.Efs;
 using EfsTools.Resourses;
 
@@ -22,6 +17,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
 
     internal class QcdmEfsFileStream : Stream, IDisposable
     {
+        private readonly string _fileName;
+        private readonly EfsFileFlag _flags;
+        private readonly QcdmManager _manager;
+        private readonly int _permission;
+        private int _file;
+        private long _position;
+        private FileStat _stat;
+
         public QcdmEfsFileStream(QcdmManager manager, string fileName, EfsFileFlag flags, int permission)
         {
             _file = -1;
@@ -30,6 +33,39 @@ namespace EfsTools.Qualcomm.QcdmManagers
             _permission = permission;
             _manager = manager;
             _position = 0;
+        }
+
+        public override bool CanRead => _position < Length;
+        public override bool CanSeek => true;
+        public override bool CanWrite => _flags != EfsFileFlag.Readonly;
+        public override long Length => _stat?.Size ?? 0;
+
+        public override long Position
+        {
+            get => _position;
+            set
+            {
+                if (value < 0)
+                    _position = 0;
+                else if (value > Length)
+                    _position = Length;
+                else
+                    _position = value;
+            }
+        }
+
+        public bool IsOpen => _file != -1;
+
+        public new void Dispose()
+        {
+            if (IsOpen)
+            {
+                var request = new EfsCloseFileCommandRequest(_file);
+                _manager.ExecuteQcdmCommandRequest(request);
+                _file = -1;
+            }
+
+            base.Dispose();
         }
 
         public void Open()
@@ -43,9 +79,10 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 if (response.IsError)
                 {
                     var errorMessage = QcdmEfsErrorsUtils.EfsErrorString(response.Error);
-                    throw new QcdmEfsFileStreamException(string.Format(Strings.QcdmCantOpenEfsFileFormat, _fileName, errorMessage));
+                    throw new QcdmEfsFileStreamException(string.Format(Strings.QcdmCantOpenEfsFileFormat, _fileName,
+                        errorMessage));
                 }
-                
+
                 _file = response.File;
                 _position = 0;
             }
@@ -57,37 +94,32 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 CheckManager();
                 var request = new EfsCloseFileCommandRequest(_file);
-                var response = (EfsCloseFileCommandResponse)_manager.ExecuteQcdmCommandRequest(request);
+                var response = (EfsCloseFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
                 QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
                 _file = -1;
             }
+
             base.Close();
         }
 
         private FileStat Stat()
         {
             var request = new EfsStatFileCommandRequest(_fileName);
-            var response = (EfsStatFileCommandResponse)_manager.ExecuteQcdmCommandRequest(request);
+            var response = (EfsStatFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
             return response.Stat;
         }
 
         private FileStat FStat()
         {
             var request = new EfsFStatFileCommandRequest(_file);
-            var response = (EfsFStatFileCommandResponse)_manager.ExecuteQcdmCommandRequest(request);
+            var response = (EfsFStatFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
             return response.Stat;
         }
 
         private void CheckManager()
         {
-            if (_manager == null)
-            {
-                throw new QcdmEfsFileStreamException("Manager is null");
-            }
-            if (!_manager.IsOpen)
-            {
-                throw new QcdmEfsFileStreamException("Manager is not open");
-            }
+            if (_manager == null) throw new QcdmEfsFileStreamException("Manager is null");
+            if (!_manager.IsOpen) throw new QcdmEfsFileStreamException("Manager is not open");
         }
 
         public override void Flush()
@@ -100,26 +132,18 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 case SeekOrigin.Begin:
                     if (offset < 0)
-                    {
                         _position = 0;
-                    }
                     else
-                    {
                         _position = Math.Min(offset, Length);
-                    }
                     break;
                 case SeekOrigin.Current:
-                    {
-                        var newPosition = _position + offset;
-                        if (newPosition < 0)
-                        {
-                            _position = 0;
-                        }
-                        else
-                        {
-                            _position = Math.Min(newPosition, Length);
-                        }
-                    }
+                {
+                    var newPosition = _position + offset;
+                    if (newPosition < 0)
+                        _position = 0;
+                    else
+                        _position = Math.Min(newPosition, Length);
+                }
                     break;
                 case SeekOrigin.End:
                     if (offset > 0)
@@ -130,16 +154,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     {
                         var newPosition = _position + offset;
                         if (newPosition < 0)
-                        {
                             _position = 0;
-                        }
                         else
-                        {
                             _position = Math.Min(newPosition, Length);
-                        }
                     }
+
                     break;
             }
+
             return _position;
         }
 
@@ -150,8 +172,8 @@ namespace EfsTools.Qualcomm.QcdmManagers
 
         public override int Read(byte[] buffer, int offset, int count)
         {
-            var request = new EfsReadFileCommandRequest(_file, (uint)count, (uint)_position);
-            var response = (EfsReadFileCommandResponse)_manager.ExecuteQcdmCommandRequest(request);
+            var request = new EfsReadFileCommandRequest(_file, (uint) count, (uint) _position);
+            var response = (EfsReadFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
             QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
             var data = response.Data;
             var read = data.Length;
@@ -162,57 +184,12 @@ namespace EfsTools.Qualcomm.QcdmManagers
 
         public override void Write(byte[] buffer, int offset, int count)
         {
-            var request = new EfsWriteFileCommandRequest(_file, (uint)_position, buffer, offset, count);
-            var response = (EfsWriteFileCommandResponse)_manager.ExecuteQcdmCommandRequest(request);
+            var request = new EfsWriteFileCommandRequest(_file, (uint) _position, buffer, offset, count);
+            var response = (EfsWriteFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
             QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
             var written = response.BytesWritten;
             _position += written;
-            if (_stat != null)
-            {
-                _stat = FStat();
-            }
+            if (_stat != null) _stat = FStat();
         }
-
-        public override bool CanRead => _position < Length;
-        public override bool CanSeek => true;
-        public override bool CanWrite => _flags != EfsFileFlag.Readonly;
-        public override long Length => _stat?.Size ?? 0;
-        public override long Position { get => _position;
-            set
-            {
-                if (value < 0)
-                {
-                    _position = 0;
-                }
-                else if (value > Length)
-                {
-                    _position = Length;
-                }
-                else
-                {
-                    _position = value;
-                }
-            }
-        }
-
-        public new void Dispose()
-        {
-            if (IsOpen)
-            {
-                var request = new EfsCloseFileCommandRequest(_file);
-                _manager.ExecuteQcdmCommandRequest(request);
-                _file = -1;
-            }
-            base.Dispose();
-        }
-
-        public bool IsOpen => _file != -1;
-        private int _file;
-        private FileStat _stat;
-        private long _position;
-        private readonly string _fileName;
-        private readonly EfsFileFlag _flags;
-        private readonly int _permission;
-        private readonly QcdmManager _manager;
     }
 }

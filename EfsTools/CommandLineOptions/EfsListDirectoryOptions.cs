@@ -8,7 +8,7 @@ namespace EfsTools.CommandLineOptions
         [Option('p', "path", Required = true, HelpText = "Directory path")]
         public string Path { get; set; }
 
-        [Option('r', "recursive", Required = false, HelpText = "List all parent directories", Default=false)]
+        [Option('r', "recursive", Required = false, HelpText = "List all parent directories", Default = false)]
         public bool Recursive { get; set; }
     }
 }

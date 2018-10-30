@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
-namespace EfsTools.Qualcomm.QcdmCommands.Responses
+namespace EfsTools.Qualcomm.QcdmCommands.Responses.Nv
 {
     [QcdmCommand(QcdmCommand.NvWrite)]
     [QcdmMinResponseLength(3)]
@@ -16,6 +11,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         {
         }
 
+        public ushort Code { get; private set; }
+
         public static NvWriteCommandResponse Parse(byte[] data)
         {
             var result = new NvWriteCommandResponse();
@@ -23,7 +20,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             result.Code = BitConverter.ToUInt16(data, 1);
             return result;
         }
-
-        public ushort Code { get; private set; }
     }
 }

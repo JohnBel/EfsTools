@@ -4,208 +4,202 @@ using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Efs
 {
-	[Serializable]
-	[EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", true, 0xE1FF)]
-	[Attributes(9)]
-	public class QpImsRcsAutoConfig
-	{
-		public QpImsRcsAutoConfig()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Version { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte DisableAutoConfig { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte RcsOnlyDeviceType { get; set; }
-
-
-        [JsonIgnore]
-	    [ElementsCount(32)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsPdpProfilename { get; set; }
-
-	    public string RcsPdpProfilenameString
-        {
-	        get { return StringUtils.GetString(RcsPdpProfilename); }
-	        set { RcsPdpProfilename = StringUtils.GetBytes(value, 32); }
-	    }
-
-	    [JsonIgnore]
-        [ElementsCount(32)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] InternetPdpProfilename { get; set; }
-
-	    public string InternetPdpProfilenameString
-        {
-	        get { return StringUtils.GetString(InternetPdpProfilename); }
-	        set { InternetPdpProfilename = StringUtils.GetBytes(value, 32); }
-	    }
+    [Serializable]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public class QpImsRcsAutoConfig
+    {
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Version { get; set; }
 
 
         [ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte PcoConfigPriority { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte DisableAutoConfig { get; set; }
 
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte ISimConfigPriority { get; set; }
 
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte PreConfigPriority { get; set; }
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte RcsOnlyDeviceType { get; set; }
 
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte AutoConfigPriority { get; set; }
 
-		[JsonIgnore]
-		[ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsClientVendor { get; set; }
+        [JsonIgnore]
+        [ElementsCount(32)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsPdpProfilename { get; set; }
 
-	    public string RcsClientVendorString
+        public string RcsPdpProfilenameString
         {
-	        get { return StringUtils.GetString(RcsClientVendor); }
-	        set { RcsClientVendor = StringUtils.GetBytes(value, 16); }
-	    }
+            get => StringUtils.GetString(RcsPdpProfilename);
+            set => RcsPdpProfilename = StringUtils.GetBytes(value, 32);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
+        [ElementsCount(32)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] InternetPdpProfilename { get; set; }
+
+        public string InternetPdpProfilenameString
+        {
+            get => StringUtils.GetString(InternetPdpProfilename);
+            set => InternetPdpProfilename = StringUtils.GetBytes(value, 32);
+        }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte PcoConfigPriority { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte ISimConfigPriority { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte PreConfigPriority { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte AutoConfigPriority { get; set; }
+
+        [JsonIgnore]
         [ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsClientVersion { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsClientVendor { get; set; }
 
-	    public string RcsClientVersionString
+        public string RcsClientVendorString
         {
-	        get { return StringUtils.GetString(RcsClientVersion); }
-	        set { RcsClientVersion = StringUtils.GetBytes(value, 16); }
-	    }
+            get => StringUtils.GetString(RcsClientVendor);
+            set => RcsClientVendor = StringUtils.GetBytes(value, 16);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
         [ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsTerminalVendor { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsClientVersion { get; set; }
 
-	    public string RcsTerminalVendorString
+        public string RcsClientVersionString
         {
-	        get { return StringUtils.GetString(RcsTerminalVendor); }
-	        set { RcsTerminalVendor = StringUtils.GetBytes(value, 16); }
-	    }
+            get => StringUtils.GetString(RcsClientVersion);
+            set => RcsClientVersion = StringUtils.GetBytes(value, 16);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
         [ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsTerminalModel { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsTerminalVendor { get; set; }
 
-	    public string RcsTerminalModelString
+        public string RcsTerminalVendorString
         {
-	        get { return StringUtils.GetString(RcsTerminalModel); }
-	        set { RcsTerminalModel = StringUtils.GetBytes(value, 16); }
-	    }
+            get => StringUtils.GetString(RcsTerminalVendor);
+            set => RcsTerminalVendor = StringUtils.GetBytes(value, 16);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
         [ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsTerminalSwVersion { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsTerminalModel { get; set; }
 
-	    public string RcsTerminalSwVersionString
+        public string RcsTerminalModelString
         {
-	        get { return StringUtils.GetString(RcsTerminalSwVersion); }
-	        set { RcsTerminalSwVersion = StringUtils.GetBytes(value, 16); }
-	    }
+            get => StringUtils.GetString(RcsTerminalModel);
+            set => RcsTerminalModel = StringUtils.GetBytes(value, 16);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
+        [ElementsCount(16)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsTerminalSwVersion { get; set; }
+
+        public string RcsTerminalSwVersionString
+        {
+            get => StringUtils.GetString(RcsTerminalSwVersion);
+            set => RcsTerminalSwVersion = StringUtils.GetBytes(value, 16);
+        }
+
+        [JsonIgnore]
         [ElementsCount(45)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsConfigServerAddress { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsConfigServerAddress { get; set; }
 
-	    public string RcsConfigServerAddressString
+        public string RcsConfigServerAddressString
         {
-	        get { return StringUtils.GetString(RcsConfigServerAddress); }
-	        set { RcsConfigServerAddress = StringUtils.GetBytes(value, 45); }
-	    }
+            get => StringUtils.GetString(RcsConfigServerAddress);
+            set => RcsConfigServerAddress = StringUtils.GetBytes(value, 45);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
         [ElementsCount(5)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsConfigServerPort { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsConfigServerPort { get; set; }
 
-	    public string RcsConfigServerPortString
+        public string RcsConfigServerPortString
         {
-	        get { return StringUtils.GetString(RcsConfigServerPort); }
-	        set { RcsConfigServerPort = StringUtils.GetBytes(value, 5); }
-	    }
-        
-	    [JsonIgnore]
+            get => StringUtils.GetString(RcsConfigServerPort);
+            set => RcsConfigServerPort = StringUtils.GetBytes(value, 5);
+        }
+
+        [JsonIgnore]
         [ElementsCount(270)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsLteFtList { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsLteFtList { get; set; }
 
-	    public string RcsLteFtListString
+        public string RcsLteFtListString
         {
-	        get { return StringUtils.GetString(RcsLteFtList); }
-	        set { RcsLteFtList = StringUtils.GetBytes(value, 270); }
-	    }
-        
-	    [JsonIgnore]
+            get => StringUtils.GetString(RcsLteFtList);
+            set => RcsLteFtList = StringUtils.GetBytes(value, 270);
+        }
+
+        [JsonIgnore]
         [ElementsCount(270)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsHspaFtList { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsHspaFtList { get; set; }
 
-	    public string RcsHspaFtListString
+        public string RcsHspaFtListString
         {
-	        get { return StringUtils.GetString(RcsHspaFtList); }
-	        set { RcsHspaFtList = StringUtils.GetBytes(value, 270); }
-	    }
+            get => StringUtils.GetString(RcsHspaFtList);
+            set => RcsHspaFtList = StringUtils.GetBytes(value, 270);
+        }
 
-	    [JsonIgnore]
+        [JsonIgnore]
         [ElementsCount(270)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] RcsWifiFtList { get; set; }
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] RcsWifiFtList { get; set; }
 
-	    public string RcsWifiFtListString
+        public string RcsWifiFtListString
         {
-	        get { return StringUtils.GetString(RcsWifiFtList); }
-	        set { RcsWifiFtList = StringUtils.GetBytes(value, 270); }
-	    }
-        
+            get => StringUtils.GetString(RcsWifiFtList);
+            set => RcsWifiFtList = StringUtils.GetBytes(value, 270);
+        }
+
         [ElementsCount(13)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] ReservedByte { get; set; }
-
-		
-	}
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] ReservedByte { get; set; }
+    }
 }

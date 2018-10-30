@@ -2,22 +2,16 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(241)]
-	[Attributes(9)]
-	public class DataServiceOptionSet
+    [Serializable]
+    [NvItemId(241)]
+    [Attributes(9)]
+    public class DataServiceOptionSet
     {
-		public DataServiceOptionSet()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Value { get; set; }
-
-		
-	}
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Value { get; set; }
+    }
 }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using CommandLine;
 using EfsTools.Resourses;
 
@@ -22,21 +18,22 @@ namespace EfsTools.CommandLineOptions.Helper
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 foreach (var type in assembly.GetTypes())
-                {
                     if (!type.IsAbstract && !type.IsEnum)
                     {
-                        if (type.GetCustomAttributes(typeof(VerbAttribute), true).FirstOrDefault() is VerbAttribute attribute1)
+                        if (type.GetCustomAttributes(typeof(VerbAttribute), true).FirstOrDefault() is VerbAttribute
+                            attribute1)
                         {
                             var helpText = GetLocalizedString(attribute1.HelpText);
                             attribute1.HelpText = helpText;
                         }
-                        if (type.GetCustomAttributes(typeof(OptionAttribute), true).FirstOrDefault() is OptionAttribute attribute2)
+
+                        if (type.GetCustomAttributes(typeof(OptionAttribute), true).FirstOrDefault() is OptionAttribute
+                            attribute2)
                         {
                             var helpText = GetLocalizedString(attribute2.HelpText);
                             attribute2.HelpText = helpText;
                         }
                     }
-                }
             }
             catch
             {
@@ -62,6 +59,7 @@ namespace EfsTools.CommandLineOptions.Helper
                     res = str;
                     break;
             }
+
             return res;
         }
     }

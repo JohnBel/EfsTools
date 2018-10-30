@@ -5,9 +5,12 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Access)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Access)]
     internal class EfsAccessCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly string _path;
+        private readonly byte _permitionBites;
+
         public EfsAccessCommandRequest(string path, byte permitionBites)
         {
             _path = path;
@@ -23,8 +26,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[5 + _path.Length] = 0;
             return data;
         }
-
-        private readonly string _path;
-        private readonly byte _permitionBites;
     }
 }

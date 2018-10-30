@@ -4,17 +4,13 @@ using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Efs
 {
     [Serializable]
-	[EfsFile("/nv/item_files/ims/ims_user_agent", false, 0x81FF)]
-	[Attributes(9)]
-	public class ImsUserAgent
+    [EfsFile("/nv/item_files/ims/ims_user_agent", false, 0x81FF)]
+    [Attributes(9)]
+    public class ImsUserAgent
     {
-		public ImsUserAgent()
-		{
-		}
-
         [JsonIgnore]
         [ElementsCount(1024)]
         [ElementType("uint8")]
@@ -23,8 +19,8 @@ namespace EfsTools.Items
 
         public string ValueString
         {
-            get { return StringUtils.GetString(Value); }
-            set { Value = StringUtils.GetBytes(value, 1024); }
+            get => StringUtils.GetString(Value);
+            set => Value = StringUtils.GetBytes(value, 1024);
         }
     }
 }

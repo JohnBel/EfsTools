@@ -4,13 +4,15 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Close)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Close)]
     [QcdmMinResponseLength(8)]
     internal class EfsCloseFileCommandResponse : BaseSubSystemCommandResponse
     {
         private EfsCloseFileCommandResponse()
         {
         }
+
+        public QcdmEfsErrors Error { get; private set; }
 
         public static EfsCloseFileCommandResponse Parse(byte[] data)
         {
@@ -20,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             result.Error = error;
             return result;
         }
-
-        public QcdmEfsErrors Error { get; private set; }
     }
 }

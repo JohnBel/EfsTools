@@ -11,6 +11,9 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Nv
         {
         }
 
+        public ushort ItemId { get; private set; }
+        public byte[] Data { get; private set; }
+
         public static NvReadCommandResponse Parse(byte[] data)
         {
             var result = new NvReadCommandResponse();
@@ -21,8 +24,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Nv
             Array.Copy(data, 3, result.Data, 0, 128);
             return result;
         }
-
-        public ushort ItemId { get; private set; }
-        public byte[] Data { get; private set; }
     }
 }

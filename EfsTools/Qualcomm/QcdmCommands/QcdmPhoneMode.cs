@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EfsTools.Qualcomm.QcdmCommands
+﻿namespace EfsTools.Qualcomm.QcdmCommands
 {
     internal enum QcdmPhoneMode : byte
     {
@@ -15,5 +9,5 @@ namespace EfsTools.Qualcomm.QcdmCommands
         Online = 0x04,
         Lpm = 0x05,
         PowerOff = 0x06
-    };
+    }
 }

@@ -2,22 +2,16 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(4204)]
-	[Attributes(9)]
-	public class HdrScpForceRelease0SessionConfiguration
+    [Serializable]
+    [NvItemId(4204)]
+    [Attributes(9)]
+    public class HdrScpForceRelease0SessionConfiguration
     {
-		public HdrScpForceRelease0SessionConfiguration()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Value { get; set; }
-
-		
-	}
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Value { get; set; }
+    }
 }

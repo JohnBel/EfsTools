@@ -9,6 +9,6 @@ namespace EfsTools.Qualcomm.QcdmCommands.Attributes
             Command = command;
         }
 
-        public QcdmCommand Command { get; private set; }
+        public QcdmCommand Command { get; }
     }
 }

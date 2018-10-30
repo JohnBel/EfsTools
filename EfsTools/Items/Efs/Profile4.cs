@@ -1,18 +1,13 @@
 using System;
-using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Efs
 {
     [Ignore]
     [Serializable]
-	[EfsFile("/Data_Profiles/Profile4", false, 0x81B6)]
-	[Attributes(9)]
-	public class Profile4
-	{
-		public Profile4()
-		{
-		}
-		
-	}
+    [EfsFile("/Data_Profiles/Profile4", false, 0x81B6)]
+    [Attributes(9)]
+    public class Profile4
+    {
+    }
 }

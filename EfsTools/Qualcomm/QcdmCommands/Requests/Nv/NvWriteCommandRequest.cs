@@ -6,6 +6,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Nv
     [QcdmCommand(QcdmCommand.NvWrite)]
     internal class NvWriteCommandRequest : BaseCommandRequest, IQcdmCommandRequest
     {
+        private readonly byte[] _data;
+
+        private readonly ushort _itemId;
+
         public NvWriteCommandRequest(ushort itemId, byte[] data)
         {
             _itemId = itemId;
@@ -21,8 +25,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Nv
             Array.Copy(_data, 0, data, 3, _data.Length);
             return data;
         }
-
-        private readonly ushort _itemId;
-        private readonly byte[] _data;
     }
 }

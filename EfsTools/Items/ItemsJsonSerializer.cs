@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Markup;
-using EfsTools.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -30,11 +25,11 @@ namespace EfsTools.Items
         public static void DeserializeItems(Dictionary<string, object> items, TextReader reader)
         {
             var str = reader.ReadToEnd();
-            var jsonObj = (JObject)JsonConvert.DeserializeObject(str);
+            var jsonObj = (JObject) JsonConvert.DeserializeObject(str);
             foreach (var jsonItem in jsonObj)
             {
                 var type = jsonItem.Key;
-                if (items.TryGetValue(type, out object item))
+                if (items.TryGetValue(type, out var item))
                 {
                     var data = jsonItem.Value;
                     DeserializeItem(item, data);
@@ -60,7 +55,7 @@ namespace EfsTools.Items
             var propInfo = type.GetProperty(propName);
             if (propInfo != null)
             {
-                object val = propInfo.GetValue(source);
+                var val = propInfo.GetValue(source);
                 propInfo.SetValue(obj, val);
             }
         }

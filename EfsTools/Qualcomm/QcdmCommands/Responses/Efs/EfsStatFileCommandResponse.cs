@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Dynamic;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
@@ -24,16 +22,16 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             CreateTime = ctime;
         }
 
-        public int Mode { get; private set; }
-        public int Size { get; private set; }
-        public int LinkCount { get; private set; }
-        public int AccessTime { get; private set; }
-        public int ModifyTime { get; private set; }
-        public int CreateTime { get; private set; }
+        public int Mode { get; }
+        public int Size { get; }
+        public int LinkCount { get; }
+        public int AccessTime { get; }
+        public int ModifyTime { get; }
+        public int CreateTime { get; }
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Stat)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Stat)]
     [QcdmMinResponseLength(32)]
     internal class EfsStatFileCommandResponse : BaseSubSystemCommandResponse
     {
@@ -41,12 +39,14 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
         {
         }
 
+        public FileStat Stat { get; private set; }
+
         public static EfsStatFileCommandResponse Parse(byte[] data)
         {
             var result = new EfsStatFileCommandResponse();
             result.CheckResponse(data);
 
-            var mode = BitConverter.ToInt32(data, 8); 
+            var mode = BitConverter.ToInt32(data, 8);
             var size = BitConverter.ToInt32(data, 12);
             var linkCount = BitConverter.ToInt32(data, 16);
             var atime = BitConverter.ToInt32(data, 20);
@@ -55,7 +55,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             result.Stat = new FileStat(mode, size, linkCount, atime, mtime, ctime);
             return result;
         }
-
-        public FileStat Stat { get; private set; }
     }
 }

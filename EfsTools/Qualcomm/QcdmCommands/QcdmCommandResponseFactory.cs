@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Qualcomm.QcdmCommands.Responses;
 using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands
@@ -13,6 +11,9 @@ namespace EfsTools.Qualcomm.QcdmCommands
 
     internal static class QcdmCommandResponseFactory
     {
+        private static readonly Dictionary<uint, QcdmCommandResponseCreatorFun> _commandResponseCreators =
+            new Dictionary<uint, QcdmCommandResponseCreatorFun>();
+
         static QcdmCommandResponseFactory()
         {
             InitializeCommandResponseCreators();
@@ -33,18 +34,14 @@ namespace EfsTools.Qualcomm.QcdmCommands
                     result = CreateCommandResponse(command, data);
                     break;
             }
+
             return result;
         }
-
-        private static readonly Dictionary<uint, QcdmCommandResponseCreatorFun> _commandResponseCreators = new Dictionary<uint, QcdmCommandResponseCreatorFun>();
 
         private static IQcdmCommandResponse CreateCommandResponse(QcdmCommand command, byte[] data)
         {
             var key = (uint) command;
-            if (_commandResponseCreators.TryGetValue(key, out QcdmCommandResponseCreatorFun creator))
-            {
-                return creator(data);
-            }
+            if (_commandResponseCreators.TryGetValue(key, out var creator)) return creator(data);
             throw new QcdmManagerException(string.Format(Strings.QcdmUnsupportedCommandResponseFormat, command));
         }
 
@@ -53,12 +50,11 @@ namespace EfsTools.Qualcomm.QcdmCommands
             if (data != null && data.Length > 3)
             {
                 var key = BitConverter.ToUInt32(data, 0);
-                if (_commandResponseCreators.TryGetValue(key, out QcdmCommandResponseCreatorFun creator))
-                {
-                    return creator(data);
-                }
-                throw new QcdmManagerException(string.Format(Strings.QcdmUnsupportedSubsysCommandResponseFormat, data[1]));
+                if (_commandResponseCreators.TryGetValue(key, out var creator)) return creator(data);
+                throw new QcdmManagerException(string.Format(Strings.QcdmUnsupportedSubsysCommandResponseFormat,
+                    data[1]));
             }
+
             throw new QcdmManagerException(string.Format(Strings.QcdmUnsupportedSubsysCommandResponseFormat, -1));
         }
 
@@ -66,9 +62,9 @@ namespace EfsTools.Qualcomm.QcdmCommands
         {
             var assembly = Assembly.GetExecutingAssembly();
             foreach (var type in assembly.GetTypes())
-            {
-                if (!type.IsAbstract && !type.IsEnum && 
-                    type.GetCustomAttributes(typeof(QcdmCommandAttribute), true).FirstOrDefault() is QcdmCommandAttribute attribute)
+                if (!type.IsAbstract && !type.IsEnum &&
+                    type.GetCustomAttributes(typeof(QcdmCommandAttribute), true).FirstOrDefault() is
+                        QcdmCommandAttribute attribute)
                 {
                     var command = attribute.Command;
                     if (command != QcdmCommand.SubsysCmd)
@@ -77,39 +73,36 @@ namespace EfsTools.Qualcomm.QcdmCommands
                         if (methodInfo != null)
                         {
                             var fun = new QcdmCommandResponseCreatorFun(data =>
+                            {
+                                try
                                 {
-                                    try
-                                    {
-                                        return (IQcdmCommandResponse)methodInfo.Invoke(null, new object[] { data });
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        if (Logger != null)
-                                        {
-                                            Logger.LogError(e.Message);
-                                        }
-                                    }
-                                    return null;
-                                });
-                            var key = (UInt32) command;
+                                    return (IQcdmCommandResponse) methodInfo.Invoke(null, new object[] {data});
+                                }
+                                catch (Exception e)
+                                {
+                                    if (Logger != null) Logger.LogError(e.Message);
+                                }
+
+                                return null;
+                            });
+                            var key = (uint) command;
                             _commandResponseCreators[key] = fun;
                         }
                     }
                 }
-            }
         }
-        
+
         private static void InitializeSubSystemResponseCreators()
         {
             var assembly = Assembly.GetExecutingAssembly();
             foreach (var type in assembly.GetTypes())
-            {
                 if (!type.IsAbstract && !type.IsEnum &&
-                    type.GetCustomAttributes(typeof(QcdmSubSystemCommandAttribute), true).FirstOrDefault() is QcdmSubSystemCommandAttribute attribute)
+                    type.GetCustomAttributes(typeof(QcdmSubSystemCommandAttribute), true).FirstOrDefault() is
+                        QcdmSubSystemCommandAttribute attribute)
                 {
                     var command = BitConverter.GetBytes(attribute.Command);
                     var subSystem = attribute.SubSystem;
-                    var bytes = new byte[] { (byte)QcdmCommand.SubsysCmd, (byte)subSystem, command[0], command[1] };
+                    var bytes = new[] {(byte) QcdmCommand.SubsysCmd, (byte) subSystem, command[0], command[1]};
                     var key = BitConverter.ToUInt32(bytes, 0);
                     var methodInfo = type.GetMethod("Parse", BindingFlags.Public | BindingFlags.Static);
                     if (methodInfo != null)
@@ -118,21 +111,18 @@ namespace EfsTools.Qualcomm.QcdmCommands
                         {
                             try
                             {
-                                return (IQcdmCommandResponse)methodInfo.Invoke(null, new object[] { data });
+                                return (IQcdmCommandResponse) methodInfo.Invoke(null, new object[] {data});
                             }
                             catch (Exception e)
                             {
-                                if (Logger != null)
-                                {
-                                    Logger.LogError(e.Message);
-                                }
+                                if (Logger != null) Logger.LogError(e.Message);
                             }
+
                             return null;
                         });
                         _commandResponseCreators[key] = fun;
                     }
                 }
-            }
         }
     }
 }

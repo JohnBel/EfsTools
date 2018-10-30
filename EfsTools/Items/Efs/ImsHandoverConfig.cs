@@ -2,17 +2,13 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Efs
 {
     [Serializable]
-	[EfsFile("/ims/imshandoverconfig", false, 0x81FF)]
-	[Attributes(9)]
-	public class ImsHandoverConfig
+    [EfsFile("/ims/imshandoverconfig", false, 0x81FF)]
+    [Attributes(9)]
+    public class ImsHandoverConfig
     {
-		public ImsHandoverConfig()
-		{
-		}
-
         [ElementsCount(1)]
         [ElementType("string[]")]
         [Description("")]

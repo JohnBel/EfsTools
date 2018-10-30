@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace EfsTools.Utils
 {
-    static class StringUtils
+    internal static class StringUtils
     {
         public static string GetString(byte[] data)
         {
             var len = 0;
             foreach (var b in data)
             {
-                if (b == 0)
-                {
-                    break;
-                }
+                if (b == 0) break;
                 ++len;
             }
+
             return Encoding.ASCII.GetString(data, 0, len);
         }
 
@@ -33,9 +28,7 @@ namespace EfsTools.Utils
         {
             var buf = new byte[size];
             if (!string.IsNullOrEmpty(str))
-            {
                 Array.Copy(Encoding.ASCII.GetBytes(str), 0, buf, 0, Math.Min(size, str.Length));
-            }
             return buf;
         }
 
@@ -47,6 +40,7 @@ namespace EfsTools.Utils
                 var s = str.Replace("\\0", "\0");
                 Array.Copy(Encoding.ASCII.GetBytes(s), 0, buf, 0, Math.Min(size, s.Length));
             }
+
             return buf;
         }
     }

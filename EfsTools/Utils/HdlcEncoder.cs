@@ -14,15 +14,23 @@ namespace EfsTools.Utils
 
     internal static class HdlcEncoder
     {
+        private const byte HdlcEscChar = 0x7D; /* Escape sequence 1st character value */
+        private const byte HdlcEscMask = 0x20; /* Escape sequence complement value */
+        private const byte HdlcControlChar = 0x7E;
+        private const byte HdlcOverheadLength = 4;
+        private const byte HdlcTrailerLength = 3;
+        private const byte HdlcLeadingLength = 1;
+
+        private static readonly Crc16 Crc16Encoder = new Crc16();
+
         public static byte[] Encode(byte[] data)
         {
             var crc = Crc16(data);
 
-            var buffer = new MemoryStream((data.Length * 2) + HdlcOverheadLength);
+            var buffer = new MemoryStream(data.Length * 2 + HdlcOverheadLength);
             buffer.WriteByte(HdlcControlChar); // start of frame
 
-            for (int i = 0; i < data.Length; ++i)
-            {
+            for (var i = 0; i < data.Length; ++i)
                 if (data[i] == HdlcControlChar || data[i] == HdlcEscChar)
                 {
                     buffer.WriteByte(HdlcEscChar);
@@ -32,11 +40,9 @@ namespace EfsTools.Utils
                 {
                     buffer.WriteByte(data[i]);
                 }
-            }
 
             // add in each byte of the crc, but account for the crc containing HdlcControlChar or HdlcEscChar
-            for (int i = 1; i >= 0; --i)
-            {
+            for (var i = 1; i >= 0; --i)
                 if (crc[i] == HdlcControlChar || crc[i] == HdlcEscChar)
                 {
                     buffer.WriteByte(HdlcEscChar);
@@ -46,7 +52,6 @@ namespace EfsTools.Utils
                 {
                     buffer.WriteByte(crc[i]);
                 }
-            }
 
             buffer.WriteByte(HdlcControlChar); // Add ending control character
 
@@ -59,18 +64,12 @@ namespace EfsTools.Utils
             var buffer = new MemoryStream(size);
             var crc = new byte[2];
 
-            int i = 0;
+            var i = 0;
             for (; i < size; ++i)
             {
-                if (data[i] == HdlcControlChar && i == 0)
-                {
-                    continue;
-                }
+                if (data[i] == HdlcControlChar && i == 0) continue;
 
-                if (data[i] == HdlcControlChar)
-                {
-                    break; // stop from reading into another message
-                }
+                if (data[i] == HdlcControlChar) break; // stop from reading into another message
 
                 if (data[i] == HdlcEscChar)
                 {
@@ -109,14 +108,5 @@ namespace EfsTools.Utils
         {
             return Crc16Encoder.ComputeChecksumBytes(data);
         }
-
-        private static readonly Crc16 Crc16Encoder = new Crc16();
-
-        private const byte HdlcEscChar = 0x7D; /* Escape sequence 1st character value */
-        private const byte HdlcEscMask = 0x20; /* Escape sequence complement value */
-        private const byte HdlcControlChar = 0x7E;
-        private const byte HdlcOverheadLength = 4;
-        private const byte HdlcTrailerLength = 3;
-        private const byte HdlcLeadingLength = 1;
     }
 }

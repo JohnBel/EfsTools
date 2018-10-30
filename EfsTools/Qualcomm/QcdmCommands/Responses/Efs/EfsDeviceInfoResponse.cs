@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
@@ -28,18 +27,18 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             Name = name;
         }
 
-        public int TotalNumberOfBlocks { get; private set; }
-        public int PagesPerBlock { get; private set; }
-        public int PageSize { get; private set; }
-        public int TotalPageSize { get; private set; }
-        public int MakerId { get; private set; }
-        public int DeviceId { get; private set; }
-        public byte DeviceType { get; private set; }
-        public string Name { get; private set; }
+        public int TotalNumberOfBlocks { get; }
+        public int PagesPerBlock { get; }
+        public int PageSize { get; }
+        public int TotalPageSize { get; }
+        public int MakerId { get; }
+        public int DeviceId { get; }
+        public byte DeviceType { get; }
+        public string Name { get; }
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.DevInfo)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.DevInfo)]
     [QcdmMinResponseLength(41)]
     internal class EfsDeviceInfoResponse : BaseSubSystemCommandResponse
     {
@@ -47,12 +46,15 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
         {
         }
 
+        public QcdmEfsErrors Error { get; private set; }
+        public EfsDeviceInfo DeviceInfo { get; private set; }
+
         public static EfsDeviceInfoResponse Parse(byte[] data)
         {
             var result = new EfsDeviceInfoResponse();
             result.CheckResponse(data);
 
-            var error = (QcdmEfsErrors)BitConverter.ToInt32(data, 4);
+            var error = (QcdmEfsErrors) BitConverter.ToInt32(data, 4);
             result.Error = error;
             var totalNumberOfBlocks = BitConverter.ToInt32(data, 8);
             var pagesPerBlock = BitConverter.ToInt32(data, 16);
@@ -62,10 +64,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             var deviceId = BitConverter.ToInt32(data, 36);
             var deviceType = data[40];
             var nameLength = data.Length - 42;
-            if (nameLength < 0)
-            {
-                nameLength = 0;
-            }
+            if (nameLength < 0) nameLength = 0;
             var name = Encoding.ASCII.GetString(data, 41, nameLength);
 
 
@@ -73,8 +72,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
                 makerId, deviceId, deviceType, name);
             return result;
         }
-
-        public QcdmEfsErrors Error { get; private set; }
-        public EfsDeviceInfo DeviceInfo { get; private set; }
     }
 }

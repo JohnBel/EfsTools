@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Runtime.CompilerServices;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
@@ -11,25 +10,19 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             InitializeCommand();
         }
 
-        private void InitializeCommand()
-        {
-            var type = this.GetType();
-            if (_command == QcdmCommand.Max && type.GetCustomAttributes(typeof(QcdmCommandAttribute), true).FirstOrDefault() is QcdmCommandAttribute attribute)
-            {
-                _command = attribute.Command;
-            }
-        }
+        public QcdmCommand Command { get; private set; } = QcdmCommand.Max;
 
         public byte[] GetData()
         {
-            return new byte[] { (byte)Command };
+            return new[] {(byte) Command};
         }
 
-        private QcdmCommand _command = QcdmCommand.Max;
-
-        public QcdmCommand Command
+        private void InitializeCommand()
         {
-            get => _command;
+            var type = GetType();
+            if (Command == QcdmCommand.Max &&
+                type.GetCustomAttributes(typeof(QcdmCommandAttribute), true).FirstOrDefault() is QcdmCommandAttribute
+                    attribute) Command = attribute.Command;
         }
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Rename)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rename)]
     [QcdmMinResponseLength(8)]
     internal class EfsRenameFileCommandResponse : BaseSubSystemCommandResponse
     {
         private EfsRenameFileCommandResponse()
         {
         }
+
+        public QcdmEfsErrors Error { get; private set; }
 
         public static EfsRenameFileCommandResponse Parse(byte[] data)
         {
@@ -21,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             result.Error = error;
             return result;
         }
-
-        public QcdmEfsErrors Error { get; private set; }
     }
 }

@@ -4,9 +4,15 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Hello)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Hello)]
     internal class EfsHelloCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private const uint EfsDefaultWindowSize = 0x100000;
+        private const uint EfsDefaultWindowByteSize = 0x100000;
+        private const uint EfsVersion = 0x0001;
+        private const uint EfsMinVersion = 0x0001;
+        private const uint EfsMaxVersion = 0x0001;
+
         public new byte[] GetData()
         {
             var data = new byte[44];
@@ -26,11 +32,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[43] = 0xFF;
             return data;
         }
-
-        private const uint EfsDefaultWindowSize = 0x100000;
-        private const uint EfsDefaultWindowByteSize = 0x100000;
-        private const uint EfsVersion = 0x0001;
-        private const uint EfsMinVersion = 0x0001;
-        private const uint EfsMaxVersion = 0x0001;
     }
 }

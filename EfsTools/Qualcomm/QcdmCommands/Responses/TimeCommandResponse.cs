@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
@@ -16,6 +11,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         {
         }
 
+        public long Time { get; private set; }
+
         public static TimeCommandResponse Parse(byte[] data)
         {
             var result = new TimeCommandResponse();
@@ -25,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             result.Time = time;
             return result;
         }
-
-        public long Time { get; private set; }
     }
 }

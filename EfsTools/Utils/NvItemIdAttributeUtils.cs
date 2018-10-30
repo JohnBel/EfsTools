@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Attributes;
 
 namespace EfsTools.Utils
@@ -12,7 +9,7 @@ namespace EfsTools.Utils
     {
         public static NvItemIdAttribute Get(Type type)
         {
-            return (NvItemIdAttribute)type.GetCustomAttributes(typeof(NvItemIdAttribute)).FirstOrDefault();
+            return (NvItemIdAttribute) type.GetCustomAttributes(typeof(NvItemIdAttribute)).FirstOrDefault();
         }
     }
 }

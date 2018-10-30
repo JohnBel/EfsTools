@@ -5,9 +5,11 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Stat)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Stat)]
     internal class EfsStatFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly string _fileName;
+
         public EfsStatFileCommandRequest(string fileName)
         {
             _fileName = fileName;
@@ -21,7 +23,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[4 + _fileName.Length] = 0;
             return data;
         }
-
-        private readonly string _fileName;
     }
 }

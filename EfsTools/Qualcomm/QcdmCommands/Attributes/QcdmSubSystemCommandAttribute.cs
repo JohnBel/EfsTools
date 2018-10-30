@@ -10,7 +10,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Attributes
             Command = command;
         }
 
-        public QcdmSubSystem SubSystem { get; private set; }
-        public ushort Command { get; private set; }
+        public QcdmSubSystem SubSystem { get; }
+        public ushort Command { get; }
     }
 }

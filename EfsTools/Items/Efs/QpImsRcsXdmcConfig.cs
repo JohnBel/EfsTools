@@ -1,21 +1,14 @@
 using System;
 using System.ComponentModel;
-using System.Text;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Efs
 {
-	[Serializable]
-	[EfsFile("/nv/item_files/ims/qp_ims_rcs_xdmc_config", true, 0xE1FF)]
-	[Attributes(9)]
-	public class QpImsRcsXdmcConfig
+    [Serializable]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_xdmc_config", false, 0x81FF)]
+    [Attributes(9)]
+    public class QpImsRcsXdmcConfig
     {
-		public QpImsRcsXdmcConfig()
-		{
-		}
-
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -27,8 +20,8 @@ namespace EfsTools.Items
         public byte Field2 { get; set; }
 
         [ElementsCount(1022)]
-		[ElementType("uint8")]
-		[Description("")]
+        [ElementType("uint8")]
+        [Description("")]
         public byte[] Field3 { get; set; }
     }
 }

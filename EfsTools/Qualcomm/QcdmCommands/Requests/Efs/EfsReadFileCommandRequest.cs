@@ -4,9 +4,13 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Read)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Read)]
     internal class EfsReadFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly int _file;
+        private readonly uint _offset;
+        private readonly uint _size;
+
         public EfsReadFileCommandRequest(int file, uint size, uint offset)
         {
             _file = file;
@@ -23,9 +27,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             Array.Copy(BitConverter.GetBytes(_offset), 0, data, 12, 4);
             return data;
         }
-
-        private readonly int _file;
-        private readonly uint _size;
-        private readonly uint _offset;
     }
 }

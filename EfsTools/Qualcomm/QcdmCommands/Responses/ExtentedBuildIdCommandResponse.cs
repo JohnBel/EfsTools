@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
     internal class ExtentedBuildId
     {
         public ExtentedBuildId(
-            UInt32 msm,
-            UInt32 model,
+            uint msm,
+            uint model,
             string softwareId,
-            UInt16 modelName
+            ushort modelName
         )
         {
             Msm = msm;
@@ -23,10 +19,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             MobileModelName = modelName;
         }
 
-        public UInt32 Msm { get; private set; }
-        public UInt32 MobileModelId { get; private set; }
-        public string MobileSoftwareId { get; private set; }
-        public UInt16 MobileModelName { get; private set; }
+        public uint Msm { get; }
+        public uint MobileModelId { get; }
+        public string MobileSoftwareId { get; }
+        public ushort MobileModelName { get; }
     }
 
     [QcdmCommand(QcdmCommand.ExtBuildId)]
@@ -36,6 +32,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         private ExtentedBuildIdCommandResponse()
         {
         }
+
+        public ExtentedBuildId BuildId { get; private set; }
 
         public static ExtentedBuildIdCommandResponse Parse(byte[] data)
         {
@@ -49,7 +47,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             result.BuildId = new ExtentedBuildId(msm, model, softwareId, modelName);
             return result;
         }
-
-        public ExtentedBuildId BuildId { get; private set; }
     }
 }

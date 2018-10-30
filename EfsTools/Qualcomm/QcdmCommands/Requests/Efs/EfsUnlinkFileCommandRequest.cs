@@ -5,9 +5,11 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Unlink)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Unlink)]
     internal class EfsUnlinkFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly string _path;
+
         public EfsUnlinkFileCommandRequest(string path)
         {
             _path = path;
@@ -21,7 +23,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[4 + _path.Length] = 0;
             return data;
         }
-
-        private readonly string _path;
     }
 }

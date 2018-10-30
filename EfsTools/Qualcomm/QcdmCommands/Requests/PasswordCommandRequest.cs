@@ -7,6 +7,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
     [QcdmCommand(QcdmCommand.Password)]
     internal class PasswordCommandRequest : BaseCommandRequest, IQcdmCommandRequest
     {
+        private readonly byte[] _password;
+
         public PasswordCommandRequest(string password)
         {
             _password = Encoding.ASCII.GetBytes(password);
@@ -20,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             Array.Copy(_password, 0, data, 1, len);
             return data;
         }
-
-        private readonly byte[] _password;
     }
 }

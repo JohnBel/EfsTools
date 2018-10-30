@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
+﻿using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
@@ -16,15 +10,15 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         {
         }
 
+        public bool IsError { get; private set; }
+
         public static SpcCommandResponse Parse(byte[] data)
         {
             var result = new SpcCommandResponse();
             result.CheckResponse(data);
             var status = data[1];
-            result.IsError = (status == 0);
+            result.IsError = status == 0;
             return result;
         }
-
-        public bool IsError { get; private set; }
     }
 }

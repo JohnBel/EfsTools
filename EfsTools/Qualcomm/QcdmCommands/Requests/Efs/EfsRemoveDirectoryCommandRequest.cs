@@ -5,9 +5,11 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Rmdir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rmdir)]
     internal class EfsRemoveDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly string _name;
+
         public EfsRemoveDirectoryCommandRequest(string name)
         {
             _name = name;
@@ -21,7 +23,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[4 + _name.Length] = 0;
             return data;
         }
-
-        private readonly string _name;
     }
 }

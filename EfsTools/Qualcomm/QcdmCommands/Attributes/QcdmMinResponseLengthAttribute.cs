@@ -9,6 +9,6 @@ namespace EfsTools.Qualcomm.QcdmCommands.Attributes
             MinResponseLength = minResponseLength;
         }
 
-        public int MinResponseLength { get; private set; }
+        public int MinResponseLength { get; }
     }
 }

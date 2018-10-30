@@ -4,32 +4,28 @@ using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(298)]
-	[Attributes(9)]
-	public class PacketDataCallsOriginateString
+    [Serializable]
+    [NvItemId(298)]
+    [Attributes(9)]
+    public class PacketDataCallsOriginateString
     {
-		public PacketDataCallsOriginateString()
-		{
-		}
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Field1 { get; set; }
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Field1 { get; set; }
 
-		[JsonIgnore]
-		[ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] Field2 { get; set; }
+        [JsonIgnore]
+        [ElementsCount(16)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] Field2 { get; set; }
 
-	    public string Field2String
+        public string Field2String
         {
-	        get { return StringUtils.GetString(Field2); }
-	        set { Field2 = StringUtils.GetBytes(value, 16); }
-	    }
+            get => StringUtils.GetString(Field2);
+            set => Field2 = StringUtils.GetBytes(value, 16);
+        }
     }
 }

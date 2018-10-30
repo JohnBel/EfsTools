@@ -5,9 +5,13 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Rename)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rename)]
     internal class EfsRenameFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly string _newPath;
+
+        private readonly string _path;
+
         public EfsRenameFileCommandRequest(string path, string newPath)
         {
             _path = path;
@@ -24,8 +28,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[5 + _path.Length + _newPath.Length] = 0;
             return data;
         }
-
-        private readonly string _path;
-        private readonly string _newPath;
     }
 }

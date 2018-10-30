@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EfsTools.Qualcomm.QcdmCommands
+﻿namespace EfsTools.Qualcomm.QcdmCommands
 {
     internal enum QcdmSubSystem : byte
     {
@@ -136,5 +130,5 @@ namespace EfsTools.Qualcomm.QcdmCommands
         Oem3 = 253,
         Oem4 = 254,
         Legacy = 255
-    };
+    }
 }

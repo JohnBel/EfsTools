@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EfsTools.Qualcomm.QcdmCommands
+﻿namespace EfsTools.Qualcomm.QcdmCommands
 {
     internal enum QcdmEfsCommand : byte
     {
@@ -65,5 +59,5 @@ namespace EfsTools.Qualcomm.QcdmCommands
         FsImageOpen = 54, //Open FileSystem Image extraction
         FsImageRead = 55, // Read File System Image.        
         FsImageClose = 56 // Close File System Image.      
-    };
+    }
 }

@@ -7,6 +7,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
     [QcdmCommand(QcdmCommand.Spc)]
     internal class SpcCommandRequest : BaseCommandRequest, IQcdmCommandRequest
     {
+        private readonly byte[] _spc;
+
         public SpcCommandRequest(string spc)
         {
             _spc = Encoding.ASCII.GetBytes(spc);
@@ -20,7 +22,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             Array.Copy(_spc, 0, data, 1, len);
             return data;
         }
-
-        private readonly byte[] _spc;
     }
 }

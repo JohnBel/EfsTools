@@ -195,11 +195,17 @@
   <data name="QcdmCommandBadSpcMode" xml:space="preserve">
     <value>Некорректный SPC режим</value>
   </data>
+  <data name="QcdmDownloadingNvItems" xml:space="preserve">
+    <value>Загрузка значений элементов NV ...</value>
+  </data>
   <data name="QcdmEfsErrorsBadFileNumber" xml:space="preserve">
     <value>Некорректный номер файла</value>
   </data>
   <data name="QcdmEfsErrorsDefaultFormat" xml:space="preserve">
     <value>Ошибка EFS. Код = {0}</value>
+  </data>
+  <data name="QcdmEfsErrorsDirectoryNotEmpty" xml:space="preserve">
+    <value>Директория не пустая</value>
   </data>
   <data name="QcdmEfsErrorsDirEntNotFound" xml:space="preserve">
     <value>Элемент директории EFS не найден</value>
@@ -326,6 +332,9 @@
   </data>
   <data name="QcdmUnsupportedSubsysCommandResponseFormat" xml:space="preserve">
     <value>Неподдерживаемая команда Subsys ({0})</value>
+  </data>
+  <data name="QcdmUploadingNvItems" xml:space="preserve">
+    <value>Установка значений элементов NV ...</value>
   </data>
   <data name="RepeatedOptionErrorFormat" xml:space="preserve">
     <value>Опция '{0}' указана несколько раз.</value>

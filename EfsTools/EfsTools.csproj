@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Attributes\AttributesAttribute.cs" />
     <Compile Include="Attributes\EfsFileAttribute.cs" />
+    <Compile Include="Attributes\ConvertEndianAttribute.cs" />
     <Compile Include="Attributes\IgnoreAttribute.cs" />
     <Compile Include="Attributes\OptionalAttribute.cs" />
     <Compile Include="Attributes\NvItemIdAttribute.cs" />
@@ -554,6 +555,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Utils\Crc16.cs" />
+    <Compile Include="Utils\EndianConverter.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\IgnoreAttributeUtils.cs" />
     <Compile Include="Utils\EfsFileAttributeUtils.cs" />
     <Compile Include="Utils\HdlcEncoder.cs" />
@@ -610,6 +613,13 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\NvItemIdAttributeUtils.cs" />
+    <Compile Include="Utils\NvItemUtils.cs" />
+    <Compile Include="Utils\PathUtils.cs" />
+    <Compile Include="Utils\LoggerStream.cs" />
+    <Compile Include="Utils\QcdmManagerNvWriteStreamAdapter.cs" />
+    <Compile Include="Utils\QcdmManagerItemWriteStreamAdapter.cs" />
+    <Compile Include="Utils\QcdmManagerStreamAdapter.cs" />
+    <Compile Include="Utils\StreamUtils.cs" />
     <Compile Include="Utils\StringUtils.cs" />
   </ItemGroup>
   <ItemGroup>

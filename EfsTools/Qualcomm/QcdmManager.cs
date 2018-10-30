@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Qualcomm.QcdmCommands;
 using EfsTools.Qualcomm.QcdmCommands.Requests;
 using EfsTools.Qualcomm.QcdmCommands.Responses;
@@ -22,30 +18,28 @@ namespace EfsTools.Qualcomm
 
     internal class QcdmManager : IDisposable
     {
-        public QcdmManager(string port, int baudrate, int timeout)
-        {
-            _port = new HdlcSerial(port, baudrate, timeout);
-            _gsm = new QcdmGsmManager(this);
-            _callManager = new QcdmCallManager(this);
-            _efs = new QcdmEfsManager(this);
-            _nv = new QcdmNvManager(this);
-        }
+        private const int NvItemSize = 128;
+        private const int NvPeekMaxSize = 32;
+        private const int MaxPacketDataSize = 2048;
+        private const int MaxPacketSize = MaxPacketDataSize * 2;
+        private const int RxTimeout = 15 * 1000;
+        private const int SpcLength = 6;
+        private const int PasswordLength = 16;
 
         private readonly HdlcSerial _port;
 
-        public void Open()
+        public QcdmManager(string port, int baudrate, int timeout)
         {
-            _port.Open();
-        }
-
-        public void Close()
-        {
-            _port.Close();
+            _port = new HdlcSerial(port, baudrate, timeout);
+            Gsm = new QcdmGsmManager(this);
+            CallManager = new QcdmCallManager(this);
+            Efs = new QcdmEfsManager(this);
+            Nv = new QcdmNvManager(this);
         }
 
         public bool IsOpen => _port.IsOpen;
 
-        public UInt16 DiagVersion
+        public ushort DiagVersion
         {
             get
             {
@@ -120,6 +114,55 @@ namespace EfsTools.Qualcomm
             }
         }
 
+        public string Imei
+        {
+            get
+            {
+                var bytes = Nv.Read(550);
+                var imei = new StringBuilder(15);
+                for (var i = 1; i <= 8; ++i)
+                {
+                    var b = bytes[i];
+                    var b1 = (b & 0xF0) >> 4;
+                    var b2 = b & 0x0F;
+                    if (i == 1)
+                    {
+                        imei.AppendFormat("{0:X}", b1);
+                    }
+                    else
+                    {
+                        var v = b1 | (b2 << 4);
+                        imei.AppendFormat("{0:X2}", v);
+                    }
+                }
+
+                return imei.ToString();
+            }
+        }
+
+        public QcdmGsmManager Gsm { get; }
+
+        public QcdmCallManager CallManager { get; }
+
+        public QcdmEfsManager Efs { get; }
+
+        public QcdmNvManager Nv { get; }
+
+        public void Dispose()
+        {
+            _port?.Dispose();
+        }
+
+        public void Open()
+        {
+            _port.Open();
+        }
+
+        public void Close()
+        {
+            _port.Close();
+        }
+
         public string QueryLog()
         {
             if (IsOpen)
@@ -137,11 +180,8 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new LogMaskCommandRequest(mask);
-                var response = (LogMaskCommandResponse)ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
-                {
-                    throw new QcdmEfsException(Strings.QcdmInvalidLogMask);
-                }
+                var response = (LogMaskCommandResponse) ExecuteQcdmCommandRequest(request);
+                if (response.IsError) throw new QcdmEfsException(Strings.QcdmInvalidLogMask);
             }
         }
 
@@ -150,11 +190,8 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new SpcCommandRequest(spc);
-                var response = (SpcCommandResponse)ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
-                {
-                    throw new QcdmEfsException(Strings.QcdmInvalidSpc);
-                }
+                var response = (SpcCommandResponse) ExecuteQcdmCommandRequest(request);
+                if (response.IsError) throw new QcdmEfsException(Strings.QcdmInvalidSpc);
             }
         }
 
@@ -163,50 +200,14 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new PasswordCommandRequest(password);
-                var response = (PasswordCommandResponse)ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
-                {
-                    throw new QcdmEfsException(Strings.QcdmInvalidPassword);
-                }
+                var response = (PasswordCommandResponse) ExecuteQcdmCommandRequest(request);
+                if (response.IsError) throw new QcdmEfsException(Strings.QcdmInvalidPassword);
             }
         }
-
-        public string Imei
-        {
-            get
-            {
-                var bytes = _nv.Read(550);
-                var imei = new StringBuilder(15);
-                for (var i = 1; i <= 8; ++i)
-                {
-                    var b = bytes[i];
-                    var b1 = (b & 0xF0) >> 4;
-                    var b2 = (b & 0x0F);
-                    if (i == 1)
-                    {
-                        imei.AppendFormat("{0:X}", b1);
-                    }
-                    else
-                    {
-                        var v = b1 | (b2 << 4);
-                        imei.AppendFormat("{0:X2}", v);
-                    }
-                }
-                return imei.ToString();
-            }
-        }
-
-        public QcdmGsmManager Gsm => _gsm;
-        public QcdmCallManager CallManager => _callManager;
-        public QcdmEfsManager Efs => _efs;
-        public QcdmNvManager Nv => _nv;
 
         public IQcdmCommandResponse ExecuteQcdmCommandRequest(IQcdmCommandRequest request)
         {
-            if (!IsOpen)
-            {
-                throw new QcdmManagerException(Strings.QcdmSerialPortIsNotOpen);
-            }
+            if (!IsOpen) throw new QcdmManagerException(Strings.QcdmSerialPortIsNotOpen);
 
             var data = request.GetData();
             _port.Write(data);
@@ -219,9 +220,7 @@ namespace EfsTools.Qualcomm
         private IQcdmCommandResponse CreateResponse(byte[] responseData)
         {
             if (responseData == null || responseData.Length == 0)
-            {
                 throw new QcdmManagerException(Strings.QcdmInvalidResponse);
-            }
 
             var command = (QcdmCommand) responseData[0];
             CheckError(command);
@@ -250,28 +249,7 @@ namespace EfsTools.Qualcomm
                     break;
             }
 
-            if (message != null)
-            {
-                throw new QcdmManagerException(message);
-            }
-        }
-
-        private readonly QcdmGsmManager _gsm;
-        private readonly QcdmCallManager _callManager;
-        private readonly QcdmEfsManager _efs;
-        private readonly QcdmNvManager _nv;
-
-        private const int NvItemSize = 128;
-        private const int NvPeekMaxSize = 32;
-        private const int MaxPacketDataSize = 2048;
-        private const int MaxPacketSize = (MaxPacketDataSize * 2);
-        private const int RxTimeout = (15 * 1000);
-        private const int SpcLength = 6;
-        private const int PasswordLength = 16;
-
-        public void Dispose()
-        {
-            _port?.Dispose();
+            if (message != null) throw new QcdmManagerException(message);
         }
     }
 }

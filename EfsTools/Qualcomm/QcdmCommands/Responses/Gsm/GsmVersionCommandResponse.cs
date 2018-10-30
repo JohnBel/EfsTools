@@ -1,23 +1,22 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Gsm
 {
     internal class GsmVersion
     {
-        public GsmVersion(UInt16 vDspVersion,
-            UInt16 mdspVersionRom,
-            UInt16 mdspVersionRam)
+        public GsmVersion(ushort vDspVersion,
+            ushort mdspVersionRom,
+            ushort mdspVersionRam)
         {
             VocorerDspVersion = vDspVersion;
             MdspVersionRom = mdspVersionRom;
             MdspVersionRam = mdspVersionRam;
         }
 
-        public UInt16 VocorerDspVersion { get; private set; }
-        public UInt16 MdspVersionRom { get; private set; }
-        public UInt16 MdspVersionRam { get; private set; }
+        public ushort VocorerDspVersion { get; }
+        public ushort MdspVersionRom { get; }
+        public ushort MdspVersionRam { get; }
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
@@ -28,6 +27,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Gsm
         private GsmVersionCommandResponse()
         {
         }
+
+        public GsmVersion Version { get; private set; }
 
         public static GsmVersionCommandResponse Parse(byte[] data)
         {
@@ -41,7 +42,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Gsm
 
             return result;
         }
-
-        public GsmVersion Version { get; private set; }
     }
 }

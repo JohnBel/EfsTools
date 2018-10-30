@@ -1,6 +1,5 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
@@ -23,22 +22,24 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             MaxMounts = maxMounts;
         }
 
-        public int MaxFilenameLength { get; private set; }
-        public int MapPathnameLength { get; private set; }
-        public int MaxSymlinkDepth { get; private set; }
-        public int MaxFileSize { get; private set; }
-        public int MaxDirectories { get; private set; }
-        public int MaxMounts { get; private set; }
+        public int MaxFilenameLength { get; }
+        public int MapPathnameLength { get; }
+        public int MaxSymlinkDepth { get; }
+        public int MaxFileSize { get; }
+        public int MaxDirectories { get; }
+        public int MaxMounts { get; }
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Query)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Query)]
     [QcdmMinResponseLength(28)]
     internal class EfsQueryCommandResponse : BaseSubSystemCommandResponse
     {
         private EfsQueryCommandResponse()
         {
         }
+
+        public QueryInfo Info { get; private set; }
 
         public static EfsQueryCommandResponse Parse(byte[] data)
         {
@@ -55,7 +56,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
                 maxDirectories, maxMounts);
             return result;
         }
-
-        public QueryInfo Info { get; private set; }
     }
 }

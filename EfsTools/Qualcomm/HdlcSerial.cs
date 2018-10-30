@@ -1,21 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Utils;
 
 namespace EfsTools.Qualcomm
 {
     internal class HdlcSerial : IDisposable
     {
+        private readonly SerialPort _port;
+
+        private readonly byte[] _readBuffer = new byte[6 * 1024];
+
         public HdlcSerial(string port, int baudrate, int timeout)
         {
             _port = new SerialPort(port, baudrate) {ReadTimeout = timeout};
         }
 
-        private readonly SerialPort _port;
+        public bool IsOpen => _port.IsOpen;
+
+        public void Dispose()
+        {
+            _port?.Dispose();
+        }
 
         public void Open()
         {
@@ -26,8 +31,6 @@ namespace EfsTools.Qualcomm
         {
             _port.Close();
         }
-
-        public bool IsOpen => _port.IsOpen;
 
         private void WriteRaw(byte[] data)
         {
@@ -50,13 +53,6 @@ namespace EfsTools.Qualcomm
             var read = ReadRaw(_readBuffer);
             var decoded = HdlcEncoder.Decode(_readBuffer, read);
             return decoded;
-        }
-
-        private readonly byte[] _readBuffer = new byte[6 * 1024];
-
-        public void Dispose()
-        {
-            _port?.Dispose();
         }
     }
 }

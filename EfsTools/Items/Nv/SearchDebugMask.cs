@@ -2,20 +2,16 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items
+namespace EfsTools.Items.Nv
 {
-	[Serializable]
-	[NvItemId(3632)]
-	[Attributes(9)]
-	public class SearchDebugMask
+    [Serializable]
+    [NvItemId(3632)]
+    [Attributes(9)]
+    public class SearchDebugMask
     {
-		public SearchDebugMask()
-		{
-		}
-		
-		[ElementsCount(8)]
-		[ElementType("int8")]
-		[Description("")]
-		public byte[] Value { get; set; }
+        [ElementsCount(8)]
+        [ElementType("int8")]
+        [Description("")]
+        public byte[] Value { get; set; }
     }
 }

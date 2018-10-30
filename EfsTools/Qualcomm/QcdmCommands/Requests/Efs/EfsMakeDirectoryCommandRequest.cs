@@ -5,9 +5,12 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort)QcdmEfsCommand.Mkdir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Mkdir)]
     internal class EfsMakeDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
     {
+        private readonly ushort _mode;
+        private readonly string _name;
+
         public EfsMakeDirectoryCommandRequest(ushort mode, string name)
         {
             _mode = mode;
@@ -23,8 +26,5 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             data[6 + _name.Length] = 0;
             return data;
         }
-
-        private readonly ushort _mode;
-        private readonly string _name;
     }
 }

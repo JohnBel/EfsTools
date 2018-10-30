@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EfsTools.Resourses;
 
 namespace EfsTools.Qualcomm.QcdmCommands
@@ -10,15 +6,16 @@ namespace EfsTools.Qualcomm.QcdmCommands
     internal enum QcdmEfsErrors
     {
         None = 0,
-        NotPermited = 1,  /* Operation not permitted */
-        NoEntry = 2,  /* No such file or directory */
-        IoError = 5,  /* I/O error */
-        DirectoryExist = 6,  /* Directory exists */
-        BadFileNumber = 9,  /* Bad file number */
+        NotPermited = 1, /* Operation not permitted */
+        NoEntry = 2, /* No such file or directory */
+        IoError = 5, /* I/O error */
+        DirectoryExist = 6, /* Directory exists */
+        BadFileNumber = 9, /* Bad file number */
         OutOfMemory = 12,
         PermissionDenided = 13, /* Permission denied */
-        FileExist = 17,  /* File exists */
+        FileExist = 17, /* File exists */
         NotDirectory = 20, /* Not a directory */
+        DirectoryNotEmpty = 39,
 
         InconsistentState = 0x40000001,
         InvalidSequence = 0x40000002,
@@ -32,7 +29,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
         UnknownFileType = 0x4000000A,
         NotNandFlash = 0x4000000B,
         UnavailableInfo = 0x4000000C
-    };
+    }
 
     internal class QcdmEfsException : Exception
     {
@@ -111,6 +108,9 @@ namespace EfsTools.Qualcomm.QcdmCommands
                 case QcdmEfsErrors.NotDirectory:
                     message = Strings.QcdmEfsErrorsNotDirectory;
                     break;
+                case QcdmEfsErrors.DirectoryNotEmpty:
+                    message = Strings.QcdmEfsErrorsDirectoryNotEmpty;
+                    break;
                 default:
                     message = string.Format(Strings.QcdmEfsErrorsDefaultFormat, error);
                     break;
@@ -121,12 +121,9 @@ namespace EfsTools.Qualcomm.QcdmCommands
 
         public static void ThrowQcdmEfsErrorsIfNeed(QcdmEfsErrors error)
         {
-            string message = EfsErrorString(error);
-            
-            if (message != null)
-            {
-                throw new QcdmEfsException(message);
-            }
+            var message = EfsErrorString(error);
+
+            if (message != null) throw new QcdmEfsException(message);
         }
     }
 }

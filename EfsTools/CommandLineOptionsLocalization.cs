@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CommandLine;
 using CommandLine.Text;
 using EfsTools.Resourses;
@@ -50,37 +48,39 @@ namespace EfsTools
                     {
                         case ErrorType.BadFormatTokenError:
                             return string.Format(Strings.BadFormatTokenErrorFormat,
-                                ((BadFormatTokenError)error).Token);
+                                ((BadFormatTokenError) error).Token);
                         case ErrorType.MissingValueOptionError:
                             return string.Format(Strings.MissingValueOptionErrorFormat,
-                                ((MissingValueOptionError)error).NameInfo.NameText);
+                                ((MissingValueOptionError) error).NameInfo.NameText);
                         case ErrorType.UnknownOptionError:
                             return string.Format(Strings.UnknownOptionErrorFormat,
-                                ((UnknownOptionError)error).Token);
+                                ((UnknownOptionError) error).Token);
                         case ErrorType.MissingRequiredOptionError:
-                            var errMisssing = ((MissingRequiredOptionError)error);
+                            var errMisssing = (MissingRequiredOptionError) error;
                             return errMisssing.NameInfo.Equals(NameInfo.EmptyName)
-                                       ? Strings.MissingRequiredOptionErrorFormat1
-                                       : string.Format(Strings.MissingRequiredOptionErrorFormat2, errMisssing.NameInfo.NameText);
+                                ? Strings.MissingRequiredOptionErrorFormat1
+                                : string.Format(Strings.MissingRequiredOptionErrorFormat2,
+                                    errMisssing.NameInfo.NameText);
                         case ErrorType.BadFormatConversionError:
-                            var badFormat = ((BadFormatConversionError)error);
+                            var badFormat = (BadFormatConversionError) error;
                             return badFormat.NameInfo.Equals(NameInfo.EmptyName)
                                 ? Strings.BadFormatConversionErrorFormat1
                                 : string.Format(Strings.BadFormatConversionErrorFormat2, badFormat.NameInfo.NameText);
                         case ErrorType.SequenceOutOfRangeError:
-                            var seqOutRange = ((SequenceOutOfRangeError)error);
+                            var seqOutRange = (SequenceOutOfRangeError) error;
                             return seqOutRange.NameInfo.Equals(NameInfo.EmptyName)
                                 ? Strings.SequenceOutOfRangeErrorFormat1
                                 : string.Format(Strings.SequenceOutOfRangeErrorFormat2, seqOutRange.NameInfo.NameText);
                         case ErrorType.BadVerbSelectedError:
                             return string.Format(Strings.BadVerbSelectedErrorFormat,
-                                ((BadVerbSelectedError)error).Token);
+                                ((BadVerbSelectedError) error).Token);
                         case ErrorType.NoVerbSelectedError:
                             return Strings.NoVerbSelectedErrorFormat;
                         case ErrorType.RepeatedOptionError:
                             return string.Format(Strings.RepeatedOptionErrorFormat,
-                                ((RepeatedOptionError)error).NameInfo.NameText);
+                                ((RepeatedOptionError) error).NameInfo.NameText);
                     }
+
                     throw new InvalidOperationException();
                 };
             }

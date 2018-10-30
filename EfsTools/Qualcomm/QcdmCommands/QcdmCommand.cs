@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EfsTools.Qualcomm.QcdmCommands
+﻿namespace EfsTools.Qualcomm.QcdmCommands
 {
     internal enum QcdmCommand : byte
     {
@@ -121,6 +115,6 @@ namespace EfsTools.Qualcomm.QcdmCommands
         MmsOrigSmsRequest = 0x8f, // 143
         MeasMode = 0x90, // 144
         MeasReq = 0x91, // 145
-        Max = 0x92, // 146
-    };
+        Max = 0x92 // 146
+    }
 }
