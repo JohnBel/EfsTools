@@ -7,6 +7,10 @@ namespace EfsTools.Utils
     {
         public static string GetString(byte[] data)
         {
+            if (data == null)
+            {
+                return String.Empty;
+            }
             var len = 0;
             foreach (var b in data)
             {

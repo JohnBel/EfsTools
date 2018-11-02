@@ -5,7 +5,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/modem/uim/mmgsdi/refresh_vote_ok", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/modem/uim/mmgsdi/refresh_vote_ok", false, 0x81FF)]
     [Attributes(9)]
     public class RefreshVoteOk
     {

@@ -12,6 +12,6 @@ namespace EfsTools.Items.Efs
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public byte Value { get; set; }
+        public ushort Value { get; set; }
     }
 }

@@ -18,6 +18,6 @@ namespace EfsTools.Items.Efs
         [ElementsCount(3)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Reserver { get; set; }
+        public sbyte[] Reserver { get; set; }
     }
 }

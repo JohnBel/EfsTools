@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_sip_config", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_sip_config", false, 0x81FF)]
     [Attributes(9)]
     public class QpImsSipConfig
     {

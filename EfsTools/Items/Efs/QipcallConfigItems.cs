@@ -17,7 +17,7 @@ namespace EfsTools.Items.Efs
      */
 
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qipcall_config_items", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/ims/qipcall_config_items", false, 0x81FF)]
     [Attributes(9)]
     public class QipcallConfigItems
     {

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/pbm/pbm_hardcoded_ecc_list", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/pbm/pbm_hardcoded_ecc_list", false, 0x81FF)]
     [Attributes(9)]
     public class PbmHardcodedEccList
     {
