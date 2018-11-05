@@ -4,11 +4,10 @@ using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
-    [Ignore]
     [Serializable]
-    [EfsFile("/Data_Profiles/Profile4", false, 0x81B6)]
+    [EfsFile("/Data_Profiles/Profile6", false, 0x81B6)]
     [Attributes(9)]
-    public class Profile4
+    public class Profile6
     {
         [ElementsCount(0)]
         [ElementType("uint8[]")]

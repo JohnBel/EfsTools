@@ -78,6 +78,10 @@
     <Compile Include="EfsTools.cs" />
     <Compile Include="EfsToolsConfigurationSection.cs" />
     <Compile Include="Items\Efs\DeviceConfigXml.cs" />
+    <Compile Include="Items\Efs\IwlanS2bConfigXml.cs" />
+    <Compile Include="Items\Efs\Profile7.cs" />
+    <Compile Include="Items\Efs\Profile6.cs" />
+    <Compile Include="Items\Efs\Profile5.cs" />
     <Compile Include="Items\Efs\SuppressAddUpdateParam.cs" />
     <Compile Include="Items\Efs\EmmNasNvItems.cs" />
     <Compile Include="Items\Efs\AndsfCopyXml.cs" />
