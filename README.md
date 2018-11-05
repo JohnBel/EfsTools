@@ -86,6 +86,20 @@ EfsTools.exe <команда> [параметры команды]
 Загрузить каталог c компьютера на устройство
 
 Пример: EfsTools.exe uploadDirectory -i c:\backup\efs -o /
+
+
+***getModemConfig***
+Сгенерировать конфигурацию модема используя устройство или каталог (параметр -i) с EFS-структурой
+
+Пример: EfsTools.exe getModemConfig -i .\backup -p .\items_backup.json 
+EfsTools.exe getModemConfig -p .\items_phone.json 
+
+
+***setModemConfig***
+Установить конфигурацию модема в устройстве или сгененировать EFS-структуру в каталоге (параметр -o)
+
+Пример: EfsTools.exe setModemConfig -p .\items.json -o .\efs
+EfsTools.exe setModemConfig -p .\items_for_phone.json
   
   
 ***help***
