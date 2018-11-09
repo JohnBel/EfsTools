@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", false, 0x81FF)]
+    [NvItemId(70233)]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsRcsAutoConfig
     {

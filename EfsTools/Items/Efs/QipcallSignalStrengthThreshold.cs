@@ -5,6 +5,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [NvItemId(70213)]
     [EfsFile("/nv/item_files/ims/qipcall_signal_strength_threshold", true, 0xE1FF)]
     [Attributes(9)]
     public class QipcallSignalStrengthThreshold

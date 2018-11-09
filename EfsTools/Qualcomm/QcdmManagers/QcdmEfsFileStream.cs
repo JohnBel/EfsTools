@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using EfsTools.Qualcomm.QcdmCommands;
 using EfsTools.Qualcomm.QcdmCommands.Requests.Efs;
 using EfsTools.Qualcomm.QcdmCommands.Responses.Efs;
@@ -124,6 +125,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
 
         public override void Flush()
         {
+            if (_manager != null)
+            {
+                var syncSequence = Interlocked.Increment(ref _syncSequence);
+                _manager.Efs.SyncNoWait(_fileName, (ushort)syncSequence);
+            }
         }
 
         public override long Seek(long offset, SeekOrigin origin)
@@ -191,5 +197,7 @@ namespace EfsTools.Qualcomm.QcdmManagers
             _position += written;
             if (_stat != null) _stat = FStat();
         }
+
+        private static int _syncSequence = 0;
     }
 }

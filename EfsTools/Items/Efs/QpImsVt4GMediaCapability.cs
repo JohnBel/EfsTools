@@ -5,160 +5,255 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_vt_4G_media_capability", false, 0x81FF)]
+    [NvItemId(70291)]
+    [EfsFile("/nv/item_files/ims/qp_ims_vt_4G_media_capability", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsVt4GMediaCapability
     {
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte Version { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public byte NumH264 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H263ExcludeConfigFromOffer { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field3 { get; set; }
+        public ushort H263PayloadType { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field4 { get; set; }
+        public byte H263Profile { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field5 { get; set; }
+        public byte H263PreferredProfileLevel { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field6 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field7 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort Field8 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort Field9 { get; set; }
+        public byte H263PreferredResolution { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field10 { get; set; }
+        public uint H263ResolutionsSupported { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H263PreferredBitRate { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H263MinBitRate { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H263MaxBitRate { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H263PreferredFrameRate { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H263MinFrameRate { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H263MaxFrameRate { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H263Ipv4AsValue { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H263Ipv6AsValue { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264ExcludeConfigFromOffer1 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264PayloadTypePacketization01 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264PayloadTypePacketization11 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264Profile1 { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264PreferredProfileLevel1 { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264PreferredResolution1 { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field11 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field12 { get; set; }
-
-        [ElementsCount(15)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Field13 { get; set; }
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field14 { get; set; }
-
+        public uint H264ResolutionsSupported1 { get; set; }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field15 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field16 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field17 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field18 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field19 { get; set; }
-
+        public ushort H264PreferredBitRate1 { get; set; }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field20 { get; set; }
-
+        public ushort H264MinBitRate1 { get; set; }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field21 { get; set; }
+        public ushort H264MaxBitRate1 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264PreferredFrameRate1 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264MinFrameRate1 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264MaxFrameRate1 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264Ipv4AsValue1 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264Ipv6AsValue1 { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264ExcludeConfigFromOffer2 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264PayloadTypePacketization02 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264PayloadTypePacketization12 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264Profile2 { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264PreferredProfileLevel2 { get; set; }
+
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264PreferredResolution2 { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field22 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field23 { get; set; }
-
+        public uint H264ResolutionsSupported2 { get; set; }
 
         [ElementsCount(1)]
-        [ElementType("uint8")]
+        [ElementType("uint16")]
         [Description("")]
-        public byte Field24 { get; set; }
+        public ushort H264PreferredBitRate2 { get; set; }
 
-        [ElementsCount(15)]
-        [ElementType("uint8")]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
         [Description("")]
-        public byte[] Field25 { get; set; }
+        public ushort H264MinBitRate2 { get; set; }
 
-        [Optional]
-        [ElementsCount(511)]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264MaxBitRate2 { get; set; }
+
+        [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Reserved { get; set; }
+        public byte H264PreferredFrameRate2 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264MinFrameRate2 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte H264MaxFrameRate2 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264Ipv4AsValue2 { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort H264Ipv6AsValue2 { get; set; }
+
+
     }
 }

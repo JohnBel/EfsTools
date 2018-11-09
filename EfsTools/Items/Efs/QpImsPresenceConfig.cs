@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_presence_config", false, 0x81FF)]
+    [NvItemId(67314)]
+    [EfsFile("/nv/item_files/ims/qp_ims_presence_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsPresenceConfig
     {

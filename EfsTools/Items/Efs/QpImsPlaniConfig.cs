@@ -5,13 +5,136 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [NvItemId(73527)]
     [EfsFile("/nv/item_files/ims/qp_ims_plani_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsPlaniConfig
     {
+        public QpImsPlaniConfig()
+        {
+            SectorId = new byte[128];
+            Mcc = new byte[48];
+            Mnc = new byte[48];
+        }
+        
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte Version { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint AccessType { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort Lac { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort Tac { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint CellIdentity { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort Sid { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort Nid { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort Pzid { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort BaseId { get; set; }
+
+        [Optional]
         [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Value { get; set; }
+        public byte[] SectorId { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte SubnetLength { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeSeconds { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeMinutes { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeHours { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeDays { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeMonths { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeYears { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort TimeDayOfWeek { get; set; }
+
+        [Optional]
+        [ElementsCount(48)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] Mcc { get; set; }
+
+        [Optional]
+        [ElementsCount(48)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] Mnc { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using EfsTools.Items;
 using EfsTools.Qualcomm;
@@ -113,13 +114,15 @@ namespace EfsTools.Utils
                 if (fileAttribute == null)
                 {
                     var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
-                    if (nvItemIdAttribute != null)
+                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= UInt16.MaxValue)
+                    {
                         using (var stream = NvOpenWrite(manager, (ushort) nvItemIdAttribute.Id))
                         {
                             ItemsBinarySerializer.Serialize(item.Value, stream);
                             stream.Flush();
                             stream.Close();
                         }
+                    }
                 }
                 else
                 {
@@ -258,7 +261,7 @@ namespace EfsTools.Utils
                 if (fileAttribute == null)
                 {
                     var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
-                    if (nvItemIdAttribute != null)
+                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= UInt16.MaxValue)
                     {
                         var nvItemFileName = PathUtils.GetNvItemFileName((ushort) nvItemIdAttribute.Id);
                         var path = Path.Combine(directoryPath, nvItemFileName);

@@ -7,128 +7,171 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_ut_config", false, 0x81FF)]
+    [NvItemId(70263)]
+    [EfsFile("/nv/item_files/ims/qp_ims_ut_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsUtConfig
     {
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte Version { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(64)]
+        [ElementsCount(512)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field2 { get; set; }
+        [Optional]
+        public byte[] ApnName { get; set; }
 
-        public string Field2String
+        public string ApnNameString
         {
-            get => StringUtils.GetString(Field2);
-            set => Field2 = StringUtils.GetBytes(value, 64);
+            get => StringUtils.GetString(ApnName);
+            set => ApnName = StringUtils.GetBytes(value, 512);
         }
 
         [JsonIgnore]
-        [ElementsCount(256)]
+        [ElementsCount(2048)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field3 { get; set; }
+        [Optional]
+        public byte[] DomainName { get; set; }
 
-        public string Field3String
+        public string DomainNameString
         {
-            get => StringUtils.GetString(Field3);
-            set => Field3 = StringUtils.GetBytes(value, 256);
+            get => StringUtils.GetString(DomainName);
+            set => DomainName = StringUtils.GetBytes(value, 2048);
+        }
+
+        [JsonIgnore]
+        [ElementsCount(2048)]
+        [ElementType("uint8")]
+        [Description("")]
+        [Optional]
+        public byte[] AssociatedUri { get; set; }
+
+        public string AssociatedUriString
+        {
+            get => StringUtils.GetString(AssociatedUri);
+            set => AssociatedUri = StringUtils.GetBytes(value, 2048);
         }
 
 
         [JsonIgnore]
-        [ElementsCount(256)]
+        [ElementsCount(1024)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field4 { get; set; }
+        [Optional]
+        public byte[] ApplicationUid { get; set; }
 
-        public string Field4String
+        public string ApplicationUidString
         {
-            get => StringUtils.GetString(Field4);
-            set => Field4 = StringUtils.GetBytes(value, 256);
+            get => StringUtils.GetString(ApplicationUid);
+            set => ApplicationUid = StringUtils.GetBytes(value, 1024);
         }
-
-        [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Field5 { get; set; }
-
-        public string Field5String
-        {
-            get => StringUtils.GetString(Field5);
-            set => Field5 = StringUtils.GetBytes(value, 128);
-        }
-
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field6 { get; set; }
+        [Optional]
+        public uint RatConfig { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field7 { get; set; }
+        [Optional]
+        public byte IpAddrType { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field8 { get; set; }
+        [Optional]
+        public byte RetryTimerValue { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field9 { get; set; }
+        [Optional]
+        public byte RetryAttemptCount { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field10 { get; set; }
+        [Optional]
+        public byte ApnType { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field11 { get; set; }
+        [Optional]
+        public byte GbaUbType { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field12 { get; set; }
+        [Optional]
+        public byte GbaUbMode { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(64)]
+        [ElementsCount(512)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field13 { get; set; }
+        [Optional]
+        public byte[] BsfAddr { get; set; }
 
-        public string Field13String
+        public string BsfAddrString
         {
-            get => StringUtils.GetString(Field13);
-            set => Field13 = StringUtils.GetBytes(value, 64);
+            get => StringUtils.GetString(BsfAddr);
+            set => BsfAddr = StringUtils.GetBytes(value, 512);
         }
 
-        [JsonIgnore]
-        [ElementsCount(217)]
+        [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field14 { get; set; }
+        [Optional]
+        public byte DisableUt { get; set; }
 
-        public string Field14String
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        [Optional]
+        public byte GbaTlsMode { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        [Optional]
+        public ushort PdnHysTimerValue { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        [Optional]
+        public uint RatMaskValue { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        [Optional]
+        public byte Apn2IpAddrType { get; set; }
+
+        [JsonIgnore]
+        [ElementsCount(800)]
+        [ElementType("uint8")]
+        [Description("")]
+        [Optional]
+        public byte[] Apn2ApnName { get; set; }
+
+        public string Apn2ApnNameString
         {
-            get => StringUtils.GetString(Field14);
-            set => Field14 = StringUtils.GetBytes(value, 217);
+            get => StringUtils.GetString(Apn2ApnName);
+            set => Apn2ApnName = StringUtils.GetBytes(value, 800);
         }
     }
 }

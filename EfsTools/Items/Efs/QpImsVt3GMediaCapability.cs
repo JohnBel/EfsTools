@@ -5,10 +5,10 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [NvItemId(70295)]
-    [EfsFile("/nv/item_files/ims/qp_ims_vt_WLAN_media_capability", true, 0xE1FF)]
+    [NvItemId(70293)]
+    [EfsFile("/nv/item_files/ims/qp_ims_vt_3G_media_capability", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsVtWlanMediaCapability
+    public class QpImsVt3GMediaCapability
     {
         [ElementsCount(1)]
         [ElementType("uint8")]
@@ -253,5 +253,7 @@ namespace EfsTools.Items.Efs
         [ElementType("uint16")]
         [Description("")]
         public ushort H264Ipv6AsValue2 { get; set; }
+
+
     }
 }

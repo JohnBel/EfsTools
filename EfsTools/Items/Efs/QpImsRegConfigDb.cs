@@ -72,7 +72,8 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_reg_config_db", false, 0x81FF)]
+    [NvItemId(71527)]
+    [EfsFile("/nv/item_files/ims/qp_ims_reg_config_db", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsRegConfigDb
     {

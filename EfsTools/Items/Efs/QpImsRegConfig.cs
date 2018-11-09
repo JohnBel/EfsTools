@@ -39,8 +39,25 @@ namespace EfsTools.Items.Efs
         NoIms = 4
     }
 
+    public enum RegRatConfigValues : byte
+    {
+        None = 0,
+        Gprs = 1,
+        Edge = 2,
+        Wcdma = 3,
+        Wlan = 4,
+        Cdma = 5,
+        Iwlan = 6,
+        Dor0 = 7,
+        DorA = 8,
+        Ehrpd = 9,
+        Lte = 10,
+        Epc = 11
+    }
+
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_reg_config", false, 0x81FF)]
+    [NvItemId(67264)]
+    [EfsFile("/nv/item_files/ims/qp_ims_reg_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsRegConfig
     {
@@ -117,17 +134,23 @@ namespace EfsTools.Items.Efs
             set => RegManagerPreConfigServerBase = StringUtils.GetBytes(value, 256);
         }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("RegRatConfig = CONFIG_RAT_LTE")]
         public byte RegRatConfig { get; set; }
 
+        public string RegRatConfigString
+        {
+            get => $"{(RegRatConfigValues) RegRatConfig}";
+            set => RegRatConfig = (byte) Enum.Parse(typeof(RegRatConfigValues), value);
+        }
+
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte RegQosProfile { get; set; }
+        public byte RegNvPcScfEnabled { get; set; }
 
 
         [ElementsCount(1)]

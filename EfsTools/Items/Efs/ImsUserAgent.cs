@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/ims_user_agent", false, 0x81FF)]
+    [NvItemId(69689)]
+    [EfsFile("/nv/item_files/ims/ims_user_agent", true, 0xE1FF)]
     [Attributes(9)]
     public class ImsUserAgent
     {

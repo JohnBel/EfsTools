@@ -5,7 +5,8 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_config", false, 0x81FF)]
+    [NvItemId(69750)]
+    [EfsFile("/nv/item_files/ims/qp_ims_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsConfig
     {

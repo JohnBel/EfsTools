@@ -5,34 +5,35 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [NvItemId(73713)]
-    [EfsFile("/nv/item_files/ims/ims_rat_ho_config", true, 0xE1FF)]
+    [NvItemId(71565)]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_sm", true, 0xE1FF)]
     [Attributes(9)]
-    public class ImsRatHoConfig
+    public class QpImsRcsSm
     {
+        public QpImsRcsSm()
+        {
+            StandaloneMessageExplorerUri = new byte[128];
+        }
+        
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Version { get; set; }
 
         [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint ImsHoHystTimerEpdgLte { get; set; }
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint ImsHoHystTimerEpdg1x { get; set; }
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint ImsHoHystTimerEpdgWifi { get; set; }
-
-        [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte ImsHoEnabled { get; set; }
+        public byte StandaloneMessageAuth { get; set; }
+
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint StandaloneMessageMaxSize { get; set; }
+
+        [Optional]
+        [ElementsCount(128)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] StandaloneMessageExplorerUri { get; set; }
     }
 }

@@ -1,10 +1,29 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
+    public enum RuimImsiValues : byte
+    {
+        None = 0,
+        ImsiT = 1,
+        ImsiM = 2
+    }
+
+    public enum ImsParamSrcValues : byte
+    {
+        FileRead = 0,
+        NvRead = 1,
+        CardRead = 2,
+        FileReadAuthEnabled = 3,
+        UsimFallbackModeEnabled = 4,
+        UsimOnlyModeEnabled = 5
+    }
+    
     [Serializable]
+    [NvItemId(67261)]
     [EfsFile("/nv/item_files/ims/qp_ims_dpl_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsDplConfig
@@ -18,13 +37,13 @@ namespace EfsTools.Items.Efs
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort InitialBufferTimeValue { get; set; }
+        public ushort IsIpv6PrivateAddrEnabled { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte AmrMode { get; set; }
+        public byte E911Ipv6Enabled { get; set; }
 
 
         [ElementsCount(1)]
@@ -39,21 +58,35 @@ namespace EfsTools.Items.Efs
         public ushort MsRpPktSz { get; set; }
 
 
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte DscpValue { get; set; }
+        public byte RuimImsiValue { get; set; }
+
+        public string RuimImsiValueString
+        {
+            get => $"{(RuimImsiValues) RuimImsiValue}";
+            set => RuimImsiValue = (byte) Enum.Parse(typeof(RuimImsiValues), value);
+        }
 
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint RuimImsiValue { get; set; }
+        public uint DscpValue { get; set; }
 
-
+        
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte ImsParamSrc { get; set; }
+
+        public string ImsParamSrcString
+        {
+            get => $"{(ImsParamSrcValues) ImsParamSrc}";
+            set => ImsParamSrc = (byte) Enum.Parse(typeof(ImsParamSrcValues), value);
+        }
     }
 }

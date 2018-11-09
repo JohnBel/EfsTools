@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_param_config", false, 0x81FF)]
+    [NvItemId(67258)]
+    [EfsFile("/nv/item_files/ims/qp_ims_param_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsParamConfig
     {
@@ -15,24 +16,24 @@ namespace EfsTools.Items.Efs
         [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field1 { get; set; }
+        public byte[] RegConfigUserName { get; set; }
 
-        public string Field1String
+        public string RegConfigUserNameString
         {
-            get => StringUtils.GetString(Field1);
-            set => Field1 = StringUtils.GetBytes(value, 128);
+            get => StringUtils.GetString(RegConfigUserName);
+            set => RegConfigUserName = StringUtils.GetBytes(value, 128);
         }
 
         [JsonIgnore]
         [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field2 { get; set; }
+        public byte[] RegConfigPassword { get; set; }
 
-        public string Field2String
+        public string RegConfigPasswordString
         {
-            get => StringUtils.GetString(Field2);
-            set => Field2 = StringUtils.GetBytes(value, 128);
+            get => StringUtils.GetString(RegConfigPassword);
+            set => RegConfigPassword = StringUtils.GetBytes(value, 128);
         }
 
 
@@ -40,65 +41,65 @@ namespace EfsTools.Items.Efs
         [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field3 { get; set; }
+        public byte[] RegConfigPrivateUri { get; set; }
 
-        public string Field3String
+        public string RegConfigPrivateUriString
         {
-            get => StringUtils.GetString(Field3);
-            set => Field3 = StringUtils.GetBytes(value, 128);
+            get => StringUtils.GetString(RegConfigPrivateUri);
+            set => RegConfigPrivateUri = StringUtils.GetBytes(value, 128);
         }
 
         [JsonIgnore]
         [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field4 { get; set; }
+        public byte[] RegConfigDisplayName { get; set; }
 
-        public string Field4String
+        public string RegConfigDisplayNameString
         {
-            get => StringUtils.GetString(Field4);
-            set => Field4 = StringUtils.GetBytes(value, 128);
+            get => StringUtils.GetString(RegConfigDisplayName);
+            set => RegConfigDisplayName = StringUtils.GetBytes(value, 128);
         }
 
         [JsonIgnore]
         [ElementsCount(256)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field5 { get; set; }
+        public byte[] RegConfigDomainName { get; set; }
 
-        public string Field5String
+        public string RegConfigDomainNameString
         {
-            get => StringUtils.GetString(Field5);
-            set => Field5 = StringUtils.GetBytes(value, 256);
+            get => StringUtils.GetString(RegConfigDomainName);
+            set => RegConfigDomainName = StringUtils.GetBytes(value, 256);
         }
 
         [JsonIgnore]
         [ElementsCount(32)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field6 { get; set; }
+        public byte[] RegAuthSecretKey { get; set; }
 
-        public string Field6String
+        public string RegAuthSecretKeyString
         {
-            get => StringUtils.GetString(Field6);
-            set => Field6 = StringUtils.GetBytes(value, 32);
+            get => StringUtils.GetString(RegAuthSecretKey);
+            set => RegAuthSecretKey = StringUtils.GetBytes(value, 32);
         }
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field7 { get; set; }
+        public byte ThreeGppEnabled { get; set; }
 
         [JsonIgnore]
         [ElementsCount(32)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field8 { get; set; }
+        public byte[] RegConfigOPField { get; set; }
 
-        public string Field8String
+        public string RegConfigOPFieldString
         {
-            get => StringUtils.GetString(Field8);
-            set => Field8 = StringUtils.GetBytes(value, 32);
+            get => StringUtils.GetString(RegConfigOPField);
+            set => RegConfigOPField = StringUtils.GetBytes(value, 32);
         }
     }
 }

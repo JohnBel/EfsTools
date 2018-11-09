@@ -1,11 +1,63 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
+    public enum VideoResolutionValues : byte
+    {
+        Invalid = 0,
+        Sqcif = 1,
+        Qcif = 2,
+        Cif = 3,
+        Qqvga = 4,
+        Qvga = 5,
+        Vga = 6
+    }
+
+    public enum VideoCodecValues : byte
+    {
+        Invalid = 0,
+        Mpeg4Xvid = 1,
+        Mpeg4 = 2,
+        H263 = 3,
+        H264 = 4
+    }
+
+    public enum H264ProfileValues : byte
+    {
+        Invalid = 0,
+        Baseline = 1,
+        Main = 2,
+        Extended = 3,
+        High = 4
+    }
+
+    public enum H264ProfileLevelValues : byte
+    {
+        Invalid = 0,
+        Level1 = 1,
+        Level1B = 2,
+        Level11 = 3,
+        Level12 = 4,
+        Level13 = 5,
+        Level2 = 6,
+        Level21 = 7,
+        Level22 = 8,
+        Level3 = 9,
+        Level31 = 10,
+        Level32 = 11,
+        Level4 = 12,
+        Level41 = 13,
+        Level42 = 14,
+        Level5 = 15,
+        Level51 = 16
+    }
+    
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_media_config", false, 0x81FF)]
+    [NvItemId(67332)]
+    [EfsFile("/nv/item_files/ims/qp_ims_media_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsMediaConfig
     {
@@ -20,17 +72,17 @@ namespace EfsTools.Items.Efs
         public byte Version { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort RtpMtuSize { get; set; }
-
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte VideoResolution { get; set; }
 
+        public string VideoResolutionString
+        {
+            get => $"{(VideoResolutionValues) VideoResolution}";
+            set => VideoResolution = (byte) Enum.Parse(typeof(VideoResolutionValues), value);
+        }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
@@ -41,13 +93,19 @@ namespace EfsTools.Items.Efs
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte FramesperSecond { get; set; }
+        public byte FramesPerSecond { get; set; }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte VideoCodec { get; set; }
+
+        public string VideoCodecString
+        {
+            get => $"{(VideoCodecValues) VideoCodec}";
+            set => VideoCodec = (byte) Enum.Parse(typeof(VideoCodecValues), value);
+        }
 
 
         [ElementsCount(1)]
@@ -61,17 +119,30 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte Par { get; set; }
 
-
+        
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte H264Profile { get; set; }
-
-
+        
+        public string H264ProfileString
+        {
+            get => $"{(H264ProfileValues) H264Profile}";
+            set => H264Profile = (byte) Enum.Parse(typeof(H264ProfileValues), value);
+        }
+        
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte H264ProfileLevel { get; set; }
+
+        public string H264ProfileLevelString
+        {
+            get => $"{(H264ProfileLevelValues) H264ProfileLevel}";
+            set => H264ProfileLevel = (byte) Enum.Parse(typeof(H264ProfileLevelValues), value);
+        }
 
 
         [ElementsCount(1)]
@@ -189,7 +260,7 @@ namespace EfsTools.Items.Efs
 
 
         [Optional]
-        [ElementsCount(498)]
+        [ElementsCount(500)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Reserved { get; set; }

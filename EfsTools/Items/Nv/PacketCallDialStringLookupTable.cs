@@ -15,95 +15,95 @@ namespace EfsTools.Items.Nv
         [ElementsCount(5)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field1 { get; set; }
+        public byte[] DialString1 { get; set; }
 
-        public string Field1String
+        public string DialString1String
         {
-            get => StringUtils.GetString(Field1);
-            set => Field1 = StringUtils.GetBytes(value, 5);
+            get => StringUtils.GetString(DialString1);
+            set => DialString1 = StringUtils.GetBytes(value, 5);
         }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field2 { get; set; }
+        public ushort CallType1 { get; set; }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field3 { get; set; }
+        public ushort ModesPermitted1 { get; set; }
 
 
         [JsonIgnore]
         [ElementsCount(5)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field4 { get; set; }
+        public byte[] DialString2 { get; set; }
 
-        public string Field4String
+        public string DialString2String
         {
-            get => StringUtils.GetString(Field4);
-            set => Field4 = StringUtils.GetBytes(value, 5);
+            get => StringUtils.GetString(DialString2);
+            set => DialString2 = StringUtils.GetBytes(value, 5);
         }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field5 { get; set; }
+        public ushort CallType2 { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field6 { get; set; }
+        public ushort ModesPermitted2 { get; set; }
 
         [JsonIgnore]
         [ElementsCount(5)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field7 { get; set; }
+        public byte[] DialString3 { get; set; }
 
-        public string Field7String
+        public string DialString3String
         {
-            get => StringUtils.GetString(Field7);
-            set => Field7 = StringUtils.GetBytes(value, 5);
+            get => StringUtils.GetString(DialString3);
+            set => DialString3 = StringUtils.GetBytes(value, 5);
         }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field8 { get; set; }
+        public ushort CallType3 { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field9 { get; set; }
+        public ushort ModesPermitted3 { get; set; }
 
         [JsonIgnore]
         [ElementsCount(5)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field10 { get; set; }
+        public byte[] DialString4 { get; set; }
 
-        public string Field10String
+        public string DialString4String
         {
-            get => StringUtils.GetString(Field10);
-            set => Field10 = StringUtils.GetBytes(value, 5);
+            get => StringUtils.GetString(DialString4);
+            set => DialString4 = StringUtils.GetBytes(value, 5);
         }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field11 { get; set; }
+        public ushort CallType4 { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field12 { get; set; }
+        public ushort ModesPermitted4 { get; set; }
     }
 }

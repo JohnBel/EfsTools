@@ -5,10 +5,10 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [NvItemId(67218)]
-    [EfsFile("/nv/item_files/ims/IMS_enable", true, 0xE1FF)]
+    [NvItemId(71580)]
+    [EfsFile("/nv/item_files/ims/qp_ims_sip_subscribe_retry_count", true, 0xE1FF)]
     [Attributes(9)]
-    public class ImsEnable
+    public class QpImsSipSubscribeRetryCount
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -6,8 +6,26 @@ using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
+    public enum AuthSchemeValues : byte
+    {
+        None = 0,
+        Digest = 1,
+        Sag = 2,
+        Aka = 3,
+        Cave = 4,
+        AkaV2 = 5
+    }
+
+    public enum InitialAuthConfigValues : byte
+    {
+        None = 0,
+        Authorization = 1,
+        ProxyAuthorization = 2
+    }
+    
     [Serializable]
-    [EfsFile("/nv/item_files/ims/qp_ims_sip_config", false, 0x81FF)]
+    [NvItemId(67262)]
+    [EfsFile("/nv/item_files/ims/qp_ims_sip_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsSipConfig
     {
@@ -88,17 +106,29 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte IpSecEncAlgo { get; set; }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte AuthScheme { get; set; }
 
+        public string AuthSchemeString
+        {
+            get => $"{(AuthSchemeValues) AuthScheme}";
+            set => AuthScheme = (byte) Enum.Parse(typeof(AuthSchemeValues), value);
+        }
 
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte InitialAuthConfig { get; set; }
+
+        public string InitialAuthConfigString
+        {
+            get => $"{(InitialAuthConfigValues) InitialAuthConfig}";
+            set => InitialAuthConfig = (byte) Enum.Parse(typeof(InitialAuthConfigValues), value);
+        }
 
         [JsonIgnore]
         [ElementsCount(256)]

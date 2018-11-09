@@ -57,7 +57,10 @@ namespace EfsTools.Items
                         if (ignore == null)
                         {
                             var nvItemId = NvItemIdAttributeUtils.Get(type);
-                            if (nvItemId != null) _nvItemsMetadata.Add(nvItemId.Id, type);
+                            if (nvItemId != null && nvItemId.Id <= UInt16.MaxValue)
+                            {
+                                _nvItemsMetadata.Add(nvItemId.Id, type);
+                            }
                         }
                     }
             }
