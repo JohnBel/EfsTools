@@ -14,60 +14,60 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte Index { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public byte ActiveService { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field3 { get; set; }
+        public ushort ServiceFrom { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field4 { get; set; }
+        public ushort ServiceTo { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field5 { get; set; }
+        public byte Selected { get; set; }
 
         [JsonIgnore]
         [ElementsCount(30)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field6 { get; set; }
+        public byte[] Label { get; set; }
 
-        public string Field6String
+        public string LabelString
         {
-            get => StringUtils.GetString(Field6);
-            set => Field6 = StringUtils.GetBytes(value, 30);
+            get => StringUtils.GetString(Label);
+            set => Label = StringUtils.GetBytes(value, 30);
         }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field7 { get; set; }
+        public byte LabelEncoding { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field8 { get; set; }
+        public byte BcAlert { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field9 { get; set; }
+        public byte MaxMessages { get; set; }
     }
 }

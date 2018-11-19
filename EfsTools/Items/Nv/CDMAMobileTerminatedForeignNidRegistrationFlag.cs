@@ -9,21 +9,22 @@ namespace EfsTools.Items.Nv
     [Attributes(41)]
     public class CdmaMobileTerminatedForeignNidRegistrationFlag
     {
+        public CdmaMobileTerminatedForeignNidRegistrationFlag()
+        {
+            Enabled = new sbyte[2];
+        }
+        
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte Name { get; set; }
 
 
-        [ElementsCount(1)]
+        [ElementsCount(2)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public sbyte[] Enabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field3 { get; set; }
     }
 }

@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
-    public enum RatMode : sbyte
+    public enum RatMode : byte
     {
-        None = -1, /* FOR INTERNAL USE ONLY! */
+        None = byte.MaxValue, /* FOR INTERNAL USE ONLY! */
         NoSrv = 0, /**< No service; NV_MODE_INACTIVE. */
         AMPS = 1, /**< Analog Mobile Phone System (AMPS) mode. */
         CDMA = 2, /**< CDMA mode. */
@@ -28,12 +28,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class RatAcqOrder
     {
-        private ushort _ratCount;
-
         public RatAcqOrder()
         {
-            RawValues = new sbyte[10];
-            _ratCount = 0;
         }
 
         [ElementsCount(1)]
@@ -42,32 +38,43 @@ namespace EfsTools.Items.Efs
         public short Version { get; set; }
 
         [JsonIgnore]
+        [Optional]
+        [ConvertEndian]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort RatCount
-        {
-            get => _ratCount;
-            set
-            {
-                if (value > 10)
-                    _ratCount = 10;
-                else
-                    _ratCount = value;
-            }
-        }
+        public ushort RatCount { get; set; }
 
 
         [JsonIgnore]
+        [Optional]
         [ElementsCount(10)]
-        [ElementType("int8")]
+        [ElementType("uint8")]
         [Description("")]
-        public sbyte[] RawValues { get; set; }
+        public byte[] RawValues
+        {
+            get
+            {
+                return _rawValues;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    var len = Math.Min(value.Length, 10);
+                    Array.Copy(value, _rawValues, len);
+                }
+            }
+        }
 
         public string[] Values
         {
             get
             {
+                if (RatCount > 10)
+                {
+                    RatCount = 10;
+                }
                 var res = new string[RatCount];
                 var raw = RawValues;
                 for (var i = 0; i < RatCount; ++i) res[i] = $"{(RatMode) raw[i]}";
@@ -75,13 +82,16 @@ namespace EfsTools.Items.Efs
             }
             set
             {
-                var data = value.Select(s => (RatMode) Enum.Parse(typeof(RatMode), s)).ToArray();
-                if (data.Length > 10)
+                var data = value.Select(s => (byte) Enum.Parse(typeof(RatMode), s)).ToArray();
+                RawValues = data;
+                RatCount = (ushort)data.Length;
+                if (RatCount > 10)
+                {
                     RatCount = 10;
-                else
-                    RatCount = (ushort) data.Length;
-                Array.Copy(data, 0, RawValues, 0, RatCount);
+                }
             }
         }
+
+        private readonly byte[] _rawValues = new byte[10];
     }
 }

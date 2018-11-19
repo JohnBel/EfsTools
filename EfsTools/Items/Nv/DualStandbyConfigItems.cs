@@ -12,36 +12,36 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte DedicatedVoiceSubs { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public byte DedicatedDataSubs { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field3 { get; set; }
+        public byte ActiveSubs { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field4 { get; set; }
+        public byte PrioritySubs { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field5 { get; set; }
+        public byte DualStandbyPref { get; set; }
 
-
+        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field6 { get; set; }
+        public byte Reserved { get; set; }
     }
 }

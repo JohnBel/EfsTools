@@ -11,21 +11,34 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public class PacketDataCallsOriginateString
     {
+        public PacketDataCallsOriginateString()
+        {
+            Digits = new byte[16];
+        }
+        
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte NumDigits { get; set; }
 
         [JsonIgnore]
         [ElementsCount(16)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] Field2 { get; set; }
+        public byte[] Digits { get; set; }
 
-        public string Field2String
+        public string DigitsString
         {
-            get => StringUtils.GetString(Field2);
-            set => Field2 = StringUtils.GetBytes(value, 16);
+            get => StringUtils.GetString(Digits);
+            set
+            {
+                if (value != null)
+                {
+                    Digits = StringUtils.GetBytes(value, 16);
+                    NumDigits = (byte) Math.Min(value.Length, 16);
+                }
+            }
         }
     }
 }

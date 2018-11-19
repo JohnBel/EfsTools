@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
@@ -21,10 +23,17 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte Version { get; set; }
         
+        [JsonIgnore]
         [Optional]
         [ElementsCount(192)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] CellId { get; set; }
+
+        public string CellIdString
+        {
+            get => StringUtils.GetString(CellId);
+            set => CellId = StringUtils.GetBytes(value, 192);
+        }
     }
 }

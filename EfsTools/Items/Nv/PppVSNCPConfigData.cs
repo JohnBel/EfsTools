@@ -12,24 +12,24 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field1 { get; set; }
+        public uint TermTimeout { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field2 { get; set; }
+        public uint AckTimeout { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field3 { get; set; }
+        public ushort RegTry { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field4 { get; set; }
+        public ushort TermTry { get; set; }
     }
 }

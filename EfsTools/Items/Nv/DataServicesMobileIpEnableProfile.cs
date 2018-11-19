@@ -9,39 +9,14 @@ namespace EfsTools.Items.Nv
     [Attributes(13)]
     public class DataServicesMobileIpEnableProfile
     {
-        [ElementsCount(1)]
+        public DataServicesMobileIpEnableProfile()
+        {
+            EnableProfs = new byte[6];
+        }
+        
+        [ElementsCount(6)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field2 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field3 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field4 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field5 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte Field6 { get; set; }
+        public byte[] EnableProfs { get; set; }
     }
 }

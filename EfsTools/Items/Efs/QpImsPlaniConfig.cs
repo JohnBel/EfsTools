@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
@@ -12,9 +14,10 @@ namespace EfsTools.Items.Efs
     {
         public QpImsPlaniConfig()
         {
-            SectorId = new byte[128];
-            Mcc = new byte[48];
-            Mnc = new byte[48];
+            SectorId = new byte[16];
+            Mcc = new byte[6];
+            Mnc = new byte[6];
+            Reserved = new byte[65];
         }
         
         [Optional]
@@ -71,11 +74,18 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public ushort BaseId { get; set; }
 
+        [JsonIgnore]
         [Optional]
-        [ElementsCount(128)]
+        [ElementsCount(16)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] SectorId { get; set; }
+
+        public string SectorIdString
+        {
+            get => StringUtils.GetString(SectorId);
+            set => SectorId = StringUtils.GetBytes(value, 16);
+        }
 
         [Optional]
         [ElementsCount(1)]
@@ -126,15 +136,35 @@ namespace EfsTools.Items.Efs
         public ushort TimeDayOfWeek { get; set; }
 
         [Optional]
-        [ElementsCount(48)]
+        [JsonIgnore]
+        [ElementsCount(6)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Mcc { get; set; }
 
+        public string MccString
+        {
+            get => StringUtils.GetString(Mcc);
+            set => Mcc = StringUtils.GetBytes(value, 48);
+        }
+
         [Optional]
-        [ElementsCount(48)]
+        [JsonIgnore]
+        [ElementsCount(6)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Mnc { get; set; }
+
+        public string MncString
+        {
+            get => StringUtils.GetString(Mnc);
+            set => Mnc = StringUtils.GetBytes(value, 48);
+        }
+
+        [Optional]
+        [ElementsCount(65)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] Reserved { get; set; }
     }
 }

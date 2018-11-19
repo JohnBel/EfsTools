@@ -12,24 +12,24 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte EhrpdOnlyFlag { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public byte MaxFailureCount { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field3 { get; set; }
+        public byte MaxFailureTotalCount { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field4 { get; set; }
+        public byte NewAttemptMaxTimer { get; set; }
     }
 }

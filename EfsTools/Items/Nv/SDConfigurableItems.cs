@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
@@ -12,162 +13,58 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field1 { get; set; }
+        public ushort Version { get; set; }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field2 { get; set; }
+        public ushort Count { get; set; }
 
-
-        [ElementsCount(1)]
+        [JsonIgnore]
+        [ElementsCount(25)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field3 { get; set; }
+        public uint[] RawItems
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    var len = Math.Min(value.Length, _items.Length);
+                    Array.Copy(value, _items, len);
+                }
+            }
+        }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field4 { get; set; }
+        public uint[] Items
+        {
+            get
+            {
+                if (Count >= 25)
+                {
+                    return _items;
+                }
+                var data = new uint[Count];
+                Array.Copy(_items, data, Count);
+                return data;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    var len = Math.Min(value.Length, _items.Length);
+                    Array.Copy(value, _items, len);
+                    Count = (ushort)len;
+                }
+            }
+        }
 
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field5 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field6 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field7 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field8 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field9 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field10 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field11 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field12 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field13 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field14 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field15 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field16 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field17 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field18 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field19 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field20 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field21 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field22 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field23 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field24 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field25 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field26 { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint Field27 { get; set; }
+        private readonly uint[] _items = new uint[25];
     }
 }

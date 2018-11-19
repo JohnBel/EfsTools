@@ -4,6 +4,7 @@ using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
+    [Ignore]
     [Serializable]
     [EfsFile("/sd/bst_tbl", false, 0x81FF)]
     [Attributes(9)]

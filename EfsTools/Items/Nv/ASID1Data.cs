@@ -12,12 +12,12 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte SessionType { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("int8")]
         [Description("")]
-        public sbyte Field2 { get; set; }
+        public sbyte Reserved { get; set; }
     }
 }

@@ -9,15 +9,9 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public class RfBandConfiguration
     {
-        [ElementsCount(8)]
-        [ElementType("int8")]
+        [ElementsCount(1)]
+        [ElementType("uint64")]
         [Description("")]
-        public byte[] Value { get; set; }
-
-        /*public string ValueString
-        {
-	        get { return StringUtils.GetStringWithZero(Value); }
-	        set { Value = StringUtils.GetBytesWithZero(value, 8); }
-	    }*/
+        public ulong Value { get; set; }
     }
 }

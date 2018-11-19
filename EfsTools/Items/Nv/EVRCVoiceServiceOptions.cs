@@ -12,30 +12,30 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte Nam { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public byte EvrcCapabilityEnabled { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field3 { get; set; }
+        public ushort HomePageVoiceSo { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field4 { get; set; }
+        public ushort HomeOrigVoiceSo { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field5 { get; set; }
+        public ushort RoamOrigVoiceSo { get; set; }
     }
 }

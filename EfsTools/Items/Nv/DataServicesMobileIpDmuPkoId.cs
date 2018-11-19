@@ -12,12 +12,12 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte Index { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field2 { get; set; }
+        public byte PkoId { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
+    [Ignore]
     [Serializable]
     [NvItemId(2826)]
     [Attributes(9)]

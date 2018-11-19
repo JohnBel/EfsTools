@@ -12,24 +12,30 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte Field1 { get; set; }
+        public byte CustomConfigIsActive { get; set; }
 
-
+        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field2 { get; set; }
+        public uint Subtype2PhysicalLayer { get; set; }
 
-
+        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field3 { get; set; }
+        public uint EnhancedCcmac { get; set; }
 
-
+        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
-        public uint Field4 { get; set; }
+        public uint EnhancedAcmac { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint EnhancedFtcmac { get; set; }
     }
 }

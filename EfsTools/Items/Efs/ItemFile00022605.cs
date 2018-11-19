@@ -7,9 +7,10 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [EfsFile("/nv/item_files/rfnv/00022605", false, 0x81FF)]
+    [NvItemId(68468)]
+    [EfsFile("/nv/item_files/rfnv/00022605", true, 0xE1FF)]
     [Attributes(9)]
-    public class ItemFile00022605
+    public class RfnvTdscdmaBcConfig
     {
         [JsonIgnore]
         [ElementsCount(8)]

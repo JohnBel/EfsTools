@@ -12,36 +12,36 @@ namespace EfsTools.Items.Nv
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field1 { get; set; }
+        public ushort InitSolDelay { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field2 { get; set; }
+        public ushort SolInterval { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field3 { get; set; }
+        public ushort ResolInterval { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field4 { get; set; }
+        public ushort MaxSolAttempts { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field5 { get; set; }
+        public ushort MaxResolAttempts { get; set; }
 
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        public ushort Field6 { get; set; }
+        public ushort PreRaExpResolTime { get; set; }
     }
 }
