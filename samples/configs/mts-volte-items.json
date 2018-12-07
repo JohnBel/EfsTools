@@ -248,7 +248,7 @@
     ]
   },
   "ImsUserAgent": {
-    "ValueString": "Xiaomi MI5"
+    "ValueString": "XiaomiMi5"
   },
   "OverideConfig": {
     "Values": [
@@ -1068,8 +1068,8 @@
       "#This config is required to configure the method for session",
       "#referesh shall be REINVITE/UPDATE.",
       "",
-      "sessionRefresherMethod = QP_CONFIG_SES_REFRESH_UPDATE",
-      "#sessionRefresherMethod = QP_CONFIG_SES_REFRESH_INVITE",
+      "#sessionRefresherMethod = QP_CONFIG_SES_REFRESH_UPDATE",
+      "sessionRefresherMethod = QP_CONFIG_SES_REFRESH_INVITE",
       "",
       "",
       "[QIPCALL:ImsVoiceConfig]",
@@ -1085,7 +1085,7 @@
       "#This config is required to enable 380 response validation as per",
       "#3GPP.",
       "",
-      "enableAlternateSrvRspCheck = 0",
+      "enableAlternateSrvRspCheck = 1",
       "",
       "#This config is required to set the display text priority",
       "#subscription.",
@@ -1199,7 +1199,7 @@
       "",
       "#This config item will be used to configure default is3GPP",
       "",
-      "is3GPP = 0",
+      "is3GPP = 1",
       "",
       "#This config item will be used to configure default Realm to register with Network",
       "",
@@ -1481,6 +1481,18 @@
       ""
     ]
   },
+  "MidCallSrvccInfo": {
+    "Version": 1,
+    "ImsCacheExpiryDuration": 5000,
+    "MidCallSupport": 1,
+    "SrvccSyncSupport": 0,
+    "Reserved": 0
+  },
+  "GetNetAutoMode": {
+    "Version": 0,
+    "Value": 1,
+    "Reserved": 0
+  },
   "QpImsPlaniConfig": {
     "Version": 0,
     "AccessType": 0,
@@ -1491,7 +1503,7 @@
     "Nid": 0,
     "Pzid": 0,
     "BaseId": 0,
-    "SectorId": "",
+    "SectorIdString": "",
     "SubnetLength": 0,
     "TimeSeconds": 0,
     "TimeMinutes": 0,
@@ -1500,13 +1512,16 @@
     "TimeMonths": 0,
     "TimeYears": 0,
     "TimeDayOfWeek": 0,
-    "Mcc": "",
-    "Mnc": ""
+    "MccString": "",
+    "MncString": ""
   },
   "QpImsRcsXdmcConfig": {
-    "Version": 1,
+    "Version": 0,
     "DisableXdmc": 1,
     "Reserved": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+  },
+  "VoipPrfrdCodec": {
+    "Value": 0
   },
   "UeBasedCw": {
     "Value1": 1,
@@ -1599,16 +1614,16 @@
     "RegManagerPdpProfileNameString": "ims",
     "RegEventPacket": 1,
     "RegPcoeEnabled": 1,
-    "RegDhcpEnabled": 1,
+    "RegDhcpEnabled": 0,
     "RegPreConfigEnabled": 0,
     "RegManagerPreConfigServerBaseString": "",
     "RegRatConfigString": "Lte",
     "RegNvPcScfEnabled": 1,
     "RegWlanEnabled": 1,
     "RegUserNameImsi": 0,
-    "RegResponseforOptions": 0,
+    "RegResponseForOptions": 1,
     "RegConfigMaxDiscoveryCount": 0,
-    "RegManagerDiscoveryScheduleString": "",
+    "RegManagerDiscoveryScheduleString": "60",
     "RegManagerCdmaPdpProfileNameString": "106",
     "RegConfigPdnRecoveryDelayTimerVal": 60,
     "RegManagerPdpFailureScheduleString": "5,5,5",
@@ -1748,6 +1763,21 @@
       ""
     ],
     "ReservedBytes": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+  },
+  "QpImsVoipConfig": {
+    "VoipConfigDisableChecksFor380Res": 1,
+    "VoipConfigDomainNotificationEnable": 1,
+    "VoipConfigRtcp": 1,
+    "VoipConfigAcceptContactString": "urn:urn-7:3gpp-service.ims.icsi.mmtel",
+    "VoipConfigExpires": 1800,
+    "VoipMinSessionExpires": 600,
+    "VoipSessionTimerEnabled": 1,
+    "VoipConfigConfUriString": "sip:mmtel@conf-factory.ims.mnc001.mcc250.3gppnetwork.org",
+    "VoipSilentRedialEnabled": 0,
+    "VoipAllowSeNegotiation": 1800,
+    "VoipConfigSessionRefresherTypeString": "Uac",
+    "VoipConfigSessionRefresherMethodString": "RefreshInvite",
+    "VoipConfigInviteHeaderString": ""
   },
   "SmsDomainPref": {
     "StringValue": "PsSmsPref"
