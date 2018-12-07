@@ -8,7 +8,7 @@ namespace EfsTools.Qualcomm
     {
         private readonly SerialPort _port;
 
-        private readonly byte[] _readBuffer = new byte[6 * 1024];
+        private readonly byte[] _readBuffer = new byte[64 * 1024];
 
         public HdlcSerial(string port, int baudrate, int timeout)
         {

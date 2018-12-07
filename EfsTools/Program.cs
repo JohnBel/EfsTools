@@ -75,7 +75,7 @@ namespace EfsTools
             }
             catch (Exception ex)
             {
-                if (logger != null) logger.LogError(Strings.CriticalErrorFormat, ex.Message);
+                logger?.LogError(Strings.CriticalErrorFormat, ex.Message);
             }
 
             //Console.WriteLine(Strings.PressEnterToExit);

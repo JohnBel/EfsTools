@@ -673,6 +673,15 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Many log lines. Please disable log..
+        /// </summary>
+        internal static string QcdmManyLogLines {
+            get {
+                return ResourceManager.GetString("QcdmManyLogLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processing &apos;{0}&apos; ....
         /// </summary>
         internal static string QcdmProcessingFormat {

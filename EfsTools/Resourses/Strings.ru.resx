@@ -354,4 +354,7 @@
   <data name="Usage" xml:space="preserve">
     <value>ЗАПУСК</value>
   </data>
+  <data name="QcdmManyLogLines" xml:space="preserve">
+    <value>Много строк лога. Пожалуйста отключите логирование.</value>
+  </data>
 </root>

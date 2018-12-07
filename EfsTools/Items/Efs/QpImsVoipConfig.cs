@@ -15,8 +15,8 @@ namespace EfsTools.Items.Efs
 
     public enum VoipConfigSessionRefresherMethodValues : byte
     {
-        RefreashInvite = 0,
-        RefreashUpdate = 1
+        RefreshInvite = 0,
+        RefreshUpdate = 1
     }
     
     [Serializable]

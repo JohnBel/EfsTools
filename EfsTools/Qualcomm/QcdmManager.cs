@@ -207,13 +207,27 @@ namespace EfsTools.Qualcomm
 
         public IQcdmCommandResponse ExecuteQcdmCommandRequest(IQcdmCommandRequest request)
         {
-            if (!IsOpen) throw new QcdmManagerException(Strings.QcdmSerialPortIsNotOpen);
+            if (!IsOpen) 
+                throw new QcdmManagerException(Strings.QcdmSerialPortIsNotOpen);
 
             var data = request.GetData();
             _port.Write(data);
 
-            var responseData = _port.Read();
-            var response = CreateResponse(responseData);
+            bool doRead = true;
+            IQcdmCommandResponse response = null;
+            int counter = 0;
+            while (doRead)
+            {
+                var responseData = _port.Read();
+                response = CreateResponse(responseData);
+                doRead = (response is LogCommandResponse);
+                ++counter;
+                if (counter > 10)
+                {
+                    throw new QcdmManagerException(Strings.QcdmManyLogLines);
+                }
+            }
+
             return response;
         }
 
