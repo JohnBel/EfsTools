@@ -37,39 +37,33 @@ namespace EfsTools.Items.Efs
 
 
         [ElementsCount(1)]
-        [ElementType("uint16")]
+        [ElementType("uint32")]
         [Description("")]
-        public ushort TimerT1Value { get; set; }
+        public uint TimerT1Value { get; set; }
 
 
         [ElementsCount(1)]
-        [ElementType("uint16")]
+        [ElementType("uint32")]
         [Description("")]
-        public ushort TimerT2Value { get; set; }
+        public uint TimerT2Value { get; set; }
 
 
         [ElementsCount(1)]
-        [ElementType("uint16")]
+        [ElementType("uint32")]
         [Description("")]
-        public ushort TimerT3Value { get; set; }
+        public uint TimerT4Value { get; set; }
 
 
         [ElementsCount(1)]
-        [ElementType("uint16")]
+        [ElementType("uint32")]
         [Description("")]
-        public ushort TimerT4Value { get; set; }
+        public uint TimerTfValue { get; set; }
 
 
         [ElementsCount(1)]
-        [ElementType("uint16")]
+        [ElementType("uint32")]
         [Description("")]
-        public ushort TimerTfValue { get; set; }
-
-
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort TimerTJValue { get; set; }
+        public uint TimerTJValue { get; set; }
 
 
         [ElementsCount(1)]
@@ -108,66 +102,147 @@ namespace EfsTools.Items.Efs
         public byte IpSecEncAlgo { get; set; }
 
 
-        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte AuthScheme { get; set; }
 
-        public string AuthSchemeString
-        {
-            get => $"{(AuthSchemeValues) AuthScheme}";
-            set => AuthScheme = (byte) Enum.Parse(typeof(AuthSchemeValues), value);
-        }
-
-        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        [Optional]
         public byte InitialAuthConfig { get; set; }
 
-        public string InitialAuthConfigString
-        {
-            get => $"{(InitialAuthConfigValues) InitialAuthConfig}";
-            set => InitialAuthConfig = (byte) Enum.Parse(typeof(InitialAuthConfigValues), value);
-        }
-
         [JsonIgnore]
-        [ElementsCount(2048)]
+        [ElementsCount(256)]
         [ElementType("uint8")]
         [Description("")]
-        [Optional]
         public byte[] ShortCodeList { get; set; }
 
         public string ShortCodeListString
         {
             get => StringUtils.GetString(ShortCodeList);
-            set => ShortCodeList = StringUtils.GetBytes(value, 2048);
+            set => ShortCodeList = StringUtils.GetBytes(value, 256);
         }
 
+        [Optional]
         [JsonIgnore]
-        [ElementsCount(2048)]
+        [ElementsCount(256)]
         [ElementType("uint8")]
         [Description("")]
-        [Optional]
         public byte[] ProxyRouteValue { get; set; }
 
         public string ProxyRouteValueString
         {
             get => StringUtils.GetString(ProxyRouteValue);
-            set => ProxyRouteValue = StringUtils.GetBytes(value, 2048);
+            set => ProxyRouteValue = StringUtils.GetBytes(value, 256);
         }
 
-
-        /*[ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint KeepAliveEnabled { get; set; }
-
-        [ElementsCount(467)]
+        [Optional]
+        [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte[] ReservedBytes { get; set; }*/
+        public byte KeepAliveEnabled { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerNatRtoValue { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerVzW { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerEmergencySipRegValue { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerEmergencyT1Value { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerEmergencyT2Value { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerEmergencyT4Value { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerEmergencyTfValue { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerEmergencyTJValue { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte CivicLocQueryTimeout { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint16")]
+        [Description("")]
+        public ushort GpsLocFixQueryTimeout { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TimerTbValue { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte GruuEnabled { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte TransportSwitchEnabled { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint32")]
+        [Description("")]
+        public uint TcpMaxBackOffTimer { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte RouteHeaderEnabled { get; set; }
+
+        [Optional]
+        [ElementsCount(1)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte GzipDecodingOutBufferMultiplier { get; set; }
+
+        [Optional]
+        [ElementsCount(424)]
+        [ElementType("uint8")]
+        [Description("")]
+        public byte[] ReservedBytes { get; set; }
     }
 }

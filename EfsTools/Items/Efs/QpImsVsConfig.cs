@@ -32,7 +32,7 @@ namespace EfsTools.Items.Efs
         
         [Optional]
         [JsonIgnore]
-        [ElementsCount(1024)]
+        [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] ConfigSdpApplicationAttribute { get; set; }
@@ -40,7 +40,7 @@ namespace EfsTools.Items.Efs
         public string ConfigSdpApplicationAttributeString
         {
             get => StringUtils.GetString(ConfigSdpApplicationAttribute);
-            set => ConfigSdpApplicationAttribute = StringUtils.GetBytes(value, 1024);
+            set => ConfigSdpApplicationAttribute = StringUtils.GetBytes(value, 128);
         }
 
         [Optional]
@@ -52,7 +52,7 @@ namespace EfsTools.Items.Efs
 
         [Optional]
         [JsonIgnore]
-        [ElementsCount(2048)]
+        [ElementsCount(256)] //Todo: check
         [ElementType("uint8")]
         [Description("")]
         public byte[] ConfigReceiverUri { get; set; }
@@ -60,7 +60,7 @@ namespace EfsTools.Items.Efs
         public string ConfigReceiverUriString
         {
             get => StringUtils.GetString(ConfigReceiverUri);
-            set => ConfigReceiverUri = StringUtils.GetBytes(value, 2048);
+            set => ConfigReceiverUri = StringUtils.GetBytes(value, 256);
         }
 
         [Optional]
@@ -149,7 +149,7 @@ namespace EfsTools.Items.Efs
 
         [Optional]
         [JsonIgnore]
-        [ElementsCount(1024)]
+        [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] ConfigFilePath { get; set; }
@@ -157,7 +157,7 @@ namespace EfsTools.Items.Efs
         public string ConfigFilePathString
         {
             get => StringUtils.GetString(ConfigFilePath);
-            set => ConfigFilePath = StringUtils.GetBytes(value, 1024);
+            set => ConfigFilePath = StringUtils.GetBytes(value, 128);
         }
 
         [Optional]

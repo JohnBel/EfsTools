@@ -168,7 +168,7 @@ namespace EfsTools.Items.Efs
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte RegResponseforOptions { get; set; }
+        public byte RegResponseForOptions { get; set; }
 
 
         [ElementsCount(1)]

@@ -13,7 +13,7 @@ namespace EfsTools.Items.Efs
     public class QpImsRcsConfig
     {
         [JsonIgnore]
-        [ElementsCount(2048)]
+        [ElementsCount(256)] //Todo: check
         [ElementType("uint8")]
         [Description("")]
         [Optional]
@@ -22,7 +22,7 @@ namespace EfsTools.Items.Efs
         public string PresenceMgrConfigHttpProxyString
         {
             get => StringUtils.GetString(PresenceMgrConfigHttpProxy);
-            set => PresenceMgrConfigHttpProxy = StringUtils.GetBytes(value, 2048);
+            set => PresenceMgrConfigHttpProxy = StringUtils.GetBytes(value, 256);
         }
 
         [ElementsCount(1)]

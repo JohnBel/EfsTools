@@ -18,7 +18,7 @@ namespace EfsTools.Items.Efs
         public byte Version { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(512)]
+        [ElementsCount(64)]
         [ElementType("uint8")]
         [Description("")]
         [Optional]
@@ -27,11 +27,11 @@ namespace EfsTools.Items.Efs
         public string ApnNameString
         {
             get => StringUtils.GetString(ApnName);
-            set => ApnName = StringUtils.GetBytes(value, 512);
+            set => ApnName = StringUtils.GetBytes(value, 64);
         }
 
         [JsonIgnore]
-        [ElementsCount(2048)]
+        [ElementsCount(256)] //Todo: check
         [ElementType("uint8")]
         [Description("")]
         [Optional]
@@ -40,11 +40,11 @@ namespace EfsTools.Items.Efs
         public string DomainNameString
         {
             get => StringUtils.GetString(DomainName);
-            set => DomainName = StringUtils.GetBytes(value, 2048);
+            set => DomainName = StringUtils.GetBytes(value, 256);
         }
 
         [JsonIgnore]
-        [ElementsCount(2048)]
+        [ElementsCount(256)] //Todo: check
         [ElementType("uint8")]
         [Description("")]
         [Optional]
@@ -53,12 +53,12 @@ namespace EfsTools.Items.Efs
         public string AssociatedUriString
         {
             get => StringUtils.GetString(AssociatedUri);
-            set => AssociatedUri = StringUtils.GetBytes(value, 2048);
+            set => AssociatedUri = StringUtils.GetBytes(value, 256);
         }
 
 
         [JsonIgnore]
-        [ElementsCount(1024)]
+        [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]
         [Optional]
@@ -67,7 +67,7 @@ namespace EfsTools.Items.Efs
         public string ApplicationUidString
         {
             get => StringUtils.GetString(ApplicationUid);
-            set => ApplicationUid = StringUtils.GetBytes(value, 1024);
+            set => ApplicationUid = StringUtils.GetBytes(value, 128);
         }
 
         [ElementsCount(1)]
@@ -162,7 +162,7 @@ namespace EfsTools.Items.Efs
         public byte Apn2IpAddrType { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(800)]
+        [ElementsCount(64)]
         [ElementType("uint8")]
         [Description("")]
         [Optional]
@@ -171,7 +171,7 @@ namespace EfsTools.Items.Efs
         public string Apn2ApnNameString
         {
             get => StringUtils.GetString(Apn2ApnName);
-            set => Apn2ApnName = StringUtils.GetBytes(value, 800);
+            set => Apn2ApnName = StringUtils.GetBytes(value, 64);
         }
     }
 }
