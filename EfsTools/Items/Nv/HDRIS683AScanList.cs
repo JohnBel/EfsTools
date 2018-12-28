@@ -14,12 +14,10 @@ namespace EfsTools.Items.Nv
         [Description("")]
         public byte Nam { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Band { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint16")]

@@ -27,6 +27,7 @@ namespace EfsTools.Items.Efs
 		    Version = 9;
 		}
 		
+        [Required]
 		[ElementsCount(1)]
 		[ElementType("uint8")]
 		[Description("")]

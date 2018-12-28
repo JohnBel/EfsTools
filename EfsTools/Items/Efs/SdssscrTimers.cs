@@ -14,6 +14,7 @@ namespace EfsTools.Items.Efs
         {
         }
 
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]

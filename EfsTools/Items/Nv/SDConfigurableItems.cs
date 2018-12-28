@@ -10,6 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public class SdConfigurableItems
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]

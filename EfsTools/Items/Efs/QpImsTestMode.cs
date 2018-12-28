@@ -10,12 +10,12 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsTestMode
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value { get; set; }
 
-        [Optional]
         [ElementsCount(3)]
         [ElementType("uint8")]
         [Description("")]

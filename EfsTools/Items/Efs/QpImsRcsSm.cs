@@ -15,6 +15,7 @@ namespace EfsTools.Items.Efs
             StandaloneMessageExplorerUri = new byte[128];
         }
         
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -30,7 +31,6 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public uint StandaloneMessageMaxSize { get; set; }
 
-        [Optional]
         [ElementsCount(128)]
         [ElementType("uint8")]
         [Description("")]

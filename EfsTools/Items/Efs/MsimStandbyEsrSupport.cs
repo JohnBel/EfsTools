@@ -14,7 +14,6 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte Field1 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

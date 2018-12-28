@@ -10,6 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsUssdConfig
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -21,7 +22,6 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte UssdEnable { get; set; }
 
-        [Optional]
         [ElementsCount(509)]
         [ElementType("uint8")]
         [Description("")]

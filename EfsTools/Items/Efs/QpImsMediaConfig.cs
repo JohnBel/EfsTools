@@ -66,6 +66,7 @@ namespace EfsTools.Items.Efs
             Reserved = new byte[498];
         }
 
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -259,7 +260,6 @@ namespace EfsTools.Items.Efs
         public byte RxSystemDelay { get; set; }
 
 
-        [Optional]
         [ElementsCount(500)]
         [ElementType("uint8")]
         [Description("")]

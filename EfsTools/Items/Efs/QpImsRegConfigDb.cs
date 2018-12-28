@@ -24,6 +24,41 @@ namespace EfsTools.Items.Efs
 //    IMSRTP_DCM_RAT_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
 //}imsrtp_dcm_rat_type_v01;
 
+//   ImsServiceInfo
+//#define IMS_SETTINGS_SERVICE_TYPE_VOLTE_V01 ((ims_settings_service_type_mask_v01)0x01ull) /**<  Bitmask to indicate the VoLTE service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_VT_V01 ((ims_settings_service_type_mask_v01)0x02ull) /**<  Bitmask to indicate the Video Telephony service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_SMS_V01 ((ims_settings_service_type_mask_v01)0x04ull) /**<  Bitmask to indicate the SMS service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_IM_V01 ((ims_settings_service_type_mask_v01)0x08ull) /**<  Bitmask to indicate the Instant Messaging service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_VS_V01 ((ims_settings_service_type_mask_v01)0x10ull) /**<  Bitmask to indicate the Video Share service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_IS_V01 ((ims_settings_service_type_mask_v01)0x20ull) /**<  Bitmask to indicate the Image Share service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_MSRP_V01 ((ims_settings_service_type_mask_v01)0x40ull) /**<  Bitmask to indicate the MSRP service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_GL_V01 ((ims_settings_service_type_mask_v01)0x80ull) /**<  Bitmask to indicate the Geo-Location service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_PRESENCE_V01 ((ims_settings_service_type_mask_v01)0x100ull) /**<  Bitmask to indicate the Presence service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_FT_V01 ((ims_settings_service_type_mask_v01)0x200ull) /**<  Bitmask to indicate the File Transfer service.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_RCS_ALL_V01 ((ims_settings_service_type_mask_v01)0x400ull) /**<  Bitmask to indicate all the RCS services.  */
+//#define IMS_SETTINGS_SERVICE_TYPE_DEFAULT_V01 ((ims_settings_service_type_mask_v01)0x8000ull) /**<  Bitmask to indicate the default services.\n
+
+    public enum ImsServiceInfoValues : ushort
+    {
+        None = 0x0,
+        VoLte = 0x1,
+        Vt = 0x2,
+        VoLte_Vt = 0x3,
+        Sms = 0x4,
+        VoLte_Sms = 0x5,
+        Vt_Sms = 0x6,
+        VoLte_Vt_Sms = 0x7,
+        Im = 0x8,
+        Vs = 0x10,
+        Is = 0x20,
+        Msrp = 0x40,
+        Gl = 0x80,
+        Presence = 0x100,
+        Ft = 0x200,
+        RcsAll = 0x400,
+        Default = 0x8000
+    }
+
     [Serializable]
     public class QpImsRegConfigDbItem
     {
@@ -37,13 +72,18 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte ApnIndex { get; set; }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
         public ushort ImsServiceInfo { get; set; }
 
-
+        public string ImsServiceInfoString
+        {
+            get => $"{(ImsServiceInfoValues) ImsServiceInfo}";
+            set => ImsServiceInfo = (ushort) Enum.Parse(typeof(ImsServiceInfoValues), value);
+        }
+        
         [ElementsCount(1)]
         [ElementType("int8")]
         [Description("")]
@@ -77,6 +117,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsRegConfigDb
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -731,11 +772,17 @@ namespace EfsTools.Items.Efs
             }
         }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
         public ushort AllowedImsSrvOnWlan { get; set; }
+
+        public string AllowedImsSrvOnWlanString
+        {
+            get => $"{(ImsServiceInfoValues) AllowedImsSrvOnWlan}";
+            set => AllowedImsSrvOnWlan = (ushort) Enum.Parse(typeof(ImsServiceInfoValues), value);
+        }
 
 
         [ElementsCount(1)]

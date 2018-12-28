@@ -38,7 +38,7 @@ namespace EfsTools.Items.Nv
         [Description("")]
         public byte DualStandbyPref { get; set; }
 
-        [Optional]
+        
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

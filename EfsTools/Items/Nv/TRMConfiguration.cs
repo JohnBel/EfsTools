@@ -14,7 +14,6 @@ namespace EfsTools.Items.Nv
         [Description("")]
         public ushort Config { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]

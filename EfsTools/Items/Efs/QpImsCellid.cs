@@ -17,14 +17,13 @@ namespace EfsTools.Items.Efs
             CellId = new byte[192];
         }
         
-        [Optional]
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Version { get; set; }
         
         [JsonIgnore]
-        [Optional]
         [ElementsCount(192)]
         [ElementType("uint8")]
         [Description("")]

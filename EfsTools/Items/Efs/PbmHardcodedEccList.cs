@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     public class PbmHardcodedEcc
     {
         public string DigitsString { get; set; }
-        
+
         public byte Value { get; set; }
 
         public byte CategoryLength { get; set; }
@@ -22,17 +22,13 @@ namespace EfsTools.Items.Efs
 
         public byte HardcodedType { get; set; }
     }
-    
+
     [Serializable]
     [NvItemId(69737)]
     [EfsFile("/nv/item_files/pbm/pbm_hardcoded_ecc_list", true, 0xE1FF)]
     [Attributes(9)]
     public class PbmHardcodedEccList
     {
-        public PbmHardcodedEccList()
-        {
-        }
-        
         [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
@@ -44,7 +40,7 @@ namespace EfsTools.Items.Efs
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits1 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits1String
         {
@@ -52,7 +48,7 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits1 = StringUtils.GetBytes(value, 28);
-                NumDigits1 = (byte)value.Length;
+                NumDigits1 = (byte) value.Length;
             }
         }
 
@@ -93,20 +89,18 @@ namespace EfsTools.Items.Efs
         public byte HardcodedType1 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits2 { get; set; }
 
-        
-        [Optional]
+
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits2 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits2String
         {
@@ -114,66 +108,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits2 = StringUtils.GetBytes(value, 28);
-                NumDigits2 = (byte)value.Length;
+                NumDigits2 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value2 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength2 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory2 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved2 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode2 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType2 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits3 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits3 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits3String
         {
@@ -181,66 +167,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits3 = StringUtils.GetBytes(value, 28);
-                NumDigits3 = (byte)value.Length;
+                NumDigits3 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value3 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength3 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory3 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved3 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode3 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType3 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits4 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits4 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits4String
         {
@@ -248,66 +226,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits4 = StringUtils.GetBytes(value, 28);
-                NumDigits4 = (byte)value.Length;
+                NumDigits4 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value4 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength4 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory4 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved4 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode4 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType4 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits5 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits5 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits5String
         {
@@ -315,66 +285,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits5 = StringUtils.GetBytes(value, 28);
-                NumDigits5 = (byte)value.Length;
+                NumDigits5 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value5 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength5 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory5 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved5 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode5 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType5 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits6 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits6 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits6String
         {
@@ -382,66 +344,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits6 = StringUtils.GetBytes(value, 28);
-                NumDigits6 = (byte)value.Length;
+                NumDigits6 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value6 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength6 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory6 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved6 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode6 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType6 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits7 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits7 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits7String
         {
@@ -449,66 +403,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits7 = StringUtils.GetBytes(value, 28);
-                NumDigits7 = (byte)value.Length;
+                NumDigits7 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value7 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength7 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory7 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved7 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode7 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType7 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits8 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits8 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits8String
         {
@@ -516,66 +462,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits8 = StringUtils.GetBytes(value, 28);
-                NumDigits8 = (byte)value.Length;
+                NumDigits8 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value8 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength8 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory8 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved8 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode8 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType8 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits9 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits9 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits9String
         {
@@ -583,66 +521,58 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits9 = StringUtils.GetBytes(value, 28);
-                NumDigits9 = (byte)value.Length;
+                NumDigits9 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value9 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength9 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory9 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved9 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode9 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte HardcodedType9 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte NumDigits10 { get; set; }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(28)]
         [ElementType("uint8")]
         [Description("")]
         public byte[] Digits10 { get; set; }
-        
+
         [JsonIgnore]
         public string Digits10String
         {
@@ -650,47 +580,41 @@ namespace EfsTools.Items.Efs
             set
             {
                 Digits10 = StringUtils.GetBytes(value, 28);
-                NumDigits10 = (byte)value.Length;
+                NumDigits10 = (byte) value.Length;
             }
         }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Value10 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CategoryLength10 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyCategory10 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte Reserved10 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte EmergencyMode10 { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -699,63 +623,63 @@ namespace EfsTools.Items.Efs
 
         public PbmHardcodedEcc[] Items
         {
-            get => new PbmHardcodedEcc[]
+            get => new[]
             {
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value1, CategoryLength = CategoryLength1, DigitsString = Digits1String,
                     EmergencyCategory = EmergencyCategory1, EmergencyMode = EmergencyMode1,
                     HardcodedType = HardcodedType1, Reserved = Reserved1
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value2, CategoryLength = CategoryLength2, DigitsString = Digits2String,
                     EmergencyCategory = EmergencyCategory2, EmergencyMode = EmergencyMode2,
                     HardcodedType = HardcodedType2, Reserved = Reserved2
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value3, CategoryLength = CategoryLength3, DigitsString = Digits3String,
                     EmergencyCategory = EmergencyCategory3, EmergencyMode = EmergencyMode3,
                     HardcodedType = HardcodedType3, Reserved = Reserved3
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value4, CategoryLength = CategoryLength4, DigitsString = Digits4String,
                     EmergencyCategory = EmergencyCategory4, EmergencyMode = EmergencyMode4,
                     HardcodedType = HardcodedType4, Reserved = Reserved4
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value5, CategoryLength = CategoryLength5, DigitsString = Digits5String,
                     EmergencyCategory = EmergencyCategory5, EmergencyMode = EmergencyMode5,
                     HardcodedType = HardcodedType5, Reserved = Reserved5
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value6, CategoryLength = CategoryLength6, DigitsString = Digits6String,
                     EmergencyCategory = EmergencyCategory6, EmergencyMode = EmergencyMode6,
                     HardcodedType = HardcodedType6, Reserved = Reserved6
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value7, CategoryLength = CategoryLength7, DigitsString = Digits7String,
                     EmergencyCategory = EmergencyCategory7, EmergencyMode = EmergencyMode7,
                     HardcodedType = HardcodedType7, Reserved = Reserved7
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value8, CategoryLength = CategoryLength8, DigitsString = Digits8String,
                     EmergencyCategory = EmergencyCategory8, EmergencyMode = EmergencyMode8,
                     HardcodedType = HardcodedType8, Reserved = Reserved8
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value9, CategoryLength = CategoryLength9, DigitsString = Digits9String,
                     EmergencyCategory = EmergencyCategory9, EmergencyMode = EmergencyMode9,
                     HardcodedType = HardcodedType9, Reserved = Reserved9
                 },
-                new PbmHardcodedEcc()
+                new PbmHardcodedEcc
                 {
                     Value = Value10, CategoryLength = CategoryLength10, DigitsString = Digits10String,
                     EmergencyCategory = EmergencyCategory10, EmergencyMode = EmergencyMode10,
@@ -764,10 +688,7 @@ namespace EfsTools.Items.Efs
             };
             set
             {
-                if (value == null)
-                {
-                    return;
-                }
+                if (value == null) return;
 
                 if (value.Length > 0)
                 {

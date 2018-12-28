@@ -2,7 +2,7 @@
 
 namespace EfsTools.Attributes
 {
-    public class OptionalAttribute : Attribute
+    public class RequiredAttribute : Attribute
     {
     }
 }

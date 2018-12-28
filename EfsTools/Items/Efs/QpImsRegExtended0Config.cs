@@ -18,6 +18,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsRegExtended0Config
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

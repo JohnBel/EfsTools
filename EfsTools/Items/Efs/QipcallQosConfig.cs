@@ -15,6 +15,7 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte[] Value { get; set; }*/
 
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -30,37 +31,31 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte LocalQosVideo { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte QosInactiveInvite { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte QosInactiveReInvite { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte QosMbrAudioCheckReq { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte QosMbrVideoCheckReq { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint MbrThreshold { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

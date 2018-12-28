@@ -32,13 +32,13 @@ namespace EfsTools.Items.Efs
         {
         }
 
+        [Required]
         [ElementsCount(1)]
         [ElementType("int16")]
         [Description("")]
         public short Version { get; set; }
 
         [JsonIgnore]
-        [Optional]
         [ConvertEndian]
         [ElementsCount(1)]
         [ElementType("uint16")]
@@ -47,7 +47,6 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [Optional]
         [ElementsCount(10)]
         [ElementType("uint8")]
         [Description("")]

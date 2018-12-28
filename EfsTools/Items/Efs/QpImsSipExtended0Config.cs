@@ -12,6 +12,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsSipExtended0Config
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -89,28 +90,54 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte IsSipInstanceNeeded { get; set; }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte IpSecIntScheme { get; set; }
 
+        public string IpSecIntSchemeString
+        {
+            get => $"{(IpSecIntegritySchemeValues) IpSecIntScheme}";
+            set => IpSecIntScheme = (byte) Enum.Parse(typeof(IpSecIntegritySchemeValues), value);
+        }
 
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte IpSecEncAlgo { get; set; }
 
+        public string IpSecEncAlgoString
+        {
+            get => $"{(IpSecEncryptionAlgorithmValues) IpSecEncAlgo}";
+            set => IpSecEncAlgo = (byte) Enum.Parse(typeof(IpSecEncryptionAlgorithmValues), value);
+        }
 
+
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte AuthScheme { get; set; }
 
+        public string AuthSchemeString
+        {
+            get => $"{(AuthSchemeValues) AuthScheme}";
+            set => AuthScheme = (byte) Enum.Parse(typeof(AuthSchemeValues), value);
+        }
+
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte InitialAuthConfig { get; set; }
+
+        public string InitialAuthConfigString
+        {
+            get => $"{(InitialAuthConfigValues) InitialAuthConfig}";
+            set => InitialAuthConfig = (byte) Enum.Parse(typeof(InitialAuthConfigValues), value);
+        }
 
         [JsonIgnore]
         [ElementsCount(256)]
@@ -124,7 +151,6 @@ namespace EfsTools.Items.Efs
             set => ShortCodeList = StringUtils.GetBytes(value, 256);
         }
 
-        [Optional]
         [JsonIgnore]
         [ElementsCount(256)]
         [ElementType("uint8")]
@@ -137,109 +163,91 @@ namespace EfsTools.Items.Efs
             set => ProxyRouteValue = StringUtils.GetBytes(value, 256);
         }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte KeepAliveEnabled { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerNatRtoValue { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerVzW { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerEmergencySipRegValue { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerEmergencyT1Value { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerEmergencyT2Value { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerEmergencyT4Value { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerEmergencyTfValue { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerEmergencyTJValue { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte CivicLocQueryTimeout { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
         public ushort GpsLocFixQueryTimeout { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TimerTbValue { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte GruuEnabled { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte TransportSwitchEnabled { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint TcpMaxBackOffTimer { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte RouteHeaderEnabled { get; set; }
 
-        [Optional]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte GzipDecodingOutBufferMultiplier { get; set; }
 
-        [Optional]
         [ElementsCount(424)]
         [ElementType("uint8")]
         [Description("")]

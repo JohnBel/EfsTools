@@ -20,7 +20,28 @@ namespace EfsTools.Items.Efs
     {
         None = 0,
         Authorization = 1,
-        ProxyAuthorization = 2
+        ProxyAuthorization = 2,
+        Authorization_ProxyAuthorization = 3
+    }
+
+    public enum IpSecIntegritySchemeValues : byte
+    {
+        None = 0,
+        HmacSha1_96 = 1,
+        HmacMd5_96 = 2,
+        HmacMd5Sha1_96 = 3
+    }
+
+    public enum IpSecEncryptionAlgorithmValues : byte
+    {
+        None = 0,
+        Null = 1,
+        AesCbc = 2,
+        Null_AesCbc = 3,
+        DesEde3Cbc = 4,
+        Null_DesEde3Cbc = 5,
+        AesCbc_DesEde3Cbc = 6,
+        Null_AesCbc_DesEde3Cbc = 7,
     }
     
     [Serializable]
@@ -94,17 +115,29 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte FmcConfig { get; set; }
 
-
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte IpSecIntScheme { get; set; }
 
-
+        public string IpSecIntSchemeString
+        {
+            get => $"{(IpSecIntegritySchemeValues) IpSecIntScheme}";
+            set => IpSecIntScheme = (byte) Enum.Parse(typeof(IpSecIntegritySchemeValues), value);
+        }
+        
+        [JsonIgnore]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte IpSecEncAlgo { get; set; }
+
+        public string IpSecEncAlgoString
+        {
+            get => $"{(IpSecEncryptionAlgorithmValues) IpSecEncAlgo}";
+            set => IpSecEncAlgo = (byte) Enum.Parse(typeof(IpSecEncryptionAlgorithmValues), value);
+        }
 
         [JsonIgnore]
         [ElementsCount(1)]

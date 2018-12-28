@@ -10,6 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsWifiConfig
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

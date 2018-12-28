@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     {
         Uac = 0,
         Uas = 1,
-        None = 2,
+        None = 2
     }
 
     public enum VoipConfigSessionRefresherMethodValues : byte
@@ -18,7 +18,7 @@ namespace EfsTools.Items.Efs
         RefreshInvite = 0,
         RefreshUpdate = 1
     }
-    
+
     [Serializable]
     [NvItemId(67257)]
     [EfsFile("/nv/item_files/ims/qp_ims_voip_config", true, 0xE1FF)]
@@ -30,12 +30,10 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte VoipConfigDisableChecksFor380Res { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte VoipConfigDomainNotificationEnable { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint8")]
@@ -59,12 +57,10 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public ushort VoipConfigExpires { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
         public ushort VoipMinSessionExpires { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint8")]
@@ -83,12 +79,10 @@ namespace EfsTools.Items.Efs
             set => VoipConfigConfUri = StringUtils.GetBytes(value, 128);
         }
 
-
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
         public byte VoipSilentRedialEnabled { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint16")]
@@ -105,7 +99,8 @@ namespace EfsTools.Items.Efs
         public string VoipConfigSessionRefresherTypeString
         {
             get => $"{(VoipConfigSessionRefresherTypeValues) VoipConfigSessionRefresherType}";
-            set => VoipConfigSessionRefresherType = (byte) Enum.Parse(typeof(VoipConfigSessionRefresherTypeValues), value);
+            set => VoipConfigSessionRefresherType =
+                (byte) Enum.Parse(typeof(VoipConfigSessionRefresherTypeValues), value);
         }
 
         [JsonIgnore]
@@ -117,7 +112,8 @@ namespace EfsTools.Items.Efs
         public string VoipConfigSessionRefresherMethodString
         {
             get => $"{(VoipConfigSessionRefresherMethodValues) VoipConfigSessionRefresherMethod}";
-            set => VoipConfigSessionRefresherMethod = (byte) Enum.Parse(typeof(VoipConfigSessionRefresherMethodValues), value);
+            set => VoipConfigSessionRefresherMethod =
+                (byte) Enum.Parse(typeof(VoipConfigSessionRefresherMethodValues), value);
         }
 
         [JsonIgnore]

@@ -56,18 +56,15 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public uint Field8 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field9 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field10 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint32")]

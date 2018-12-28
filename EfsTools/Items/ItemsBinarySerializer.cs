@@ -74,8 +74,8 @@ namespace EfsTools.Items
                         .FirstOrDefault() != null;
                 if (elemType != null)
                 {
-                    var optional =
-                        (OptionalAttribute) property.GetCustomAttributes(typeof(OptionalAttribute)).FirstOrDefault();
+                    var required =
+                        (RequiredAttribute) property.GetCustomAttributes(typeof(RequiredAttribute)).FirstOrDefault();
                     var propType = property.PropertyType;
                     if (propType.IsArray)
                     {
@@ -96,9 +96,11 @@ namespace EfsTools.Items
 
                             if (pos < buf.Length)
                             {
-                                if (optional == null)
+                                if (required != null)
+                                {
                                     throw new ItemsBinarySerializerException(
                                         $"Error on deserialize item '{type.Name}'. (Property = '{property.Name}')");
+                                }
                                 continue;
                             }
 
@@ -113,9 +115,11 @@ namespace EfsTools.Items
                         var read = stream.Read(buf, 0, buf.Length);
                         if (read < buf.Length)
                         {
-                            if (optional == null)
+                            if (required != null)
+                            {
                                 throw new ItemsBinarySerializerException(
                                     $"Error on deserialize item '{type.Name}'. (Property = '{property.Name}')");
+                            }
                             continue;
                         }
 

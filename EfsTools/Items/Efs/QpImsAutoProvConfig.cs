@@ -21,6 +21,7 @@ namespace EfsTools.Items.Efs
             AcsServerPort = new byte[40];
         }
         
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

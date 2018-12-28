@@ -14,30 +14,25 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte Field1 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("int8")]
         [Description("")]
         public sbyte Field2 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("int16")]
         [Description("")]
         public short Field3 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("int8")]
         [Description("")]
         public sbyte Field4 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("int16")]
         [Description("")]
         public short Field5 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -11,6 +11,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class FeaturesStatusList
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

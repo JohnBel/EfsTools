@@ -14,42 +14,35 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte Field1 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field2 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field3 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field4 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field5 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field6 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field7 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint32")]
@@ -62,12 +55,10 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public uint Field9 { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
         public uint Field10 { get; set; }
-
 
         [ElementsCount(1)]
         [ElementType("uint32")]

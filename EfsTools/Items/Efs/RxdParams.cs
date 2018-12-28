@@ -9,6 +9,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class RxdParams
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

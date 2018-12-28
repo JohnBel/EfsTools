@@ -16,7 +16,6 @@ namespace EfsTools.Items.Efs
         [ElementsCount(256)] //Todo: check
         [ElementType("uint8")]
         [Description("")]
-        [Optional]
         public byte[] PresenceMgrConfigHttpProxy { get; set; }
 
         public string PresenceMgrConfigHttpProxyString
@@ -28,19 +27,16 @@ namespace EfsTools.Items.Efs
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        [Optional]
         public byte PresenceMgrConfigPresence { get; set; }
 
         [ElementsCount(1)]
         [ElementType("uint16")]
         [Description("")]
-        [Optional]
         public ushort PresenceExpires { get; set; }
 
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        [Optional]
         public byte PublishRetryAttempt { get; set; }
     }
 }

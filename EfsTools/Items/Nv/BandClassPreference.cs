@@ -14,7 +14,6 @@ namespace EfsTools.Items.Nv
         [Description("")]
         public byte Nam { get; set; }
 
-
         [ElementsCount(1)]
         [ElementType("int16")]
         [Description("")]

@@ -15,6 +15,7 @@ namespace EfsTools.Items.Efs
             Reserved = new byte[501];
         }
 
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
@@ -61,7 +62,6 @@ namespace EfsTools.Items.Efs
         [Description("")]
         public byte IWfcRoaming { get; set; }
 
-        [Optional]
         [ElementsCount(501)]
         [ElementType("int8")]
         [Description("")]

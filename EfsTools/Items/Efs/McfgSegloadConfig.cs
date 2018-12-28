@@ -9,6 +9,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class McfgSegloadConfig
     {
+        [Required]
         [ElementsCount(1)]
         [ElementType("uint32")]
         [Description("")]
