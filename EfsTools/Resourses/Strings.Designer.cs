@@ -727,6 +727,15 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use serial port &apos;{0}&apos;.
+        /// </summary>
+        internal static string QcdmUseComPortFormat {
+            get {
+                return ResourceManager.GetString("QcdmUseComPortFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Option &apos;{0}&apos; is defined multiple times..
         /// </summary>
         internal static string RepeatedOptionErrorFormat {

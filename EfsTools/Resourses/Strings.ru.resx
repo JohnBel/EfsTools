@@ -357,4 +357,7 @@
   <data name="QcdmManyLogLines" xml:space="preserve">
     <value>Много строк лога. Пожалуйста отключите логирование.</value>
   </data>
+  <data name="QcdmUseComPortFormat" xml:space="preserve">
+    <value>COM-порт: '{0}'</value>
+  </data>
 </root>

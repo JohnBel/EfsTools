@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Linq;
 using System.Text;
 using EfsTools.Qualcomm.QcdmCommands;
 using EfsTools.Qualcomm.QcdmCommands.Requests;
 using EfsTools.Qualcomm.QcdmCommands.Responses;
 using EfsTools.Qualcomm.QcdmManagers;
 using EfsTools.Resourses;
+using EfsTools.Utils;
+using Microsoft.Win32;
 
 namespace EfsTools.Qualcomm
 {
@@ -30,7 +35,8 @@ namespace EfsTools.Qualcomm
 
         public QcdmManager(string port, int baudrate, int timeout)
         {
-            _port = new HdlcSerial(port, baudrate, timeout);
+            var realPort = GetSerialPort(port);
+            _port = new HdlcSerial(realPort, baudrate, timeout);
             Gsm = new QcdmGsmManager(this);
             CallManager = new QcdmCallManager(this);
             Efs = new QcdmEfsManager(this);
@@ -38,6 +44,7 @@ namespace EfsTools.Qualcomm
         }
 
         public bool IsOpen => _port.IsOpen;
+        public string PortName => _port.PortName;
 
         public ushort DiagVersion
         {
@@ -264,6 +271,35 @@ namespace EfsTools.Qualcomm
             }
 
             if (message != null) throw new QcdmManagerException(message);
+        }
+
+        private static string GetSerialPort(string port)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(port) || port.ToLowerInvariant() == "auto")
+                {
+                    return DetectSerialPort();
+                }
+                return port;
+            }
+            catch
+            {
+                return port;
+            }
+        }
+
+        private static string DetectSerialPort()
+        {
+            var ports = SerialPort.GetPortNames();
+            foreach (var port in ports)
+            {
+                if (QualcommSerialPortUtils.IsQualcommPort(port))
+                {
+                    return port;
+                }
+            }
+            return ports.FirstOrDefault();
         }
     }
 }

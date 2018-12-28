@@ -4,7 +4,7 @@ namespace EfsTools
 {
     internal class EfsToolsConfigurationSection : ConfigurationSection
     {
-        [ConfigurationProperty("port", DefaultValue = "COM2", IsKey = true, IsRequired = true)]
+        [ConfigurationProperty("port", DefaultValue = "Auto", IsKey = true, IsRequired = true)]
         public string Port
         {
             get => (string) base["port"];

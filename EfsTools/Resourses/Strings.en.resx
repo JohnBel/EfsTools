@@ -357,4 +357,7 @@
   <data name="QcdmManyLogLines" xml:space="preserve">
     <value>Many log lines. Please disable log.</value>
   </data>
+  <data name="QcdmUseComPortFormat" xml:space="preserve">
+    <value>Use serial port '{0}'</value>
+  </data>
 </root>

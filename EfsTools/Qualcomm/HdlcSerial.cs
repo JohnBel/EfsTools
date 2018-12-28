@@ -16,6 +16,7 @@ namespace EfsTools.Qualcomm
         }
 
         public bool IsOpen => _port.IsOpen;
+        public string PortName => _port.PortName;
 
         public void Dispose()
         {
