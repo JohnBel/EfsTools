@@ -357,7 +357,49 @@
   <data name="QcdmManyLogLines" xml:space="preserve">
     <value>Many log lines. Please disable log.</value>
   </data>
+  <data name="MbnExtractorInvalidFormatCantFindMagicString" xml:space="preserve">
+    <value>Invalid MBN format. Can't find magic string 'MCFG'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatElfDataNotExist" xml:space="preserve">
+    <value>Invalid MBN format. ELF segment with data not exist</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidHeaderVersionId" xml:space="preserve">
+    <value>Invalid MBN format. Invalid header version id</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidHeaderVersionValue" xml:space="preserve">
+    <value>Invalid MBN format. Invalid header version value</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidFileHeaderMagic" xml:space="preserve">
+    <value>Invalid MBN format. Invalid file header magic</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidFileItemSize" xml:space="preserve">
+    <value>Invalid MBN format. Invalid file item size</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidFileSizeMagic" xml:space="preserve">
+    <value>Invalid MBN format. Invalid file size magic</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidNvItemSize" xml:space="preserve">
+    <value>Invalid MBN format. Invalid NV item size</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerMagic1" xml:space="preserve">
+    <value>Invalid MBN format. Invalid trailer magic '0x0A'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerMagic2" xml:space="preserve">
+    <value>Invalid MBN format. Invalid trailer magic '0xA1'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerMagicValue" xml:space="preserve">
+    <value>Invalid MBN format. Invalid trailer magic 'MCFG_TRL'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerSize" xml:space="preserve">
+    <value>Invalid MBN format. Invalid trailer size</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatUnknownItemType" xml:space="preserve">
+    <value>Invalid MBN format. Unknown item type</value>
+  </data>
   <data name="QcdmUseComPortFormat" xml:space="preserve">
     <value>Use serial port '{0}'</value>
+  </data>
+  <data name="QcdmExtractingMbnFileFormat" xml:space="preserve">
+    <value>Extracting MBN file '{0}' ...</value>
   </data>
 </root>

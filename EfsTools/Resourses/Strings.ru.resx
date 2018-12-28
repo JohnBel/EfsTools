@@ -357,7 +357,49 @@
   <data name="QcdmManyLogLines" xml:space="preserve">
     <value>Много строк лога. Пожалуйста отключите логирование.</value>
   </data>
+  <data name="MbnExtractorInvalidFormatCantFindMagicString" xml:space="preserve">
+    <value>Не корректный формат MBN. Отсутствует магическая строка 'MCFG'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatElfDataNotExist" xml:space="preserve">
+    <value>Не корректный формат MBN. Не найден сегмент ELF с данными</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidHeaderVersionId" xml:space="preserve">
+    <value>Не корректный формат MBN. Заголовок не содержит идентификатора версии</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidHeaderVersionValue" xml:space="preserve">
+    <value>Не корректный формат MBN. Некорректное значение версии в заголовке</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidFileHeaderMagic" xml:space="preserve">
+    <value>Не корректный формат MBN. Некорректный размер заголока файла</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidFileItemSize" xml:space="preserve">
+    <value>Не корректный формат MBN. Некорректный размер данных типа 'файл'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidFileSizeMagic" xml:space="preserve">
+    <value>Не корректный формат MBN. Некорректный размер магической строки заголока файла</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidInvalidNvItemSize" xml:space="preserve">
+    <value>Не корректный формат MBN. Некорректный размер данных типа 'NV'</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerMagic1" xml:space="preserve">
+    <value>Не корректный формат MBN. Отсутствует магическая строка '0x0A' в трейлере</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerMagic2" xml:space="preserve">
+    <value>Не корректный формат MBN. Отсутствует магическая строка '0xA1' в трейлере</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerMagicValue" xml:space="preserve">
+    <value>Не корректный формат MBN. Отсутствует магическая строка 'MCFG_TRL' в трейлере</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatInvalidTrailerSize" xml:space="preserve">
+    <value>Не корректный формат MBN. Некорректный размер трейлера</value>
+  </data>
+  <data name="MbnExtractorInvalidFormatUnknownItemType" xml:space="preserve">
+    <value>Не корректный формат MBN. Неизвестный тип данных</value>
+  </data>
   <data name="QcdmUseComPortFormat" xml:space="preserve">
     <value>COM-порт: '{0}'</value>
+  </data>
+  <data name="QcdmExtractingMbnFileFormat" xml:space="preserve">
+    <value>Распаковка файла MBN '{0}' ...</value>
   </data>
 </root>

@@ -14,7 +14,7 @@
 - Загрузить каталог с компьютера на утройство.
 
 ## Системные требования
-[.Net Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) и выше.
+[.Net Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=49981) и выше.
 
 ## Установка
 Необходимо скачать архив релиза с [сайта разработчика](http://johnbel.github.io/). Затем распаковать его.
@@ -100,6 +100,12 @@ EfsTools.exe getModemConfig -p .\items_phone.json
 
 Пример: EfsTools.exe setModemConfig -p .\items.json -o .\efs
 EfsTools.exe setModemConfig -p .\items_for_phone.json
+
+
+***extractMbn***
+Распаковать содержимое MBN (Modem configuration BiNary) файла в указанную директорию
+
+Пример: EfsTools.exe extractMbn -i mcfg_sw.mbn -p mcfg
   
   
 ***help***
@@ -119,7 +125,9 @@ EfsTools.exe setModemConfig -p .\items_for_phone.json
 
 Программа использует библиотеку [Newtonsoft.Json](https://www.newtonsoft.com/json) Copyright (c) 2007 James Newton-King
 
-Протокол работы с модемами Qualcomm был прочитан в проекте [libopenpst](https://github.com/openpst/libopenpst) Copyright (C) Gassan Idriss
+Программа использует библиотеку [ELFSharp] (http://elfsharp.hellsgate.pl) Copyright (c) Konrad Kruczyński, iotr Zierhoffer, Łukasz Kucharski, Bastian Eicher, Cameron, Fox, Frederik Carlier, Everett Maus
+
+Протокол работы с модемами Qualcomm был прочитан в проекте [libopenpst](https://github.com/openpst/libopenpst) Copyright (c) Gassan Idriss
 
 ## Сайт
 [JohnBel](http://johnbel.github.io/)

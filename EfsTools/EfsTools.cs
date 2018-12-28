@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.IO;
 using EfsTools.Items;
+using EfsTools.Mbn;
 using EfsTools.Qualcomm;
 using EfsTools.Resourses;
 using EfsTools.Utils;
@@ -122,13 +123,19 @@ namespace EfsTools
             bool processNvItems)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
-                using (var manager = OpenQcdmManager())
+            {
+                var path1 = PathUtils.FixPath(computerPath);
+                path1 = CheckAndFixPath(path1);
+                if (!string.IsNullOrEmpty(path1))
                 {
-                    var path1 = PathUtils.FixPath(computerPath);
-                    var path2 = PathUtils.FixUnixPath(efsPath);
-                    FileUtils.PhoneUploadDirectory(manager, path1, path2, createItemFilesAsDefault, _logger);
-                    if (processNvItems) NvItemUtils.PhoneUploadNvItems(manager, path1, _logger);
+                    using (var manager = OpenQcdmManager())
+                    {
+                        var path2 = PathUtils.FixUnixPath(efsPath);
+                        FileUtils.PhoneUploadDirectory(manager, path1, path2, createItemFilesAsDefault, _logger);
+                        if (processNvItems) NvItemUtils.PhoneUploadNvItems(manager, path1, _logger);
+                    }
                 }
+            }
         }
 
         public void EfsCreateDirectory(string path, bool recursive)
@@ -158,6 +165,11 @@ namespace EfsTools
 
         public void GetModemConfig(string path, string inputDirectory)
         {
+            var inDirectory = inputDirectory;
+            if (!string.IsNullOrEmpty(inDirectory))
+            {
+                inDirectory = CheckAndFixPath(inDirectory);
+            }
             _logger.LogInfo(Strings.QcdmGeneratingModemConfig);
 
             if (string.IsNullOrEmpty(inputDirectory))
@@ -172,13 +184,15 @@ namespace EfsTools
                     }
                 }
             else
+            {
                 using (var output = File.CreateText(path))
                 {
-                    var items = NvItemUtils.LocalLoadItems(inputDirectory);
+                    var items = NvItemUtils.LocalLoadItems(inDirectory);
                     ItemsJsonSerializer.SerializeItems(items, output);
                     output.Flush();
                     output.Close();
                 }
+            }
         }
 
         public void SetModemConfig(string path, string outputDirectory)
@@ -224,6 +238,25 @@ namespace EfsTools
                     var path = PathUtils.FixUnixPath(efsPath);
                     FileUtils.PhoneFixFileNames(manager, path, _logger);
                 }
+        }
+
+        public void ExtractMbn(string inputMbnFilePath, string outputComputerDirectoryPath, bool noExtraData)
+        {
+            _logger.LogInfo(Strings.QcdmExtractingMbnFileFormat, inputMbnFilePath);
+            MbnExtractor.Extract(inputMbnFilePath, outputComputerDirectoryPath, noExtraData, _logger);
+        }
+
+        private string CheckAndFixPath(string path)
+        {
+            if (File.Exists(path) && Path.GetExtension(path) == ".mbn")
+            {
+                var b = Directory.Exists(path);
+                var tmpPath = Path.Combine(Path.GetTempPath(), "EfsTools", Path.GetRandomFileName());
+                Directory.CreateDirectory(tmpPath);
+                ExtractMbn(path, tmpPath, true);
+                return tmpPath;
+            }
+            return path;
         }
 
         private QcdmManager OpenQcdmManager()

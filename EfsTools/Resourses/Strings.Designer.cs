@@ -178,6 +178,123 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Can&apos;t find magic string &apos;MCFG&apos;.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatCantFindMagicString {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatCantFindMagicString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. ELF segment with data not exist.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatElfDataNotExist {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatElfDataNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid header version id.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidHeaderVersionId {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidHeaderVersionId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid header version value.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidHeaderVersionValue {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidHeaderVersionValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid file header magic.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidInvalidFileHeaderMagic {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidInvalidFileHeaderMagic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid file item size.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidInvalidFileItemSize {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidInvalidFileItemSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid file size magic.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidInvalidFileSizeMagic {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidInvalidFileSizeMagic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid NV item size.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidInvalidNvItemSize {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidInvalidNvItemSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid trailer magic &apos;0x0A&apos;.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidTrailerMagic1 {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidTrailerMagic1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid trailer magic &apos;0xA1&apos;.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidTrailerMagic2 {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidTrailerMagic2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid trailer magic &apos;MCFG_TRL&apos;.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidTrailerMagicValue {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidTrailerMagicValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Invalid trailer size.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatInvalidTrailerSize {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatInvalidTrailerSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid MBN format. Unknown item type.
+        /// </summary>
+        internal static string MbnExtractorInvalidFormatUnknownItemType {
+            get {
+                return ResourceManager.GetString("MbnExtractorInvalidFormatUnknownItemType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A required value not bound to option name is missing..
         /// </summary>
         internal static string MissingRequiredOptionErrorFormat1 {
@@ -588,6 +705,15 @@ namespace EfsTools.Resourses {
         internal static string QcdmErrorOnUploadFormat {
             get {
                 return ResourceManager.GetString("QcdmErrorOnUploadFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extracting MBN file &apos;{0}&apos; ....
+        /// </summary>
+        internal static string QcdmExtractingMbnFileFormat {
+            get {
+                return ResourceManager.GetString("QcdmExtractingMbnFileFormat", resourceCulture);
             }
         }
         

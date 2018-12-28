@@ -8,7 +8,7 @@ namespace EfsTools.CommandLineOptions
         [Option('p', "outComputerFilePath", Required = true, HelpText = "Output file path in computer")]
         public string OutComputerFilePath { get; set; }
 
-        [Option('i', "inputComputerFilePath", Required = false, HelpText = "Input directory path in computer")]
+        [Option('i', "inputComputerFilePath", Required = false, HelpText = "Input directory or MBN file path in computer")]
         public string InComputerFilePath { get; set; }
     }
 }

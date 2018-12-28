@@ -42,7 +42,8 @@ namespace EfsTools
                             EfsDowloadDirectoryOptions,
                             EfsUploadDirectoryOptions,
                             GetModemConfigOptions,
-                            SetModemConfigOptions
+                            SetModemConfigOptions,
+                            ExtractMbnOptions
                         >(args)
                         .WithParsed<GetTaggetInfoOptions>(opts => tools.GetTargetInfo())
                         .WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo())
@@ -70,6 +71,8 @@ namespace EfsTools
                             tools.GetModemConfig(opts.OutComputerFilePath, opts.InComputerFilePath))
                         .WithParsed<SetModemConfigOptions>(opts =>
                             tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath))
+                        .WithParsed<ExtractMbnOptions>(opts =>
+                            tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData))
                         .WithNotParsed(errors => { });
                 }
             }
