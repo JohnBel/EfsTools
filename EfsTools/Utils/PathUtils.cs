@@ -29,7 +29,7 @@ namespace EfsTools.Utils
         {
             return path.LastOrDefault() == '/' || path.LastOrDefault() == '\\'
                 ? path
-                : $"{path}/";
+                : $"{path}\\";
         }
 
         public static FileInfo ParsePath(string path)

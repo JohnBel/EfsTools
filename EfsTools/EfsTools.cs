@@ -124,10 +124,11 @@ namespace EfsTools
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
             {
-                var path1 = PathUtils.FixPath(computerPath);
+                var path1 = File.Exists(computerPath) ? computerPath : PathUtils.FixPath(computerPath);
                 path1 = CheckAndFixPath(path1);
                 if (!string.IsNullOrEmpty(path1))
                 {
+                    path1 = PathUtils.FixPath(path1);
                     using (var manager = OpenQcdmManager())
                     {
                         var path2 = PathUtils.FixUnixPath(efsPath);
