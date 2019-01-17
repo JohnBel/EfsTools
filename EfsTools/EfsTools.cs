@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.IO;
+using System.Text;
 using EfsTools.Items;
 using EfsTools.Mbn;
 using EfsTools.Qualcomm;
@@ -202,7 +203,7 @@ namespace EfsTools
             if (string.IsNullOrEmpty(outputDirectory))
                 using (var manager = OpenQcdmManager())
                 {
-                    using (var input = File.OpenText(path))
+                    using (var input = new StreamReader(File.OpenRead(path), Encoding.UTF8, true))
                     {
                         var configItems = NvItemUtils.GetConfigs(input);
                         input.BaseStream.Seek(0, SeekOrigin.Begin);
@@ -212,7 +213,7 @@ namespace EfsTools
                     }
                 }
             else
-                using (var input = File.OpenText(path))
+                using (var input = new StreamReader(File.OpenRead(path), Encoding.UTF8, true))
                 {
                     Directory.CreateDirectory(outputDirectory);
                     var configItems = NvItemUtils.GetConfigs(input);
