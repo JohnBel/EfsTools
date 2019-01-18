@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
@@ -82,7 +83,7 @@ namespace EfsTools.Items.Efs
         public string VideoResolutionString
         {
             get => $"{(VideoResolutionValues) VideoResolution}";
-            set => VideoResolution = (byte) Enum.Parse(typeof(VideoResolutionValues), value);
+            set => VideoResolution = EnumUtils.ParseEnum(typeof(VideoResolutionValues), value);
         }
 
         [ElementsCount(1)]
@@ -105,7 +106,7 @@ namespace EfsTools.Items.Efs
         public string VideoCodecString
         {
             get => $"{(VideoCodecValues) VideoCodec}";
-            set => VideoCodec = (byte) Enum.Parse(typeof(VideoCodecValues), value);
+            set => VideoCodec = EnumUtils.ParseEnum(typeof(VideoCodecValues), value);
         }
 
 
@@ -130,7 +131,7 @@ namespace EfsTools.Items.Efs
         public string H264ProfileString
         {
             get => $"{(H264ProfileValues) H264Profile}";
-            set => H264Profile = (byte) Enum.Parse(typeof(H264ProfileValues), value);
+            set => H264Profile = EnumUtils.ParseEnum(typeof(H264ProfileValues), value);
         }
         
         [JsonIgnore]
@@ -142,7 +143,7 @@ namespace EfsTools.Items.Efs
         public string H264ProfileLevelString
         {
             get => $"{(H264ProfileLevelValues) H264ProfileLevel}";
-            set => H264ProfileLevel = (byte) Enum.Parse(typeof(H264ProfileLevelValues), value);
+            set => H264ProfileLevel = EnumUtils.ParseEnum(typeof(H264ProfileLevelValues), value);
         }
 
 

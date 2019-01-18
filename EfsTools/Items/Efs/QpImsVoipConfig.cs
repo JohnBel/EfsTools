@@ -100,7 +100,7 @@ namespace EfsTools.Items.Efs
         {
             get => $"{(VoipConfigSessionRefresherTypeValues) VoipConfigSessionRefresherType}";
             set => VoipConfigSessionRefresherType =
-                (byte) Enum.Parse(typeof(VoipConfigSessionRefresherTypeValues), value);
+                EnumUtils.ParseEnum(typeof(VoipConfigSessionRefresherTypeValues), value);
         }
 
         [JsonIgnore]
@@ -113,7 +113,7 @@ namespace EfsTools.Items.Efs
         {
             get => $"{(VoipConfigSessionRefresherMethodValues) VoipConfigSessionRefresherMethod}";
             set => VoipConfigSessionRefresherMethod =
-                (byte) Enum.Parse(typeof(VoipConfigSessionRefresherMethodValues), value);
+                EnumUtils.ParseEnum(typeof(VoipConfigSessionRefresherMethodValues), value);
         }
 
         [JsonIgnore]

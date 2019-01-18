@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
@@ -67,7 +68,7 @@ namespace EfsTools.Items.Efs
         public string RuimImsiValueString
         {
             get => $"{(RuimImsiValues) RuimImsiValue}";
-            set => RuimImsiValue = (byte) Enum.Parse(typeof(RuimImsiValues), value);
+            set => RuimImsiValue = EnumUtils.ParseEnum(typeof(RuimImsiValues), value);
         }
 
 
@@ -86,7 +87,7 @@ namespace EfsTools.Items.Efs
         public string ImsParamSrcString
         {
             get => $"{(ImsParamSrcValues) ImsParamSrc}";
-            set => ImsParamSrc = (byte) Enum.Parse(typeof(ImsParamSrcValues), value);
+            set => ImsParamSrc = EnumUtils.ParseEnum(typeof(ImsParamSrcValues), value);
         }
     }
 }

@@ -648,6 +648,7 @@
     </Compile>
     <Compile Include="Utils\NvItemIdAttributeUtils.cs" />
     <Compile Include="Utils\NvItemUtils.cs" />
+    <Compile Include="Utils\EnumUtils.cs" />
     <Compile Include="Utils\QualcommSerialPortUtils.cs" />
     <Compile Include="Utils\PathUtils.cs" />
     <Compile Include="Utils\LoggerStream.cs" />

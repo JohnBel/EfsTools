@@ -1,11 +1,12 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
-    public enum EnableRegInLpmValues
+    public enum EnableRegInLpmValues : byte
     {
         Invalid = 0,
         Off = 1,
@@ -63,7 +64,7 @@ namespace EfsTools.Items.Efs
         public string EnableRegInLpmString
         {
             get => $"{(EnableRegInLpmValues) EnableRegInLpm}";
-            set => EnableRegInLpm = (byte) Enum.Parse(typeof(EnableRegInLpmValues), value);
+            set => EnableRegInLpm = EnumUtils.ParseEnum(typeof(EnableRegInLpmValues), value);
         }
 
         [ElementsCount(1011)]

@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
@@ -42,7 +43,7 @@ namespace EfsTools.Items.Efs
         public string StringValue
         {
             get => $"{(SmsDomainPrefValue) Value}";
-            set => Value = (byte) Enum.Parse(typeof(SmsDomainPrefValue), value);
+            set => Value = EnumUtils.ParseEnum(typeof(SmsDomainPrefValue), value);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
@@ -26,7 +27,7 @@ namespace EfsTools.Items.Efs
         public string ValueString
         {
             get => $"{(UeUsageSettingValue) Value}";
-            set => Value = (byte) Enum.Parse(typeof(UeUsageSettingValue), value);
+            set => Value = EnumUtils.ParseEnum(typeof(UeUsageSettingValue), value);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
@@ -10,7 +11,6 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class QpImsTestMode
     {
-        [Required]
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]

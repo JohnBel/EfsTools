@@ -37,18 +37,21 @@ namespace EfsTools.Items
                         if (elemCount != null)
                         {
                             var val = (IEnumerable) property.GetValue(obj);
-                            var addEndLine = false;
-                            foreach (var item in val)
+                            if (val != null)
                             {
-                                if (addEndLine && propType.Name == "String[]")
+                                var addEndLine = false;
+                                foreach (var item in val)
                                 {
-                                    var b = (byte) '\n';
-                                    stream.WriteByte(b);
-                                }
+                                    if (addEndLine && propType.Name == "String[]")
+                                    {
+                                        var b = (byte) '\n';
+                                        stream.WriteByte(b);
+                                    }
 
-                                addEndLine = true;
-                                var buf = GetBytes(item, item.GetType());
-                                if (buf.Length > 0) stream.Write(buf, 0, buf.Length);
+                                    addEndLine = true;
+                                    var buf = GetBytes(item, item.GetType());
+                                    if (buf.Length > 0) stream.Write(buf, 0, buf.Length);
+                                }
                             }
                         }
                     }

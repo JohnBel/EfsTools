@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
@@ -81,7 +82,7 @@ namespace EfsTools.Items.Efs
             }
             set
             {
-                var data = value.Select(s => (byte) Enum.Parse(typeof(RatMode), s)).ToArray();
+                var data = value.Select(s => EnumUtils.ParseEnum(typeof(RatMode), s)).ToArray();
                 RawValues = data;
                 RatCount = (ushort)data.Length;
                 if (RatCount > 10)

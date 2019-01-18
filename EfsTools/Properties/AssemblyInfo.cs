@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JohnBel")]
 [assembly: AssemblyProduct("EfsTools")]
-[assembly: AssemblyCopyright("Copyright (c) JohnBel 2018  (http://johnbel.github.io/)")]
+[assembly: AssemblyCopyright("Copyright (c) JohnBel 2019  (http://johnbel.github.io/)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.6.0.6")]
-[assembly: AssemblyFileVersion("0.6.0.6")]
+[assembly: AssemblyVersion("0.7.0.7")]
+[assembly: AssemblyFileVersion("0.7.0.7")]

@@ -81,7 +81,7 @@ namespace EfsTools.Items.Efs
         public string ImsServiceInfoString
         {
             get => $"{(ImsServiceInfoValues) ImsServiceInfo}";
-            set => ImsServiceInfo = (ushort) Enum.Parse(typeof(ImsServiceInfoValues), value);
+            set => ImsServiceInfo = EnumUtils.ParseEnumUShort(typeof(ImsServiceInfoValues), value);
         }
         
         [ElementsCount(1)]
@@ -781,7 +781,7 @@ namespace EfsTools.Items.Efs
         public string AllowedImsSrvOnWlanString
         {
             get => $"{(ImsServiceInfoValues) AllowedImsSrvOnWlan}";
-            set => AllowedImsSrvOnWlan = (ushort) Enum.Parse(typeof(ImsServiceInfoValues), value);
+            set => AllowedImsSrvOnWlan = EnumUtils.ParseEnumUShort(typeof(ImsServiceInfoValues), value);
         }
 
 

@@ -99,7 +99,7 @@ namespace EfsTools.Items.Efs
         public string IpSecIntSchemeString
         {
             get => $"{(IpSecIntegritySchemeValues) IpSecIntScheme}";
-            set => IpSecIntScheme = (byte) Enum.Parse(typeof(IpSecIntegritySchemeValues), value);
+            set => IpSecIntScheme = EnumUtils.ParseEnum(typeof(IpSecIntegritySchemeValues), value);
         }
 
         [JsonIgnore]
@@ -111,7 +111,7 @@ namespace EfsTools.Items.Efs
         public string IpSecEncAlgoString
         {
             get => $"{(IpSecEncryptionAlgorithmValues) IpSecEncAlgo}";
-            set => IpSecEncAlgo = (byte) Enum.Parse(typeof(IpSecEncryptionAlgorithmValues), value);
+            set => IpSecEncAlgo = EnumUtils.ParseEnum(typeof(IpSecEncryptionAlgorithmValues), value);
         }
 
 
@@ -124,7 +124,7 @@ namespace EfsTools.Items.Efs
         public string AuthSchemeString
         {
             get => $"{(AuthSchemeValues) AuthScheme}";
-            set => AuthScheme = (byte) Enum.Parse(typeof(AuthSchemeValues), value);
+            set => AuthScheme = EnumUtils.ParseEnum(typeof(AuthSchemeValues), value);
         }
 
         [JsonIgnore]
@@ -136,7 +136,7 @@ namespace EfsTools.Items.Efs
         public string InitialAuthConfigString
         {
             get => $"{(InitialAuthConfigValues) InitialAuthConfig}";
-            set => InitialAuthConfig = (byte) Enum.Parse(typeof(InitialAuthConfigValues), value);
+            set => InitialAuthConfig = EnumUtils.ParseEnum(typeof(InitialAuthConfigValues), value);
         }
 
         [JsonIgnore]

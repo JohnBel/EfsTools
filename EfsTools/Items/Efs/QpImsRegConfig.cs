@@ -70,7 +70,7 @@ namespace EfsTools.Items.Efs
         public string RegOnModeString
         {
             get => $"{(RegOnModeValues) RegOnMode}";
-            set => RegOnMode = (byte) Enum.Parse(typeof(RegOnModeValues), value);
+            set => RegOnMode = EnumUtils.ParseEnum(typeof(RegOnModeValues), value);
         }
 
         [JsonIgnore]
@@ -82,7 +82,7 @@ namespace EfsTools.Items.Efs
         public string RegModeConfigString
         {
             get => $"{(RegOnModeConfigValues) RegModeConfig}";
-            set => RegModeConfig = (byte) Enum.Parse(typeof(RegOnModeConfigValues), value);
+            set => RegModeConfig = EnumUtils.ParseEnum(typeof(RegOnModeConfigValues), value);
         }
 
         [JsonIgnore]
@@ -143,7 +143,7 @@ namespace EfsTools.Items.Efs
         public string RegRatConfigString
         {
             get => $"{(RegRatConfigValues) RegRatConfig}";
-            set => RegRatConfig = (byte) Enum.Parse(typeof(RegRatConfigValues), value);
+            set => RegRatConfig = EnumUtils.ParseEnum(typeof(RegRatConfigValues), value);
         }
 
 
