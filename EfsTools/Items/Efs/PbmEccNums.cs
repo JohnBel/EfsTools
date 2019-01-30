@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 using EfsTools.Utils;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
@@ -10,6 +11,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public class PbmEccNums
     {
+        [JsonIgnore]
         [ElementsCount(480)]
         [ElementType("uint8")]
         [Description("")]

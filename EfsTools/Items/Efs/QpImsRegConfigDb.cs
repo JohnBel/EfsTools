@@ -38,6 +38,94 @@ namespace EfsTools.Items.Efs
 //#define IMS_SETTINGS_SERVICE_TYPE_RCS_ALL_V01 ((ims_settings_service_type_mask_v01)0x400ull) /**<  Bitmask to indicate all the RCS services.  */
 //#define IMS_SETTINGS_SERVICE_TYPE_DEFAULT_V01 ((ims_settings_service_type_mask_v01)0x8000ull) /**<  Bitmask to indicate the default services.\n
 
+//    typedef enum {
+//IMS_DCM_RAT_TYPE_MIN_ENUM_VAL_V01 = -2147483647, /**< To force a 32 bit signed enum.  Do not change or use*/
+//IMS_DCM_RAT_EHRPD_V01 = 0, /**<  CDMA eHRPD \n  */
+//IMS_DCM_RAT_LTE_V01 = 1, /**<  LTE \n  */
+//IMS_DCM_RAT_EPC_V01 = 2, /**<  EPC \n  */
+//IMS_DCM_RAT_WLAN_V01 = 3, /**<  WLAN  */
+//IMS_DCM_RAT_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
+//}ims_dcm_rat_type_v01;
+    ///**
+//    @}
+//  */
+
+    ///** @addtogroup imsdcm_qmi_enums
+//    @{
+//  */
+//typedef enum {
+//IMS_DCM_APN_TYPE_MIN_ENUM_VAL_V01 = -2147483647, /**< To force a 32 bit signed enum.  Do not change or use*/
+//IMS_DCM_APN_IMS_V01 = 0, /**<  IMS \n  */
+//IMS_DCM_APN_INTERNET_V01 = 1, /**<  Internet \n  */
+//IMS_DCM_APN_EMERGENCY_V01 = 2, /**<  Emergency \n  */
+//IMS_DCM_APN_RCS_V01 = 3, /**<  RCS \n  */
+//IMS_DCM_APN_UT_V01 = 4, /**<  UT \n  */
+//IMS_DCM_APN_WLAN_V01 = 5, /**<  WLAN  */
+//IMS_DCM_APN_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
+//}ims_dcm_apn_type_v01;
+    ///**
+//    @}
+//  */
+
+    ///** @addtogroup imsdcm_qmi_enums
+//    @{
+//  */
+//typedef enum {
+//IMS_DCM_IP_ADDRESS_FAMILY_TYPE_MIN_ENUM_VAL_V01 = -2147483647, /**< To force a 32 bit signed enum.  Do not change or use*/
+//IMS_DCM_IPV4_V01 = 0, /**<  IPv4 address \n  */
+//IMS_DCM_IPV6_V01 = 1, /**<  IPv6 address  */
+//IMS_DCM_IP_ADDRESS_FAMILY_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
+//}ims_dcm_ip_address_family_type_v01;
+
+//  */
+//typedef enum {
+//  IMSRTP_DCM_RAT_TYPE_MIN_ENUM_VAL_V01 = -2147483647, /**< To force a 32 bit signed enum.  Do not change or use*/
+//  IMSRTP_DCM_RAT_NONE_V01 = 0, /**<  None.   */
+//  IMSRTP_DCM_RAT_GPRS_V01 = 1, /**<  General packet radio services.     */
+//  IMSRTP_DCM_RAT_EDGE_V01 = 2, /**<  Enhanced data GSM environment.    */
+//  IMSRTP_DCM_RAT_WCDMA_V01 = 3, /**<  WCDMA.    */
+//  IMSRTP_DCM_RAT_WLAN_V01 = 4, /**<  WLAN.    */
+//  IMSRTP_DCM_RAT_CDMA_V01 = 5, /**<  CDMA 1.x.    */
+//  IMSRTP_DCM_RAT_IWLAN_V01 = 6, /**<  IWLAN.    */
+//  IMSRTP_DCM_RAT_DOR0_V01 = 7, /**<  CDMA DO Rev0.    */
+//  IMSRTP_DCM_RAT_DORA_V01 = 8, /**<  CDMA DO RevA.    */
+//  IMSRTP_DCM_RAT_EHRPD_V01 = 9, /**<  CDMA evolved high-rate packet data.    */
+//  IMSRTP_DCM_RAT_LTE_V01 = 10, /**<  Long-term evolution.    */
+//  IMSRTP_DCM_RAT_DORB_V01 = 11, /**<  CDMA DO RevB.    */
+//  IMSRTP_DCM_RAT_EPC_V01 = 12, /**<  EPC.    */
+//  IMSRTP_DCM_RAT_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
+//}imsrtp_dcm_rat_type_v01;
+///**
+//    @}
+//  */
+
+///** @addtogroup imsrtp_qmi_enums
+//    @{
+//  */
+//typedef enum {
+//  IMSRTP_DCM_PROFILE_IPADDR_TYPE_MIN_ENUM_VAL_V01 = -2147483647, /**< To force a 32 bit signed enum.  Do not change or use*/
+//  IMSRTP_DCM_UNKNOWN_IP_TYPE_V01 = 0, /**<  Unknown.       */
+//  IMSRTP_DCM_IPV4_V01 = 1, /**<  IPv4 address.  */
+//  IMSRTP_DCM_IPV6_V01 = 2, /**<  IPv6 address.  */
+//  IMSRTP_DCM_PROFILE_IPADDR_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
+//}imsrtp_dcm_profile_ipaddr_type_v01;
+///**
+//    @}
+//  */
+
+///** @addtogroup imsrtp_qmi_enums
+//    @{
+//  */
+//typedef enum {
+//  IMSRTP_DCM_APN_TYPE_MIN_ENUM_VAL_V01 = -2147483647, /**< To force a 32 bit signed enum.  Do not change or use*/
+//  IMSRTP_DCM_APN_IMS_V01 = 1, /**<  IP multimedia subsystem.  */
+//  IMSRTP_DCM_APN_INTERNET_V01 = 2, /**<  Internet.    */
+//  IMSRTP_DCM_APN_EMERGENCY_V01 = 3, /**<  Emergency.    */
+//  IMSRTP_DCM_APN_RCS_V01 = 4, /**<  RCS.    */
+//  IMSRTP_DCM_APN_UT_V01 = 5, /**<  UT.    */
+//  IMSRTP_DCM_APN_TYPE_MAX_ENUM_VAL_V01 = 2147483647 /**< To force a 32 bit signed enum.  Do not change or use*/
+//}imsrtp_dcm_apn_type_v01;
+
     public enum ImsServiceInfoValues : ushort
     {
         None = 0x0,

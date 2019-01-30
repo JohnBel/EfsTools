@@ -52,7 +52,8 @@ namespace EfsTools.Items.Efs
         DorA = 8,
         Ehrpd = 9,
         Lte = 10,
-        Epc = 11
+        DorB = 11,
+        Epc = 12
     }
 
     [Serializable]
