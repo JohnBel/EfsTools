@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using EfsTools.Layouts;
 
 namespace EfsTools.CommandLineOptions
 {
@@ -9,6 +10,15 @@ namespace EfsTools.CommandLineOptions
         public string InComputerFilePath { get; set; }
 
         [Option('o', "outComputerFilePath", Required = false, HelpText = "Output directory path in computer")]
-        public string OutComputerFilePath { get; set; }
+        public string OutComputerFilePath
+        {
+            get => _outComputerFilePathLayout?.Render();
+            set
+            {
+                _outComputerFilePathLayout = Layout.Parse(value);
+            }
+        }
+
+        private Layout _outComputerFilePathLayout;
     }
 }

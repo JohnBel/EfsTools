@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AttributesAttribute.cs" />
+    <Compile Include="Attributes\LineEndingAttribute.cs" />
     <Compile Include="Attributes\EfsFileAttribute.cs" />
     <Compile Include="Attributes\ConvertEndianAttribute.cs" />
     <Compile Include="Attributes\IgnoreAttribute.cs" />
@@ -529,6 +530,11 @@
     <Compile Include="Items\Efs\Wl1UlCmEnable.cs" />
     <Compile Include="Items\Efs\Zz22SelParms.cs" />
     <Compile Include="Items\Efs\Zz22Thresh.cs" />
+    <Compile Include="Layouts\ILayoutRule.cs" />
+    <Compile Include="Layouts\ILayoutRuleWithParameters.cs" />
+    <Compile Include="Layouts\DateTimeLayoutRule.cs" />
+    <Compile Include="Layouts\Layout.cs" />
+    <Compile Include="Layouts\TextLayoutRule.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Mbn\ConfigurationType.cs" />
     <Compile Include="Mbn\ItemHeader.cs" />

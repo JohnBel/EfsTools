@@ -39,18 +39,31 @@ namespace EfsTools.Items
                             var val = (IEnumerable) property.GetValue(obj);
                             if (val != null)
                             {
+                                var lineEnding = (LineEndingAttribute) property
+                                    .GetCustomAttributes(typeof(LineEndingAttribute)).FirstOrDefault();
+                                var lineEnd = (lineEnding == null) ? "\n" : lineEnding.LineEndingString;
+                                var lineEndBuf = Encoding.ASCII.GetBytes(lineEnd);
                                 var addEndLine = false;
                                 foreach (var item in val)
                                 {
                                     if (addEndLine && propType.Name == "String[]")
                                     {
-                                        var b = (byte) '\n';
-                                        stream.WriteByte(b);
+                                        stream.Write(lineEndBuf, 0, lineEndBuf.Length);
                                     }
 
                                     addEndLine = true;
                                     var buf = GetBytes(item, item.GetType());
-                                    if (buf.Length > 0) stream.Write(buf, 0, buf.Length);
+                                    if (buf.Length > 0)
+                                    {
+                                        stream.Write(buf, 0, buf.Length);
+                                    }
+                                }
+                                if (lineEnding != null)
+                                {
+                                    if (addEndLine && lineEnding.NeedLastEndLine)
+                                    {
+                                        stream.Write(lineEndBuf, 0, lineEndBuf.Length);
+                                    }
                                 }
                             }
                         }
@@ -107,7 +120,7 @@ namespace EfsTools.Items
                                 continue;
                             }
 
-                            var val = GetArrayValue(propType, buf);
+                            var val = GetArrayValue(propType, buf, property);
                             property.SetValue(obj, val);
                         }
                     }
@@ -300,7 +313,7 @@ namespace EfsTools.Items
             return result;
         }
 
-        private static object GetArrayValue(Type type, byte[] buf)
+        private static object GetArrayValue(Type type, byte[] buf, PropertyInfo property)
         {
             object result = null;
             if (type.IsArray)
@@ -368,7 +381,18 @@ namespace EfsTools.Items
                     case "String[]":
                     {
                         var str = Encoding.ASCII.GetString(buf);
-                        result = str.Split(new[] {'\n'}, StringSplitOptions.None).Select(p => p.TrimEnd()).ToArray();
+                        var lineEnding = (LineEndingAttribute) property
+                            .GetCustomAttributes(typeof(LineEndingAttribute)).FirstOrDefault();
+                        var lineEnd = (lineEnding == null) ? "\n" : lineEnding.LineEndingString;
+                        str = str.Replace(lineEnd, "\n");
+                        var parts = str.Split(new[] {'\n'}, StringSplitOptions.None);
+                        if (parts.Length > 1 && string.IsNullOrEmpty(parts[parts.Length - 1]))
+                        {
+                            var newParts = new string[parts.Length - 1];
+                            Array.Copy(parts, 0, newParts, 0, newParts.Length);
+                            parts = newParts;
+                        }
+                        result = parts;
                     }
                         break;
                 }

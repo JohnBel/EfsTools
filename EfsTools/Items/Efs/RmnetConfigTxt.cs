@@ -11,6 +11,7 @@ namespace EfsTools.Items.Efs
     {
         [ElementsCount(1)]
         [ElementType("string[]")]
+        [LineEnding(LineEnding.Linux, true)]
         [Description("")]
         public string[] Values { get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using EfsTools.Layouts;
 
 namespace EfsTools.CommandLineOptions
 {
@@ -6,7 +7,16 @@ namespace EfsTools.CommandLineOptions
     internal class EfsUploadDirectoryOptions
     {
         [Option('i', "inComputerPath", Required = true, HelpText = "Input directory or MBN file path in computer ")]
-        public string InComputerPath { get; set; }
+        public string InComputerPath
+        {
+            get => _inComputerPathLayout?.Render();
+            set
+            {
+                _inComputerPathLayout = Layout.Parse(value);
+            }
+        }
+
+        private Layout _inComputerPathLayout;
 
         [Option('o', "outEfsPath", Required = true, HelpText = "EFS directory path")]
         public string OutEfsPath { get; set; }

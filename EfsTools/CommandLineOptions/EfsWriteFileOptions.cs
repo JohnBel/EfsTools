@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using EfsTools.Layouts;
 
 namespace EfsTools.CommandLineOptions
 {
@@ -6,7 +7,16 @@ namespace EfsTools.CommandLineOptions
     internal class EfsWriteFileOptions
     {
         [Option('i', "inComputerFilePath", Required = true, HelpText = "Computer file path")]
-        public string InComputerFilePath { get; set; }
+        public string InComputerFilePath
+        {
+            get => _inComputerFilePathLayout?.Render();
+            set
+            {
+                _inComputerFilePathLayout = Layout.Parse(value);
+            }
+        }
+
+        private Layout _inComputerFilePathLayout;
 
         [Option('o', "outEfsFilePath", Required = true, HelpText = "Output EFS path")]
         public string OutEfsFilePath { get; set; }
