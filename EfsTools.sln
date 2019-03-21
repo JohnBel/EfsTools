@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfsTools", "EfsTools\EfsTools.csproj", "{AFDECBE3-B1B0-43FC-9496-567F86E89B23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfsNvFileGenerator", "..\EfsNvFileGenerator\EfsNvFileGenerator.csproj", "{857BA9F7-C3A0-477E-94FB-27FB8B28D458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AFDECBE3-B1B0-43FC-9496-567F86E89B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFDECBE3-B1B0-43FC-9496-567F86E89B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFDECBE3-B1B0-43FC-9496-567F86E89B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857BA9F7-C3A0-477E-94FB-27FB8B28D458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857BA9F7-C3A0-477E-94FB-27FB8B28D458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857BA9F7-C3A0-477E-94FB-27FB8B28D458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857BA9F7-C3A0-477E-94FB-27FB8B28D458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

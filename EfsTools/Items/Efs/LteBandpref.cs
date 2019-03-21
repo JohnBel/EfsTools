@@ -12,6 +12,6 @@ namespace EfsTools.Items.Efs
         [ElementsCount(8)]
         [ElementType("int8")]
         [Description("")]
-        public sbyte Value { get; set; }
+        public sbyte[] Value { get; set; }
     }
 }
