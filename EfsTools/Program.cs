@@ -68,7 +68,7 @@ namespace EfsTools
                         .WithParsed<EfsDeleteFileOptions>(opts => tools.EfsDeleteFile(opts.Path))
                         .WithParsed<EfsListDirectoryOptions>(opts => tools.EfsListDirectory(opts.Path, opts.Recursive))
                         .WithParsed<GetModemConfigOptions>(opts =>
-                            tools.GetModemConfig(opts.OutComputerFilePath, opts.InComputerFilePath))
+                            tools.GetModemConfig(opts.OutComputerFilePath, opts.InComputerFilePath, opts.ItemNames))
                         .WithParsed<SetModemConfigOptions>(opts =>
                             tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath))
                         .WithParsed<ExtractMbnOptions>(opts =>

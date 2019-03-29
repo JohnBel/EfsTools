@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Text;
 using EfsTools.Items;
@@ -165,7 +166,7 @@ namespace EfsTools
             }
         }
 
-        public void GetModemConfig(string path, string inputDirectory)
+        public void GetModemConfig(string path, string inputDirectory, string itemNames)
         {
             var inDirectory = inputDirectory;
             if (!string.IsNullOrEmpty(inDirectory))
@@ -179,7 +180,9 @@ namespace EfsTools
                 {
                     using (var output = File.CreateText(path))
                     {
-                        var items = NvItemUtils.PhoneLoadItems(manager);
+                        var items = string.IsNullOrEmpty(itemNames) 
+                            ? NvItemUtils.PhoneLoadItems(manager)
+                            : NvItemUtils.PhoneLoadItems(manager, new HashSet<string>(itemNames.Split(',')));
                         ItemsJsonSerializer.SerializeItems(items, output);
                         output.Flush();
                         output.Close();

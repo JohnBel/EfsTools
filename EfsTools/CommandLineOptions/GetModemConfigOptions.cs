@@ -20,5 +20,8 @@ namespace EfsTools.CommandLineOptions
 
         [Option('i', "inputComputerFilePath", Required = false, HelpText = "Input directory or MBN file path in computer")]
         public string InComputerFilePath { get; set; }
+
+        [Option('m', "itemNames", Required = false, HelpText = "Load only this items")]
+        public string ItemNames { get; set; }
     }
 }
