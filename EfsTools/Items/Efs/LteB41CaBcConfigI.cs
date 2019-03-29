@@ -10,12 +10,8 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025248", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB41CaBcConfig
+    public class LteB41CaBcConfig : LteBandsConfigBase
     {
-        [ElementsCount(1)]
-        [ElementType("uint64")]
-        [Description("")]
-        public ulong Value { get; set; }
         
     }
 }

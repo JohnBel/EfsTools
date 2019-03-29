@@ -176,6 +176,7 @@
     <Compile Include="Items\Efs\B11AptCharTblSmps3.cs" />
     <Compile Include="Items\Efs\B11AptCharTblTypeList.cs" />
     <Compile Include="Items\Efs\DisableCapIes.cs" />
+    <Compile Include="Items\Efs\LteBandsConfigBase.cs" />
     <Compile Include="Items\Efs\LteCategory.cs" />
     <Compile Include="Items\Efs\Bc0AntGainDeltaI.cs" />
     <Compile Include="Items\Efs\Bc0AptCharTblNumPwrList.cs" />
@@ -11206,6 +11207,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Utils\BitsUtils.cs" />
     <Compile Include="Utils\Crc16.cs" />
     <Compile Include="Utils\EndianConverter.cs" />
     <Compile Include="Utils\FileUtils.cs" />
