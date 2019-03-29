@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2774)]
     [Attributes(9)]
-    public class GsmOpllBwValI
+    public class GsmOpllBwVal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

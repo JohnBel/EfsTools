@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023794", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1800LnaRangeRise4Car1I
+    public class Wcdma1800LnaRangeRise4Car1
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4179)]
     [Attributes(9)]
-    public class GsmTxRsbCorrI
+    public class GsmTxRsbCorr
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

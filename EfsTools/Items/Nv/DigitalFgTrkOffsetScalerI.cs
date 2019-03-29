@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(615)]
     [Attributes(9)]
-    public class DigitalFgTrkOffsetScalerI
+    public class DigitalFgTrkOffsetScaler
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

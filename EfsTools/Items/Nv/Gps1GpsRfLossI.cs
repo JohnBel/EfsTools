@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(449)]
     [Attributes(9)]
-    public class Gps1GpsRfLossI
+    public class Gps1GpsRfLoss
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

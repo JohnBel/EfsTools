@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023850", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC0Bc1TxGtrThreshI
+    public class CdmaC0Bc1TxGtrThresh
     {
         [ElementsCount(1)]
         [ElementType("int8")]

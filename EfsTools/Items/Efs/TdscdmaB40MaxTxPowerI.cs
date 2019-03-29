@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022704", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40MaxTxPowerI
+    public class TdscdmaB40MaxTxPower
     {
         [ElementsCount(1)]
         [ElementType("int16")]

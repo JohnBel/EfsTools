@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023573", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB39MaxTxPowerI
+    public class LteB39MaxTxPower
     {
         [ElementsCount(1)]
         [ElementType("int8")]

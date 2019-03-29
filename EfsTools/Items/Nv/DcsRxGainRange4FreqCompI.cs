@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(733)]
     [Attributes(9)]
-    public class DcsRxGainRange4FreqCompI
+    public class DcsRxGainRange4FreqComp
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

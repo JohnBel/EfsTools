@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6075)]
     [Attributes(9)]
-    public class BcxBlock1EncBtfI
+    public class BcxBlock1EncBtf
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

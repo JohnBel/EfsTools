@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6742)]
     [Attributes(9)]
-    public class LteB1C1LnaRangeRiseFallI
+    public class LteB1C1LnaRangeRiseFall
     {
         [ElementsCount(32)]
         [ElementType("int16")]

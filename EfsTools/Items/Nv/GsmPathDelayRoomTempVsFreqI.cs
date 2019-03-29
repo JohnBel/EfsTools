@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4216)]
     [Attributes(9)]
-    public class GsmPathDelayRoomTempVsFreqI
+    public class GsmPathDelayRoomTempVsFreq
     {
         [ElementsCount(8)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020864", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB8TxLinVsTempI
+    public class LteB8TxLinVsTemp
     {
         [ElementsCount(64)]
         [ElementType("int8")]

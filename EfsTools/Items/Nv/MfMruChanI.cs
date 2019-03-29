@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3631)]
     [Attributes(9)]
-    public class MfMruChanI
+    public class MfMruChan
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

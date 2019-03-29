@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6658)]
     [Attributes(9)]
-    public class LteB40MaxTxPowerI
+    public class LteB40MaxTxPower
     {
         [ElementsCount(1)]
         [ElementType("int8")]

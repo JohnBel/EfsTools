@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4947)]
     [Attributes(9)]
-    public class Wcdma800Rel6TxBetaScalingCompI
+    public class Wcdma800Rel6TxBetaScalingComp
     {
         [ElementsCount(7)]
         [ElementType("uint16")]

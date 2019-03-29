@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023880", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC0Bc5TxMultiLinV2DataI
+    public class CdmaC0Bc5TxMultiLinV2Data
     {
         [ElementsCount(1)]
         [ElementType("QMSL_Tx_Cal_Complete_Rev2_NV_Type")]

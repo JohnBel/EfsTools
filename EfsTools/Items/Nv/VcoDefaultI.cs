@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1882)]
     [Attributes(9)]
-    public class VcoDefaultI
+    public class VcoDefault
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

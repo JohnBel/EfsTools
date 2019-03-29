@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(614)]
     [Attributes(9)]
-    public class GpsFgTrkOffsetScalerI
+    public class GpsFgTrkOffsetScaler
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

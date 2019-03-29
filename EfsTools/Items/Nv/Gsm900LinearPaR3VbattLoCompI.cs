@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6372)]
     [Attributes(9)]
-    public class Gsm900LinearPaR3VbattLoCompI
+    public class Gsm900LinearPaR3VbattLoComp
     {
         [ElementsCount(1)]
         [ElementType("int16")]

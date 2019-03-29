@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1831)]
     [Attributes(9)]
-    public class Wcdma800RxAgcMin3I
+    public class Wcdma800RxAgcMin3
     {
         [ElementsCount(1)]
         [ElementType("int16")]

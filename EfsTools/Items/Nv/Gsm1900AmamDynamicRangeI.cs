@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2749)]
     [Attributes(9)]
-    public class Gsm1900AmamDynamicRangeI
+    public class Gsm1900AmamDynamicRange
     {
         [ElementsCount(2)]
         [ElementType("int32")]

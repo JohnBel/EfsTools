@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2712)]
     [Attributes(9)]
-    public class WcdmaMaxPwrBackoffVoltagesI
+    public class WcdmaMaxPwrBackoffVoltages
     {
         [ElementsCount(3)]
         [ElementType("uint8")]

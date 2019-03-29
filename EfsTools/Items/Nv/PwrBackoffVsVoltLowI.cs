@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(491)]
     [Attributes(9)]
-    public class PwrBackoffVsVoltLowI
+    public class PwrBackoffVsVoltLow
     {
         [ElementsCount(20)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4870)]
     [Attributes(9)]
-    public class Gsm850CarrierSuppressionI
+    public class Gsm850CarrierSuppression
     {
         [ElementsCount(2)]
         [ElementType("int16")]

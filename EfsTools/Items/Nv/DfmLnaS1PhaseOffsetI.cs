@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(618)]
     [Attributes(9)]
-    public class DfmLnaS1PhaseOffsetI
+    public class DfmLnaS1PhaseOffset
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

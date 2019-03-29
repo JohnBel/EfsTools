@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023790", true, 0xE1FF)]
     [Attributes(9)]
-    public class DivWcdma1800VgaGainOffsetCar1I
+    public class DivWcdma1800VgaGainOffsetCar1
     {
         [ElementsCount(1)]
         [ElementType("int16")]

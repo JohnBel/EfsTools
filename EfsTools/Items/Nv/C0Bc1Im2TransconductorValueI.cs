@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1672)]
     [Attributes(9)]
-    public class C0Bc1Im2TransconductorValueI
+    public class C0Bc1Im2TransconductorValue
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

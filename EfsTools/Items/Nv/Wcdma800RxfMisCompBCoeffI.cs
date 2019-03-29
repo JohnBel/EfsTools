@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5909)]
     [Attributes(9)]
-    public class Wcdma800RxfMisCompBCoeffI
+    public class Wcdma800RxfMisCompBCoeff
     {
         [ElementsCount(1)]
         [ElementType("int16")]

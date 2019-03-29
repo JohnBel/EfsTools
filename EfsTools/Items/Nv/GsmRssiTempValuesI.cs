@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4372)]
     [Attributes(9)]
-    public class GsmRssiTempValuesI
+    public class GsmRssiTempValues
     {
         [ElementsCount(4)]
         [ElementType("int8")]

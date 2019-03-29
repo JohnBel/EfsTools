@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1985)]
     [Attributes(9)]
-    public class WcdmaRxDelayI
+    public class WcdmaRxDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

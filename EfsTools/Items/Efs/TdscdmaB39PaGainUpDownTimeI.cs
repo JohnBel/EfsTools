@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022671", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB39PaGainUpDownTimeI
+    public class TdscdmaB39PaGainUpDownTime
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

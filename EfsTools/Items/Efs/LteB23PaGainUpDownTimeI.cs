@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024274", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB23PaGainUpDownTimeI
+    public class LteB23PaGainUpDownTime
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

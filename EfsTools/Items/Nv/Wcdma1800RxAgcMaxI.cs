@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2871)]
     [Attributes(9)]
-    public class Wcdma1800RxAgcMaxI
+    public class Wcdma1800RxAgcMax
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025069", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm900PolarPathDelayI
+    public class GsmC0Gsm900PolarPathDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

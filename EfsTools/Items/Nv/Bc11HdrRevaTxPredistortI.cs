@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5890)]
     [Attributes(9)]
-    public class Bc11HdrRevaTxPredistortI
+    public class Bc11HdrRevaTxPredistort
     {
         [ElementsCount(16)]
         [ElementType("int8")]

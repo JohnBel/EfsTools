@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023935", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB6RxfMismatchCompI
+    public class LteB6RxfMismatchComp
     {
         [ElementsCount(2)]
         [ElementType("int16")]

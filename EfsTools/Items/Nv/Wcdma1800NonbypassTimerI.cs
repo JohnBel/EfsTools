@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2866)]
     [Attributes(9)]
-    public class Wcdma1800NonbypassTimerI
+    public class Wcdma1800NonbypassTimer
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

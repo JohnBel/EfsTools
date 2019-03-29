@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024264", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB23RxGainVsTempI
+    public class LteB23RxGainVsTemp
     {
         [ElementsCount(128)]
         [ElementType("int8")]

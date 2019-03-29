@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4833)]
     [Attributes(9)]
-    public class Bc0TxLin2I
+    public class Bc0TxLin2
     {
         [ElementsCount(64)]
         [ElementType("int16")]

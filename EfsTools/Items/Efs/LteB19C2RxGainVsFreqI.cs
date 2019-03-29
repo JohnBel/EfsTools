@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025326", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB19C2RxGainVsFreqI
+    public class LteB19C2RxGainVsFreq
     {
         [ElementsCount(128)]
         [ElementType("int8")]

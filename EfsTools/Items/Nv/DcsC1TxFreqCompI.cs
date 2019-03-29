@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2323)]
     [Attributes(9)]
-    public class DcsC1TxFreqCompI
+    public class DcsC1TxFreqComp
     {
         [ElementsCount(8)]
         [ElementType("int8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024594", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma900HdetVsTempI
+    public class Wcdma900HdetVsTemp
     {
         [ElementsCount(8)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023386", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40LnaRangeAllowedI
+    public class TdscdmaB40LnaRangeAllowed
     {
         [ElementsCount(24)]
         [ElementType("uint8")]

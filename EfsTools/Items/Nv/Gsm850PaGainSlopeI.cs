@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1136)]
     [Attributes(9)]
-    public class Gsm850PaGainSlopeI
+    public class Gsm850PaGainSlope
     {
         [ElementsCount(15)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5643)]
     [Attributes(9)]
-    public class Gsm1900AmamLinearPaRangebF2Seg1I
+    public class Gsm1900AmamLinearPaRangebF2Seg1
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

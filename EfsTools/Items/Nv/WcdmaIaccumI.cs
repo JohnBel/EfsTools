@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4161)]
     [Attributes(9)]
-    public class WcdmaIaccumI
+    public class WcdmaIaccum
     {
         [ElementsCount(6)]
         [ElementType("uint16")]

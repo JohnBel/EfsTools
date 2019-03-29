@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2839)]
     [Attributes(9)]
-    public class BtActiveI
+    public class BtActive
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

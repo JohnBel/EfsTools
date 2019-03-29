@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(682)]
     [Attributes(9)]
-    public class GpsDaccQaccum4I
+    public class GpsDaccQaccum4
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

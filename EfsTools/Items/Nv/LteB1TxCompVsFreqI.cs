@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6734)]
     [Attributes(9)]
-    public class LteB1TxCompVsFreqI
+    public class LteB1TxCompVsFreq
     {
         [ElementsCount(128)]
         [ElementType("int8")]

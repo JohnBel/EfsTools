@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3073)]
     [Attributes(9)]
-    public class DcsAntTimingRelToPaEnStopI
+    public class DcsAntTimingRelToPaEnStop
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6647)]
     [Attributes(9)]
-    public class LteB40RxDelayI
+    public class LteB40RxDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

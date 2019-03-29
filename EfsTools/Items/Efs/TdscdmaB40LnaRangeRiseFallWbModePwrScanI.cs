@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022695", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40LnaRangeRiseFallWbModePwrScanI
+    public class TdscdmaB40LnaRangeRiseFallWbModePwrScan
     {
         [ElementsCount(12)]
         [ElementType("uint8")]

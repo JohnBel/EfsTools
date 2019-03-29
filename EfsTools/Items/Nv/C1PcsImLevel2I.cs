@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1054)]
     [Attributes(9)]
-    public class C1PcsImLevel2I
+    public class C1PcsImLevel2
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020311", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB3HdetOffSpanI
+    public class LteB3HdetOffSpan
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4067)]
     [Attributes(9)]
-    public class WcdmaBc4TxRotAnglePaState00I
+    public class WcdmaBc4TxRotAnglePaState00
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(385)]
     [Attributes(9)]
-    public class AgcPhaseOffsetI
+    public class AgcPhaseOffset
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

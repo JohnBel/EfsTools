@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022982", true, 0xE1FF)]
     [Attributes(9)]
-    public class MsmSelfCalI
+    public class MsmSelfCal
     {
         [ElementsCount(16384)]
         [ElementType("int8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025581", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC2Gsm900EnhAptI
+    public class GsmC2Gsm900EnhApt
     {
         [ElementsCount(1)]
         [ElementType("GSM_TX_ENH_APT_DATA_TYPE")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(589)]
     [Attributes(9)]
-    public class TxGainAttenLimitI
+    public class TxGainAttenLimit
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022698", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40HsLnaRangeRiseFallWbModeTrackingI
+    public class TdscdmaB40HsLnaRangeRiseFallWbModeTracking
     {
         [ElementsCount(12)]
         [ElementType("uint8")]

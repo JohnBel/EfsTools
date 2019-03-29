@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020328", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB18RxDelayI
+    public class LteB18RxDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

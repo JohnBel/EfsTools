@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1467)]
     [Attributes(9)]
-    public class Bc4Gps1RfDelayI
+    public class Bc4Gps1RfDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022064", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc14TxPdm0I
+    public class CdmaC2Bc14TxPdm0
     {
         [ElementsCount(64)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023249", true, 0xE1FF)]
     [Attributes(9)]
-    public class C3Bc0VgaGainOffsetI
+    public class C3Bc0VgaGainOffset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

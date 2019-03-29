@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6979)]
     [Attributes(9)]
-    public class Wcdma1500PaCompensateUpR3I
+    public class Wcdma1500PaCompensateUpR3
     {
         [ElementsCount(1)]
         [ElementType("int16")]

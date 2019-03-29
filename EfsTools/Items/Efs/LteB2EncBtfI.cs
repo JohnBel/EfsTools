@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020228", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB2EncBtfI
+    public class LteB2EncBtf
     {
         [ElementsCount(1)]
         [ElementType("int32")]

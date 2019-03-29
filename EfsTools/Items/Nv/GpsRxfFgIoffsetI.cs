@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(630)]
     [Attributes(9)]
-    public class GpsRxfFgIoffsetI
+    public class GpsRxfFgIoffset
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

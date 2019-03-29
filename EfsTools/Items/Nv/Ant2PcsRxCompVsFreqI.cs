@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(507)]
     [Attributes(9)]
-    public class Ant2PcsRxCompVsFreqI
+    public class Ant2PcsRxCompVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

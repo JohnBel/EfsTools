@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(572)]
     [Attributes(9)]
-    public class RfNvLoadedDateI
+    public class RfNvLoadedDate
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

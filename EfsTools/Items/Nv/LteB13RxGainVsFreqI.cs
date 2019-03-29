@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6497)]
     [Attributes(9)]
-    public class LteB13RxGainVsFreqI
+    public class LteB13RxGainVsFreq
     {
         [ElementsCount(128)]
         [ElementType("int8")]

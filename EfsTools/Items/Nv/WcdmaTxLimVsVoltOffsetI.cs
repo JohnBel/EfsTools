@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2334)]
     [Attributes(9)]
-    public class WcdmaTxLimVsVoltOffsetI
+    public class WcdmaTxLimVsVoltOffset
     {
         [ElementsCount(3)]
         [ElementType("int8")]

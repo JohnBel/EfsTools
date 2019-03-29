@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023651", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB34LnaPhaseCtrlI
+    public class LteB34LnaPhaseCtrl
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

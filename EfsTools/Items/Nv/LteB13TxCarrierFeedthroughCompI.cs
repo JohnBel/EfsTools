@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6823)]
     [Attributes(9)]
-    public class LteB13TxCarrierFeedthroughCompI
+    public class LteB13TxCarrierFeedthroughComp
     {
         [ElementsCount(2)]
         [ElementType("int16")]

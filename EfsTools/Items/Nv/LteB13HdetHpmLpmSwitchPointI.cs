@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(7227)]
     [Attributes(9)]
-    public class LteB13HdetHpmLpmSwitchPointI
+    public class LteB13HdetHpmLpmSwitchPoint
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

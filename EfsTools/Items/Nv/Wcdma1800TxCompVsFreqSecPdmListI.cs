@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4984)]
     [Attributes(9)]
-    public class Wcdma1800TxCompVsFreqSecPdmListI
+    public class Wcdma1800TxCompVsFreqSecPdmList
     {
         [ElementsCount(4)]
         [ElementType("uint16")]

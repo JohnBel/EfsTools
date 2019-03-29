@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6065)]
     [Attributes(9)]
-    public class BcxBlock1TxLimVsFreqI
+    public class BcxBlock1TxLimVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

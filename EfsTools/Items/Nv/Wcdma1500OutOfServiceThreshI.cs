@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6927)]
     [Attributes(9)]
-    public class Wcdma1500OutOfServiceThreshI
+    public class Wcdma1500OutOfServiceThresh
     {
         [ElementsCount(1)]
         [ElementType("int16")]

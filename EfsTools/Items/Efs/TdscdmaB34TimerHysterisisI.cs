@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022633", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34TimerHysterisisI
+    public class TdscdmaB34TimerHysterisis
     {
         [ElementsCount(1)]
         [ElementType("int16")]

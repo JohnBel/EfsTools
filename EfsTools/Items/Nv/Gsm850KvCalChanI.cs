@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5270)]
     [Attributes(9)]
-    public class Gsm850KvCalChanI
+    public class Gsm850KvCalChan
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

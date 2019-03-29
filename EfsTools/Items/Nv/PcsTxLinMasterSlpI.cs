@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(330)]
     [Attributes(9)]
-    public class PcsTxLinMasterSlpI
+    public class PcsTxLinMasterSlp
     {
         [ElementsCount(37)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(312)]
     [Attributes(9)]
-    public class CdmaHdetAdcRangeI
+    public class CdmaHdetAdcRange
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

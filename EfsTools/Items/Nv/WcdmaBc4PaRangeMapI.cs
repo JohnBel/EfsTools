@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4075)]
     [Attributes(9)]
-    public class WcdmaBc4PaRangeMapI
+    public class WcdmaBc4PaRangeMap
     {
         [ElementsCount(4)]
         [ElementType("int8")]

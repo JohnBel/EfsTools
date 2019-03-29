@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022931", true, 0xE1FF)]
     [Attributes(9)]
-    public class HdrBc15HalfDuplexI
+    public class HdrBc15HalfDuplex
     {
         [ElementsCount(10)]
         [ElementType("int16")]

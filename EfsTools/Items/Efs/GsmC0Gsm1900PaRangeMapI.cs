@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025429", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900PaRangeMapI
+    public class GsmC0Gsm1900PaRangeMap
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

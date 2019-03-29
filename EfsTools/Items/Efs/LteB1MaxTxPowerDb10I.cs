@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020992", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB1MaxTxPowerDb10I
+    public class LteB1MaxTxPowerDb10
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

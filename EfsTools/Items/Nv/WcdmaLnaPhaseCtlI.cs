@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4956)]
     [Attributes(9)]
-    public class WcdmaLnaPhaseCtlI
+    public class WcdmaLnaPhaseCtl
     {
         [ElementsCount(6)]
         [ElementType("uint16")]

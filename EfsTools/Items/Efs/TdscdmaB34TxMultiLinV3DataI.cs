@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025722", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34TxMultiLinV3DataI
+    public class TdscdmaB34TxMultiLinV3Data
     {
         [ElementsCount(1)]
         [ElementType("Variant_Marker")]

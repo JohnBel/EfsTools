@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1950)]
     [Attributes(9)]
-    public class RfAntselGsm1800TxI
+    public class RfAntselGsm1800Tx
     {
         [ElementsCount(4)]
         [ElementType("uint8")]

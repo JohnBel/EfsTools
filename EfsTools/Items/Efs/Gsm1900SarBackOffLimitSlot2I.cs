@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021547", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm1900SarBackOffLimitSlot2I
+    public class Gsm1900SarBackOffLimitSlot2
     {
         [ElementsCount(16)]
         [ElementType("int16")]

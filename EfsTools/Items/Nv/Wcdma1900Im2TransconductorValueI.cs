@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1158)]
     [Attributes(9)]
-    public class Wcdma1900Im2TransconductorValueI
+    public class Wcdma1900Im2TransconductorValue
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

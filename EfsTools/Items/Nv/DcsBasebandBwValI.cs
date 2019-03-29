@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2779)]
     [Attributes(9)]
-    public class DcsBasebandBwValI
+    public class DcsBasebandBwVal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

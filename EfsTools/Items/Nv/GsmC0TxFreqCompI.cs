@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2319)]
     [Attributes(9)]
-    public class GsmC0TxFreqCompI
+    public class GsmC0TxFreqComp
     {
         [ElementsCount(8)]
         [ElementType("int8")]

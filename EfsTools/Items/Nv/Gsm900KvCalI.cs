@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5067)]
     [Attributes(9)]
-    public class Gsm900KvCalI
+    public class Gsm900KvCal
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

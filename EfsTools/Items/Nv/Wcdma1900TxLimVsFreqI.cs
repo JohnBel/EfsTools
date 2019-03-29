@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1184)]
     [Attributes(9)]
-    public class Wcdma1900TxLimVsFreqI
+    public class Wcdma1900TxLimVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int16")]

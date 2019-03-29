@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020025", true, 0xE1FF)]
     [Attributes(9)]
-    public class Bc4AntGainDeltaI
+    public class Bc4AntGainDelta
     {
         [ElementsCount(1)]
         [ElementType("int16")]

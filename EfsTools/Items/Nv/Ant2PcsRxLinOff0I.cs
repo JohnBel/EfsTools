@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(505)]
     [Attributes(9)]
-    public class Ant2PcsRxLinOff0I
+    public class Ant2PcsRxLinOff0
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

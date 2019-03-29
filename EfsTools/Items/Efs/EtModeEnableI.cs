@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020787", true, 0xE1FF)]
     [Attributes(9)]
-    public class EtModeEnableI
+    public class EtModeEnable
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

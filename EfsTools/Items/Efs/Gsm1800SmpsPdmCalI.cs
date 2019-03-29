@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021334", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm1800SmpsPdmCalI
+    public class Gsm1800SmpsPdmCal
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

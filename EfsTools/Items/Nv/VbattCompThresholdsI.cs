@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2329)]
     [Attributes(9)]
-    public class VbattCompThresholdsI
+    public class VbattCompThresholds
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

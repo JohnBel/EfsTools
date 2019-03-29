@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3749)]
     [Attributes(9)]
-    public class Wcdma900HsR2FallI
+    public class Wcdma900HsR2Fall
     {
         [ElementsCount(1)]
         [ElementType("int16")]

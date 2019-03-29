@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6681)]
     [Attributes(9)]
-    public class LteB40TxGainIndex3I
+    public class LteB40TxGainIndex3
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

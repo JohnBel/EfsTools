@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025691", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB17TxLinVsTempVsFreqPInI
+    public class LteB17TxLinVsTempVsFreqPIn
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

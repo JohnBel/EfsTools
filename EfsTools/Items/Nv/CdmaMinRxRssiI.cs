@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(879)]
     [Attributes(9)]
-    public class CdmaMinRxRssiI
+    public class CdmaMinRxRssi
     {
         [ElementsCount(1)]
         [ElementType("int16")]

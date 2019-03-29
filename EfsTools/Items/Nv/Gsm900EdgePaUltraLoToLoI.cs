@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5384)]
     [Attributes(9)]
-    public class Gsm900EdgePaUltraLoToLoI
+    public class Gsm900EdgePaUltraLoToLo
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

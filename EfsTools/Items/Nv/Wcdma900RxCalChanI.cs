@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3705)]
     [Attributes(9)]
-    public class Wcdma900RxCalChanI
+    public class Wcdma900RxCalChan
     {
         [ElementsCount(16)]
         [ElementType("int16")]

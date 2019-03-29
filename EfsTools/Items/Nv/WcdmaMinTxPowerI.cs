@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3440)]
     [Attributes(9)]
-    public class WcdmaMinTxPowerI
+    public class WcdmaMinTxPower
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5091)]
     [Attributes(9)]
-    public class Gsm850SmpsPdmTblI
+    public class Gsm850SmpsPdmTbl
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

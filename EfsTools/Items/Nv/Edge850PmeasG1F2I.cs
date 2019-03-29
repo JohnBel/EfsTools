@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5533)]
     [Attributes(9)]
-    public class Edge850PmeasG1F2I
+    public class Edge850PmeasG1F2
     {
         [ElementsCount(32)]
         [ElementType("uint16")]

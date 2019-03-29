@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6412)]
     [Attributes(9)]
-    public class C1Wcdma1800RxfIciICoef23I
+    public class C1Wcdma1800RxfIciICoef23
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

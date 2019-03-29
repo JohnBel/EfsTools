@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(679)]
     [Attributes(9)]
-    public class CdmaDaccQaccum4I
+    public class CdmaDaccQaccum4
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

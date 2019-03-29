@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024602", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm850EdgeEnhTempCompI
+    public class Gsm850EdgeEnhTempComp
     {
         [ElementsCount(1)]
         [ElementType("GSM_EnhTempComp_temp_type")]

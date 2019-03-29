@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(970)]
     [Attributes(9)]
-    public class C0RxAgcVrefValI
+    public class C0RxAgcVrefVal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

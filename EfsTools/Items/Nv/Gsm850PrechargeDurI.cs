@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3397)]
     [Attributes(9)]
-    public class Gsm850PrechargeDurI
+    public class Gsm850PrechargeDur
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

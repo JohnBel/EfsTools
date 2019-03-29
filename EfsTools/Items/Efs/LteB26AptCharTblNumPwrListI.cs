@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024662", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB26AptCharTblNumPwrListI
+    public class LteB26AptCharTblNumPwrList
     {
         [ElementsCount(4)]
         [ElementType("uint8")]

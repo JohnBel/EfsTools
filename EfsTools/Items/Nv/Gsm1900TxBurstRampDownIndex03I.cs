@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1081)]
     [Attributes(9)]
-    public class Gsm1900TxBurstRampDownIndex03I
+    public class Gsm1900TxBurstRampDownIndex03
     {
         [ElementsCount(30)]
         [ElementType("uint16")]

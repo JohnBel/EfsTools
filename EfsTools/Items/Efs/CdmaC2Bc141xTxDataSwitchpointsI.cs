@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022053", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc141xTxDataSwitchpointsI
+    public class CdmaC2Bc141xTxDataSwitchpoints
     {
         [ElementsCount(1)]
         [ElementType("int16")]

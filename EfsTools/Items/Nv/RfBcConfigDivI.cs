@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4548)]
     [Attributes(9)]
-    public class RfBcConfigDivI
+    public class RfBcConfigDiv
     {
         [ElementsCount(1)]
         [ElementType("uint64")]

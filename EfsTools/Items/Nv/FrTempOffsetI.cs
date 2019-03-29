@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(92)]
     [Attributes(9)]
-    public class FrTempOffsetI
+    public class FrTempOffset
     {
         [ElementsCount(64)]
         [ElementType("uint8")]

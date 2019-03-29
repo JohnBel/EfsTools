@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025182", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34TxPathLossOffsetI
+    public class TdscdmaB34TxPathLossOffset
     {
         [ElementsCount(16)]
         [ElementType("int8")]

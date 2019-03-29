@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6281)]
     [Attributes(9)]
-    public class Bc6IntelliceiverRcTuneCalI
+    public class Bc6IntelliceiverRcTuneCal
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

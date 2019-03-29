@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1570)]
     [Attributes(9)]
-    public class C0Bc3TxCalChanI
+    public class C0Bc3TxCalChan
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

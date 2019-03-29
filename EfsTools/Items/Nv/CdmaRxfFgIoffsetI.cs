@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(627)]
     [Attributes(9)]
-    public class CdmaRxfFgIoffsetI
+    public class CdmaRxfFgIoffset
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

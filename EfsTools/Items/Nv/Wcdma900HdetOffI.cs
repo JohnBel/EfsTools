@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3694)]
     [Attributes(9)]
-    public class Wcdma900HdetOffI
+    public class Wcdma900HdetOff
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

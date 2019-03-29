@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4391)]
     [Attributes(9)]
-    public class DcsRxGainRange5TempCompI
+    public class DcsRxGainRange5TempComp
     {
         [ElementsCount(3)]
         [ElementType("int16")]

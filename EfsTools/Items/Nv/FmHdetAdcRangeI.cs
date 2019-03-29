@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(311)]
     [Attributes(9)]
-    public class FmHdetAdcRangeI
+    public class FmHdetAdcRange
     {
         [ElementsCount(6)]
         [ElementType("uint8")]

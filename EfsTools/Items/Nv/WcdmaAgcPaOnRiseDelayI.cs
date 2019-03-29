@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1196)]
     [Attributes(9)]
-    public class WcdmaAgcPaOnRiseDelayI
+    public class WcdmaAgcPaOnRiseDelay
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

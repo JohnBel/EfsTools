@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023925", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB6NonbypassBypassTimerI
+    public class LteB6NonbypassBypassTimer
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

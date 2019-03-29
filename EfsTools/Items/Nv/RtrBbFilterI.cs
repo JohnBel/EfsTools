@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4103)]
     [Attributes(9)]
-    public class RtrBbFilterI
+    public class RtrBbFilter
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

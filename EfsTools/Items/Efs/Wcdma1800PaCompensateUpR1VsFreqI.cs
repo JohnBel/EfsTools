@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021564", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1800PaCompensateUpR1VsFreqI
+    public class Wcdma1800PaCompensateUpR1VsFreq
     {
         [ElementsCount(16)]
         [ElementType("int16")]

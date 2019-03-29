@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(509)]
     [Attributes(9)]
-    public class Ant2PcsRxSlpVsTempI
+    public class Ant2PcsRxSlpVsTemp
     {
         [ElementsCount(8)]
         [ElementType("int8")]

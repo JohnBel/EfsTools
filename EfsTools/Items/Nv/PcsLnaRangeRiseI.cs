@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(347)]
     [Attributes(9)]
-    public class PcsLnaRangeRiseI
+    public class PcsLnaRangeRise
     {
         [ElementsCount(1)]
         [ElementType("int8")]

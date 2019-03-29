@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4943)]
     [Attributes(9)]
-    public class WcdmaRel6TxMprBackoffI
+    public class WcdmaRel6TxMprBackoff
     {
         [ElementsCount(7)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024185", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1800TxEptDpdConfigParamsI
+    public class Wcdma1800TxEptDpdConfigParams
     {
         [ElementsCount(32)]
         [ElementType("uint32")]

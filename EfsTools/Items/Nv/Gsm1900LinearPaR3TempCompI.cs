@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6357)]
     [Attributes(9)]
-    public class Gsm1900LinearPaR3TempCompI
+    public class Gsm1900LinearPaR3TempComp
     {
         [ElementsCount(16)]
         [ElementType("int16")]

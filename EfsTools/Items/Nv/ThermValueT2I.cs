@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4222)]
     [Attributes(9)]
-    public class ThermValueT2I
+    public class ThermValueT2
     {
         [ElementsCount(1)]
         [ElementType("int8")]

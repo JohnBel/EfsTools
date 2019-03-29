@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024814", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB26AmprNs13Bw05I
+    public class LteB26AmprNs13Bw05
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

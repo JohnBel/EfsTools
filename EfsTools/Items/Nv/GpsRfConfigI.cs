@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1032)]
     [Attributes(9)]
-    public class GpsRfConfigI
+    public class GpsRfConfig
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3152)]
     [Attributes(9)]
-    public class DcsRtr6250RsbI
+    public class DcsRtr6250Rsb
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

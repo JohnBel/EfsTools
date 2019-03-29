@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(685)]
     [Attributes(9)]
-    public class FmDaccGainMultI
+    public class FmDaccGainMult
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

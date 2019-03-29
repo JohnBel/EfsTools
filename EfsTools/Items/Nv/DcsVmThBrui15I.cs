@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2289)]
     [Attributes(9)]
-    public class DcsVmThBrui15I
+    public class DcsVmThBrui15
     {
         [ElementsCount(30)]
         [ElementType("uint16")]

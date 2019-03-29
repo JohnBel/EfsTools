@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(610)]
     [Attributes(9)]
-    public class DfmAgcAccMin1I
+    public class DfmAgcAccMin1
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021563", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1900PaCompensateDownR3VsFreqI
+    public class Wcdma1900PaCompensateDownR3VsFreq
     {
         [ElementsCount(16)]
         [ElementType("int16")]

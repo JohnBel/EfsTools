@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1331)]
     [Attributes(9)]
-    public class Gsm1900PaTempCompIndex05I
+    public class Gsm1900PaTempCompIndex05
     {
         [ElementsCount(16)]
         [ElementType("int8")]

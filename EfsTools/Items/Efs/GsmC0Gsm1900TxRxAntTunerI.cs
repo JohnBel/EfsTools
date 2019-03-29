@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025095", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900TxRxAntTunerI
+    public class GsmC0Gsm1900TxRxAntTuner
     {
         [ElementsCount(1)]
         [ElementType("RFCOMMON_ANT_TUNER_DATA_TYPE")]

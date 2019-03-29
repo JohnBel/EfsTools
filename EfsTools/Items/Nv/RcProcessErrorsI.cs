@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6861)]
     [Attributes(9)]
-    public class RcProcessErrorsI
+    public class RcProcessErrors
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

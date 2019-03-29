@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025732", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB29C1RxCalChanI
+    public class LteB29C1RxCalChan
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

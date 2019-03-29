@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4624)]
     [Attributes(9)]
-    public class C1BcxBlockImLevel2I
+    public class C1BcxBlockImLevel2
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

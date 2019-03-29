@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023418", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc14DorbMcRxSwitchpointsI
+    public class CdmaC2Bc14DorbMcRxSwitchpoints
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

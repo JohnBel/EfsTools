@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023846", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB39TxGtrThreshI
+    public class LteB39TxGtrThresh
     {
         [ElementsCount(1)]
         [ElementType("int8")]

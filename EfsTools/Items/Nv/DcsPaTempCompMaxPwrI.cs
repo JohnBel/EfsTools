@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4370)]
     [Attributes(9)]
-    public class DcsPaTempCompMaxPwrI
+    public class DcsPaTempCompMaxPwr
     {
         [ElementsCount(16)]
         [ElementType("int16")]

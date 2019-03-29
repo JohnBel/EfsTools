@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(143)]
     [Attributes(9)]
-    public class HdetOffI
+    public class HdetOff
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

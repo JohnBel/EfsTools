@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6683)]
     [Attributes(9)]
-    public class LteB40ExpHdetVsAgcI
+    public class LteB40ExpHdetVsAgc
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

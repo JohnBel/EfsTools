@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4213)]
     [Attributes(9)]
-    public class GsmPathDelayCompFreqTblI
+    public class GsmPathDelayCompFreqTbl
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

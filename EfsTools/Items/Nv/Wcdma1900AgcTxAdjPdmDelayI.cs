@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2948)]
     [Attributes(9)]
-    public class Wcdma1900AgcTxAdjPdmDelayI
+    public class Wcdma1900AgcTxAdjPdmDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

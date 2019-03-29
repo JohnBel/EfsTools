@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(443)]
     [Attributes(9)]
-    public class Gps1GpsRfDelayI
+    public class Gps1GpsRfDelay
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

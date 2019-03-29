@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(448)]
     [Attributes(9)]
-    public class SubpcgPaWarmupDelayI
+    public class SubpcgPaWarmupDelay
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

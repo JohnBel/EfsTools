@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(803)]
     [Attributes(9)]
-    public class DcsPaGainSlopeI
+    public class DcsPaGainSlope
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

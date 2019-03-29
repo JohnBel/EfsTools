@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4149)]
     [Attributes(9)]
-    public class Dcs8pskMultislot2TxPowerI
+    public class Dcs8pskMultislot2TxPower
     {
         [ElementsCount(1)]
         [ElementType("int16")]

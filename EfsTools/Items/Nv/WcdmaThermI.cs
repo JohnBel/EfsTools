@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(875)]
     [Attributes(9)]
-    public class WcdmaThermI
+    public class WcdmaTherm
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3372)]
     [Attributes(9)]
-    public class MfHwConfigI
+    public class MfHwConfig
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

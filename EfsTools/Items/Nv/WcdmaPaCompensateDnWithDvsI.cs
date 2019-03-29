@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2705)]
     [Attributes(9)]
-    public class WcdmaPaCompensateDnWithDvsI
+    public class WcdmaPaCompensateDnWithDvs
     {
         [ElementsCount(10)]
         [ElementType("int16")]

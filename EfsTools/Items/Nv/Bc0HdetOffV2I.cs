@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5738)]
     [Attributes(9)]
-    public class Bc0HdetOffV2I
+    public class Bc0HdetOffV2
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5049)]
     [Attributes(9)]
-    public class Wcdma900TimerHysterisisI
+    public class Wcdma900TimerHysterisis
     {
         [ElementsCount(1)]
         [ElementType("int16")]

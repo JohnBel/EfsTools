@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022700", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40RxCalChanI
+    public class TdscdmaB40RxCalChan
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

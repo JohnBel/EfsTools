@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3512)]
     [Attributes(9)]
-    public class WcdmaTxLimVsTempVoiceCallActiveI
+    public class WcdmaTxLimVsTempVoiceCallActive
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020906", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm1800PaRangeR3ToR4I
+    public class Gsm1800PaRangeR3ToR4
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021312", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB7Db10SarBackOffLimitI
+    public class LteB7Db10SarBackOffLimit
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

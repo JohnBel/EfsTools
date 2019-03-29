@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3062)]
     [Attributes(9)]
-    public class Gsm1900PowerLevelsI
+    public class Gsm1900PowerLevels
     {
         [ElementsCount(16)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3739)]
     [Attributes(9)]
-    public class Wcdma900PaRangeForDvsI
+    public class Wcdma900PaRangeForDvs
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6621)]
     [Attributes(9)]
-    public class LteB17TxDigitalGainCompI
+    public class LteB17TxDigitalGainComp
     {
         [ElementsCount(16)]
         [ElementType("int16")]

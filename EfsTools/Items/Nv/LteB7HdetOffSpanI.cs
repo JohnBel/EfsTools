@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6580)]
     [Attributes(9)]
-    public class LteB7HdetOffSpanI
+    public class LteB7HdetOffSpan
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

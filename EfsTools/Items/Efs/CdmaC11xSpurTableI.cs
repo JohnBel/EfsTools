@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023752", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC11xSpurTableI
+    public class CdmaC11xSpurTable
     {
         [ElementsCount(30)]
         [ElementType("QMSL_Rx_SPUR_Table_NV_Type")]

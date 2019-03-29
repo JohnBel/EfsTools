@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(446)]
     [Attributes(9)]
-    public class CdmaEncBtfI
+    public class CdmaEncBtf
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

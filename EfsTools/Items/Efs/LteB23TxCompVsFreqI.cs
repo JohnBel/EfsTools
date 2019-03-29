@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024295", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB23TxCompVsFreqI
+    public class LteB23TxCompVsFreq
     {
         [ElementsCount(128)]
         [ElementType("int8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025077", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm900PowerLevelsI
+    public class GsmC0Gsm900PowerLevels
     {
         [ElementsCount(16)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023952", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB6TxAgcOffsetI
+    public class LteB6TxAgcOffset
     {
         [ElementsCount(16)]
         [ElementType("int16")]

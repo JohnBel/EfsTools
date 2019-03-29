@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(972)]
     [Attributes(9)]
-    public class C0GrpDelayAdjI
+    public class C0GrpDelayAdj
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

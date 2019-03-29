@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(814)]
     [Attributes(9)]
-    public class DcsPrechargeI
+    public class DcsPrecharge
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

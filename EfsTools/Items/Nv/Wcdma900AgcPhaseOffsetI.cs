@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3679)]
     [Attributes(9)]
-    public class Wcdma900AgcPhaseOffsetI
+    public class Wcdma900AgcPhaseOffset
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

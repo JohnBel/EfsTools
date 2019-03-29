@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(808)]
     [Attributes(9)]
-    public class DcsVbattHiPaCompI
+    public class DcsVbattHiPaComp
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

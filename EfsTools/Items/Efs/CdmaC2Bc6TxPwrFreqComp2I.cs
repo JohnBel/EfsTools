@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021972", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc6TxPwrFreqComp2I
+    public class CdmaC2Bc6TxPwrFreqComp2
     {
         [ElementsCount(16)]
         [ElementType("int8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2714)]
     [Attributes(9)]
-    public class WcdmaMaxPwrBackoffVolt2I
+    public class WcdmaMaxPwrBackoffVolt2
     {
         [ElementsCount(4)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022724", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40TxLinMaster3I
+    public class TdscdmaB40TxLinMaster3
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

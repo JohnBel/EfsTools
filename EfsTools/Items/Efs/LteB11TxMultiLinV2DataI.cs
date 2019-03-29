@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023901", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB11TxMultiLinV2DataI
+    public class LteB11TxMultiLinV2Data
     {
         [ElementsCount(1)]
         [ElementType("QMSL_Tx_Cal_Complete_Rev2_NV_Type")]

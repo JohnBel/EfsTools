@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6182)]
     [Attributes(9)]
-    public class C0BcxBlock1LnaSwitchpointsLpm1I
+    public class C0BcxBlock1LnaSwitchpointsLpm1
     {
         [ElementsCount(8)]
         [ElementType("int8")]

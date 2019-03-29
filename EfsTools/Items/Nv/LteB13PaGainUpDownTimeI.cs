@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6505)]
     [Attributes(9)]
-    public class LteB13PaGainUpDownTimeI
+    public class LteB13PaGainUpDownTime
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

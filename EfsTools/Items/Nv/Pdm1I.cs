@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(251)]
     [Attributes(9)]
-    public class Pdm1I
+    public class Pdm1
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

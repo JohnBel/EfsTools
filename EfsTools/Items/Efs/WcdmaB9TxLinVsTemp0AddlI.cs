@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022740", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB9TxLinVsTemp0AddlI
+    public class WcdmaB9TxLinVsTemp0Addl
     {
         [ElementsCount(8)]
         [ElementType("int8")]

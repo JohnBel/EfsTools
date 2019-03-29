@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5254)]
     [Attributes(9)]
-    public class C1Bc10VgaGainOffsetI
+    public class C1Bc10VgaGainOffset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

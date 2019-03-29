@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023115", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB19AntselI
+    public class LteB19Antsel
     {
         [ElementsCount(4)]
         [ElementType("uint8")]

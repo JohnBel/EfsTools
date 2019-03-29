@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024055", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB10PaCompensateUpDownI
+    public class LteB10PaCompensateUpDown
     {
         [ElementsCount(16)]
         [ElementType("int16")]

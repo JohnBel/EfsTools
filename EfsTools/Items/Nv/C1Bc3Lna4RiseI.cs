@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1618)]
     [Attributes(9)]
-    public class C1Bc3Lna4RiseI
+    public class C1Bc3Lna4Rise
     {
         [ElementsCount(1)]
         [ElementType("int8")]

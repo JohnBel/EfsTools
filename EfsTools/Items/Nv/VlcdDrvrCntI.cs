@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(362)]
     [Attributes(9)]
-    public class VlcdDrvrCntI
+    public class VlcdDrvrCnt
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(445)]
     [Attributes(9)]
-    public class PcsEncBtfI
+    public class PcsEncBtf
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

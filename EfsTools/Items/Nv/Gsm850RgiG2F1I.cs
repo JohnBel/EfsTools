@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5293)]
     [Attributes(9)]
-    public class Gsm850RgiG2F1I
+    public class Gsm850RgiG2F1
     {
         [ElementsCount(32)]
         [ElementType("uint8")]

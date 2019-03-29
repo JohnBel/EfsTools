@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025034", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC2Gsm1800SarBackoffI
+    public class GsmC2Gsm1800SarBackoff
     {
         [ElementsCount(8)]
         [ElementType("GSM_TX_SAR_BACKOFF_DATA_TYPE")]

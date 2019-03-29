@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(498)]
     [Attributes(9)]
-    public class Ant2CdmaRxCompVsFreqI
+    public class Ant2CdmaRxCompVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

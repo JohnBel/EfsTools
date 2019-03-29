@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(206)]
     [Attributes(9)]
-    public class FmExpHdetVsTempI
+    public class FmExpHdetVsTemp
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5048)]
     [Attributes(9)]
-    public class Wcdma800TimerHysterisisI
+    public class Wcdma800TimerHysterisis
     {
         [ElementsCount(1)]
         [ElementType("int16")]

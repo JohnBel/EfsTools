@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022634", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34MprBasedPaSwitchpointsShiftI
+    public class TdscdmaB34MprBasedPaSwitchpointsShift
     {
         [ElementsCount(7)]
         [ElementType("uint16")]

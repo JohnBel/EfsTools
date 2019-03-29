@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020196", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB20TxCarrierFeedthroughCompI
+    public class LteB20TxCarrierFeedthroughComp
     {
         [ElementsCount(2)]
         [ElementType("int16")]

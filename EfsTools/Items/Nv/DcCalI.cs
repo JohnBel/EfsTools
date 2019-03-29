@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5449)]
     [Attributes(9)]
-    public class DcCalI
+    public class DcCal
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

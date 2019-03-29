@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3373)]
     [Attributes(9)]
-    public class MfBandConfigI
+    public class MfBandConfig
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

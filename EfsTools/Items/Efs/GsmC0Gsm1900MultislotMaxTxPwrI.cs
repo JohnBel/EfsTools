@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025063", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900MultislotMaxTxPwrI
+    public class GsmC0Gsm1900MultislotMaxTxPwr
     {
         [ElementsCount(5)]
         [ElementType("int16")]

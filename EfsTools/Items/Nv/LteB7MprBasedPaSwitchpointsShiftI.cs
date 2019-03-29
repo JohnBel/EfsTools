@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6565)]
     [Attributes(9)]
-    public class LteB7MprBasedPaSwitchpointsShiftI
+    public class LteB7MprBasedPaSwitchpointsShift
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

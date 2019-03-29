@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022666", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB39PaRangeMapI
+    public class TdscdmaB39PaRangeMap
     {
         [ElementsCount(4)]
         [ElementType("int8")]

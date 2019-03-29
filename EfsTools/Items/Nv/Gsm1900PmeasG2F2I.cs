@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5353)]
     [Attributes(9)]
-    public class Gsm1900PmeasG2F2I
+    public class Gsm1900PmeasG2F2
     {
         [ElementsCount(32)]
         [ElementType("uint16")]

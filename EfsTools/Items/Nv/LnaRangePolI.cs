@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(156)]
     [Attributes(9)]
-    public class LnaRangePolI
+    public class LnaRangePol
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

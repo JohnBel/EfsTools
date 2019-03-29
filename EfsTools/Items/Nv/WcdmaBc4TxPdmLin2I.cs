@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4114)]
     [Attributes(9)]
-    public class WcdmaBc4TxPdmLin2I
+    public class WcdmaBc4TxPdmLin2
     {
         [ElementsCount(32)]
         [ElementType("uint16")]

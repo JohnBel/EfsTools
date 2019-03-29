@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5278)]
     [Attributes(9)]
-    public class Wcdma1800Rel6TxAgcOffsetI
+    public class Wcdma1800Rel6TxAgcOffset
     {
         [ElementsCount(7)]
         [ElementType("uint8")]

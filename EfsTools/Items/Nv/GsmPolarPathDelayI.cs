@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2770)]
     [Attributes(9)]
-    public class GsmPolarPathDelayI
+    public class GsmPolarPathDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

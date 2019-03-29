@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020485", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaTxLinVsTemp3MtdI
+    public class WcdmaTxLinVsTemp3Mtd
     {
         [ElementsCount(8)]
         [ElementType("int16")]

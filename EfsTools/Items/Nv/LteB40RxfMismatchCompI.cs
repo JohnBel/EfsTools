@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6656)]
     [Attributes(9)]
-    public class LteB40RxfMismatchCompI
+    public class LteB40RxfMismatchComp
     {
         [ElementsCount(2)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025425", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40SarBackoffLimitI
+    public class TdscdmaB40SarBackoffLimit
     {
         [ElementsCount(8)]
         [ElementType("int16")]

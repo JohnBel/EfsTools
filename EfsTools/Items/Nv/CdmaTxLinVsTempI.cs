@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(134)]
     [Attributes(9)]
-    public class CdmaTxLinVsTempI
+    public class CdmaTxLinVsTemp
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

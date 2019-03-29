@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1347)]
     [Attributes(9)]
-    public class WcdmaPaGainUpTimeI
+    public class WcdmaPaGainUpTime
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

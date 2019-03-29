@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1266)]
     [Attributes(9)]
-    public class C0Bc6DigitalMisCompAOffsetI
+    public class C0Bc6DigitalMisCompAOffset
     {
         [ElementsCount(1)]
         [ElementType("int32")]

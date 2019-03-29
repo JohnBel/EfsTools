@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6987)]
     [Attributes(9)]
-    public class Wcdma1500PrachR3RiseOffsetI
+    public class Wcdma1500PrachR3RiseOffset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

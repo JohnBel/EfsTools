@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(360)]
     [Attributes(9)]
-    public class VextI
+    public class Vext
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

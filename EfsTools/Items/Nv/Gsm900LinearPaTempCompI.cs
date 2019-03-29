@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5396)]
     [Attributes(9)]
-    public class Gsm900LinearPaTempCompI
+    public class Gsm900LinearPaTempComp
     {
         [ElementsCount(16)]
         [ElementType("int16")]

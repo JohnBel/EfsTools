@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6665)]
     [Attributes(9)]
-    public class LteB40PaRangeMapI
+    public class LteB40PaRangeMap
     {
         [ElementsCount(4)]
         [ElementType("int8")]

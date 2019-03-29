@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022311", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB25PaRangeMapI
+    public class LteB25PaRangeMap
     {
         [ElementsCount(4)]
         [ElementType("int8")]

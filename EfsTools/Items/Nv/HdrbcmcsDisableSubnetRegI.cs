@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3514)]
     [Attributes(9)]
-    public class HdrbcmcsDisableSubnetRegI
+    public class HdrbcmcsDisableSubnetReg
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021017", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB2PaSmpsGstTempI
+    public class WcdmaB2PaSmpsGstTemp
     {
         [ElementsCount(32)]
         [ElementType("int16")]

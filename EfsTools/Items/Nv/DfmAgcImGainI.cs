@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(611)]
     [Attributes(9)]
-    public class DfmAgcImGainI
+    public class DfmAgcImGain
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020285", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB3AgcPaOnRiseFallDelayI
+    public class LteB3AgcPaOnRiseFallDelay
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

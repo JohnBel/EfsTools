@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6473)]
     [Attributes(9)]
-    public class Gsm1800LinearTxGainParamI
+    public class Gsm1800LinearTxGainParam
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

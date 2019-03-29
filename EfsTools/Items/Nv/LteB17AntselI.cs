@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6634)]
     [Attributes(9)]
-    public class LteB17AntselI
+    public class LteB17Antsel
     {
         [ElementsCount(4)]
         [ElementType("uint8")]

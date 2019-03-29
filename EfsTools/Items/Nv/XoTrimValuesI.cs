@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4212)]
     [Attributes(9)]
-    public class XoTrimValuesI
+    public class XoTrimValues
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

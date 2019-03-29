@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022030", true, 0xE1FF)]
     [Attributes(9)]
-    public class C2Bc14IntelliceiverDetThreshI
+    public class C2Bc14IntelliceiverDetThresh
     {
         [ElementsCount(10)]
         [ElementType("int8")]

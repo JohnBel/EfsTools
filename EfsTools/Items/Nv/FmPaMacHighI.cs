@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(877)]
     [Attributes(9)]
-    public class FmPaMacHighI
+    public class FmPaMacHigh
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(126)]
     [Attributes(9)]
-    public class FmFreqSenseGainI
+    public class FmFreqSenseGain
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

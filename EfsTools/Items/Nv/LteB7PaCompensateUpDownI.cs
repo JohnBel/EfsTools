@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6558)]
     [Attributes(9)]
-    public class LteB7PaCompensateUpDownI
+    public class LteB7PaCompensateUpDown
     {
         [ElementsCount(16)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6921)]
     [Attributes(9)]
-    public class Wcdma1500Im2IValueI
+    public class Wcdma1500Im2IValue
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

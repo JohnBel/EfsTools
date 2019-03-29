@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6476)]
     [Attributes(9)]
-    public class Edge1800LinearTxGainParamI
+    public class Edge1800LinearTxGainParam
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

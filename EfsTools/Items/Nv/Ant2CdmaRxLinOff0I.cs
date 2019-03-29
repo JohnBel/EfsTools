@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(496)]
     [Attributes(9)]
-    public class Ant2CdmaRxLinOff0I
+    public class Ant2CdmaRxLinOff0
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

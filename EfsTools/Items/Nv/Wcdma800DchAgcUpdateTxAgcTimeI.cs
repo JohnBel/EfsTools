@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2949)]
     [Attributes(9)]
-    public class Wcdma800DchAgcUpdateTxAgcTimeI
+    public class Wcdma800DchAgcUpdateTxAgcTime
     {
         [ElementsCount(1)]
         [ElementType("int16")]

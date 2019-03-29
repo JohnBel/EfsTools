@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025003", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC2Gsm1900LnaSwptI
+    public class GsmC2Gsm1900LnaSwpt
     {
         [ElementsCount(1)]
         [ElementType("GSM_RX_LNA_SWPT_TYPE")]

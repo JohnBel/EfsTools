@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(842)]
     [Attributes(9)]
-    public class LnaNonBypassTimer3I
+    public class LnaNonBypassTimer3
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

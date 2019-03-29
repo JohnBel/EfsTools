@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(568)]
     [Attributes(9)]
-    public class SysSwVerI
+    public class SysSwVer
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

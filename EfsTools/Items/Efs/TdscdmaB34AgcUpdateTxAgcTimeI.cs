@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022629", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34AgcUpdateTxAgcTimeI
+    public class TdscdmaB34AgcUpdateTxAgcTime
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

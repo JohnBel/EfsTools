@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(625)]
     [Attributes(9)]
-    public class FmRxfCgQoffsetI
+    public class FmRxfCgQoffset
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

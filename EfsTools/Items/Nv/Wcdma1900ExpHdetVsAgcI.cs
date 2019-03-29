@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1186)]
     [Attributes(9)]
-    public class Wcdma1900ExpHdetVsAgcI
+    public class Wcdma1900ExpHdetVsAgc
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

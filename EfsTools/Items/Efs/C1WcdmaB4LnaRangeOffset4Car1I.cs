@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023814", true, 0xE1FF)]
     [Attributes(9)]
-    public class C1WcdmaB4LnaRangeOffset4Car1I
+    public class C1WcdmaB4LnaRangeOffset4Car1
     {
         [ElementsCount(1)]
         [ElementType("int16")]

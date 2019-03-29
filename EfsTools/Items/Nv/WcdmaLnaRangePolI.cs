@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(518)]
     [Attributes(9)]
-    public class WcdmaLnaRangePolI
+    public class WcdmaLnaRangePol
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

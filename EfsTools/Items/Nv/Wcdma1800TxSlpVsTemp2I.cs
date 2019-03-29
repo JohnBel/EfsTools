@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2887)]
     [Attributes(9)]
-    public class Wcdma1800TxSlpVsTemp2I
+    public class Wcdma1800TxSlpVsTemp2
     {
         [ElementsCount(8)]
         [ElementType("int8")]

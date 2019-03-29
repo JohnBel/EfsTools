@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025010", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC2Gsm1800EnvGainI
+    public class GsmC2Gsm1800EnvGain
     {
         [ElementsCount(32)]
         [ElementType("uint16")]

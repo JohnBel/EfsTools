@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023733", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC0Bc14HdrTxPwrLimDataI
+    public class CdmaC0Bc14HdrTxPwrLimData
     {
         [ElementsCount(25)]
         [ElementType("QMSL_Tx_Pwr_Limit_Data_type")]

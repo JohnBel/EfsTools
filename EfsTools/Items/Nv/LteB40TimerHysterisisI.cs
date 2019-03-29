@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6666)]
     [Attributes(9)]
-    public class LteB40TimerHysterisisI
+    public class LteB40TimerHysterisis
     {
         [ElementsCount(1)]
         [ElementType("int16")]

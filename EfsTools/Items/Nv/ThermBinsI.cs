@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5029)]
     [Attributes(9)]
-    public class ThermBinsI
+    public class ThermBins
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

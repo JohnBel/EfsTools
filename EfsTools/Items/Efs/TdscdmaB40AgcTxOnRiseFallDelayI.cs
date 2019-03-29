@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022710", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40AgcTxOnRiseFallDelayI
+    public class TdscdmaB40AgcTxOnRiseFallDelay
     {
         [ElementsCount(2)]
         [ElementType("int16")]

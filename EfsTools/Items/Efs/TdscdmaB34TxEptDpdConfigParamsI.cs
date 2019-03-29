@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024187", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34TxEptDpdConfigParamsI
+    public class TdscdmaB34TxEptDpdConfigParams
     {
         [ElementsCount(32)]
         [ElementType("uint32")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5249)]
     [Attributes(9)]
-    public class C1Bc10Lna2OffsetI
+    public class C1Bc10Lna2Offset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

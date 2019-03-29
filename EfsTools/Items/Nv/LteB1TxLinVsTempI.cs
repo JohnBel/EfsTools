@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6716)]
     [Attributes(9)]
-    public class LteB1TxLinVsTempI
+    public class LteB1TxLinVsTemp
     {
         [ElementsCount(64)]
         [ElementType("int8")]

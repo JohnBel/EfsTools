@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(7174)]
     [Attributes(9)]
-    public class WcdmaDc2LnaRangeOffset4Car1I
+    public class WcdmaDc2LnaRangeOffset4Car1
     {
         [ElementsCount(1)]
         [ElementType("int16")]

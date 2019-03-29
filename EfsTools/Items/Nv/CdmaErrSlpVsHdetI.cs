@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(140)]
     [Attributes(9)]
-    public class CdmaErrSlpVsHdetI
+    public class CdmaErrSlpVsHdet
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

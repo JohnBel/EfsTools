@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5432)]
     [Attributes(9)]
-    public class ProcessCalI
+    public class ProcessCal
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

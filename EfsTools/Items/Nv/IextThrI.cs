@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(366)]
     [Attributes(9)]
-    public class IextThrI
+    public class IextThr
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022619", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB34LnaPhaseCtlI
+    public class TdscdmaB34LnaPhaseCtl
     {
         [ElementsCount(4)]
         [ElementType("uint16")]

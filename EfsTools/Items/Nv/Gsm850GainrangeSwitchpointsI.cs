@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1142)]
     [Attributes(9)]
-    public class Gsm850GainrangeSwitchpointsI
+    public class Gsm850GainrangeSwitchpoints
     {
         [ElementsCount(6)]
         [ElementType("int8")]

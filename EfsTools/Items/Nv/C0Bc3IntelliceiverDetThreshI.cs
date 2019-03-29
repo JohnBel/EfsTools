@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3471)]
     [Attributes(9)]
-    public class C0Bc3IntelliceiverDetThreshI
+    public class C0Bc3IntelliceiverDetThresh
     {
         [ElementsCount(10)]
         [ElementType("int8")]

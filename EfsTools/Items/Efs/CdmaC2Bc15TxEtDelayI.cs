@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025522", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc15TxEtDelayI
+    public class CdmaC2Bc15TxEtDelay
     {
         [ElementsCount(1)]
         [ElementType("int32")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3706)]
     [Attributes(9)]
-    public class Wcdma900TxLinMaster2I
+    public class Wcdma900TxLinMaster2
     {
         [ElementsCount(37)]
         [ElementType("uint16")]

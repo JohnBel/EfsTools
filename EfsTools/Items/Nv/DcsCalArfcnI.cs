@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(725)]
     [Attributes(9)]
-    public class DcsCalArfcnI
+    public class DcsCalArfcn
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

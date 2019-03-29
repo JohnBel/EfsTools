@@ -1,9 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
+
 
 namespace EfsTools.Items.Nv
 {

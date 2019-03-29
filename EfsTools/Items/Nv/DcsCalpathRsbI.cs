@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2751)]
     [Attributes(9)]
-    public class DcsCalpathRsbI
+    public class DcsCalpathRsb
     {
         [ElementsCount(4)]
         [ElementType("uint16")]

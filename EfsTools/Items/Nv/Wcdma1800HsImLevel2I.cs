@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4757)]
     [Attributes(9)]
-    public class Wcdma1800HsImLevel2I
+    public class Wcdma1800HsImLevel2
     {
         [ElementsCount(1)]
         [ElementType("int16")]

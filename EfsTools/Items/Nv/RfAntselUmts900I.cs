@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4098)]
     [Attributes(9)]
-    public class RfAntselUmts900I
+    public class RfAntselUmts900
     {
         [ElementsCount(4)]
         [ElementType("uint8")]

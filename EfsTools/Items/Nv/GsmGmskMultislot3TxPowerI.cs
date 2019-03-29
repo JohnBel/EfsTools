@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4130)]
     [Attributes(9)]
-    public class GsmGmskMultislot3TxPowerI
+    public class GsmGmskMultislot3TxPower
     {
         [ElementsCount(1)]
         [ElementType("int16")]

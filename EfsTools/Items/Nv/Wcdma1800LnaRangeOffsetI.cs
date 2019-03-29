@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2868)]
     [Attributes(9)]
-    public class Wcdma1800LnaRangeOffsetI
+    public class Wcdma1800LnaRangeOffset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

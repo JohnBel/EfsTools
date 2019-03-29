@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(695)]
     [Attributes(9)]
-    public class FmVgaGainOffsetVsFreqI
+    public class FmVgaGainOffsetVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

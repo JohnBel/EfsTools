@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6929)]
     [Attributes(9)]
-    public class Wcdma1500LnaRangeFallI
+    public class Wcdma1500LnaRangeFall
     {
         [ElementsCount(1)]
         [ElementType("int16")]

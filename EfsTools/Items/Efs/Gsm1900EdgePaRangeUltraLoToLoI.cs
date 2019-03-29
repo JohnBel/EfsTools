@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020911", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm1900EdgePaRangeUltraLoToLoI
+    public class Gsm1900EdgePaRangeUltraLoToLo
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

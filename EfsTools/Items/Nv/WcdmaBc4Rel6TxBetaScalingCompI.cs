@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4950)]
     [Attributes(9)]
-    public class WcdmaBc4Rel6TxBetaScalingCompI
+    public class WcdmaBc4Rel6TxBetaScalingComp
     {
         [ElementsCount(7)]
         [ElementType("uint16")]

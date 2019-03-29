@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(343)]
     [Attributes(9)]
-    public class PcsPaRangeStepCalI
+    public class PcsPaRangeStepCal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

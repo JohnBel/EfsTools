@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5699)]
     [Attributes(9)]
-    public class Gsm1800TxAgcSettingForPredI
+    public class Gsm1800TxAgcSettingForPred
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

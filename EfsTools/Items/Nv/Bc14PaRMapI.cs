@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4887)]
     [Attributes(9)]
-    public class Bc14PaRMapI
+    public class Bc14PaRMap
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

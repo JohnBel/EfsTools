@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024063", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB10TxMprBackoffI
+    public class LteB10TxMprBackoff
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

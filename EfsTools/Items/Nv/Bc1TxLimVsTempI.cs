@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1626)]
     [Attributes(9)]
-    public class Bc1TxLimVsTempI
+    public class Bc1TxLimVsTemp
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

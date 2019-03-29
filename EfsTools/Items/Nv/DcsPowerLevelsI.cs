@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3060)]
     [Attributes(9)]
-    public class DcsPowerLevelsI
+    public class DcsPowerLevels
     {
         [ElementsCount(16)]
         [ElementType("int16")]

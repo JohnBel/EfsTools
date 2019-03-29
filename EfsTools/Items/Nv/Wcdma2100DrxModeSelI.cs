@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4196)]
     [Attributes(9)]
-    public class Wcdma2100DrxModeSelI
+    public class Wcdma2100DrxModeSel
     {
         [ElementsCount(3)]
         [ElementType("uint8")]

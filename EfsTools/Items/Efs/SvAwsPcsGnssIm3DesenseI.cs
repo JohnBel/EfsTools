@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024139", true, 0xE1FF)]
     [Attributes(9)]
-    public class SvAwsPcsGnssIm3DesenseI
+    public class SvAwsPcsGnssIm3Desense
     {
         [ElementsCount(10)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021015", true, 0xE1FF)]
     [Attributes(9)]
-    public class Bc15PaSmpsPdmLevelTempI
+    public class Bc15PaSmpsPdmLevelTemp
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

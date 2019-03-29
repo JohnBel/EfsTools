@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025623", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1500TxLinVsTempVsFreqPInI
+    public class Wcdma1500TxLinVsTempVsFreqPIn
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

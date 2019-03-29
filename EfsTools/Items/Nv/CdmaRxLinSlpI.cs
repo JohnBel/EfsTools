@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(128)]
     [Attributes(9)]
-    public class CdmaRxLinSlpI
+    public class CdmaRxLinSlp
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

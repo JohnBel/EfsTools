@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(247)]
     [Attributes(9)]
-    public class RxAgcMinmaxI
+    public class RxAgcMinmax
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

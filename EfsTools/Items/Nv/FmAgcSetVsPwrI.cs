@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(121)]
     [Attributes(9)]
-    public class FmAgcSetVsPwrI
+    public class FmAgcSetVsPwr
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

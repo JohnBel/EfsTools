@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2211)]
     [Attributes(9)]
-    public class GsmVlTmBrui14I
+    public class GsmVlTmBrui14
     {
         [ElementsCount(30)]
         [ElementType("uint16")]

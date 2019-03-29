@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(336)]
     [Attributes(9)]
-    public class PcsHdetSpnI
+    public class PcsHdetSpn
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

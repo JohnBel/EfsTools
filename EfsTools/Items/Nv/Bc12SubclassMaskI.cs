@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6231)]
     [Attributes(9)]
-    public class Bc12SubclassMaskI
+    public class Bc12SubclassMask
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

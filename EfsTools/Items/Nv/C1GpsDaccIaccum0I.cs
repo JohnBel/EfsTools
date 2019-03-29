@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(986)]
     [Attributes(9)]
-    public class C1GpsDaccIaccum0I
+    public class C1GpsDaccIaccum0
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(691)]
     [Attributes(9)]
-    public class RtcTimeAdjustI
+    public class RtcTimeAdjust
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3119)]
     [Attributes(9)]
-    public class DcsAmpmMasterTblSeg2F3I
+    public class DcsAmpmMasterTblSeg2F3
     {
         [ElementsCount(32)]
         [ElementType("uint32")]

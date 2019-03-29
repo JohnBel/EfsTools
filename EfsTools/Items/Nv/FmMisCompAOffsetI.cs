@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(701)]
     [Attributes(9)]
-    public class FmMisCompAOffsetI
+    public class FmMisCompAOffset
     {
         [ElementsCount(1)]
         [ElementType("int32")]

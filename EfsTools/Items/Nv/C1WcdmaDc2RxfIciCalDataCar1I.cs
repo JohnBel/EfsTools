@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(7206)]
     [Attributes(9)]
-    public class C1WcdmaDc2RxfIciCalDataCar1I
+    public class C1WcdmaDc2RxfIciCalDataCar1
     {
         [ElementsCount(17)]
         [ElementType("uint32")]

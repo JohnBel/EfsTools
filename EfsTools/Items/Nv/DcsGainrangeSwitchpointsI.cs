@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(917)]
     [Attributes(9)]
-    public class DcsGainrangeSwitchpointsI
+    public class DcsGainrangeSwitchpoints
     {
         [ElementsCount(6)]
         [ElementType("int8")]

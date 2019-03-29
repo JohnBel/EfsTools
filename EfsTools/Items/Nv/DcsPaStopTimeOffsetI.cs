@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(822)]
     [Attributes(9)]
-    public class DcsPaStopTimeOffsetI
+    public class DcsPaStopTimeOffset
     {
         [ElementsCount(1)]
         [ElementType("int8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1912)]
     [Attributes(9)]
-    public class Wcdma800PrachR1FallOffsetI
+    public class Wcdma800PrachR1FallOffset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

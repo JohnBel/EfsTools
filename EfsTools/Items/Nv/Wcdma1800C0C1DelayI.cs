@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4936)]
     [Attributes(9)]
-    public class Wcdma1800C0C1DelayI
+    public class Wcdma1800C0C1Delay
     {
         [ElementsCount(1)]
         [ElementType("int8")]

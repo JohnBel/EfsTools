@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2844)]
     [Attributes(9)]
-    public class HdrscpBcmcsEnableI
+    public class HdrscpBcmcsEnable
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

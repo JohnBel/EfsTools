@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5068)]
     [Attributes(9)]
-    public class Gsm1800KvCalI
+    public class Gsm1800KvCal
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

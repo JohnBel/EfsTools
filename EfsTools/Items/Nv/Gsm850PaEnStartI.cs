@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3067)]
     [Attributes(9)]
-    public class Gsm850PaEnStartI
+    public class Gsm850PaEnStart
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024931", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB33DefaultSmpsBiasI
+    public class LteB33DefaultSmpsBias
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

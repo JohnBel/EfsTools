@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3735)]
     [Attributes(9)]
-    public class Wcdma900PaGainDownTimeI
+    public class Wcdma900PaGainDownTime
     {
         [ElementsCount(1)]
         [ElementType("int16")]

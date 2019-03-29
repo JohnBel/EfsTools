@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1097)]
     [Attributes(9)]
-    public class Gsm1900VbattLoPaCompI
+    public class Gsm1900VbattLoPaComp
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

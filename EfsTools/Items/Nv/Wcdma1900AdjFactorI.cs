@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1185)]
     [Attributes(9)]
-    public class Wcdma1900AdjFactorI
+    public class Wcdma1900AdjFactor
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

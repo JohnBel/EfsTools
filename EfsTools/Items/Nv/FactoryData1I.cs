@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2497)]
     [Attributes(9)]
-    public class FactoryData1I
+    public class FactoryData1
     {
         [ElementsCount(128)]
         [ElementType("uint8")]

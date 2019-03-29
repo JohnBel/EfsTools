@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(785)]
     [Attributes(9)]
-    public class DcsTxBurstRampUpIndex15I
+    public class DcsTxBurstRampUpIndex15
     {
         [ElementsCount(30)]
         [ElementType("uint16")]

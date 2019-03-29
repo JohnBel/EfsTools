@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(127)]
     [Attributes(9)]
-    public class CdmaRxLinOff0I
+    public class CdmaRxLinOff0
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024607", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1900HdetModRangeI
+    public class Wcdma1900HdetModRange
     {
         [ElementsCount(8)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023595", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB39TxGainIndex2I
+    public class LteB39TxGainIndex2
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

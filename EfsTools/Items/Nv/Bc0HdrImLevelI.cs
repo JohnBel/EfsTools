@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1890)]
     [Attributes(9)]
-    public class Bc0HdrImLevelI
+    public class Bc0HdrImLevel
     {
         [ElementsCount(1)]
         [ElementType("int8")]

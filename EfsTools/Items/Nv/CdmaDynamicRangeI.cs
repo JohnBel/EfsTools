@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(878)]
     [Attributes(9)]
-    public class CdmaDynamicRangeI
+    public class CdmaDynamicRange
     {
         [ElementsCount(1)]
         [ElementType("int16")]

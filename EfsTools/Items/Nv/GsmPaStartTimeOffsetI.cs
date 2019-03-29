@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(819)]
     [Attributes(9)]
-    public class GsmPaStartTimeOffsetI
+    public class GsmPaStartTimeOffset
     {
         [ElementsCount(1)]
         [ElementType("int8")]

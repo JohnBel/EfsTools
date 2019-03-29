@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(139)]
     [Attributes(9)]
-    public class CdmaExpHdetVsAgcI
+    public class CdmaExpHdetVsAgc
     {
         [ElementsCount(16)]
         [ElementType("uint8")]

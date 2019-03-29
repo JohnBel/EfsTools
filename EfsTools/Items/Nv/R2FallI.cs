@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(152)]
     [Attributes(9)]
-    public class R2FallI
+    public class R2Fall
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

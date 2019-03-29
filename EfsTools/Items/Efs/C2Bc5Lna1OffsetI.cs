@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021882", true, 0xE1FF)]
     [Attributes(9)]
-    public class C2Bc5Lna1OffsetI
+    public class C2Bc5Lna1Offset
     {
         [ElementsCount(1)]
         [ElementType("int16")]

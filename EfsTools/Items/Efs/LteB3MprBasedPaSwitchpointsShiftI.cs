@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020296", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB3MprBasedPaSwitchpointsShiftI
+    public class LteB3MprBasedPaSwitchpointsShift
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

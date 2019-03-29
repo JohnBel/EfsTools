@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5360)]
     [Attributes(9)]
-    public class Gsm850PaR2ToR3I
+    public class Gsm850PaR2ToR3
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

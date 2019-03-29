@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(724)]
     [Attributes(9)]
-    public class GsmCalArfcnI
+    public class GsmCalArfcn
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

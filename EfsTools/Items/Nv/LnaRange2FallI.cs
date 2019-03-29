@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(377)]
     [Attributes(9)]
-    public class LnaRange2FallI
+    public class LnaRange2Fall
     {
         [ElementsCount(1)]
         [ElementType("int8")]

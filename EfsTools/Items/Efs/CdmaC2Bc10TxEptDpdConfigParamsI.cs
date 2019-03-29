@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024155", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc10TxEptDpdConfigParamsI
+    public class CdmaC2Bc10TxEptDpdConfigParams
     {
         [ElementsCount(1)]
         [ElementType("TX_XPT_DPD_CONFIG_PARAMS_DATA_TYPE")]

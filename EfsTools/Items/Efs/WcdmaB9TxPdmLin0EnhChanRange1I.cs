@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022450", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB9TxPdmLin0EnhChanRange1I
+    public class WcdmaB9TxPdmLin0EnhChanRange1
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

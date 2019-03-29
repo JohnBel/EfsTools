@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4027)]
     [Attributes(9)]
-    public class WcdmaBc4TxCompVsFreq0I
+    public class WcdmaBc4TxCompVsFreq0
     {
         [ElementsCount(16)]
         [ElementType("int8")]

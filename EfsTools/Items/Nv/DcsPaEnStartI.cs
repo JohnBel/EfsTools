@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3065)]
     [Attributes(9)]
-    public class DcsPaEnStartI
+    public class DcsPaEnStart
     {
         [ElementsCount(1)]
         [ElementType("int16")]

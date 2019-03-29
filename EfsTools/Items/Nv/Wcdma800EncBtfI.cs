@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1869)]
     [Attributes(9)]
-    public class Wcdma800EncBtfI
+    public class Wcdma800EncBtf
     {
         [ElementsCount(1)]
         [ElementType("int32")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023941", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB6TxRotAnglePaStateI
+    public class LteB6TxRotAnglePaState
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

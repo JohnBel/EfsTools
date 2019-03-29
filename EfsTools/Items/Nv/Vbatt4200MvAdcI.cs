@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(812)]
     [Attributes(9)]
-    public class Vbatt4200MvAdcI
+    public class Vbatt4200MvAdc
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

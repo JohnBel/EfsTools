@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025228", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB21CaBcConfigI
+    public class LteB21CaBcConfig
     {
         [ElementsCount(1)]
         [ElementType("uint64")]

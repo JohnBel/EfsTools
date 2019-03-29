@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024289", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB23TxLinMaster2I
+    public class LteB23TxLinMaster2
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

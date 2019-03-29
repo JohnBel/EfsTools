@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3509)]
     [Attributes(9)]
-    public class DcsPolarRampProfileI
+    public class DcsPolarRampProfile
     {
         [ElementsCount(60)]
         [ElementType("uint16")]

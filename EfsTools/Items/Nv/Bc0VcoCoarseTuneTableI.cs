@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1735)]
     [Attributes(9)]
-    public class Bc0VcoCoarseTuneTableI
+    public class Bc0VcoCoarseTuneTable
     {
         [ElementsCount(48)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022912", true, 0xE1FF)]
     [Attributes(9)]
-    public class Cdma1xBc0DoBc15DsiSarI
+    public class Cdma1xBc0DoBc15DsiSar
     {
         [ElementsCount(16)]
         [ElementType("int16")]

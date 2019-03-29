@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020086", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB4LnaRangeRiseFallI
+    public class LteB4LnaRangeRiseFall
     {
         [ElementsCount(32)]
         [ElementType("int16")]

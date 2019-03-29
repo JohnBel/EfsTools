@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6209)]
     [Attributes(9)]
-    public class BcxBlock1BandClassI
+    public class BcxBlock1BandClass
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

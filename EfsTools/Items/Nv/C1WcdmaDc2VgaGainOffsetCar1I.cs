@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(7218)]
     [Attributes(9)]
-    public class C1WcdmaDc2VgaGainOffsetCar1I
+    public class C1WcdmaDc2VgaGainOffsetCar1
     {
         [ElementsCount(1)]
         [ElementType("int16")]

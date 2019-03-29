@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(356)]
     [Attributes(9)]
-    public class PcsTxSlpVsTempI
+    public class PcsTxSlpVsTemp
     {
         [ElementsCount(8)]
         [ElementType("int8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6164)]
     [Attributes(9)]
-    public class BcxBlockTxPwrComp1I
+    public class BcxBlockTxPwrComp1
     {
         [ElementsCount(32)]
         [ElementType("int8")]

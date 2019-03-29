@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6743)]
     [Attributes(9)]
-    public class LteB1C1ImLevelI
+    public class LteB1C1ImLevel
     {
         [ElementsCount(16)]
         [ElementType("int16")]

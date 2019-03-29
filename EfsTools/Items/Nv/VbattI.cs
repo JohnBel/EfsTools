@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(90)]
     [Attributes(9)]
-    public class VbattI
+    public class Vbatt
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

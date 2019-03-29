@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(288)]
     [Attributes(9)]
-    public class Pdm1VsFreqI
+    public class Pdm1VsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

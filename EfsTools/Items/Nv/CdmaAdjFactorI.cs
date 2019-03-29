@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(200)]
     [Attributes(9)]
-    public class CdmaAdjFactorI
+    public class CdmaAdjFactor
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3146)]
     [Attributes(9)]
-    public class GsmAutocalPwrDacF3I
+    public class GsmAutocalPwrDacF3
     {
         [ElementsCount(1)]
         [ElementType("int16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2745)]
     [Attributes(9)]
-    public class DcsAmamDynamicRangeI
+    public class DcsAmamDynamicRange
     {
         [ElementsCount(2)]
         [ElementType("int32")]

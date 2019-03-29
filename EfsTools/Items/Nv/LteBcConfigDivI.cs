@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6829)]
     [Attributes(9)]
-    public class LteBcConfigDivI
+    public class LteBcConfigDiv
     {
         [ElementsCount(2)]
         [ElementType("uint64")]

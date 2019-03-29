@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3137)]
     [Attributes(9)]
-    public class Gsm1900AmpmMasterTblSeg4F3I
+    public class Gsm1900AmpmMasterTblSeg4F3
     {
         [ElementsCount(32)]
         [ElementType("uint32")]

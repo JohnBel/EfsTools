@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5050)]
     [Attributes(9)]
-    public class WcdmaBc4TimerHysterisisI
+    public class WcdmaBc4TimerHysterisis
     {
         [ElementsCount(1)]
         [ElementType("int16")]

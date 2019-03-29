@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(884)]
     [Attributes(9)]
-    public class TxWarmupI
+    public class TxWarmup
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

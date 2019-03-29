@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(981)]
     [Attributes(9)]
-    public class C1GpsMisCompAOffsetI
+    public class C1GpsMisCompAOffset
     {
         [ElementsCount(1)]
         [ElementType("int32")]

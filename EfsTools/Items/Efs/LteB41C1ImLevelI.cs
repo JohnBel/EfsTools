@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021657", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB41C1ImLevelI
+    public class LteB41C1ImLevel
     {
         [ElementsCount(16)]
         [ElementType("int16")]

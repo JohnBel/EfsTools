@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(567)]
     [Attributes(9)]
-    public class TestCodeVerI
+    public class TestCodeVer
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021427", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB5AptCharTblPout2I
+    public class LteB5AptCharTblPout2
     {
         [ElementsCount(64)]
         [ElementType("int16")]

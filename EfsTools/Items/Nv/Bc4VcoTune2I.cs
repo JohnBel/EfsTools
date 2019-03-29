@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3240)]
     [Attributes(9)]
-    public class Bc4VcoTune2I
+    public class Bc4VcoTune2
     {
         [ElementsCount(48)]
         [ElementType("uint8")]

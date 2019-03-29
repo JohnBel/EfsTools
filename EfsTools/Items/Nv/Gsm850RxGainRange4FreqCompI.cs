@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1105)]
     [Attributes(9)]
-    public class Gsm850RxGainRange4FreqCompI
+    public class Gsm850RxGainRange4FreqComp
     {
         [ElementsCount(8)]
         [ElementType("int16")]

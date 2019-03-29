@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6673)]
     [Attributes(9)]
-    public class LteB40TxAgcOffsetI
+    public class LteB40TxAgcOffset
     {
         [ElementsCount(16)]
         [ElementType("int16")]

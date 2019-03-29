@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5392)]
     [Attributes(9)]
-    public class Gsm1900EdgePaLoToMidI
+    public class Gsm1900EdgePaLoToMid
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

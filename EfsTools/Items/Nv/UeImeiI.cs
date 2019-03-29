@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(550)]
     [Attributes(9)]
-    public class UeImeiI
+    public class UeImei
     {
         [ElementsCount(9)]
         [ElementType("uint8")]

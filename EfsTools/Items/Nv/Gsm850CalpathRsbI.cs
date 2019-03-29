@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2752)]
     [Attributes(9)]
-    public class Gsm850CalpathRsbI
+    public class Gsm850CalpathRsb
     {
         [ElementsCount(4)]
         [ElementType("uint16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5444)]
     [Attributes(9)]
-    public class C0Bc11LoCalI
+    public class C0Bc11LoCal
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

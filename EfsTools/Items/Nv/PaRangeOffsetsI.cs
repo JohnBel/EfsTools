@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(410)]
     [Attributes(9)]
-    public class PaRangeOffsetsI
+    public class PaRangeOffsets
     {
         [ElementsCount(4)]
         [ElementType("int16")]

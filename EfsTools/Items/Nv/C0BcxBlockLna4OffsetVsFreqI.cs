@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4578)]
     [Attributes(9)]
-    public class C0BcxBlockLna4OffsetVsFreqI
+    public class C0BcxBlockLna4OffsetVsFreq
     {
         [ElementsCount(48)]
         [ElementType("int8")]

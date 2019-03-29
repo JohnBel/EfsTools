@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020293", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB3PaRiseFallThresholdI
+    public class LteB3PaRiseFallThreshold
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(696)]
     [Attributes(9)]
-    public class CdmaVgaGainOffsetVsFreqI
+    public class CdmaVgaGainOffsetVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

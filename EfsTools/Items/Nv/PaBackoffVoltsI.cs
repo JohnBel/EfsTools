@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(492)]
     [Attributes(9)]
-    public class PaBackoffVoltsI
+    public class PaBackoffVolts
     {
         [ElementsCount(3)]
         [ElementType("uint8")]

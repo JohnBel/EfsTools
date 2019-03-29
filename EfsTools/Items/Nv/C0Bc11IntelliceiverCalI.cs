@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3937)]
     [Attributes(9)]
-    public class C0Bc11IntelliceiverCalI
+    public class C0Bc11IntelliceiverCal
     {
         [ElementsCount(7)]
         [ElementType("uint16")]

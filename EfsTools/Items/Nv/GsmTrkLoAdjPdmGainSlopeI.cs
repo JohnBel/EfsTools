@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(735)]
     [Attributes(9)]
-    public class GsmTrkLoAdjPdmGainSlopeI
+    public class GsmTrkLoAdjPdmGainSlope
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

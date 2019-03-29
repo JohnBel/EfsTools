@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2105)]
     [Attributes(9)]
-    public class GsmPrdi08I
+    public class GsmPrdi08
     {
         [ElementsCount(30)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6562)]
     [Attributes(9)]
-    public class LteB7PaRiseFallThresholdI
+    public class LteB7PaRiseFallThreshold
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021946", true, 0xE1FF)]
     [Attributes(9)]
-    public class C2Bc6IntelliceiverCalI
+    public class C2Bc6IntelliceiverCal
     {
         [ElementsCount(7)]
         [ElementType("uint16")]

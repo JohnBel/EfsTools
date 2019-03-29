@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1878)]
     [Attributes(9)]
-    public class RfHwConfigI
+    public class RfHwConfig
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024409", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB14HdetHpmLpmSwitchPointI
+    public class LteB14HdetHpmLpmSwitchPoint
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5176)]
     [Attributes(9)]
-    public class Bc10PaR2RiseI
+    public class Bc10PaR2Rise
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

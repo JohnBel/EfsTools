@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022713", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40TxRotAnglePaStateI
+    public class TdscdmaB40TxRotAnglePaState
     {
         [ElementsCount(4)]
         [ElementType("uint16")]

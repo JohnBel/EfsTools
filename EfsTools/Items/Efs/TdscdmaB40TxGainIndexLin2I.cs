@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022723", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40TxGainIndexLin2I
+    public class TdscdmaB40TxGainIndexLin2
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

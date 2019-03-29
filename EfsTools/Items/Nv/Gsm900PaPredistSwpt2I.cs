@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5368)]
     [Attributes(9)]
-    public class Gsm900PaPredistSwpt2I
+    public class Gsm900PaPredistSwpt2
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1057)]
     [Attributes(9)]
-    public class Gsm1900CalArfcnI
+    public class Gsm1900CalArfcn
     {
         [ElementsCount(16)]
         [ElementType("int16")]

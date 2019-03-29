@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022581", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB11RxfIciCalDataCar1I
+    public class WcdmaB11RxfIciCalDataCar1
     {
         [ElementsCount(17)]
         [ElementType("uint32")]

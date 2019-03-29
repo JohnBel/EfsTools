@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025052", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm850LinearTxGainParamI
+    public class GsmC0Gsm850LinearTxGainParam
     {
         [ElementsCount(1)]
         [ElementType("GSM_TX_LINEAR_TX_GAIN_PARAM_DATA_TYPE")]

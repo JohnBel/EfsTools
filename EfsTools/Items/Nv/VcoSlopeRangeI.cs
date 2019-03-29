@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1884)]
     [Attributes(9)]
-    public class VcoSlopeRangeI
+    public class VcoSlopeRange
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

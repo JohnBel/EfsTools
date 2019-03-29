@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025017", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC2Gsm900KvCalI
+    public class GsmC2Gsm900KvCal
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

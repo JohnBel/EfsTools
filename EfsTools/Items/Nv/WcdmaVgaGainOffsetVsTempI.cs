@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(858)]
     [Attributes(9)]
-    public class WcdmaVgaGainOffsetVsTempI
+    public class WcdmaVgaGainOffsetVsTemp
     {
         [ElementsCount(8)]
         [ElementType("int8")]

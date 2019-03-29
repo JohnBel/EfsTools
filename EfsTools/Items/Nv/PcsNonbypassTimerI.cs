@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(390)]
     [Attributes(9)]
-    public class PcsNonbypassTimerI
+    public class PcsNonbypassTimer
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

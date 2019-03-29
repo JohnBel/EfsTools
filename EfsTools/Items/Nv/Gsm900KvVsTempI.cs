@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5381)]
     [Attributes(9)]
-    public class Gsm900KvVsTempI
+    public class Gsm900KvVsTemp
     {
         [ElementsCount(8)]
         [ElementType("int16")]

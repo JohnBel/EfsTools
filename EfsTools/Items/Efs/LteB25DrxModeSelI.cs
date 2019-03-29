@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022333", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB25DrxModeSelI
+    public class LteB25DrxModeSel
     {
         [ElementsCount(3)]
         [ElementType("uint8")]

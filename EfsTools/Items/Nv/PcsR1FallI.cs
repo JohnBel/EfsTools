@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(338)]
     [Attributes(9)]
-    public class PcsR1FallI
+    public class PcsR1Fall
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

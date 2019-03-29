@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(365)]
     [Attributes(9)]
-    public class IextI
+    public class Iext
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6294)]
     [Attributes(9)]
-    public class Gsm850LinearEnvdcCalValI
+    public class Gsm850LinearEnvdcCalVal
     {
         [ElementsCount(1)]
         [ElementType("int16")]

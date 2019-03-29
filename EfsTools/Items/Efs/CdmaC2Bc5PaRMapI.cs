@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021897", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc5PaRMapI
+    public class CdmaC2Bc5PaRMap
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

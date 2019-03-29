@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6369)]
     [Attributes(9)]
-    public class Gsm900LinearPaR1VbattHiCompI
+    public class Gsm900LinearPaR1VbattHiComp
     {
         [ElementsCount(1)]
         [ElementType("int16")]

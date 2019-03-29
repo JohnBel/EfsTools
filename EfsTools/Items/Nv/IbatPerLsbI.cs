@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(364)]
     [Attributes(9)]
-    public class IbatPerLsbI
+    public class IbatPerLsb
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

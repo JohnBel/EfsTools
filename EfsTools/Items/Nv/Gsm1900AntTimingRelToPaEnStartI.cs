@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3069)]
     [Attributes(9)]
-    public class Gsm1900AntTimingRelToPaEnStartI
+    public class Gsm1900AntTimingRelToPaEnStart
     {
         [ElementsCount(1)]
         [ElementType("int16")]

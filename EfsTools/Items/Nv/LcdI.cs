@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(72)]
     [Attributes(9)]
-    public class LcdI
+    public class Lcd
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(190)]
     [Attributes(9)]
-    public class FmLnaCtlI
+    public class FmLnaCtl
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

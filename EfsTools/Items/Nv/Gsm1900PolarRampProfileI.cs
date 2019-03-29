@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3510)]
     [Attributes(9)]
-    public class Gsm1900PolarRampProfileI
+    public class Gsm1900PolarRampProfile
     {
         [ElementsCount(60)]
         [ElementType("uint16")]

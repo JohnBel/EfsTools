@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021891", true, 0xE1FF)]
     [Attributes(9)]
-    public class C2Bc5Im2QValueI
+    public class C2Bc5Im2QValue
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

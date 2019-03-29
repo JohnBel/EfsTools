@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6752)]
     [Attributes(9)]
-    public class LteB17DrxModeSelI
+    public class LteB17DrxModeSel
     {
         [ElementsCount(3)]
         [ElementType("uint8")]

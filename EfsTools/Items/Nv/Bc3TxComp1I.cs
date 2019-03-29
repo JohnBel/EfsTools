@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1553)]
     [Attributes(9)]
-    public class Bc3TxComp1I
+    public class Bc3TxComp1
     {
         [ElementsCount(32)]
         [ElementType("int8")]

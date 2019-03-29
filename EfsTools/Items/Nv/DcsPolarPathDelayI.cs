@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2771)]
     [Attributes(9)]
-    public class DcsPolarPathDelayI
+    public class DcsPolarPathDelay
     {
         [ElementsCount(1)]
         [ElementType("int16")]

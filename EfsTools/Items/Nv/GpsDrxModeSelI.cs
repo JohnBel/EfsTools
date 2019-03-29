@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4200)]
     [Attributes(9)]
-    public class GpsDrxModeSelI
+    public class GpsDrxModeSel
     {
         [ElementsCount(3)]
         [ElementType("uint8")]

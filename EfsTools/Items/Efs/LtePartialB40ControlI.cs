@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024825", true, 0xE1FF)]
     [Attributes(9)]
-    public class LtePartialB40ControlI
+    public class LtePartialB40Control
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

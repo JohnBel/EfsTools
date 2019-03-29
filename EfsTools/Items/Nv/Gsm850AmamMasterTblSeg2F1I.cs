@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2538)]
     [Attributes(9)]
-    public class Gsm850AmamMasterTblSeg2F1I
+    public class Gsm850AmamMasterTblSeg2F1
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025087", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900SmpsPdmTblI
+    public class GsmC0Gsm1900SmpsPdmTbl
     {
         [ElementsCount(1)]
         [ElementType("GSM_TX_SMPS_PDM_DATA_TYPE")]

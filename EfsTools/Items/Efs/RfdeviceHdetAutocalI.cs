@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023764", true, 0xE1FF)]
     [Attributes(9)]
-    public class RfdeviceHdetAutocalI
+    public class RfdeviceHdetAutocal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

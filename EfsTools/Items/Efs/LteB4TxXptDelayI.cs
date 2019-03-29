@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025535", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB4TxXptDelayI
+    public class LteB4TxXptDelay
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023868", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma800TxGtrThreshI
+    public class Wcdma800TxGtrThresh
     {
         [ElementsCount(1)]
         [ElementType("int8")]

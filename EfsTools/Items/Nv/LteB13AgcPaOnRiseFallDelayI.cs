@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6503)]
     [Attributes(9)]
-    public class LteB13AgcPaOnRiseFallDelayI
+    public class LteB13AgcPaOnRiseFallDelay
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

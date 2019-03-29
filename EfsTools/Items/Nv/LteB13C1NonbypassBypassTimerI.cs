@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6532)]
     [Attributes(9)]
-    public class LteB13C1NonbypassBypassTimerI
+    public class LteB13C1NonbypassBypassTimer
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

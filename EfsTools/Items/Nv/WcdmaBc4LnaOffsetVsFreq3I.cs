@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4007)]
     [Attributes(9)]
-    public class WcdmaBc4LnaOffsetVsFreq3I
+    public class WcdmaBc4LnaOffsetVsFreq3
     {
         [ElementsCount(16)]
         [ElementType("int8")]

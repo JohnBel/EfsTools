@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(198)]
     [Attributes(9)]
-    public class HwConfigI
+    public class HwConfig
     {
         [ElementsCount(1)]
         [ElementType("uint32")]

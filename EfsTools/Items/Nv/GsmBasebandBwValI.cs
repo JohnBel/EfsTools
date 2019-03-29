@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2778)]
     [Attributes(9)]
-    public class GsmBasebandBwValI
+    public class GsmBasebandBwVal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

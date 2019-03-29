@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5286)]
     [Attributes(9)]
-    public class Gsm900PadacDcOffsetI
+    public class Gsm900PadacDcOffset
     {
         [ElementsCount(15)]
         [ElementType("int8")]

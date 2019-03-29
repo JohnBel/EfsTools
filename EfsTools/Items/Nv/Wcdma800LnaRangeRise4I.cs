@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4414)]
     [Attributes(9)]
-    public class Wcdma800LnaRangeRise4I
+    public class Wcdma800LnaRangeRise4
     {
         [ElementsCount(1)]
         [ElementType("int16")]

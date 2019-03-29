@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2822)]
     [Attributes(9)]
-    public class ChgUsbNvdisableI
+    public class ChgUsbNvdisable
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

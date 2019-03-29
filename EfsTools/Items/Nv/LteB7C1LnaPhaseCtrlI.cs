@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6589)]
     [Attributes(9)]
-    public class LteB7C1LnaPhaseCtrlI
+    public class LteB7C1LnaPhaseCtrl
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

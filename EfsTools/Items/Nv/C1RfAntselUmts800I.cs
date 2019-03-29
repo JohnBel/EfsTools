@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3848)]
     [Attributes(9)]
-    public class C1RfAntselUmts800I
+    public class C1RfAntselUmts800
     {
         [ElementsCount(4)]
         [ElementType("uint8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4954)]
     [Attributes(9)]
-    public class XoFactoryCalibrationI
+    public class XoFactoryCalibration
     {
         [ElementsCount(1)]
         [ElementType("int32")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023581", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB39TimerHysterisisI
+    public class LteB39TimerHysterisis
     {
         [ElementsCount(1)]
         [ElementType("int16")]

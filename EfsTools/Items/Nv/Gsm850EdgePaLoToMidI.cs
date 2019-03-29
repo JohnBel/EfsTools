@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5388)]
     [Attributes(9)]
-    public class Gsm850EdgePaLoToMidI
+    public class Gsm850EdgePaLoToMid
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

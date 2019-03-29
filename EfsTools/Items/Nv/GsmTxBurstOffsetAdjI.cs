@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1891)]
     [Attributes(9)]
-    public class GsmTxBurstOffsetAdjI
+    public class GsmTxBurstOffsetAdj
     {
         [ElementsCount(1)]
         [ElementType("int16")]

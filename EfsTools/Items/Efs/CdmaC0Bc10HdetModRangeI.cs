@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024792", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC0Bc10HdetModRangeI
+    public class CdmaC0Bc10HdetModRange
     {
         [ElementsCount(8)]
         [ElementType("int16")]

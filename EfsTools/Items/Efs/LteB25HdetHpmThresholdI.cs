@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024726", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB25HdetHpmThresholdI
+    public class LteB25HdetHpmThreshold
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

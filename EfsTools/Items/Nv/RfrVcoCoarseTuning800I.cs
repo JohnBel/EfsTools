@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3283)]
     [Attributes(9)]
-    public class RfrVcoCoarseTuning800I
+    public class RfrVcoCoarseTuning800
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

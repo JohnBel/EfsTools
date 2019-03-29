@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4369)]
     [Attributes(9)]
-    public class GsmPaTempCompMaxPwrI
+    public class GsmPaTempCompMaxPwr
     {
         [ElementsCount(16)]
         [ElementType("int16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024739", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC0Bc0TxLimVsTempVsFreqI
+    public class CdmaC0Bc0TxLimVsTempVsFreq
     {
         [ElementsCount(8)]
         [ElementType("QMSL_Tx_Cal_Freq_Num_Type")]

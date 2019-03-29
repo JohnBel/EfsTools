@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2754)]
     [Attributes(9)]
-    public class GsmAmamSysGainDcCorrI
+    public class GsmAmamSysGainDcCorr
     {
         [ElementsCount(2)]
         [ElementType("uint16")]

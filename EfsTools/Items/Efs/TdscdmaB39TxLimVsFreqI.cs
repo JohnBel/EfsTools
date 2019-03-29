@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022687", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB39TxLimVsFreqI
+    public class TdscdmaB39TxLimVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

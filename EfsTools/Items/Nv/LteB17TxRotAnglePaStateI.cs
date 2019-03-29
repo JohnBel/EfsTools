@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6610)]
     [Attributes(9)]
-    public class LteB17TxRotAnglePaStateI
+    public class LteB17TxRotAnglePaState
     {
         [ElementsCount(8)]
         [ElementType("uint16")]

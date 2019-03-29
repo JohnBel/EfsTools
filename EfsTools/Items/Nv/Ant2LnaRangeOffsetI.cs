@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(501)]
     [Attributes(9)]
-    public class Ant2LnaRangeOffsetI
+    public class Ant2LnaRangeOffset
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

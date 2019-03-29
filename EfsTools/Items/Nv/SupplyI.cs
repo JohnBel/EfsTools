@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5576)]
     [Attributes(9)]
-    public class SupplyI
+    public class Supply
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

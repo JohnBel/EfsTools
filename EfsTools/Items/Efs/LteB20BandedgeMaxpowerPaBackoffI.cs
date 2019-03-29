@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025202", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB20BandedgeMaxpowerPaBackoffI
+    public class LteB20BandedgeMaxpowerPaBackoff
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

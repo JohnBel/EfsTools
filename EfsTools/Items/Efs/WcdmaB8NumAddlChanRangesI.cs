@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022503", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB8NumAddlChanRangesI
+    public class WcdmaB8NumAddlChanRanges
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

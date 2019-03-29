@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021331", true, 0xE1FF)]
     [Attributes(9)]
-    public class Edge1900SmpsPdmTblI
+    public class Edge1900SmpsPdmTbl
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

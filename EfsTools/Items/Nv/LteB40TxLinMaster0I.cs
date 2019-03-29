@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6674)]
     [Attributes(9)]
-    public class LteB40TxLinMaster0I
+    public class LteB40TxLinMaster0
     {
         [ElementsCount(64)]
         [ElementType("uint16")]

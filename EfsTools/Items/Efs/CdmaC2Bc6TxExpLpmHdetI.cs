@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023747", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc6TxExpLpmHdetI
+    public class CdmaC2Bc6TxExpLpmHdet
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

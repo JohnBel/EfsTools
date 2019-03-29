@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6133)]
     [Attributes(9)]
-    public class BcxBlock1P3RiseFallOffI
+    public class BcxBlock1P3RiseFallOff
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

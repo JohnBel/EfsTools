@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(493)]
     [Attributes(9)]
-    public class VbattMinMaxI
+    public class VbattMinMax
     {
         [ElementsCount(2)]
         [ElementType("uint8")]

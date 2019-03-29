@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6868)]
     [Attributes(9)]
-    public class Bc6PaSmpsPdmLevelI
+    public class Bc6PaSmpsPdmLevel
     {
         [ElementsCount(64)]
         [ElementType("int16")]

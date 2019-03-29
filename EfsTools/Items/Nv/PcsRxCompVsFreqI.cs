@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(327)]
     [Attributes(9)]
-    public class PcsRxCompVsFreqI
+    public class PcsRxCompVsFreq
     {
         [ElementsCount(16)]
         [ElementType("int8")]

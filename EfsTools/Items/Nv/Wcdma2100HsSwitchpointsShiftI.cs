@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6048)]
     [Attributes(9)]
-    public class Wcdma2100HsSwitchpointsShiftI
+    public class Wcdma2100HsSwitchpointsShift
     {
         [ElementsCount(2)]
         [ElementType("int8")]

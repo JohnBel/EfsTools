@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024982", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1800TxTimingI
+    public class GsmC0Gsm1800TxTiming
     {
         [ElementsCount(1)]
         [ElementType("GSM_TX_TIMING_DATA_TYPE")]

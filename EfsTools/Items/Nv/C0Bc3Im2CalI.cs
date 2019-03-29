@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(5580)]
     [Attributes(9)]
-    public class C0Bc3Im2CalI
+    public class C0Bc3Im2Cal
     {
         [ElementsCount(7)]
         [ElementType("uint8")]

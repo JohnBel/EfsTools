@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6723)]
     [Attributes(9)]
-    public class LteB1TxMprBackoffI
+    public class LteB1TxMprBackoff
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

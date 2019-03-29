@@ -9,12 +9,12 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024830", true, 0xE1FF)]
     [Attributes(9)]
-    public class Cdma1xBc15DoBc1GnssIm3DesenseI
+    public class Cdma1xBc15DoBc1GnssIm3Desense
     {
         [ElementsCount(10)]
         [ElementType("int16")]
         [Description("")]
-        public short[] Cdma1xBc15DoBc1GnssIm3Desense { get; set; }
+        public short[] Value { get; set; }
         
     }
 }

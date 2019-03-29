@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1792)]
     [Attributes(9)]
-    public class RfrIqLineResistorI
+    public class RfrIqLineResistor
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

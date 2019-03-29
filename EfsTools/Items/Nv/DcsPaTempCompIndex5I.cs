@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1292)]
     [Attributes(9)]
-    public class DcsPaTempCompIndex5I
+    public class DcsPaTempCompIndex5
     {
         [ElementsCount(16)]
         [ElementType("int8")]

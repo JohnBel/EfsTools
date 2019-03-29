@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(2775)]
     [Attributes(9)]
-    public class DcsOpllBwValI
+    public class DcsOpllBwVal
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

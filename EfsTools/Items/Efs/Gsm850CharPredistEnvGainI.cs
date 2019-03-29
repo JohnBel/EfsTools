@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024194", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm850CharPredistEnvGainI
+    public class Gsm850CharPredistEnvGain
     {
         [ElementsCount(64)]
         [ElementType("uint8")]

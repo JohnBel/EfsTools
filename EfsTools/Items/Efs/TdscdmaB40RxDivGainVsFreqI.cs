@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024206", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40RxDivGainVsFreqI
+    public class TdscdmaB40RxDivGainVsFreq
     {
         [ElementsCount(64)]
         [ElementType("int16")]

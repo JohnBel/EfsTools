@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022894", true, 0xE1FF)]
     [Attributes(9)]
-    public class Gsm1800HotTempCompPclPwrOffsetGsmkI
+    public class Gsm1800HotTempCompPclPwrOffsetGsmk
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

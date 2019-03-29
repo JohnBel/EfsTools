@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(1802)]
     [Attributes(9)]
-    public class PaCompensateDownI
+    public class PaCompensateDown
     {
         [ElementsCount(1)]
         [ElementType("int16")]

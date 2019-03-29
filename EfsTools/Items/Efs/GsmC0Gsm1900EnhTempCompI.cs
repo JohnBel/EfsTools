@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025111", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900EnhTempCompI
+    public class GsmC0Gsm1900EnhTempComp
     {
         [ElementsCount(256)]
         [ElementType("int16")]

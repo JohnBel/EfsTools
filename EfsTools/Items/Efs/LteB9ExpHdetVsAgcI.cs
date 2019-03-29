@@ -9,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023515", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB9ExpHdetVsAgcI
+    public class LteB9ExpHdetVsAgc
     {
         [ElementsCount(16)]
         [ElementType("uint16")]

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4013)]
     [Attributes(9)]
-    public class WcdmaBc4MaxTxPowerI
+    public class WcdmaBc4MaxTxPower
     {
         [ElementsCount(1)]
         [ElementType("int8")]

@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4390)]
     [Attributes(9)]
-    public class GsmRxGainRange5TempCompI
+    public class GsmRxGainRange5TempComp
     {
         [ElementsCount(3)]
         [ElementType("int16")]

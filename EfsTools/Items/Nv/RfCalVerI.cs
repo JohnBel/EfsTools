@@ -9,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(569)]
     [Attributes(9)]
-    public class RfCalVerI
+    public class RfCalVer
     {
         [ElementsCount(8)]
         [ElementType("uint8")]

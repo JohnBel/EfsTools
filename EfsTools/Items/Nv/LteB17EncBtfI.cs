@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(6605)]
     [Attributes(9)]
-    public class LteB17EncBtfI
+    public class LteB17EncBtf
     {
         [ElementsCount(1)]
         [ElementType("int16")]
