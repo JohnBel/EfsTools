@@ -7,7 +7,7 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(4230)]
     [Attributes(9)]
-    public class VoipPreferredUr
+    public class VoipPreferredUrl
     {
         [ElementsCount(1)]
         [ElementType("uint16")]

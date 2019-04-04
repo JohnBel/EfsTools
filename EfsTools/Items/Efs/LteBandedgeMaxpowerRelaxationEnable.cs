@@ -10,12 +10,12 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025203", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteBandedgeMaxpowerRelaxationEnable
+    public class LteBandEdgeMaxPowerRelaxationEnable
     {
         [ElementsCount(1)]
         [ElementType("uint8")]
         [Description("")]
-        public byte BandedgeMaxpowerRelaxationEnable { get; set; }
+        public byte Value { get; set; }
         
     }
 }

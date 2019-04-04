@@ -5050,7 +5050,7 @@
     <Compile Include="Items\Efs\TdscdmaC1SpursTableI.cs" />
     <Compile Include="Items\Efs\TdscdmaPartialB40ControlI.cs" />
     <Compile Include="Items\Efs\UeBasedCw.cs" />
-    <Compile Include="Items\Efs\VoipPrfrdCodec.cs" />
+    <Compile Include="Items\Efs\VoipPreferredCodec.cs" />
     <Compile Include="Items\Efs\QpImsVtWlanMediaCapability.cs" />
     <Compile Include="Items\Efs\Wcdma1500HdetModRangeI.cs" />
     <Compile Include="Items\Efs\Wcdma1500HdetVsTempI.cs" />
@@ -5653,7 +5653,7 @@
     <Compile Include="Items\Efs\IwlanS2bConfigTxt.cs" />
     <Compile Include="Items\Efs\JcdmaMode.cs" />
     <Compile Include="Items\Efs\Lte3gppReleaseVer.cs" />
-    <Compile Include="Items\Efs\LteBandpref.cs" />
+    <Compile Include="Items\Efs\LteBandPreference.cs" />
     <Compile Include="Items\Efs\LteConnectionControl.cs" />
     <Compile Include="Items\Efs\LteDisableDuration.cs" />
     <Compile Include="Items\Efs\LteEnableInPchState.cs" />
@@ -11040,7 +11040,7 @@
     <Compile Include="Items\Efs\ProfilePdnTypeOverride.cs" />
     <Compile Include="Items\Efs\QipCall1xSmsAndVoice.cs" />
     <Compile Include="Items\Efs\QipcallCalleridMode.cs" />
-    <Compile Include="Items\Efs\QipcallCodecModeSet.cs" />
+    <Compile Include="Items\Efs\QipcallCodecModeSetAmrNb.cs" />
     <Compile Include="Items\Efs\QipcallCodecModeSetAmrWb.cs" />
     <Compile Include="Items\Efs\QipcallConfigItems.cs" />
     <Compile Include="Items\Efs\QipcallConfrdUri.cs" />
