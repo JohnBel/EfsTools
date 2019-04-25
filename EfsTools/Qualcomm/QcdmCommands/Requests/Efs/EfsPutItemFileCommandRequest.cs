@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Put)]
-    internal class EfsPutItemFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsPutItemFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly byte[] _data;
 
@@ -22,7 +22,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _data = data;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[25 + _fileName.Length + _data.Length];
             var i = 0;

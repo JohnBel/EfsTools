@@ -5,7 +5,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Hello)]
-    internal class EfsHelloCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsHelloCommandRequest : BaseSubSystemCommandRequest
     {
         private const uint EfsDefaultWindowSize = 0x100000;
         private const uint EfsDefaultWindowByteSize = 0x100000;
@@ -13,7 +13,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
         private const uint EfsMinVersion = 0x0001;
         private const uint EfsMaxVersion = 0x0001;
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[44];
             Array.Copy(base.GetData(), 0, data, 0, 4);

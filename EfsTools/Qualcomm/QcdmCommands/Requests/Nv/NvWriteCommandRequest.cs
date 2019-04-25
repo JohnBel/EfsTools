@@ -4,7 +4,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Nv
 {
     [QcdmCommand(QcdmCommand.NvWrite)]
-    internal class NvWriteCommandRequest : BaseCommandRequest, IQcdmCommandRequest
+    internal class NvWriteCommandRequest : BaseCommandRequest
     {
         private readonly byte[] _data;
 
@@ -16,7 +16,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Nv
             _data = data;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var size = 3 + _data.Length;
             var data = new byte[size];

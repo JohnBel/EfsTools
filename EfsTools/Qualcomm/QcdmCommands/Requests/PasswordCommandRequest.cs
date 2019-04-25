@@ -5,7 +5,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
 {
     [QcdmCommand(QcdmCommand.Password)]
-    internal class PasswordCommandRequest : BaseCommandRequest, IQcdmCommandRequest
+    internal class PasswordCommandRequest : BaseCommandRequest
     {
         private readonly byte[] _password;
 
@@ -14,7 +14,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             _password = Encoding.ASCII.GetBytes(password);
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[9];
             data[0] = (byte) Command;

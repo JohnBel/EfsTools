@@ -29,7 +29,7 @@ namespace EfsTools.Items.Efs
         public string StringValue
         {
             get => $"{(VoiceDomainType) Value}";
-            set => Value = EnumUtils.ParseEnum(typeof(VoiceDomainType), value);
+            set => Value = EnumUtils.ParseEnumByte(typeof(VoiceDomainType), value);
         }
     }
 }

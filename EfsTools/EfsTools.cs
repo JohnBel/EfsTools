@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading;
 using EfsTools.Items;
 using EfsTools.Mbn;
 using EfsTools.Qualcomm;
+using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Resourses;
 using EfsTools.Utils;
 
@@ -33,6 +37,7 @@ namespace EfsTools
                 var state = manager.CallManager.CallState;
                 var serialNo = manager.Nv.ReadString(2824).TrimEnd('\0');
                 var imei = manager.Imei;
+                var systemTime = manager.SystemTime;
 
                 _logger.LogInfo(
                     $"Imei: {imei}, " +
@@ -41,20 +46,73 @@ namespace EfsTools
                     $"VersionDirectory: '{version.VersionDirectory}', MobileFirmwareRevision: {version.MobileFirmwareRevision}, MobileCaiRevision: {version.MobileCaiRevision}, MobileModel: {version.MobileModel}, " +
                     $"StationClassMask: {version.StationClassMask}, SlotCycleIndex: {version.SlotCycleIndex}, HwVersion: {version.HwVersionMajor}.{version.HwVersionMinor}, " +
                     $"MSM: 0x{buildId.Msm:X}, MobileModelId: {buildId.MobileModelId}, MobileModelName: {buildId.MobileModelName}, " +
-                    $"Guid: {guid}");
+                    $"Guid: '{guid}', SystemTime: '{systemTime}'");
                 _logger.LogInfo(
                     $"GSM VocorerDspVersion: 0x{gsmVersion.VocorerDspVersion:X},  MdspVersionRom: 0x{gsmVersion.MdspVersionRom:X},  MdspVersionRam: 0x{gsmVersion.MdspVersionRam:X}");
                 _logger.LogInfo($"Call state: 0x{state:X}");
             }
         }
 
-        public void GetLog()
+        private static List<MessageId>[] GroupMessageMasks(MessageId[] messages)
         {
+            var result = new List<List<MessageId>>();
+            Array.Sort(messages);
+            var lastMessageId = -1;
+            List<MessageId> list = null;
+            foreach (var message in messages)
+            { 
+                if (list == null || lastMessageId == -1 || (((int)message - lastMessageId) > 32))
+                {
+                    list = new List<MessageId>();
+                    result.Add(list);
+                }
+                lastMessageId = (int)message;
+                list.Add(message);
+            }
+            return result.ToArray();
+        }
+
+        public void GetLog(string messageMask, string logMask, string eventMask, string fileName, string layout, string logConfigFile)
+        {
+            var enabledAllMessageMask = string.IsNullOrEmpty(messageMask)
+                ? new MessageId[0]
+                : messageMask.Split(',').Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it))
+                    .ToArray();
+            var enabledMessageMasks = GroupMessageMasks(enabledAllMessageMask);
+            var enabledLogMask = string.IsNullOrEmpty(logMask)
+                ? new LogId[0]
+                : logMask.Split(',').Select((it) => (LogId) EnumUtils.ParseEnumInt(typeof(LogId), it))
+                    .ToArray();
+            var enabledEventMask = string.IsNullOrEmpty(eventMask)
+                ? new EventId[0]
+                : eventMask.Split(',').Select((it) => (EventId) EnumUtils.ParseEnumInt(typeof(EventId), it))
+                    .ToArray();
             using (var manager = OpenQcdmManager())
             {
-                //manager.SetLogMask(0xFF);
-                var log = manager.QueryLog();
-                _logger.LogInfo($"Log: {log}");
+                manager.DisableEventReports();
+                manager.DisableLogs();
+                manager.DisableMessages();
+                if (enabledEventMask.Length > 0)
+                {
+                    manager.EventReport(true);
+                    manager.SetEventMask(enabledEventMask);
+                }
+
+                foreach (var enabledMessageMask in enabledMessageMasks)
+                {
+                    var first = enabledMessageMask.FirstOrDefault();
+                    var last = enabledMessageMask.LastOrDefault();
+                    manager.SetMessageMask((int)first, (int)last, enabledMessageMask.ToArray());
+                }
+                
+                if (enabledLogMask.Length > 0)
+                {
+                    manager.SetLogMask(enabledLogMask);
+                }
+                var cancellationTokenSource = new CancellationTokenSource();
+                Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) => { cancellationTokenSource.Cancel();};
+
+                manager.ProcessLogs(_logger, cancellationTokenSource.Token);
             }
         }
 

@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Stat)]
-    internal class EfsStatFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsStatFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _fileName;
 
@@ -15,7 +15,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _fileName = fileName;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[5 + _fileName.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

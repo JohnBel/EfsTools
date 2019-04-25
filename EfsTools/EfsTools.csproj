@@ -11159,6 +11159,9 @@
     <Compile Include="Qualcomm\QcdmCommands\Attributes\QcdmSubSystemCommandAttribute.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Attributes\QcdmMinResponseLengthAttribute.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Attributes\QcdmCommandAttribute.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Base\EventId.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Base\LogId.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Base\MessageId.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\BaseSubSystemCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\DiagVersionCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsCloseDirectoryCommandRequest.cs" />
@@ -11174,6 +11177,10 @@
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsOpenDirectoryCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsReadDirectoryCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsStatFileCommandRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\EventMaskSetCommandRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\EventReportCommandRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\ExtMessageConfigCommandRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\LogConfigCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\LogMaskCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Nv\NvWriteCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Nv\NvReadCommandRequest.cs" />
@@ -11194,6 +11201,12 @@
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsReadDirectoryCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsStatFileCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsWriteFileCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\ExtMessageConfigCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\ExtMsgCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\MsgCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\LogConfigCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\EventMaskSetCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\EventReportCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Nv\NvWriteCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Nv\NvReadCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\LogMaskCommandResponse.cs" />
@@ -11209,6 +11222,7 @@
     </Compile>
     <Compile Include="Utils\BitsUtils.cs" />
     <Compile Include="Utils\Crc16.cs" />
+    <Compile Include="Utils\DateTimeUtils.cs" />
     <Compile Include="Utils\EndianConverter.cs" />
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\IgnoreAttributeUtils.cs" />

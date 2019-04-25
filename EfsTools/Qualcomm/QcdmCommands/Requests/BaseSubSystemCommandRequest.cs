@@ -4,7 +4,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
 {
-    internal class BaseSubSystemCommandRequest : BaseCommandRequest, IQcdmCommandRequest
+    internal class BaseSubSystemCommandRequest : BaseCommandRequest
     {
         public BaseSubSystemCommandRequest()
         {
@@ -15,7 +15,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
 
         public ushort SubSystemCommand { get; private set; }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var cmd = BitConverter.GetBytes(SubSystemCommand);
             var data = new[] {(byte) Command, (byte) SubSystem, cmd[0], cmd[1]};

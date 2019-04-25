@@ -5,7 +5,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Read)]
-    internal class EfsReadFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsReadFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly int _file;
         private readonly uint _offset;
@@ -18,7 +18,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _offset = offset;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[16];
             Array.Copy(base.GetData(), 0, data, 0, 4);

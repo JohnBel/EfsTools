@@ -5,7 +5,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
 {
     [QcdmCommand(QcdmCommand.Spc)]
-    internal class SpcCommandRequest : BaseCommandRequest, IQcdmCommandRequest
+    internal class SpcCommandRequest : BaseCommandRequest
     {
         private readonly byte[] _spc;
 
@@ -14,7 +14,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             _spc = Encoding.ASCII.GetBytes(spc);
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[7];
             data[0] = (byte) Command;

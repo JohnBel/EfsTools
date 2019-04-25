@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rmdir)]
-    internal class EfsRemoveDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsRemoveDirectoryCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _name;
 
@@ -15,7 +15,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _name = name;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[5 + _name.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

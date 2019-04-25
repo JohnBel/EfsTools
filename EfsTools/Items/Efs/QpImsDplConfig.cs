@@ -68,7 +68,7 @@ namespace EfsTools.Items.Efs
         public string RuimImsiValueString
         {
             get => $"{(RuimImsiValues) RuimImsiValue}";
-            set => RuimImsiValue = EnumUtils.ParseEnum(typeof(RuimImsiValues), value);
+            set => RuimImsiValue = EnumUtils.ParseEnumByte(typeof(RuimImsiValues), value);
         }
 
 
@@ -87,7 +87,7 @@ namespace EfsTools.Items.Efs
         public string ImsParamSrcString
         {
             get => $"{(ImsParamSrcValues) ImsParamSrc}";
-            set => ImsParamSrc = EnumUtils.ParseEnum(typeof(ImsParamSrcValues), value);
+            set => ImsParamSrc = EnumUtils.ParseEnumByte(typeof(ImsParamSrcValues), value);
         }
     }
 }

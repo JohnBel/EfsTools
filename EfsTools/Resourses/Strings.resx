@@ -402,4 +402,7 @@
   <data name="QcdmExtractingMbnFileFormat" xml:space="preserve">
     <value>Extracting MBN file '{0}' ...</value>
   </data>
+  <data name="QcdmErrorOnSetEventMask" xml:space="preserve">
+    <value>Error on set event mask</value>
+  </data>
 </root>

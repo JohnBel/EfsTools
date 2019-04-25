@@ -14,8 +14,6 @@ namespace EfsTools
             Logger logger = null;
             try
             {
-                //CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-                //CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
                 logger = new Logger();
                 QcdmCommandResponseFactory.Logger = logger;
                 SentenceBuilder.Factory = () => new CommandLineOptionsLocalization();
@@ -29,7 +27,8 @@ namespace EfsTools
                     settings.HelpWriter = Console.Out;
                 }))
                 {
-                    commandLineParser.ParseArguments<GetTaggetInfoOptions,
+                    commandLineParser.ParseArguments<
+                            GetTaggetInfoOptions,
                             GetEfsInfoOptions,
                             EfsReadFileOptions,
                             EfsWriteFileOptions,
@@ -43,7 +42,8 @@ namespace EfsTools
                             EfsUploadDirectoryOptions,
                             GetModemConfigOptions,
                             SetModemConfigOptions,
-                            ExtractMbnOptions
+                            ExtractMbnOptions,
+                            GetLogsOptions
                         >(args)
                         .WithParsed<GetTaggetInfoOptions>(opts => tools.GetTargetInfo())
                         .WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo())
@@ -60,7 +60,6 @@ namespace EfsTools
                         .WithParsed<EfsUploadDirectoryOptions>(opts => tools.EfsUploadDirectory(opts.InComputerPath,
                             opts.OutEfsPath, opts.CreateItemFilesAsDefault, opts.ProcessNvItems))
                         .WithParsed<EfsFixFileNamesOptions>(opts => tools.EfsFixFileNames(opts.EfsPath))
-                        .WithParsed<GetLogsOptions>(opts => tools.GetLog())
                         .WithParsed<EfsCreateDirectoryOptions>(opts =>
                             tools.EfsCreateDirectory(opts.Path, !opts.NoRecursive))
                         .WithParsed<EfsDeleteDirectoryOptions>(opts =>
@@ -73,6 +72,8 @@ namespace EfsTools
                             tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath))
                         .WithParsed<ExtractMbnOptions>(opts =>
                             tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData))
+                        .WithParsed<GetLogsOptions>(opts => 
+                            tools.GetLog(opts.MessageMask, opts.LogMask, opts.EventMask, null /*opts.FileName*/, null /*opts.Layout*/, null /*opts.LogConfigFile*/))
                         .WithNotParsed(errors => { });
                 }
             }
@@ -80,9 +81,6 @@ namespace EfsTools
             {
                 logger?.LogError(Strings.CriticalErrorFormat, ex.Message);
             }
-
-            //Console.WriteLine(Strings.PressEnterToExit);
-            //Console.ReadLine();
         }
     }
 }

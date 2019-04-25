@@ -402,4 +402,7 @@
   <data name="QcdmExtractingMbnFileFormat" xml:space="preserve">
     <value>Распаковка файла MBN '{0}' ...</value>
   </data>
+  <data name="QcdmErrorOnSetEventMask" xml:space="preserve">
+    <value>Ошибка при установке маски событий</value>
+  </data>
 </root>

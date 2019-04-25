@@ -27,7 +27,7 @@ namespace EfsTools.Items.Efs
         public string ValueString
         {
             get => $"{(UeUsageSettingValue) Value}";
-            set => Value = EnumUtils.ParseEnum(typeof(UeUsageSettingValue), value);
+            set => Value = EnumUtils.ParseEnumByte(typeof(UeUsageSettingValue), value);
         }
     }
 }

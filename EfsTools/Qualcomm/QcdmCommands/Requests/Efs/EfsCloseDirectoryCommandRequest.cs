@@ -5,7 +5,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.CloseDir)]
-    internal class EfsCloseDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsCloseDirectoryCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly int _directory;
 
@@ -14,7 +14,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _directory = dir;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[8];
             Array.Copy(base.GetData(), 0, data, 0, 4);

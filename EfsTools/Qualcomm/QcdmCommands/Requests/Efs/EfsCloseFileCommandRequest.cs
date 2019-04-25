@@ -5,7 +5,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Close)]
-    internal class EfsCloseFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsCloseFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly int _file;
 
@@ -14,7 +14,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _file = file;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[8];
             Array.Copy(base.GetData(), 0, data, 0, 4);

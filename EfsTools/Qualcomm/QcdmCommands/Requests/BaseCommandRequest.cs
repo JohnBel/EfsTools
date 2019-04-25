@@ -3,7 +3,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
 {
-    internal class BaseCommandRequest : IQcdmCommandRequest
+    internal abstract class BaseCommandRequest : IQcdmCommandRequest
     {
         public BaseCommandRequest()
         {
@@ -12,7 +12,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
 
         public QcdmCommand Command { get; private set; } = QcdmCommand.Max;
 
-        public byte[] GetData()
+        public virtual byte[] GetData()
         {
             return new[] {(byte) Command};
         }

@@ -2,5 +2,6 @@
 {
     internal interface IQcdmCommandResponse
     {
+        QcdmCommand Command { get; }
     }
 }

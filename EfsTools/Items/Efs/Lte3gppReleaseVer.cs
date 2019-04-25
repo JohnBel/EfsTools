@@ -47,7 +47,7 @@ namespace EfsTools.Items.Efs
         public string StringValue
         {
             get => $"{(Lte3gppReleaseVerValue) Value}";
-            set => Value = EnumUtils.ParseEnum(typeof(Lte3gppReleaseVerValue), value);
+            set => Value = EnumUtils.ParseEnumByte(typeof(Lte3gppReleaseVerValue), value);
         }
     }
 }

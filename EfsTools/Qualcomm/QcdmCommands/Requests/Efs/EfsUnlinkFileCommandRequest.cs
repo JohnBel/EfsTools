@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Unlink)]
-    internal class EfsUnlinkFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsUnlinkFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _path;
 
@@ -15,7 +15,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _path = path;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[5 + _path.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

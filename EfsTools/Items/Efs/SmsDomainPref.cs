@@ -43,7 +43,7 @@ namespace EfsTools.Items.Efs
         public string StringValue
         {
             get => $"{(SmsDomainPrefValue) Value}";
-            set => Value = EnumUtils.ParseEnum(typeof(SmsDomainPrefValue), value);
+            set => Value = EnumUtils.ParseEnumByte(typeof(SmsDomainPrefValue), value);
         }
     }
 }

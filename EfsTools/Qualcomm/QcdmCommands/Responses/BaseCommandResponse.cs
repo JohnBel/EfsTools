@@ -33,8 +33,9 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         {
             if (data.Length < MinResponseLength) throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
 
-            var command = (QcdmCommand) data[0];
-            if (command != Command) throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+            var command = (QcdmCommand)data[0];
+            if (command != Command) 
+                throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
         }
     }
 }

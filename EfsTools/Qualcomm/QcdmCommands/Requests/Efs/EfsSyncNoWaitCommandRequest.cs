@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.SyncNoWait)]
-    internal class EfsSyncNoWaitCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsSyncNoWaitCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _path;
         private readonly ushort _sequence;
@@ -17,7 +17,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _sequence = sequence;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[7 + _path.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

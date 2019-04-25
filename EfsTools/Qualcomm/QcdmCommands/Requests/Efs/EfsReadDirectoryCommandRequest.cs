@@ -5,7 +5,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.ReadDir)]
-    internal class EfsReadDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsReadDirectoryCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly int _directory;
         private readonly int _sequenceNumber;
@@ -16,7 +16,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _sequenceNumber = sequenceNumber;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[12];
             Array.Copy(base.GetData(), 0, data, 0, 4);

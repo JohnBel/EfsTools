@@ -82,7 +82,7 @@ namespace EfsTools.Items.Efs
             }
             set
             {
-                var data = value.Select(s => EnumUtils.ParseEnum(typeof(RatMode), s)).ToArray();
+                var data = value.Select(s => EnumUtils.ParseEnumByte(typeof(RatMode), s)).ToArray();
                 RawValues = data;
                 RatCount = (ushort)data.Length;
                 if (RatCount > 10)

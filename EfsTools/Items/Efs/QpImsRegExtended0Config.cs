@@ -64,7 +64,7 @@ namespace EfsTools.Items.Efs
         public string EnableRegInLpmString
         {
             get => $"{(EnableRegInLpmValues) EnableRegInLpm}";
-            set => EnableRegInLpm = EnumUtils.ParseEnum(typeof(EnableRegInLpmValues), value);
+            set => EnableRegInLpm = EnumUtils.ParseEnumByte(typeof(EnableRegInLpmValues), value);
         }
 
         [ElementsCount(1011)]

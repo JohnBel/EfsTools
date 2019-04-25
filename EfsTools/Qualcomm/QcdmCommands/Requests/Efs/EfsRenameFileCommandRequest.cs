@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rename)]
-    internal class EfsRenameFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsRenameFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _newPath;
 
@@ -18,7 +18,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _newPath = newPath;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[6 + _path.Length + _newPath.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

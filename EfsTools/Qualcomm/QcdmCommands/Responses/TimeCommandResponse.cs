@@ -1,5 +1,6 @@
 ﻿using System;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
+using EfsTools.Utils;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
@@ -11,7 +12,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         {
         }
 
-        public long Time { get; private set; }
+        public DateTime Time { get; private set; }
 
         public static TimeCommandResponse Parse(byte[] data)
         {
@@ -19,7 +20,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             result.CheckResponse(data);
 
             var time = BitConverter.ToInt64(data, 1);
-            result.Time = time;
+            result.Time = DateTimeUtils.DateTimeFromQualcommTs(time);
             return result;
         }
     }

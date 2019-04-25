@@ -31,7 +31,7 @@ namespace EfsTools.Items.Efs
         public string StringValue
         {
             get => $"{(SupplementServiceDomainPrefValue) Value}";
-            set => Value = EnumUtils.ParseEnum(typeof(SupplementServiceDomainPrefValue), value);
+            set => Value = EnumUtils.ParseEnumByte(typeof(SupplementServiceDomainPrefValue), value);
         }
     }
 }

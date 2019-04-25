@@ -29,7 +29,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Open)]
-    internal class EfsOpenFileCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsOpenFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _fileName;
         private readonly EfsFileFlag _flags;
@@ -42,7 +42,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _permission = permission;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[13 + _fileName.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

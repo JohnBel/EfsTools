@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Mkdir)]
-    internal class EfsMakeDirectoryCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsMakeDirectoryCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly ushort _mode;
         private readonly string _name;
@@ -17,7 +17,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _name = name;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[7 + _name.Length];
             Array.Copy(base.GetData(), 0, data, 0, 4);

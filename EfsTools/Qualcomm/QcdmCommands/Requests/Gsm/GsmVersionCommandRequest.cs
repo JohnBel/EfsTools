@@ -4,7 +4,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Gsm
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Gsm, 0)]
-    internal class GsmVersionCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class GsmVersionCommandRequest : BaseSubSystemCommandRequest
     {
     }
 }

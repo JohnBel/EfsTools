@@ -6,7 +6,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
     [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Access)]
-    internal class EfsAccessCommandRequest : BaseSubSystemCommandRequest, IQcdmCommandRequest
+    internal class EfsAccessCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _path;
         private readonly byte _permitionBites;
@@ -17,7 +17,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
             _permitionBites = permitionBites;
         }
 
-        public new byte[] GetData()
+        public override byte[] GetData()
         {
             var data = new byte[6 + _path.Length];
             data[4] = _permitionBites;

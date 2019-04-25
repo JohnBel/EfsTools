@@ -3,5 +3,7 @@
     internal interface IQcdmCommandRequest
     {
         byte[] GetData();
+
+        QcdmCommand Command { get; }
     }
 }
