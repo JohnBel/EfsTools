@@ -76,16 +76,16 @@ namespace EfsTools
         {
             var enabledAllMessageMask = string.IsNullOrEmpty(messageMask)
                 ? new MessageId[0]
-                : messageMask.Split(',').Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it))
+                : messageMask.Split(',').Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it, _logger))
                     .ToArray();
             var enabledMessageMasks = GroupMessageMasks(enabledAllMessageMask);
             var enabledLogMask = string.IsNullOrEmpty(logMask)
                 ? new LogId[0]
-                : logMask.Split(',').Select((it) => (LogId) EnumUtils.ParseEnumInt(typeof(LogId), it))
+                : logMask.Split(',').Select((it) => (LogId) EnumUtils.ParseEnumInt(typeof(LogId), it, _logger))
                     .ToArray();
             var enabledEventMask = string.IsNullOrEmpty(eventMask)
                 ? new EventId[0]
-                : eventMask.Split(',').Select((it) => (EventId) EnumUtils.ParseEnumInt(typeof(EventId), it))
+                : eventMask.Split(',').Select((it) => (EventId) EnumUtils.ParseEnumInt(typeof(EventId), it, _logger))
                     .ToArray();
             using (var manager = OpenQcdmManager())
             {

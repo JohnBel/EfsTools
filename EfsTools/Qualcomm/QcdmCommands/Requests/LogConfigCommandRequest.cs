@@ -52,8 +52,11 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             foreach (var enableLog in _enabledLogIds)
             {
                 var ind = (int)enableLog;
-                var offset = ind - 0x1000;
-                BitsUtils.SetBitAsBool(data, 16, offset, true);
+                if (ind > 0)
+                {
+                    var offset = ind - 0x1000;
+                    BitsUtils.SetBitAsBool(data, 16, offset, true);
+                }
             }
             return data;
         }

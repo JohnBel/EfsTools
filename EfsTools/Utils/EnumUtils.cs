@@ -6,7 +6,7 @@ namespace EfsTools.Utils
 {
     internal static class EnumUtils
     {
-        public static byte ParseEnumByte(Type enumType, string val)
+        public static byte ParseEnumByte(Type enumType, string val, Logger logger = null)
         {
             try
             {
@@ -25,13 +25,17 @@ namespace EfsTools.Utils
                 }
                 return (byte)Enum.Parse(enumType, val, true);
             }
-            catch
+            catch (Exception ex)
             {
+                if (logger != null)
+                {
+                    logger.LogError(ex.Message);
+                }
                 return 0;
             }
         }
 
-        public static ushort ParseEnumUShort(Type enumType, string val)
+        public static ushort ParseEnumUShort(Type enumType, string val, Logger logger = null)
         {
             try
             {
@@ -50,13 +54,17 @@ namespace EfsTools.Utils
                 }
                 return (ushort)Enum.Parse(enumType, val, true);
             }
-            catch
+            catch (Exception ex)
             {
+                if (logger != null)
+                {
+                    logger.LogError(ex.Message);
+                }
                 return 0;
             }
         }
 
-        public static int ParseEnumInt(Type enumType, string val)
+        public static int ParseEnumInt(Type enumType, string val, Logger logger = null)
         {
             try
             {
@@ -75,8 +83,12 @@ namespace EfsTools.Utils
                 }
                 return (int)Enum.Parse(enumType, val, true);
             }
-            catch
+            catch (Exception ex)
             {
+                if (logger != null)
+                {
+                    logger.LogError(ex.Message);
+                }
                 return 0;
             }
         }
