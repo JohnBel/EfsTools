@@ -382,6 +382,14 @@ namespace EfsTools.Utils
                     if (info == null)
                     {
                         isItemFile = createItemFilesAsDefault;
+                        if (isItemFile)
+                        {
+                            var size = GetFileSize(computerPath);
+                            if (size > 2048)
+                            {
+                                isItemFile = false;
+                            }
+                        }
                     }
                     else
                     {
@@ -395,6 +403,16 @@ namespace EfsTools.Utils
             catch (Exception e)
             {
                 logger.LogError(string.Format(Strings.QcdmErrorOnUploadFormat, efsPath, e.Message));
+            }
+        }
+
+        private static long GetFileSize(string localPath)
+        {
+            using (var file = File.OpenRead(localPath))
+            {
+                var pos = file.Seek(0, SeekOrigin.End);
+                file.Close();
+                return pos;
             }
         }
 

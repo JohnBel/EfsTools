@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Items.Efs;
 
 namespace EfsTools.Items.Nv
 {

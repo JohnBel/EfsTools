@@ -11203,6 +11203,7 @@
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsWriteFileCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\ExtMessageConfigCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\ExtMsgCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\MaxResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\MsgCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\LogConfigCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\EventMaskSetCommandResponse.cs" />

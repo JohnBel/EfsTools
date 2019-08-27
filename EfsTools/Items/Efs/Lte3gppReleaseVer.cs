@@ -30,7 +30,12 @@ namespace EfsTools.Items.Efs
         Rel10Dec11 = 0x42,
         Rel10Mar12 = 0x43,
         Rel10Jun12 = 0x44,
-        Rel10Sep12 = 0x45
+        Rel10Sep12 = 0x45,
+
+        /*Rel 11 versions*/
+        Rel11 = 128,
+        Rel11Jun13 = 129,
+        Rel11Dec13 = 130
     }
     
     [Serializable]
