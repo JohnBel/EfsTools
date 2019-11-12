@@ -4,7 +4,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rmdir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsRmdir)]
     [QcdmMinResponseLength(8)]
     internal class EfsRemoveDirectoryCommandResponse : BaseSubSystemCommandResponse
     {

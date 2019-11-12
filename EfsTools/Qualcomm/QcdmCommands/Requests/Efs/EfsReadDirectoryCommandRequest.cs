@@ -4,7 +4,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.ReadDir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsReadDir)]
     internal class EfsReadDirectoryCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly int _directory;

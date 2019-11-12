@@ -5,7 +5,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.OpenDir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsOpenDir)]
     internal class EfsOpenDirectoryCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _fileName;

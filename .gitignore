@@ -23,3 +23,5 @@ Release
 *.ide-shm
 *.ide-wal
 EfsTools/Tmp
+packages
+.vs

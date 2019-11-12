@@ -11,10 +11,14 @@ namespace EfsTools.CommandLineOptions
         [Option('l', "logMask", Required = false, HelpText = "Log packets mask")]
         public string LogMask { get; set; }
 
-        [Option('e', "eventMask", Required = false, HelpText = "Event reports mask")]
+        [Option('v', "verbose", Required = false, HelpText = "Verbose output")]
+        public bool Verbose { get; set; }
+
+
+        /*[Option('e', "eventMask", Required = false, HelpText = "Event reports mask")]
         public string EventMask { get; set; }
 
-        /*[Option('f', "fileName", Required = false, HelpText = "File name")]
+        [Option('f', "fileName", Required = false, HelpText = "File name")]
         public string FileName { get; set; }
 
         [Option('a', "layout", Required = false, HelpText = "Log layout")]

@@ -4,7 +4,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Fstat)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsFstat)]
     internal class EfsFStatFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly int _file;

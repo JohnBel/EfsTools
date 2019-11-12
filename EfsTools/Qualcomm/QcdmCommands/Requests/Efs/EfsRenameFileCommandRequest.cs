@@ -5,7 +5,7 @@ using EfsTools.Qualcomm.QcdmCommands.Attributes;
 namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Rename)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsRename)]
     internal class EfsRenameFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _newPath;

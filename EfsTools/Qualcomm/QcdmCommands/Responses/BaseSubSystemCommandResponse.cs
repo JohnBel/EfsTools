@@ -30,17 +30,28 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
 
         public override void CheckResponse(byte[] data)
         {
-            if (data.Length < MinResponseLength) throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
+            if (data.Length < MinResponseLength)
+            {
+                throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
+            }
 
             var command = (QcdmCommand) data[0];
-            if (command != Command) throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+            if (command != Command)
+            {
+                throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+            }
 
             var subSystem = (QcdmSubSystem) data[1];
-            if (subSystem != SubSystem) throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+            if (subSystem != SubSystem)
+            {
+                throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+            }
 
             var subSystemCommand = BitConverter.ToUInt16(data, 2);
             if (subSystemCommand != SubSystemCommand)
+            {
                 throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+            }
         }
     }
 }

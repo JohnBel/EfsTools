@@ -73,7 +73,7 @@ namespace EfsTools
                         .WithParsed<ExtractMbnOptions>(opts =>
                             tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData))
                         .WithParsed<GetLogsOptions>(opts => 
-                            tools.GetLog(opts.MessageMask, opts.LogMask, opts.EventMask, null /*opts.FileName*/, null /*opts.Layout*/, null /*opts.LogConfigFile*/))
+                            tools.GetLog(opts.MessageMask, opts.LogMask, opts.Verbose))
                         .WithNotParsed(errors => { });
                 }
             }

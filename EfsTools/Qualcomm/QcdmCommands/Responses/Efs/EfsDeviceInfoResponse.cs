@@ -38,7 +38,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.DevInfo)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsDevInfo)]
     [QcdmMinResponseLength(41)]
     internal class EfsDeviceInfoResponse : BaseSubSystemCommandResponse
     {

@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>EfsTools</RootNamespace>
     <AssemblyName>EfsTools</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -11162,7 +11162,14 @@
     <Compile Include="Qualcomm\QcdmCommands\Base\EventId.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Base\LogId.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Base\MessageId.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\QcdmDiagServCommand.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\BaseSubSystemCommandRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\DiagServ\GetLogAllocationCountRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\DiagServ\GetEventAllocationCountRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\DiagServ\GetDebugMessageAllocationCountRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\DiagServ\GetLogDroppedCountRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\DiagServ\GetEventDroppedCountRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\DiagServ\GetDebugMessageDroppedCountRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\DiagVersionCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsCloseDirectoryCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsFStatFileCommandRequest.cs" />
@@ -11177,6 +11184,7 @@
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsOpenDirectoryCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsReadDirectoryCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\Efs\EfsStatFileCommandRequest.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Requests\EventMaskGetCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\EventMaskSetCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\EventReportCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Requests\ExtMessageConfigCommandRequest.cs" />
@@ -11188,6 +11196,12 @@
     <Compile Include="Qualcomm\QcdmCommands\Requests\SpcCommandRequest.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\BaseSubSystemCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\BaseCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\DiagServ\GetLogAllocationCountResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\DiagServ\GetEventAllocationCountResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\DiagServ\GetDebugMessageAllocationCountResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\DiagServ\GetLogDroppedCountResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\DiagServ\GetEventDroppedCountResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\DiagServ\GetDebugMessageDroppedCountResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsCloseDirectoryCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsFStatFileCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsDeviceInfoResponse.cs" />
@@ -11201,8 +11215,10 @@
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsReadDirectoryCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsStatFileCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\Efs\EfsWriteFileCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\EventMaskGetCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\ExtMessageConfigCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\ExtMsgCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmCommands\Responses\Int32BaseSubSystemCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\MaxResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\MsgCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\LogConfigCommandResponse.cs" />
@@ -11213,6 +11229,7 @@
     <Compile Include="Qualcomm\QcdmCommands\Responses\LogMaskCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\PasswordCommandResponse.cs" />
     <Compile Include="Qualcomm\QcdmCommands\Responses\SpcCommandResponse.cs" />
+    <Compile Include="Qualcomm\QcdmManagers\QcdmDiagServManager.cs" />
     <Compile Include="Qualcomm\QcdmManagers\QcdmEfsDirectory.cs" />
     <Compile Include="Qualcomm\QcdmManagers\QcdmEfsFileStream.cs" />
     <Compile Include="Qualcomm\QcdmManagers\QcdmNvManager.cs" />
@@ -11284,6 +11301,8 @@
     <Compile Include="Utils\NvItemIdAttributeUtils.cs" />
     <Compile Include="Utils\NvItemUtils.cs" />
     <Compile Include="Utils\EnumUtils.cs" />
+    <Compile Include="Utils\QcdmCommandUtils.cs" />
+    <Compile Include="Utils\QcdmSubSystemCommandUtils.cs" />
     <Compile Include="Utils\QualcommSerialPortUtils.cs" />
     <Compile Include="Utils\PathUtils.cs" />
     <Compile Include="Utils\LoggerStream.cs" />

@@ -405,4 +405,22 @@
   <data name="QcdmErrorOnSetEventMask" xml:space="preserve">
     <value>Error on set event mask</value>
   </data>
+  <data name="QcdmLogSubcribingLogNotSupportedErrorFormat" xml:space="preserve">
+    <value>Log '{0}' not supported</value>
+  </data>
+  <data name="QcdmLogSubcribingMessageNotSupportedErrorFormat" xml:space="preserve">
+    <value>Message '{0}' not supported</value>
+  </data>
+  <data name="QcdmLogSubcribingToLogsFormat" xml:space="preserve">
+    <value>Subcribing to logs: {0} ...</value>
+  </data>
+  <data name="QcdmLogSubcribingToLogsResultFormat" xml:space="preserve">
+    <value>Successfully subscribed to the logs: {0}</value>
+  </data>
+  <data name="QcdmLogSubcribingToMessagesFormat" xml:space="preserve">
+    <value>Subcribing to messages: {0} ...</value>
+  </data>
+  <data name="QcdmLogSubcribingToMessagesResultFormat" xml:space="preserve">
+    <value>Successfully subscribed to the messages: {0}</value>
+  </data>
 </root>

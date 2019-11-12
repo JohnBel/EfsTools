@@ -739,10 +739,6 @@ LOG_EFS_INFO =                                (0x1B + 0x1000),
        PORT_ASSIGNMENT_STATUS = (0x334 + 0x1000),
 
 /* Protocol Services reserved log codes */
-       PS_RESERVED_CODES_BASE = (0x335 + 0x1000),
-       PS_LAST = (25 +PS_RESERVED_CODES_BASE),
-
-       PS_STAT_IP = (0x335 + 0x1000),
        PS_STAT_GLOBAL_IPV4 = (0x335 + 0x1000),
        PS_STAT_GLOBAL_IPV6 = (0x336 + 0x1000),
        PS_STAT_GLOBAL_ICMPV4 = (0x337 + 0x1000),
@@ -2590,6 +2586,7 @@ LOG_EFS_INFO =                                (0x1B + 0x1000),
        LOC_LTE_TDP_TIMESTAMPED_MEAS = ((0x8A1) + 0x1000),
        LOC_LTE_TDP_MEAS_DATABASE = ((0x8A2) + 0x1000),
        GNSS_GTP_TDP_CONFIG = ((0x8A3) + 0x1000),
-       GNSS_TLM_TDP_SCANLIST = ((0x8A4) + 0x1000)
+       GNSS_TLM_TDP_SCANLIST = ((0x8A4) + 0x1000),
+       DiagnosticVersion = 0x1FFD
     }
 }

@@ -808,6 +808,60 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log &apos;{0}&apos; not supported.
+        /// </summary>
+        internal static string QcdmLogSubcribingLogNotSupportedErrorFormat {
+            get {
+                return ResourceManager.GetString("QcdmLogSubcribingLogNotSupportedErrorFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message &apos;{0}&apos; not supported.
+        /// </summary>
+        internal static string QcdmLogSubcribingMessageNotSupportedErrorFormat {
+            get {
+                return ResourceManager.GetString("QcdmLogSubcribingMessageNotSupportedErrorFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subcribing to logs: {0} ....
+        /// </summary>
+        internal static string QcdmLogSubcribingToLogsFormat {
+            get {
+                return ResourceManager.GetString("QcdmLogSubcribingToLogsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully subscribed to the logs: {0}.
+        /// </summary>
+        internal static string QcdmLogSubcribingToLogsResultFormat {
+            get {
+                return ResourceManager.GetString("QcdmLogSubcribingToLogsResultFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subcribing to messages: {0} ....
+        /// </summary>
+        internal static string QcdmLogSubcribingToMessagesFormat {
+            get {
+                return ResourceManager.GetString("QcdmLogSubcribingToMessagesFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully subscribed to the messages: {0}.
+        /// </summary>
+        internal static string QcdmLogSubcribingToMessagesResultFormat {
+            get {
+                return ResourceManager.GetString("QcdmLogSubcribingToMessagesResultFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Many log lines. Please disable log..
         /// </summary>
         internal static string QcdmManyLogLines {

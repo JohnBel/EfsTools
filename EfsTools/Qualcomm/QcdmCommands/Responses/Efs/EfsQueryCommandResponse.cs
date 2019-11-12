@@ -31,7 +31,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Query)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsQuery)]
     [QcdmMinResponseLength(28)]
     internal class EfsQueryCommandResponse : BaseSubSystemCommandResponse
     {

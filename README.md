@@ -14,7 +14,7 @@
 - Загрузить каталог с компьютера на утройство.
 
 ## Системные требования
-[.Net Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=49981) и выше.
+[.Net Framework 4.7.2](https://www.microsoft.com/en-us/download/details.aspx?id=49981) и выше.
 
 ## Установка
 Необходимо скачать архив релиза с [сайта разработчика](http://johnbel.github.io/). Затем распаковать его.

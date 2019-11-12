@@ -22,7 +22,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         private LogConfigOperation Operation { get; set; }
         private int Scope { get; set; }
 
-        public LogId[] EnabledLogs { get; private set; }
+        public LogId[] LogIds { get; private set; }
 
         public static LogConfigCommandResponse Parse(byte[] data)
         {
@@ -31,6 +31,23 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             var status = data[8];
             result.IsError = status != 0;
             result.Operation = (LogConfigOperation) data[4];
+            switch (result.Operation)
+            {
+                case LogConfigOperation.Disable:
+                case LogConfigOperation.RetrieveIdRanges:
+                case LogConfigOperation.RetrieveValidMask:
+                case LogConfigOperation.GetLMask:
+                    ParseData(result, data);
+                    break;
+                case LogConfigOperation.SetMask:
+                    ParseSetMask(result, data);
+                    break;
+            }
+            return result;
+        }
+
+        private static void ParseSetMask(LogConfigCommandResponse result, byte[] data)
+        {
             result.Scope = data[12];
             var numBits = data[16] + (data[17] << 8);
             var maskLength = (numBits + 7) / 8;
@@ -39,16 +56,30 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                 throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
             }
 
+            var scopeDelta = result.Scope * 0x1000;
             var enabledLogs = new List<LogId>();
             for (var i = 0; i < numBits; ++i)
             {
                 if (BitsUtils.GetBitAsBool(data, 20, i))
                 {
-                    var v = i + 0x1000;
+                    var v = i + scopeDelta;
                     enabledLogs.Add((LogId)v);
                 }
             }
-            result.EnabledLogs = enabledLogs.ToArray();
+            result.LogIds = enabledLogs.ToArray();
+        }
+
+        private static LogConfigCommandResponse ParseData(LogConfigCommandResponse result, byte[] data)
+        {
+            var pos = 14;
+            var count = (data.Length - pos) / 2;
+            var logIds = new LogId[count];
+            for (var i = 0; i < count; ++i)
+            {
+                logIds[i] = (LogId)BitConverter.ToUInt16(data, pos);
+                pos += 2;
+            }
+            result.LogIds = logIds;
             return result;
         }
     }

@@ -28,7 +28,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests.Efs
 
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Open)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsOpen)]
     internal class EfsOpenFileCommandRequest : BaseSubSystemCommandRequest
     {
         private readonly string _fileName;

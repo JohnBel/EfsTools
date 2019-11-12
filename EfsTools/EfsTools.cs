@@ -52,63 +52,75 @@ namespace EfsTools
                 _logger.LogInfo($"Call state: 0x{state:X}");
             }
         }
-
-        private static List<MessageId>[] GroupMessageMasks(MessageId[] messages)
+        public void GetLog(string messageMask, string logMask, bool verbose)
         {
-            var result = new List<List<MessageId>>();
-            Array.Sort(messages);
-            var lastMessageId = -1;
-            List<MessageId> list = null;
-            foreach (var message in messages)
-            { 
-                if (list == null || lastMessageId == -1 || (((int)message - lastMessageId) > 32))
-                {
-                    list = new List<MessageId>();
-                    result.Add(list);
-                }
-                lastMessageId = (int)message;
-                list.Add(message);
-            }
-            return result.ToArray();
-        }
-
-        public void GetLog(string messageMask, string logMask, string eventMask, string fileName, string layout, string logConfigFile)
-        {
-            var enabledAllMessageMask = string.IsNullOrEmpty(messageMask)
+            var enabledMessageMasks = string.IsNullOrEmpty(messageMask)
                 ? new MessageId[0]
                 : messageMask.Split(',').Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it, _logger))
                     .ToArray();
-            var enabledMessageMasks = GroupMessageMasks(enabledAllMessageMask);
-            var enabledLogMask = string.IsNullOrEmpty(logMask)
+            var enabledLogMasks = string.IsNullOrEmpty(logMask)
                 ? new LogId[0]
                 : logMask.Split(',').Select((it) => (LogId) EnumUtils.ParseEnumInt(typeof(LogId), it, _logger))
                     .ToArray();
-            var enabledEventMask = string.IsNullOrEmpty(eventMask)
-                ? new EventId[0]
-                : eventMask.Split(',').Select((it) => (EventId) EnumUtils.ParseEnumInt(typeof(EventId), it, _logger))
-                    .ToArray();
+
             using (var manager = OpenQcdmManager())
             {
-                manager.DisableEventReports();
-                manager.DisableLogs();
-                manager.DisableMessages();
-                if (enabledEventMask.Length > 0)
+                if (verbose)
                 {
-                    manager.EventReport(true);
-                    manager.SetEventMask(enabledEventMask);
+                    if (enabledMessageMasks.Length > 0)
+                    {
+                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToMessagesFormat,
+                            string.Join(", ", enabledMessageMasks));
+                    }
+
+                    if (enabledLogMasks.Length > 0)
+                    {
+                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToLogsFormat,
+                            string.Join(", ", enabledLogMasks));
+                    }
+                }
+                var count1 = manager.DiagServ.DebugMessageDroppedCount;
+                var count2 = manager.DiagServ.DebugMessageAllocationCount;
+                var count5 = manager.DiagServ.LogDroppedCount;
+                var count6 = manager.DiagServ.LogAllocationCount;
+                
+                manager.DisableEventReports();
+                manager.DisableMessages();
+                manager.DisableLogs();
+
+                var affectedMessages = new HashSet<MessageId>(manager.SetMessageMask(enabledMessageMasks));
+                var affectedLogs = new HashSet<LogId>(manager.SetLogMask(enabledLogMasks));
+
+                if (verbose)
+                {
+                    if (enabledMessageMasks.Length > 0)
+                    {
+                        foreach (var enabledMessageMask in enabledMessageMasks)
+                        {
+                            if (!affectedMessages.Contains(enabledMessageMask))
+                            {
+                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingMessageNotSupportedErrorFormat, enabledMessageMask);
+                            }
+                        }
+                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToMessagesResultFormat,
+                            string.Join(", ", affectedMessages));
+                    }
+
+                    if (enabledLogMasks.Length > 0)
+                    {
+                        foreach (var enabledLogMask in enabledLogMasks)
+                        {
+                            if (!affectedLogs.Contains(enabledLogMask))
+                            {
+                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingLogNotSupportedErrorFormat, enabledLogMask);
+                            }
+                        }
+                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToLogsResultFormat,
+                            string.Join(", ", affectedLogs));
+                    }
                 }
 
-                foreach (var enabledMessageMask in enabledMessageMasks)
-                {
-                    var first = enabledMessageMask.FirstOrDefault();
-                    var last = enabledMessageMask.LastOrDefault();
-                    manager.SetMessageMask((int)first, (int)last, enabledMessageMask.ToArray());
-                }
-                
-                if (enabledLogMask.Length > 0)
-                {
-                    manager.SetLogMask(enabledLogMask);
-                }
+
                 var cancellationTokenSource = new CancellationTokenSource();
                 Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) => { cancellationTokenSource.Cancel();};
 
@@ -332,6 +344,8 @@ namespace EfsTools
             manager.Open();
             manager.SendPassword(_config.Password);
             manager.SendSpc(_config.Spc);
+            manager.DisableLogs();
+            manager.DisableMessages();
             return manager;
         }
     }

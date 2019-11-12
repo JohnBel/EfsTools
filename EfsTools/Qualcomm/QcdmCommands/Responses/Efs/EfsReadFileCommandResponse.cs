@@ -5,7 +5,7 @@ using EfsTools.Resourses;
 namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
 {
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Read)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsRead)]
     [QcdmMinResponseLength(20)]
     internal class EfsReadFileCommandResponse : BaseSubSystemCommandResponse
     {

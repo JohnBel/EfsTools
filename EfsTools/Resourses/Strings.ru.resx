@@ -405,4 +405,22 @@
   <data name="QcdmErrorOnSetEventMask" xml:space="preserve">
     <value>Ошибка при установке маски событий</value>
   </data>
+  <data name="QcdmLogSubcribingLogNotSupportedErrorFormat" xml:space="preserve">
+    <value>Лог '{0}' не поддерживается</value>
+  </data>
+  <data name="QcdmLogSubcribingMessageNotSupportedErrorFormat" xml:space="preserve">
+    <value>Сообщение '{0}' не поддерживается</value>
+  </data>
+  <data name="QcdmLogSubcribingToLogsFormat" xml:space="preserve">
+    <value>Подписка на логи : {0} ...</value>
+  </data>
+  <data name="QcdmLogSubcribingToLogsResultFormat" xml:space="preserve">
+    <value>Успешно завершена подписка на логи: {0}</value>
+  </data>
+  <data name="QcdmLogSubcribingToMessagesFormat" xml:space="preserve">
+    <value>Подписка на сообщения: {0} ...</value>
+  </data>
+  <data name="QcdmLogSubcribingToMessagesResultFormat" xml:space="preserve">
+    <value>Успешно завершена подписка на сообщения: {0}</value>
+  </data>
 </root>

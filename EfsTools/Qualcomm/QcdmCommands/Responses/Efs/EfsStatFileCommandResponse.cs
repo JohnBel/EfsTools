@@ -31,7 +31,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Stat)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsStat)]
     [QcdmMinResponseLength(32)]
     internal class EfsStatFileCommandResponse : BaseSubSystemCommandResponse
     {

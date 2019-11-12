@@ -50,7 +50,11 @@ namespace EfsTools.Qualcomm.QcdmCommands
             if (data != null && data.Length > 3)
             {
                 var key = BitConverter.ToUInt32(data, 0);
-                if (_commandResponseCreators.TryGetValue(key, out var creator)) return creator(data);
+                if (_commandResponseCreators.TryGetValue(key, out var creator))
+                {
+                    return creator(data);
+                }
+
                 throw new QcdmManagerException(string.Format(Strings.QcdmUnsupportedSubsysCommandResponseFormat,
                     data[1]));
             }
@@ -62,6 +66,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
         {
             var assembly = Assembly.GetExecutingAssembly();
             foreach (var type in assembly.GetTypes())
+            {
                 if (!type.IsAbstract && !type.IsEnum &&
                     type.GetCustomAttributes(typeof(QcdmCommandAttribute), true).FirstOrDefault() is
                         QcdmCommandAttribute attribute)
@@ -69,7 +74,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
                     var command = attribute.Command;
                     if (command != QcdmCommand.SubsysCmd)
                     {
-                        var methodInfo = type.GetMethod("Parse", BindingFlags.Public | BindingFlags.Static);
+                        var methodInfo = type.GetMethod("Parse", BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static);
                         if (methodInfo != null)
                         {
                             var fun = new QcdmCommandResponseCreatorFun(data =>
@@ -90,12 +95,14 @@ namespace EfsTools.Qualcomm.QcdmCommands
                         }
                     }
                 }
+            }
         }
 
         private static void InitializeSubSystemResponseCreators()
         {
             var assembly = Assembly.GetExecutingAssembly();
             foreach (var type in assembly.GetTypes())
+            {
                 if (!type.IsAbstract && !type.IsEnum &&
                     type.GetCustomAttributes(typeof(QcdmSubSystemCommandAttribute), true).FirstOrDefault() is
                         QcdmSubSystemCommandAttribute attribute)
@@ -104,7 +111,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
                     var subSystem = attribute.SubSystem;
                     var bytes = new[] {(byte) QcdmCommand.SubsysCmd, (byte) subSystem, command[0], command[1]};
                     var key = BitConverter.ToUInt32(bytes, 0);
-                    var methodInfo = type.GetMethod("Parse", BindingFlags.Public | BindingFlags.Static);
+                    var methodInfo = type.GetMethod("Parse", BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static);
                     if (methodInfo != null)
                     {
                         var fun = new QcdmCommandResponseCreatorFun(data =>
@@ -123,6 +130,7 @@ namespace EfsTools.Qualcomm.QcdmCommands
                         _commandResponseCreators[key] = fun;
                     }
                 }
+            }
         }
     }
 }

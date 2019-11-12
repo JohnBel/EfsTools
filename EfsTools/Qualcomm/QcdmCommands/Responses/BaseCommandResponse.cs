@@ -31,7 +31,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
 
         public virtual void CheckResponse(byte[] data)
         {
-            if (data.Length < MinResponseLength) throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
+            if (data.Length < MinResponseLength)
+                throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
 
             var command = (QcdmCommand)data[0];
             if (command != Command) 

@@ -43,7 +43,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.Hello)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsHello)]
     [QcdmMinResponseLength(44)]
     internal class EfsHelloCommandResponse : BaseSubSystemCommandResponse
     {

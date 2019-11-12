@@ -44,7 +44,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
     }
 
     [QcdmCommand(QcdmCommand.SubsysCmd)]
-    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.ReadDir)]
+    [QcdmSubSystemCommand(QcdmSubSystem.Efs, (ushort) QcdmEfsCommand.EfsReadDir)]
     [QcdmMinResponseLength(40)]
     internal class EfsReadDirectoryCommandResponse : BaseSubSystemCommandResponse
     {
