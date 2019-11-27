@@ -25,6 +25,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
+    [Subscription]
     [EfsFile("/sd/rat_acq_order", true, 0xE1FF)]
     [Attributes(9)]
     public class RatAcqOrder

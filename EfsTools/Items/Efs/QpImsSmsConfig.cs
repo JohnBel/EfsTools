@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [NvItemId(67259)]
     [EfsFile("/nv/item_files/ims/qp_ims_sms_config", true, 0xE1FF)]
     [Attributes(9)]

@@ -97,11 +97,6 @@ namespace EfsTools.Utils
 
             return path;
         }
-
-        public static string GetSubscriptionPath(string path, int i)
-        {
-            return $"{path}_Subscription{i:00}";
-        }
     }
 
     internal sealed class FileInfo

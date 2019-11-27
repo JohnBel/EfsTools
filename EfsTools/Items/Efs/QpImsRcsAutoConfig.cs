@@ -8,6 +8,7 @@ namespace EfsTools.Items.Efs
 {
     [Serializable]
     [NvItemId(70233)]
+    [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsRcsAutoConfig

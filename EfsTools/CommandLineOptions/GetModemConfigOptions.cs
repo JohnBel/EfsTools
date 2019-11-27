@@ -23,5 +23,8 @@ namespace EfsTools.CommandLineOptions
 
         [Option('m', "itemNames", Required = false, HelpText = "Load only this items")]
         public string ItemNames { get; set; }
+
+        [Option('s', "subscriptionIndex", Required = false, HelpText = "Subscription index. 0 - first SIM, 1 - second SIM", Default = 0)]
+        public int SubscriptionIndex { get; set; }
     }
 }

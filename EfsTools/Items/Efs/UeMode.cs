@@ -1,14 +1,16 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [Subscription]
-    [EfsFile("/nv/item_files/modem/sms/mmgsdi_refresh_vote_ok", true, 0xE1FF)]
+    [EfsFile("/policyman/ue_mode", true, 0xE1FF)]
     [Attributes(9)]
-    public class MmgsdiRefreshVoteOk
+    public class UeMode
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

@@ -27,22 +27,24 @@ namespace EfsTools.Utils
             return result;
         }
 
-        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, HashSet<string> configItems)
+        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription, HashSet<string> configItems)
         {
             var items = new Dictionary<string, object>();
             foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
             {
+                var realFilePath = GetEfsFilePath(filePath, subscription);
                 var item = ItemsFactory.CreateEfsFile(filePath);
                 var itemType = item.GetType();
                 if (configItems == null || configItems.Contains(itemType.Name))
                 {
-                    if (manager.Efs.FileExists(filePath))
-                        using (var stream = FileUtils.PhoneOpenRead(manager, filePath))
+                    if (manager.Efs.FileExists(realFilePath))
+                    {
+                        using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
                         {
                             ItemsBinarySerializer.Deserialize(item, stream);
                             stream.Close();
                         }
-
+                    }
                     items.Add(itemType.Name, item);
                 }
             }
@@ -69,22 +71,24 @@ namespace EfsTools.Utils
             return items;
         }
 
-        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager)
+        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription)
         {
             var items = new Dictionary<string, object>();
             foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
-                if (manager.Efs.FileExists(filePath))
+            {
+                var realFilePath = GetEfsFilePath(filePath, subscription);
+                if (manager.Efs.FileExists(realFilePath))
                 {
                     var item = ItemsFactory.CreateEfsFile(filePath);
                     var itemType = item.GetType();
-                    using (var stream = FileUtils.PhoneOpenRead(manager, filePath))
+                    using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
                     {
                         ItemsBinarySerializer.Deserialize(item, stream);
                         stream.Close();
                     }
-
                     items.Add(itemType.Name, item);
                 }
+            }
 
             foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
             {
@@ -100,11 +104,20 @@ namespace EfsTools.Utils
                     }
                 }
             }
-
             return items;
         }
 
-        public static void PhoneSaveItems(QcdmManager manager, Dictionary<string, object> items, Logger logger)
+        private static string GetEfsFilePath(string filePath, int subscription)
+        {
+            if (ItemsFactory.HasSubscription(filePath))
+            {
+                var subscriptionFilePath = (subscription <= 0) ? filePath : $"{filePath}_Subscription{subscription:D2}";
+                return subscriptionFilePath;
+            }
+            return filePath;
+        }
+
+        public static void PhoneSaveItems(QcdmManager manager, int subscription, Dictionary<string, object> items, Logger logger)
         {
             var efs = manager.Efs;
             foreach (var item in items)
@@ -126,12 +139,12 @@ namespace EfsTools.Utils
                 }
                 else
                 {
-                    var path = fileAttribute.Path;
-                    var subscriptionPath = PathUtils.GetSubscriptionPath(path, 1);
-                    if (efs.FileExists(subscriptionPath))
-                        efs.DeleteFile(subscriptionPath);
-                    else
-                        subscriptionPath = string.Empty;
+                    var path = GetEfsFilePath(fileAttribute.Path, subscription);
+                    if (efs.FileExists(path))
+                    {
+                        efs.DeleteFile(path);
+                    }
+
                     using (var stream = fileAttribute.IsItemFile
                         ? FileUtils.PhoneItemCreateWrite(manager, path, fileAttribute.Permissions, logger)
                         : FileUtils.PhoneCreateWrite(manager, path, fileAttribute.Permissions, logger))
@@ -140,17 +153,6 @@ namespace EfsTools.Utils
                         stream.Flush();
                         stream.Close();
                     }
-
-                    if (!string.IsNullOrEmpty(subscriptionPath))
-                        using (var stream = fileAttribute.IsItemFile
-                            ? FileUtils.PhoneItemCreateWrite(manager, subscriptionPath, fileAttribute.Permissions,
-                                logger)
-                            : FileUtils.PhoneCreateWrite(manager, subscriptionPath, fileAttribute.Permissions, logger))
-                        {
-                            ItemsBinarySerializer.Serialize(item.Value, stream);
-                            stream.Flush();
-                            stream.Close();
-                        }
                 }
             }
         }
@@ -252,7 +254,7 @@ namespace EfsTools.Utils
             return items;
         }
 
-        public static void LocalSaveItems(string directoryPath, Dictionary<string, object> items, Logger logger)
+        public static void LocalSaveItems(string directoryPath, int subscription, Dictionary<string, object> items, Logger logger)
         {
             foreach (var item in items)
             {
@@ -275,30 +277,21 @@ namespace EfsTools.Utils
                 }
                 else
                 {
-                    var filePath = fileAttribute.Path;
-                    var subscriptionPath = PathUtils.GetSubscriptionPath(filePath, 1);
-                    subscriptionPath = Path.Combine(directoryPath, subscriptionPath);
-                    if (File.Exists(subscriptionPath))
-                        File.Delete(subscriptionPath);
-                    else
-                        subscriptionPath = null;
+                    var filePath = GetEfsFilePath(fileAttribute.Path, subscription);
                     var entryType = fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File;
                     var path = PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions, entryType,
                         false);
+
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
                     using (var stream = FileUtils.LocalCreateWrite(path))
                     {
                         ItemsBinarySerializer.Serialize(item.Value, stream);
                         stream.Flush();
                         stream.Close();
                     }
-
-                    if (!string.IsNullOrEmpty(subscriptionPath))
-                        using (var stream = FileUtils.LocalCreateWrite(subscriptionPath))
-                        {
-                            ItemsBinarySerializer.Serialize(item.Value, stream);
-                            stream.Flush();
-                            stream.Close();
-                        }
                 }
             }
         }

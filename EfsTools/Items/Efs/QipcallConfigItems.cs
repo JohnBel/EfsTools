@@ -17,6 +17,7 @@ namespace EfsTools.Items.Efs
      */
 
     [Serializable]
+    [Subscription]
     [NvItemId(67348)]
     [EfsFile("/nv/item_files/ims/qipcall_config_items", true, 0xE1FF)]
     [Attributes(9)]

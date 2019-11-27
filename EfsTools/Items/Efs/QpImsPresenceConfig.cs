@@ -8,6 +8,7 @@ namespace EfsTools.Items.Efs
 {
     [Serializable]
     [NvItemId(67314)]
+    [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_presence_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsPresenceConfig

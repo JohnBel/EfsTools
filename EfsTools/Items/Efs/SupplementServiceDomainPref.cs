@@ -18,6 +18,7 @@ namespace EfsTools.Items.Efs
     }
     
     [Serializable]
+    [Subscription]
     [EfsFile("/nv/item_files/modem/mmode/supplement_service_domain_pref", true, 0xE1FF)]
     [Attributes(9)]
     public class SupplementServiceDomainPref

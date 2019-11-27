@@ -5,6 +5,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [EfsFile("/nv/item_files/modem/qmi/cat/qmi_cat_mode", true, 0xE1FF)]
     [Attributes(9)]
     public class QmiCatMode

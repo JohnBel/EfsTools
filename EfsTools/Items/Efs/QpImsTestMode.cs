@@ -6,6 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [NvItemId(71545)]
     [EfsFile("/nv/item_files/ims/qp_ims_test_mode", true, 0xE1FF)]
     [Attributes(9)]

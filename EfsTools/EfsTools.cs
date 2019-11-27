@@ -52,11 +52,13 @@ namespace EfsTools
                 _logger.LogInfo($"Call state: 0x{state:X}");
             }
         }
+
         public void GetLog(string messageMask, string logMask, bool verbose)
         {
             var enabledMessageMasks = string.IsNullOrEmpty(messageMask)
                 ? new MessageId[0]
-                : messageMask.Split(',').Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it, _logger))
+                : messageMask.Split(',')
+                    .Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it, _logger))
                     .ToArray();
             var enabledLogMasks = string.IsNullOrEmpty(logMask)
                 ? new LogId[0]
@@ -79,11 +81,12 @@ namespace EfsTools
                             string.Join(", ", enabledLogMasks));
                     }
                 }
+
                 var count1 = manager.DiagServ.DebugMessageDroppedCount;
                 var count2 = manager.DiagServ.DebugMessageAllocationCount;
                 var count5 = manager.DiagServ.LogDroppedCount;
                 var count6 = manager.DiagServ.LogAllocationCount;
-                
+
                 manager.DisableEventReports();
                 manager.DisableMessages();
                 manager.DisableLogs();
@@ -99,9 +102,11 @@ namespace EfsTools
                         {
                             if (!affectedMessages.Contains(enabledMessageMask))
                             {
-                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingMessageNotSupportedErrorFormat, enabledMessageMask);
+                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingMessageNotSupportedErrorFormat,
+                                    enabledMessageMask);
                             }
                         }
+
                         _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToMessagesResultFormat,
                             string.Join(", ", affectedMessages));
                     }
@@ -112,9 +117,11 @@ namespace EfsTools
                         {
                             if (!affectedLogs.Contains(enabledLogMask))
                             {
-                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingLogNotSupportedErrorFormat, enabledLogMask);
+                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingLogNotSupportedErrorFormat,
+                                    enabledLogMask);
                             }
                         }
+
                         _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToLogsResultFormat,
                             string.Join(", ", affectedLogs));
                     }
@@ -122,7 +129,10 @@ namespace EfsTools
 
 
                 var cancellationTokenSource = new CancellationTokenSource();
-                Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) => { cancellationTokenSource.Cancel();};
+                Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) =>
+                {
+                    cancellationTokenSource.Cancel();
+                };
 
                 manager.ProcessLogs(_logger, cancellationTokenSource.Token);
             }
@@ -236,13 +246,14 @@ namespace EfsTools
             }
         }
 
-        public void GetModemConfig(string path, string inputDirectory, string itemNames)
+        public void GetModemConfig(string path, string inputDirectory, string itemNames, int subscription)
         {
             var inDirectory = inputDirectory;
             if (!string.IsNullOrEmpty(inDirectory))
             {
                 inDirectory = CheckAndFixPath(inDirectory);
             }
+
             _logger.LogInfo(Strings.QcdmGeneratingModemConfig);
 
             if (string.IsNullOrEmpty(inputDirectory))
@@ -250,9 +261,10 @@ namespace EfsTools
                 {
                     using (var output = File.CreateText(path))
                     {
-                        var items = string.IsNullOrEmpty(itemNames) 
-                            ? NvItemUtils.PhoneLoadItems(manager)
-                            : NvItemUtils.PhoneLoadItems(manager, new HashSet<string>(itemNames.Split(',')));
+                        var items = string.IsNullOrEmpty(itemNames)
+                            ? NvItemUtils.PhoneLoadItems(manager, subscription)
+                            : NvItemUtils.PhoneLoadItems(manager, subscription,
+                                new HashSet<string>(itemNames.Split(',')));
                         ItemsJsonSerializer.SerializeItems(items, output);
                         output.Flush();
                         output.Close();
@@ -270,22 +282,25 @@ namespace EfsTools
             }
         }
 
-        public void SetModemConfig(string path, string outputDirectory)
+        public void SetModemConfig(string path, string outputDirectory, int subscription)
         {
             _logger.LogInfo(Strings.QcdmApplyingModemConfig);
             if (string.IsNullOrEmpty(outputDirectory))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     using (var input = new StreamReader(File.OpenRead(path), Encoding.UTF8, true))
                     {
                         var configItems = NvItemUtils.GetConfigs(input);
                         input.BaseStream.Seek(0, SeekOrigin.Begin);
-                        var items = NvItemUtils.PhoneLoadItems(manager, configItems);
+                        var items = NvItemUtils.PhoneLoadItems(manager, subscription, configItems);
                         ItemsJsonSerializer.DeserializeItems(items, input);
-                        NvItemUtils.PhoneSaveItems(manager, items, _logger);
+                        NvItemUtils.PhoneSaveItems(manager, subscription, items, _logger);
                     }
                 }
+            }
             else
+            {
                 using (var input = new StreamReader(File.OpenRead(path), Encoding.UTF8, true))
                 {
                     Directory.CreateDirectory(outputDirectory);
@@ -293,8 +308,9 @@ namespace EfsTools
                     input.BaseStream.Seek(0, SeekOrigin.Begin);
                     var items = NvItemUtils.LocalLoadItems(outputDirectory, configItems);
                     ItemsJsonSerializer.DeserializeItems(items, input);
-                    NvItemUtils.LocalSaveItems(outputDirectory, items, _logger);
+                    NvItemUtils.LocalSaveItems(outputDirectory, subscription, items, _logger);
                 }
+            }
         }
 
         public void EfsDeleteFile(string path)
@@ -331,6 +347,7 @@ namespace EfsTools
                 ExtractMbn(path, tmpPath, true);
                 return tmpPath;
             }
+
             return path;
         }
 
@@ -341,6 +358,7 @@ namespace EfsTools
             {
                 _logger.LogInfo(Strings.QcdmUseComPortFormat, manager.PortName);
             }
+
             manager.Open();
             manager.SendPassword(_config.Password);
             manager.SendSpc(_config.Spc);

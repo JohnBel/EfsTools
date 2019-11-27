@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AttributesAttribute.cs" />
+    <Compile Include="Attributes\SubscriptionAttribute.cs" />
     <Compile Include="Attributes\LineEndingAttribute.cs" />
     <Compile Include="Attributes\EfsFileAttribute.cs" />
     <Compile Include="Attributes\ConvertEndianAttribute.cs" />
@@ -176,6 +177,10 @@
     <Compile Include="Items\Efs\B11AptCharTblSmps3.cs" />
     <Compile Include="Items\Efs\B11AptCharTblTypeList.cs" />
     <Compile Include="Items\Efs\DisableCapIes.cs" />
+    <Compile Include="Items\Efs\CurrentMcc.cs" />
+    <Compile Include="Items\Efs\CallMode.cs" />
+    <Compile Include="Items\Efs\ImsHandoverConfigProfile.cs" />
+    <Compile Include="Items\Efs\LteBandPreferenceExtn65.cs" />
     <Compile Include="Items\Efs\LteBandsConfigBase.cs" />
     <Compile Include="Items\Efs\LteCategory.cs" />
     <Compile Include="Items\Efs\Bc0AntGainDeltaI.cs" />
@@ -4790,6 +4795,10 @@
     <Compile Include="Items\Efs\LteGnssBlankingRiseFallDelta.cs" />
     <Compile Include="Items\Efs\LteMinTxPowerDb10I.cs" />
     <Compile Include="Items\Efs\LtePartialB40ControlI.cs" />
+    <Compile Include="Items\Efs\FreqList.cs" />
+    <Compile Include="Items\Efs\RatMask.cs" />
+    <Compile Include="Items\Efs\SvcMode.cs" />
+    <Compile Include="Items\Efs\UeMode.cs" />
     <Compile Include="Items\Efs\MsmSelfCalI.cs" />
     <Compile Include="Items\Efs\PcsAptCharTblNumPwrList.cs" />
     <Compile Include="Items\Efs\PcsAptCharTblPaRangeList.cs" />
@@ -4818,6 +4827,7 @@
     <Compile Include="Items\Efs\RfBcConfigC2I.cs" />
     <Compile Include="Items\Efs\RfBcConfigC3I.cs" />
     <Compile Include="Items\Efs\RfdeviceHdetAutocalI.cs" />
+    <Compile Include="Items\Efs\McfgDefConfigEnable.cs" />
     <Compile Include="Items\Efs\SuppressAddUpdateParam.cs" />
     <Compile Include="Items\Efs\EmmNasNvItems.cs" />
     <Compile Include="Items\Efs\AndsfCopyXml.cs" />
@@ -5676,6 +5686,8 @@
     <Compile Include="Items\Efs\NMaxSIB8.cs" />
     <Compile Include="Items\Efs\NonImDesenseGsmVictimLteAggr.cs" />
     <Compile Include="Items\Efs\NonImDesenseGsmVictimTdscdmaAggr.cs" />
+    <Compile Include="Items\Nv\IWlanAuthMode.cs" />
+    <Compile Include="Items\Nv\IWlanMultipleAuthenticationSupported.cs" />
     <Compile Include="Items\Nv\AgcPhaseOffsetI.cs" />
     <Compile Include="Items\Nv\AgcValue3MinI.cs" />
     <Compile Include="Items\Nv\AgcValue4MinI.cs" />
@@ -11299,6 +11311,7 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\NvItemIdAttributeUtils.cs" />
+    <Compile Include="Utils\SubscriptionAttributeUtils.cs" />
     <Compile Include="Utils\NvItemUtils.cs" />
     <Compile Include="Utils\EnumUtils.cs" />
     <Compile Include="Utils\QcdmCommandUtils.cs" />

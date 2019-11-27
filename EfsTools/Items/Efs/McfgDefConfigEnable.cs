@@ -1,14 +1,16 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
+using EfsTools.Utils;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [Subscription]
-    [EfsFile("/nv/item_files/modem/sms/mmgsdi_refresh_vote_ok", true, 0xE1FF)]
+    [EfsFile("/client-key/mcfg_def_config_enable", true, 0xE1FF)]
     [Attributes(9)]
-    public class MmgsdiRefreshVoteOk
+    public class McfgDefConfigEnable
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

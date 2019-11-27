@@ -6,6 +6,7 @@ namespace EfsTools.Items.Efs
 {
     [Serializable]
     [NvItemId(69750)]
+    [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsConfig

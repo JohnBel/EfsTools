@@ -5,6 +5,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [NvItemId(70291)]
     [EfsFile("/nv/item_files/ims/qp_ims_vt_4G_media_capability", true, 0xE1FF)]
     [Attributes(9)]

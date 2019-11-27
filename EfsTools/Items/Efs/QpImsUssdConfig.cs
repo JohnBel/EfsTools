@@ -5,6 +5,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [NvItemId(71540)]
     [EfsFile("/nv/item_files/ims/qp_ims_ussd_config", true, 0xE1FF)]
     [Attributes(9)]

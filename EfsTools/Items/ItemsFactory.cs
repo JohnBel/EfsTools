@@ -34,15 +34,31 @@ namespace EfsTools.Items
         public static object CreateNvItem(int id)
         {
             InitilaizeNvItemsMetadata();
-            if (_nvItemsMetadata.TryGetValue(id, out var type)) return Activator.CreateInstance(type);
+            if (_nvItemsMetadata.TryGetValue(id, out var type)) 
+                return Activator.CreateInstance(type);
             return null;
         }
 
         public static object CreateEfsFile(string path)
         {
             InitilaizeEfsFileMetadata();
-            if (_efsFileMetadata.TryGetValue(path, out var type)) return Activator.CreateInstance(type);
+            if (_efsFileMetadata.TryGetValue(path, out var type)) 
+                return Activator.CreateInstance(type);
             return null;
+        }
+
+        public static bool HasSubscription(string path)
+        {
+            InitilaizeEfsFileMetadata();
+            if (_efsFileMetadata.TryGetValue(path, out var type))
+            {
+                var attr = SubscriptionAttributeUtils.Get(type);
+                if (attr != null)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private static void InitilaizeNvItemsMetadata()

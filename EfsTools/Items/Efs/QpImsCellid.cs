@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [NvItemId(71544)]
     [EfsFile("/nv/item_files/ims/qp_ims_cellid", true, 0xE1FF)]
     [Attributes(9)]

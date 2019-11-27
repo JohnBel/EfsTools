@@ -58,6 +58,7 @@ namespace EfsTools.Items.Efs
     
     [Serializable]
     [NvItemId(67332)]
+    [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_media_config", true, 0xE1FF)]
     [Attributes(9)]
     public class QpImsMediaConfig

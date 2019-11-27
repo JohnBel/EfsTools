@@ -5,14 +5,13 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [Subscription]
-    [EfsFile("/data/ds_dsd_attach_profile.txt", false, 0x81B6)]
+    [EfsFile("/efsprofiles/imshandoverconfig", false, 0x81FF)]
     [Attributes(9)]
-    public class DsDsdAttachProfileTxt
+    public class ImsHandoverConfigProfile
     {
         [ElementsCount(1)]
         [ElementType("string[]")]
-        [LineEnding(LineEnding.Windows, true)]
+        [LineEnding(LineEnding.Linux, true)]
         [Description("")]
         public string[] Values { get; set; }
     }

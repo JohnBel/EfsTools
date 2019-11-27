@@ -2,13 +2,12 @@ using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
 
-namespace EfsTools.Items.Efs
+namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [Subscription]
-    [EfsFile("/nv/item_files/modem/sms/mmgsdi_refresh_vote_ok", true, 0xE1FF)]
+    [NvItemId(5847)]
     [Attributes(9)]
-    public class MmgsdiRefreshVoteOk
+    public class IWlanMultipleAuthenticationSupported
     {
         [ElementsCount(1)]
         [ElementType("uint8")]

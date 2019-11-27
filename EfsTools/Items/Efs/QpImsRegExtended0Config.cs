@@ -14,6 +14,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
+    [Subscription]
     [NvItemId(70235)]
     [EfsFile("/nv/item_files/ims/qp_ims_reg_extended_0_config", true, 0xE1B6)]
     [Attributes(9)]

@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [Subscription]
     [EfsFile("/nv/item_files/modem/mmode/sd/sdssscr_timers", false, 0x81FF)]
     [Attributes(9)]
     public class SdssscrTimers
