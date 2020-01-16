@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using EfsTools.Items;
 using EfsTools.Qualcomm.QcdmCommands.Responses.Efs;
 
 namespace EfsTools.Utils
@@ -103,6 +104,17 @@ namespace EfsTools.Utils
             }
 
             return path;
+        }
+
+        public static string GetEfsFilePath(string filePath, int subscription)
+        {
+            // There are many missing items, so we always allow the subscription postfix
+            //if (ItemsFactory.HasSubscription(filePath))
+            //{
+                var subscriptionFilePath = (subscription <= 0) ? filePath : $"{filePath}_Subscription{subscription:D2}";
+                return subscriptionFilePath;
+            //}
+            //return filePath;
         }
     }
 
