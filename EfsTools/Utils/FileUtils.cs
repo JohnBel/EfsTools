@@ -323,7 +323,7 @@ namespace EfsTools.Utils
         }
 
         public static void PhoneDownloadDirectory(QcdmManager manager, string efsPath, string computerPath,
-            bool noExtraData, Logger logger)
+            bool noExtraData, int subscription, Logger logger)
         {
             try
             {
@@ -337,14 +337,14 @@ namespace EfsTools.Utils
                         {
                             var path = $"{efsPath}{entry.Name}/";
                             var newComputerPath = $"{computerPath}{entry.Name}/";
-                            PhoneDownloadDirectory(manager, path, newComputerPath, noExtraData, logger);
+                            PhoneDownloadDirectory(manager, path, newComputerPath, noExtraData, subscription, logger);
                             continue;
                         }
 
                         if (entry.EntryType == DirectoryEntryType.File ||
                             entry.EntryType == DirectoryEntryType.ItemFile)
                         {
-                            PhoneDownloadFile(manager, entry, efsPath, computerPath, noExtraData, logger);
+                            PhoneDownloadFile(manager, entry, efsPath, computerPath, noExtraData, subscription, logger);
                         }
                     }
                 }
@@ -356,7 +356,7 @@ namespace EfsTools.Utils
         }
 
         public static void PhoneUploadDirectory(QcdmManager manager, string computerPath, string efsPath,
-            bool createItemFilesAsDefault, Logger logger)
+            bool createItemFilesAsDefault, int subscription, Logger logger)
         {
             try
             {
@@ -369,7 +369,7 @@ namespace EfsTools.Utils
                 {
                     var name = Path.GetFileName(directory);
                     var path = $"{efsPath}{name}/";
-                    PhoneUploadDirectory(manager, directory, path, createItemFilesAsDefault, logger);
+                    PhoneUploadDirectory(manager, directory, path, createItemFilesAsDefault, subscription, logger);
                 }
 
                 foreach (var file in files)
@@ -378,7 +378,7 @@ namespace EfsTools.Utils
                     {
                         var fileName = Path.GetFileName(file);
                         var path = PathUtils.RemoveExtraData(fileName, efsPath);
-                        PhoneUploadFile(manager, file, path, createItemFilesAsDefault, logger);
+                        PhoneUploadFile(manager, file, path, createItemFilesAsDefault, subscription, logger);
                     }
                 }
             }
@@ -388,11 +388,14 @@ namespace EfsTools.Utils
             }
         }
 
-        public static void PhoneReadFile(QcdmManager manager, string efsPath, string computerPath, Logger logger)
+        public static void PhoneReadFile(QcdmManager manager, string efsPath, string computerPath, int subscription, Logger logger)
         {
             if (!string.IsNullOrEmpty(efsPath))
             {
                 using (var input = PhoneOpenRead(manager, efsPath))
+                {
+                    string efsPathSub = PathUtils.GetEfsFilePath(efsPath, subscription);
+                    using (var input = PhoneOpenRead(manager, efsPathSub))
                 {
                     using (var output = string.IsNullOrEmpty(computerPath)
                         ? StreamUtils.CreateLoggerStream(logger)
@@ -405,19 +408,21 @@ namespace EfsTools.Utils
 
                     input.Close();
                 }
+                }
             }
         }
 
         public static void PhoneWriteFile(QcdmManager manager, string computerPath, string efsPath, int permission,
-            bool itemFile, Logger logger)
+            bool itemFile, int subscription, Logger logger)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
             {
                 using (var input = LocalOpenRead(computerPath))
                 {
+                    string efsPathSub = PathUtils.GetEfsFilePath(efsPath, subscription);
                     using (var output = itemFile
-                        ? PhoneItemCreateWrite(manager, efsPath, permission, logger)
-                        : PhoneCreateWrite(manager, efsPath, permission, logger))
+                        ? PhoneItemCreateWrite(manager, efsPathSub, permission, logger)
+                        : PhoneCreateWrite(manager, efsPathSub, permission, logger))
                     {
                         StreamUtils.Copy(input, output);
                         output.Flush();
@@ -430,14 +435,14 @@ namespace EfsTools.Utils
         }
 
         private static void PhoneDownloadFile(QcdmManager manager, DirectoryEntry entry, string efsPath,
-            string computerPath, bool noExtraData, Logger logger)
+            string computerPath, bool noExtraData, int subscription, Logger logger)
         {
             try
             {
                 var entryName = entry.Name;
                 var path1 = $"{efsPath}{entryName}";
                 var path2 = PathUtils.BuildPath(computerPath, entryName, entry.Mode, entry.EntryType, noExtraData);
-                PhoneReadFile(manager, path1, path2, logger);
+                PhoneReadFile(manager, path1, path2, subscription, logger);
             }
             catch (Exception e)
             {
@@ -447,6 +452,12 @@ namespace EfsTools.Utils
 
         private static void PhoneUploadFile(QcdmManager manager, string computerPath, string efsPath,
             bool createItemFilesAsDefault, Logger logger)
+        {
+            PhoneUploadFile(manager, computerPath, efsPath, createItemFilesAsDefault, 0, logger);
+        }
+
+        private static void PhoneUploadFile(QcdmManager manager, string computerPath, string efsPath,
+            bool createItemFilesAsDefault, int subscription, Logger logger)
         {
             try
             {
@@ -474,7 +485,7 @@ namespace EfsTools.Utils
                         isItemFile = info.IsItemFile;
                     }
 
-                    PhoneWriteFile(manager, computerPath, efsPath, permission, isItemFile, logger);
+                    PhoneWriteFile(manager, computerPath, efsPath, permission, isItemFile, subscription, logger);
                 }
             }
             catch (Exception e)

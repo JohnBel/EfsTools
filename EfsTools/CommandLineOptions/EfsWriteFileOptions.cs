@@ -24,5 +24,8 @@ namespace EfsTools.CommandLineOptions
 
         [Option('t', "item", Required = false, HelpText = "Create Item file", Default = false)]
         public bool IsItemFile { get; set; }
+
+        [Option('s', "subscriptionIndex", Required = false, HelpText = "Subscription index. 0 - first SIM, 1 - second SIM", Default = 0)]
+        public int SubscriptionIndex { get; set; }
     }
 }

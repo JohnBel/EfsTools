@@ -50,16 +50,16 @@ namespace EfsTools
                     cmd.WithParsed<GetTargetInfoOptions>(opts => tools.GetTargetInfo());
                     cmd.WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo());
                     cmd.WithParsed<EfsReadFileOptions>(opts =>
-                        tools.EfsReadFile(opts.InEfsFilePath, opts.OutComputerFilePath));
+                        tools.EfsReadFile(opts.InEfsFilePath, opts.OutComputerFilePath, opts.SubscriptionIndex));
                     cmd.WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath,
-                        opts.OutEfsFilePath, !opts.DontCreateEfsFile, opts.IsItemFile));
+                        opts.OutEfsFilePath, !opts.DontCreateEfsFile, opts.IsItemFile, opts.SubscriptionIndex));
                     cmd.WithParsed<EfsRenameFileOptions>(opts =>
                         tools.EfsRenameFile(opts.EfsFilePath, opts.NewEfsFilePath));
                     cmd.WithParsed<EfsDownloadDirectoryOptions>(opts =>
                         tools.EfsDownloadDirectory(opts.InEfsPath, opts.OutComputerPath, opts.NoExtraData,
-                            opts.ProcessNvItems));
+                            opts.ProcessNvItems, opts.SubscriptionIndex));
                     cmd.WithParsed<EfsUploadDirectoryOptions>(opts => tools.EfsUploadDirectory(opts.InComputerPath,
-                        opts.OutEfsPath, opts.CreateItemFilesAsDefault, opts.ProcessNvItems));
+                        opts.OutEfsPath, opts.CreateItemFilesAsDefault, opts.ProcessNvItems, opts.SubscriptionIndex));
                     cmd.WithParsed<EfsFixFileNamesOptions>(opts => tools.EfsFixFileNames(opts.EfsPath));
                     cmd.WithParsed<EfsCreateDirectoryOptions>(opts =>
                         tools.EfsCreateDirectory(opts.Path, !opts.NoRecursive));

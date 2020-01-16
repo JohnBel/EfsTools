@@ -167,24 +167,24 @@ namespace EfsTools
             }
         }
 
-        public void EfsReadFile(string efsPath, string computerPath)
+        public void EfsReadFile(string efsPath, string computerPath, int subscription)
         {
             if (!string.IsNullOrEmpty(efsPath))
             {
                 using (var manager = OpenQcdmManager())
                 {
-                    FileUtils.PhoneReadFile(manager, efsPath, computerPath, _logger);
+                    FileUtils.PhoneReadFile(manager, efsPath, computerPath, subscription, _logger);
                 }
             }
         }
 
-        public void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile)
+        public void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile, int subscription)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
             {
                 using (var manager = OpenQcdmManager())
                 {
-                    FileUtils.PhoneWriteFile(manager, computerPath, efsPath, 0777, itemFile, _logger);
+                    FileUtils.PhoneWriteFile(manager, computerPath, efsPath, 0777, itemFile, subscription, _logger);
                 }
             }
         }
@@ -202,7 +202,7 @@ namespace EfsTools
             }
         }
 
-        public void EfsDownloadDirectory(string efsPath, string computerPath, bool noExtraData, bool processNvItems)
+        public void EfsDownloadDirectory(string efsPath, string computerPath, bool noExtraData, bool processNvItems, int subscription)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
             {
@@ -210,7 +210,7 @@ namespace EfsTools
                 {
                     var path1 = PathUtils.FixUnixPath(efsPath);
                     var path2 = PathUtils.FixPath(computerPath);
-                    FileUtils.PhoneDownloadDirectory(manager, path1, path2, noExtraData, _logger);
+                    FileUtils.PhoneDownloadDirectory(manager, path1, path2, noExtraData, subscription, _logger);
                     if (processNvItems)
                     {
                         NvItemUtils.PhoneDownloadNvItems(manager, path2, _logger);
@@ -220,7 +220,7 @@ namespace EfsTools
         }
 
         public void EfsUploadDirectory(string computerPath, string efsPath, bool createItemFilesAsDefault,
-            bool processNvItems)
+            bool processNvItems, int subscription)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
             {
@@ -232,7 +232,7 @@ namespace EfsTools
                     using (var manager = OpenQcdmManager())
                     {
                         var path2 = PathUtils.FixUnixPath(efsPath);
-                        FileUtils.PhoneUploadDirectory(manager, path1, path2, createItemFilesAsDefault, _logger);
+                        FileUtils.PhoneUploadDirectory(manager, path1, path2, createItemFilesAsDefault, subscription, _logger);
                         if (processNvItems)
                         {
                             NvItemUtils.PhoneUploadNvItems(manager, path1, _logger);
