@@ -13,6 +13,8 @@ namespace EfsTools
             get { return () => $"{Strings.Required}."; }
         }
 
+        public override Func<string> OptionGroupWord { get; }
+
         public override Func<string> ErrorsHeadingText
         {
             get { return () => $"{Strings.Errors}:"; }
