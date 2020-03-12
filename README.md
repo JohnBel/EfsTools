@@ -14,7 +14,7 @@
 - Загрузить каталог с компьютера на утройство.
 
 ## Системные требования
-[.Net Framework 4.7.2](https://www.microsoft.com/en-us/download/details.aspx?id=49981) и выше.
+[.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) и выше.
 
 ## Установка
 Необходимо скачать архив релиза с [сайта разработчика](http://johnbel.github.io/). Затем распаковать его.
@@ -104,8 +104,11 @@ EfsTools.exe setModemConfig -p .\items_for_phone.json
 
 ***extractMbn***
 Распаковать содержимое MBN (Modem configuration BiNary) файла в указанную директорию
-
 Пример: EfsTools.exe extractMbn -i mcfg_sw.mbn -p mcfg
+
+***getLog***
+Начать захват логов и сообщений модема
+Пример: EfsTools.exe getLog -l IMS_MESSAGE
   
   
 ***help***
