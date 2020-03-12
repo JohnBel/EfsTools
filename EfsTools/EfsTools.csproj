@@ -37,7 +37,7 @@
       <HintPath>..\packages\CommandLineParser.2.7.82\lib\net461\CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="ELFSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=f2d0c9031b10d3c0, processorArchitecture=MSIL">
-      <HintPath>..\packages\ELFSharp.2.4.0\lib\net45\ELFSharp.dll</HintPath>
+      <HintPath>..\packages\ELFSharp.2.4.1\lib\net45\ELFSharp.dll</HintPath>
     </Reference>
     <Reference Include="MiscUtil, Version=0.2.0.0, Culture=neutral, PublicKeyToken=d3c42c4bfacf7596, processorArchitecture=MSIL">
       <HintPath>..\packages\JonSkeet.MiscUtil.0.2.0\lib\net35\MiscUtil.dll</HintPath>
@@ -93,12 +93,12 @@
     <Compile Include="CommandLineOptions\GetModemConfigOptions.cs" />
     <Compile Include="CommandLineOptions\EfsUploadDirectoryOptions.cs" />
     <Compile Include="CommandLineOptions\EfsFixFileNamesOptions.cs" />
-    <Compile Include="CommandLineOptions\EfsDowloadDirectoryOptions.cs" />
+    <Compile Include="CommandLineOptions\EfsDownloadDirectoryOptions.cs" />
     <Compile Include="CommandLineOptions\EfsRenameFileOptions.cs" />
     <Compile Include="CommandLineOptions\EfsWriteFileOptions.cs" />
     <Compile Include="CommandLineOptions\GetEfsInfoOptions.cs" />
     <Compile Include="CommandLineOptions\GetLogsOptions.cs" />
-    <Compile Include="CommandLineOptions\GetTaggetInfoOptions.cs" />
+    <Compile Include="CommandLineOptions\GetTargetInfoOptions.cs" />
     <Compile Include="CommandLineOptions\EfsReadFileOptions.cs" />
     <Compile Include="CommandLineOptions\Helper\HelpTextLocalizer.cs" />
     <Compile Include="EfsTools.cs" />

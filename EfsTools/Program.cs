@@ -27,54 +27,56 @@ namespace EfsTools
                     settings.HelpWriter = Console.Out;
                 }))
                 {
-                    commandLineParser.ParseArguments<
-                            GetTaggetInfoOptions,
-                            GetEfsInfoOptions,
-                            EfsReadFileOptions,
-                            EfsWriteFileOptions,
-                            EfsRenameFileOptions,
-                            EfsDeleteFileOptions,
-                            EfsFixFileNamesOptions,
-                            EfsCreateDirectoryOptions,
-                            EfsDeleteDirectoryOptions,
-                            EfsListDirectoryOptions,
-                            EfsDowloadDirectoryOptions,
-                            EfsUploadDirectoryOptions,
-                            GetModemConfigOptions,
-                            SetModemConfigOptions,
-                            ExtractMbnOptions,
-                            GetLogsOptions
-                        >(args)
-                        .WithParsed<GetTaggetInfoOptions>(opts => tools.GetTargetInfo())
-                        .WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo())
-                        .WithParsed<EfsReadFileOptions>(opts =>
-                            tools.EfsReadFile(opts.InEfsFilePath, opts.OutComputerFilePath))
-                        .WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath,
-                            opts.OutEfsFilePath, !opts.DontCreateEfsFile,
-                            opts.IsItemFile))
-                        .WithParsed<EfsRenameFileOptions>(opts =>
-                            tools.EfsRenameFile(opts.EfsFilePath, opts.NewEfsFilePath))
-                        .WithParsed<EfsDowloadDirectoryOptions>(opts =>
-                            tools.EfsDownloadDirectory(opts.InEfsPath, opts.OutComputerPath, opts.NoExtraData,
-                                opts.ProcessNvItems))
-                        .WithParsed<EfsUploadDirectoryOptions>(opts => tools.EfsUploadDirectory(opts.InComputerPath,
-                            opts.OutEfsPath, opts.CreateItemFilesAsDefault, opts.ProcessNvItems))
-                        .WithParsed<EfsFixFileNamesOptions>(opts => tools.EfsFixFileNames(opts.EfsPath))
-                        .WithParsed<EfsCreateDirectoryOptions>(opts =>
-                            tools.EfsCreateDirectory(opts.Path, !opts.NoRecursive))
-                        .WithParsed<EfsDeleteDirectoryOptions>(opts =>
-                            tools.EfsDeleteDirectory(opts.Path, !opts.NoRecursive))
-                        .WithParsed<EfsDeleteFileOptions>(opts => tools.EfsDeleteFile(opts.Path))
-                        .WithParsed<EfsListDirectoryOptions>(opts => tools.EfsListDirectory(opts.Path, opts.Recursive))
-                        .WithParsed<GetModemConfigOptions>(opts =>
-                            tools.GetModemConfig(opts.OutComputerFilePath, opts.InComputerFilePath, opts.ItemNames, opts.SubscriptionIndex))
-                        .WithParsed<SetModemConfigOptions>(opts =>
-                            tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath, opts.SubscriptionIndex))
-                        .WithParsed<ExtractMbnOptions>(opts =>
-                            tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData))
-                        .WithParsed<GetLogsOptions>(opts => 
-                            tools.GetLog(opts.MessageMask, opts.LogMask, opts.Verbose))
-                        .WithNotParsed(errors => { });
+                    var cmd = commandLineParser.ParseArguments<
+                        GetTargetInfoOptions,
+                        GetEfsInfoOptions,
+                        EfsReadFileOptions,
+                        EfsWriteFileOptions,
+                        EfsRenameFileOptions,
+                        EfsDeleteFileOptions,
+                        EfsFixFileNamesOptions,
+                        EfsCreateDirectoryOptions,
+                        EfsDeleteDirectoryOptions,
+                        EfsListDirectoryOptions,
+                        EfsDownloadDirectoryOptions,
+                        EfsUploadDirectoryOptions,
+                        GetModemConfigOptions,
+                        SetModemConfigOptions,
+                        ExtractMbnOptions,
+                        GetLogsOptions
+                    >(args);
+
+                    cmd.WithParsed<GetTargetInfoOptions>(opts => tools.GetTargetInfo());
+                    cmd.WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo());
+                    cmd.WithParsed<EfsReadFileOptions>(opts =>
+                        tools.EfsReadFile(opts.InEfsFilePath, opts.OutComputerFilePath));
+                    cmd.WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath, 
+                        opts.OutEfsFilePath, !opts.DontCreateEfsFile, opts.IsItemFile));
+                    cmd.WithParsed<EfsRenameFileOptions>(opts =>
+                        tools.EfsRenameFile(opts.EfsFilePath, opts.NewEfsFilePath));
+                    cmd.WithParsed<EfsDownloadDirectoryOptions>(opts =>
+                        tools.EfsDownloadDirectory(opts.InEfsPath, opts.OutComputerPath, opts.NoExtraData,
+                            opts.ProcessNvItems));
+                    cmd.WithParsed<EfsUploadDirectoryOptions>(opts => tools.EfsUploadDirectory(opts.InComputerPath,
+                        opts.OutEfsPath, opts.CreateItemFilesAsDefault, opts.ProcessNvItems));
+                    cmd.WithParsed<EfsFixFileNamesOptions>(opts => tools.EfsFixFileNames(opts.EfsPath));
+                    cmd.WithParsed<EfsCreateDirectoryOptions>(opts =>
+                        tools.EfsCreateDirectory(opts.Path, !opts.NoRecursive));
+                    cmd.WithParsed<EfsDeleteDirectoryOptions>(opts =>
+                        tools.EfsDeleteDirectory(opts.Path, !opts.NoRecursive));
+                    cmd.WithParsed<EfsDeleteFileOptions>(opts => tools.EfsDeleteFile(opts.Path));
+                    cmd.WithParsed<EfsListDirectoryOptions>(opts => tools.EfsListDirectory(opts.Path, opts.Recursive));
+                    cmd.WithParsed<GetModemConfigOptions>(opts =>
+                        tools.GetModemConfig(opts.OutComputerFilePath, opts.InComputerFilePath, opts.ItemNames,
+                            opts.SubscriptionIndex));
+                    cmd.WithParsed<SetModemConfigOptions>(opts =>
+                        tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath,
+                            opts.SubscriptionIndex));
+                    cmd.WithParsed<ExtractMbnOptions>(opts =>
+                        tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData));
+                    cmd.WithParsed<GetLogsOptions>(opts =>
+                        tools.GetLog(opts.MessageMask, opts.LogMask, opts.Verbose));
+                    cmd.WithNotParsed(errors => { });
                 }
             }
             catch (Exception ex)

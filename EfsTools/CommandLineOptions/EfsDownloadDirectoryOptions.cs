@@ -4,7 +4,7 @@ using EfsTools.Layouts;
 namespace EfsTools.CommandLineOptions
 {
     [Verb("downloadDirectory", HelpText = "Download EFS directory to computer")]
-    internal class EfsDowloadDirectoryOptions
+    internal class EfsDownloadDirectoryOptions
     {
         [Option('i', "inEfsPath", Required = true, HelpText = "EFS directory path")]
         public string InEfsPath { get; set; }

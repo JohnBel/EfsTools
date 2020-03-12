@@ -3,7 +3,7 @@
 namespace EfsTools.CommandLineOptions
 {
     [Verb("targetInfo", HelpText = "Get target info")]
-    internal class GetTaggetInfoOptions
+    internal class GetTargetInfoOptions
     {
     }
 }

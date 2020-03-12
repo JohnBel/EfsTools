@@ -2,7 +2,7 @@
 
 namespace EfsTools.CommandLineOptions
 {
-    [Verb("efsInfo", HelpText = "Get efs information")]
+    [Verb("efsInfo", HelpText = "Get EFS information")]
     internal class GetEfsInfoOptions
     {
     }
