@@ -258,12 +258,12 @@
   "AndsfXml": {
     "Values": [
       "<ANDSF>",
-      "  <Name>MTS Policy</Name>",
+      "  <Name>MEGAFON Policy</Name>",
       "  <ISRP>",
       "    <Home>",
       "      <ForServiceBased>",
       "        <MAPCON_1>",
-      "          <APN>internet.mts.ru</APN>",
+      "          <APN>internet</APN>",
       "          <RoutingRule>",
       "            <Node>",
       "              <AccessTechnology>1</AccessTechnology>",
@@ -299,12 +299,12 @@
   "DefaultAndsfXml": {
     "Values": [
       "<ANDSF>",
-      "  <Name>MTS default Policy</Name>",
+      "  <Name>MEGAFON default Policy</Name>",
       "  <ISRP>",
       "    <Home>",
       "      <ForServiceBased>",
       "        <MAPCON_1>",
-      "          <APN>internet.mts.ru</APN>",
+      "          <APN>internet</APN>",
       "          <RoutingRule>",
       "            <Node>",
       "              <AccessTechnology>1</AccessTechnology>",
@@ -367,8 +367,8 @@
     "Values": [
       "0:0;",
       "1:1;",
-      "2:1,0,internet.mts.ru,;",
-      "3:1;",
+      "2:1,0,internet,;",
+      "3:4;",
       "4:0;"
     ]
   },
@@ -526,7 +526,7 @@
     "RssiAvgTimerOnCamp": 0
   },
   "WlanOffloadConfig": {
-    "StringValue": "IWlanS2b"
+    "Value": 2
   },
   "AttachProfile": {
     "Value": 1
@@ -1923,7 +1923,7 @@
     "Value": 1
   },
   "ImsHybridEnable": {
-    "Value": 1
+    "Value": 0
   },
   "ImsOperationMode": {
     "Value": 2
@@ -2022,7 +2022,104 @@
   "NasSrvccSupport": {
     "Value": 1
   },
-   "PbmNvEccConfig": {
+  "PbmHardcodedEccConfig": {
+    "Value": 1
+  },
+  "PbmHardcodedEccList": {
+    "Items": [
+      {
+        "DigitsString": "911",
+        "Value": 0,
+        "CategoryLength": 1,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 2,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "112",
+        "Value": 0,
+        "CategoryLength": 1,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 2,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "060",
+        "Value": 0,
+        "CategoryLength": 1,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 2,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "080",
+        "Value": 0,
+        "CategoryLength": 1,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 2,
+        "HardcodedType": 2
+      },
+      {
+        "DigitsString": "",
+        "Value": 0,
+        "CategoryLength": 0,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 0,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "",
+        "Value": 0,
+        "CategoryLength": 0,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 0,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "",
+        "Value": 0,
+        "CategoryLength": 0,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 0,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "",
+        "Value": 0,
+        "CategoryLength": 0,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 0,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "",
+        "Value": 0,
+        "CategoryLength": 0,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 0,
+        "HardcodedType": 0
+      },
+      {
+        "DigitsString": "",
+        "Value": 0,
+        "CategoryLength": 0,
+        "EmergencyCategory": 0,
+        "Reserved": 0,
+        "EmergencyMode": 0,
+        "HardcodedType": 0
+      }
+    ]
+  },
+  "PbmNvEccConfig": {
     "Value": 0
   },
   "ProactiveFeatureEnableCfg": {
@@ -2036,9 +2133,6 @@
   },
   "Profile3": {
     "Values": "AQADAA8AAAADAAAApaWlpVgCAABYAgAAAAAAAAAAAAARAAEAAx8AAQABNgABAAE="
-  },
-  "Profile4": {
-    "Values": "AQAEAFkAAAALAAAApaWlpeXV0EkN8hVMAAAAAAAAAAAAEA4AcWRwX3Byb2ZpbGVfaWE6AAIA/wM7AAIALAE8AAIAAABBAAEAAEIAAQAAARAPAGludGVybmV0Lm10cy5ydREAAQAAGwADAG10cxwAAwBtdHMdAAEAAQ=="
   },
   "QipCall1xSmsAndVoice": {
     "Value": 1
@@ -2088,7 +2182,7 @@
     "ReservedBytes": "AAAAAAAAAAAgTgAA2NYAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAHWAJwF0AfAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
   },
   "QipcallConfrdUri": {
-    "Value": 0
+    "Value": 1
   },
   "QipcallDanEnable": {
     "Value": 0
@@ -2098,9 +2192,6 @@
   },
   "QipcallDomainSelectionEnable": {
     "Value": 0
-  },
-  "QipcallDtxEnabled": {
-    "Value": 1
   },
   "QipcallEnableHdVoice": {
     "Value": 1
@@ -2115,7 +2206,7 @@
     "Value": 0
   },
   "QipcallPreconditionEnable": {
-    "Value": 0
+    "Value": 1
   },
   "QipcallQosEnabled": {
     "Value": 0
