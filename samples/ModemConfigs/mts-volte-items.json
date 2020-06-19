@@ -388,7 +388,7 @@
     "Reserved": 0
   },
   "QipcallAudioCodecList": {
-    "ValueString": "EVS;AMR_WB_OA;AMR_WB_BE;AMR_OA;AMR_BE"
+    "ValueString": "AMR_WB_OA;AMR_WB_BE;AMR_OA;AMR_BE"
   },
   "Ip6IncludeRdnssOpt": {
     "Value": 1
@@ -2047,19 +2047,19 @@
     "Value": 0
   },
   "QipcallCodecModeSetAmrNb": {
-    "Enable_4_75kbps": true,
-    "Enable_5_15kbps": true,
-    "Enable_5_9kbps": true,
-    "Enable_6_17kbps": true,
+    "Enable_4_75kbps": false,
+    "Enable_5_15kbps": false,
+    "Enable_5_9kbps": false,
+    "Enable_6_17kbps": false,
     "Enable_7_4kbps": true,
     "Enable_7_95kbps": true,
     "Enable_10_2kbps": true,
     "Enable_12_2kbps": true
   },
   "QipcallCodecModeSetAmrWb": {
-    "Enable_6_60kbps": true,
-    "Enable_8_85kbps": true,
-    "Enable_12_65kbps": true,
+    "Enable_6_60kbps": false,
+    "Enable_8_85kbps": false,
+    "Enable_12_65kbps": false,
     "Enable_14_25kbps": true,
     "Enable_15_85kbps": true,
     "Enable_18_25kbps": true,
@@ -2097,7 +2097,7 @@
     "Value": 1
   },
   "QipcallDomainSelectionEnable": {
-    "Value": 0
+    "Value": 1
   },
   "QipcallDtxEnabled": {
     "Value": 1
@@ -2118,7 +2118,7 @@
     "Value": 0
   },
   "QipcallQosEnabled": {
-    "Value": 0
+    "Value": 1
   },
   "QipcallQosReservationTimer": {
     "Value": 8000
@@ -2429,16 +2429,16 @@
     "TimerTfValue": 30000,
     "TimerTJValue": 30000,
     "TcpThresholdValue": 1300,
-    "CompactFormEnabled": 1,
+    "CompactFormEnabled": 0,
     "SigCompEnabled": 0,
-    "IsSipInstanceNeeded": 1,
+    "IsSipInstanceNeeded": 0,
     "IpSecIntSchemeString": "HmacMd5Sha1_96",
     "IpSecEncAlgoString": "Null_AesCbc_DesEde3Cbc",
     "AuthSchemeString": "None",
     "InitialAuthConfigString": "None",
     "ShortCodeListString": "",
     "ProxyRouteValueString": "",
-    "KeepAliveEnabled": 0,
+    "KeepAliveEnabled": 1,
     "TimerNatRtoValue": 0,
     "TimerVzW": 0,
     "TimerEmergencySipRegValue": 0,
@@ -2449,11 +2449,11 @@
     "TimerEmergencyTJValue": 0,
     "CivicLocQueryTimeout": 0,
     "GpsLocFixQueryTimeout": 0,
-    "TimerTbValue": 45000,
+    "TimerTbValue": 0,
     "GruuEnabled": 0,
     "TransportSwitchEnabled": 0,
     "TcpMaxBackOffTimer": 0,
-    "RouteHeaderEnabled": 1,
+    "RouteHeaderEnabled": 0,
     "GzipDecodingOutBufferMultiplier": 0,
     "ReservedBytes": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAnAAAA+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
   },
@@ -2493,7 +2493,7 @@
     "Apn2ApnNameString": ""
   },
   "QpImsVoipConfig": {
-    "VoipConfigDisableChecksFor380Res": 0,
+    "VoipConfigDisableChecksFor380Res": 1,
     "VoipConfigDomainNotificationEnable": 1,
     "VoipConfigRtcp": 1,
     "VoipConfigAcceptContactString": "urn:urn-7:3gpp-service.ims.icsi.mmtel",
