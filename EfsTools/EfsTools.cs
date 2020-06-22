@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using EfsTools.Items;
@@ -11,6 +12,7 @@ using EfsTools.Qualcomm;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Resourses;
 using EfsTools.Utils;
+using Microsoft.Extensions.Configuration;
 
 namespace EfsTools
 {
@@ -21,7 +23,11 @@ namespace EfsTools
 
         public EfsTools(Logger logger)
         {
-            _config = (EfsToolsConfigurationSection) ConfigurationManager.GetSection("efstool");
+            var builder = new ConfigurationBuilder();
+            var module = Assembly.GetCallingAssembly().ManifestModule;
+            var modulePath = $"{module.FullyQualifiedName}.config";
+            _configurationRoot = builder.AddXmlFile(modulePath, false, false).Build();
+            _config = new EfsToolsConfigurationSection(_configurationRoot);
             _logger = logger;
         }
 
@@ -337,6 +343,7 @@ namespace EfsTools
             MbnExtractor.Extract(inputMbnFilePath, outputComputerDirectoryPath, noExtraData, _logger);
         }
 
+        private readonly IConfigurationRoot _configurationRoot;
         private string CheckAndFixPath(string path)
         {
             if (File.Exists(path) && Path.GetExtension(path) == ".mbn")

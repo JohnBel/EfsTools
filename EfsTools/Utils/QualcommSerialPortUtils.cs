@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using EfsTools.Qualcomm.QcdmCommands.Responses.Efs;
+﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
 namespace EfsTools.Utils
@@ -13,10 +8,40 @@ namespace EfsTools.Utils
     {
         public static bool IsQualcommPort(string port)
         {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return IsWindowsQualcommPort(port);
+            }
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                return IsLinuxQualcommPort(port);
+            }
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                return IsOsxQualcommPort(port);
+            }
+            return IsOtherOsQualcommPort(port);
+        }
+
+        private static bool IsWindowsQualcommPort(string port)
+        {
             InitializeQualcommPorts();
             return _qualcommPorts.Contains(port);
-        }      
-        
+        }
+
+        private static bool IsLinuxQualcommPort(string port)
+        {
+            return true;
+        }
+        private static bool IsOsxQualcommPort(string port)
+        {
+            return true;
+        }
+        private static bool IsOtherOsQualcommPort(string port)
+        {
+            return true;
+        }
+
         private static HashSet<string> _qualcommPorts;
 
         private static void InitializeQualcommPorts()

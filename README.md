@@ -14,7 +14,9 @@
 - Загрузить каталог с компьютера на утройство.
 
 ## Системные требования
-[.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) и выше.
+
+- Windows 8.1, Windows 10 1607 и новее, Windows Server 2012 R2 и новее, Mac OS X 10.13 и новее, Red Hat Enterprise Linux 7 и новее, CentOS 7 и новее, Ubuntu 16.04 и новее, Fedora 30 и новее, Debian 9 и новее, OpenSUSE 15 и новее
+- [DotNetCore 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1/runtime) и выше.
 
 ## Установка
 Необходимо скачать архив релиза с [сайта разработчика](http://johnbel.github.io/). Затем распаковать его.

@@ -1,18 +1,18 @@
 ﻿using System;
-using System.IO.Ports;
+using RJCP.IO.Ports;
 using EfsTools.Utils;
 
 namespace EfsTools.Qualcomm
 {
     internal class HdlcSerial : IDisposable
     {
-        private readonly SerialPort _port;
+        private readonly SerialPortStream _port;
 
         private readonly byte[] _readBuffer = new byte[64 * 1024];
 
         public HdlcSerial(string port, int baudrate, int timeout)
         {
-            _port = new SerialPort(port, baudrate) {ReadTimeout = timeout};
+            _port = new SerialPortStream(port, baudrate) {ReadTimeout = timeout};
         }
 
         public bool IsOpen => _port.IsOpen;

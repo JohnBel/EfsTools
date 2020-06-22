@@ -13,6 +13,7 @@ using EfsTools.Qualcomm.QcdmManagers;
 using EfsTools.Resourses;
 using EfsTools.Utils;
 using Microsoft.Win32;
+using RJCP.IO.Ports;
 
 namespace EfsTools.Qualcomm
 {
@@ -632,7 +633,7 @@ namespace EfsTools.Qualcomm
 
         private static string DetectSerialPort()
         {
-            var ports = SerialPort.GetPortNames();
+            var ports = SerialPortStream.GetPortNames();
             foreach (var port in ports)
             {
                 if (QualcommSerialPortUtils.IsQualcommPort(port))
