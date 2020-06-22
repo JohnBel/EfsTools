@@ -1,3 +1,6 @@
+0.12
+Переход на DotNetCore 3.1 для возможности запуска на Linux и OSX
+
 0.11
 Добавлена поддержка подписок (указания SIM карты) в командах getModemConfig и setModemConfig
 
