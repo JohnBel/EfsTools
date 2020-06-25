@@ -6,6 +6,8 @@ namespace EfsTools.CommandLineOptions
     [Verb("extractMbn", HelpText = "Extract 'Modem configuration BiNary' file to computer")]
     internal class ExtractMbnOptions
     {
+        private Layout _outputComputerDirectoryPathLayout;
+
         [Option('i', "inputMbnFilePath", Required = true, HelpText = "Input MBN file path")]
         public string InputMbnFilePath { get; set; }
 
@@ -13,13 +15,8 @@ namespace EfsTools.CommandLineOptions
         public string OutputComputerDirectoryPath
         {
             get => _outputComputerDirectoryPathLayout?.Render();
-            set
-            {
-                _outputComputerDirectoryPathLayout = Layout.Parse(value);
-            }
+            set => _outputComputerDirectoryPathLayout = Layout.Parse(value);
         }
-
-        private Layout _outputComputerDirectoryPathLayout;
 
         [Option('n', "noExtraData", Required = false, HelpText = "Don't save extra data in file name", Default = false)]
         public bool NoExtraData { get; set; }

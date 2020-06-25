@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using EfsTools.Utils;
-using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
+using EfsTools.Qualcomm.QcdmCommands.Base;
+using EfsTools.Utils;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
@@ -16,7 +16,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
     //  uint8 log[1]; /* Contains the log entry data. */
     //}
     //diag_log_rsp_type;
-    
+
     [QcdmCommand(QcdmCommand.Log)]
     [QcdmMinResponseLength(32)]
     internal class LogCommandResponse : BaseCommandResponse
@@ -38,13 +38,14 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             result.CheckResponse(data);
             var more = data[1];
             var length = data[2] + (data[3] << 8);
-            var logId =  data[6] + (data[7] << 8);
-            result.LogId = (LogId)logId;
-            
+            var logId = data[6] + (data[7] << 8);
+            result.LogId = (LogId) logId;
+
             var ts = BitConverter.ToInt64(data, 8);
             result.Time = DateTimeUtils.DateTimeFromQualcommTs(ts);
 
-            var str = Encoding.ASCII.GetString(data, 32, data.Length - 32);;
+            var str = Encoding.ASCII.GetString(data, 32, data.Length - 32);
+            ;
             var parts = str.Split('\0');
             if (parts.Length == 1)
             {
@@ -55,6 +56,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                 result.Message = parts[1].Trim();
                 result.Source = parts[0].Trim();
             }
+
             return result;
         }
     }

@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
     [NvItemId(3996)]
     [Attributes(9)]
-    public class WcdmaBc4VgaGainOffsetVsFreq
+    public sealed class WcdmaBc4VgaGainOffsetVsFreq
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public sbyte[] Value { get; set; }
-        
     }
 }

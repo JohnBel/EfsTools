@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace EfsTools.Utils
+﻿namespace EfsTools.Utils
 {
     internal static class BitsUtils
     {
@@ -11,12 +8,14 @@ namespace EfsTools.Utils
             {
                 return false;
             }
+
             var valIndex = bitIndex / 8;
             if (valIndex >= val.Length)
             {
                 return false;
             }
-            var bitValueIndex = bitIndex - (valIndex * 8);
+
+            var bitValueIndex = bitIndex - valIndex * 8;
             var v = val[valIndex];
             return GetBitAsBool(v, bitValueIndex);
         }
@@ -27,12 +26,14 @@ namespace EfsTools.Utils
             {
                 return val;
             }
+
             var valIndex = bitIndex / 8;
             if (valIndex >= val.Length)
             {
                 return val;
             }
-            var bitValueIndex = bitIndex - (valIndex * 8);
+
+            var bitValueIndex = bitIndex - valIndex * 8;
             var v = val[valIndex];
             v = SetBitAsBool(v, bitValueIndex, bitValue);
             val[valIndex] = v;
@@ -45,11 +46,13 @@ namespace EfsTools.Utils
             {
                 return false;
             }
-            var valIndex = (bitIndex / 8) + startIndex;
+
+            var valIndex = bitIndex / 8 + startIndex;
             if (valIndex >= val.Length)
             {
                 return false;
             }
+
             var bitValueIndex = bitIndex % 8;
             var v = val[valIndex];
             return GetBitAsBool(v, bitValueIndex);
@@ -61,21 +64,23 @@ namespace EfsTools.Utils
             {
                 return val;
             }
-            var valIndex = (bitIndex / 8) + startIndex;
+
+            var valIndex = bitIndex / 8 + startIndex;
             if (valIndex >= val.Length)
             {
                 return val;
             }
+
             var bitValueIndex = bitIndex % 8;
             var v = val[valIndex];
             v = SetBitAsBool(v, bitValueIndex, bitValue);
             val[valIndex] = v;
             return val;
         }
-        
+
         public static bool GetBitAsBool(ulong val, int index)
         {
-            var v = ((int) (val >> index) & 1);
+            var v = (int) (val >> index) & 1;
             return v == 1;
         }
 
@@ -91,12 +96,13 @@ namespace EfsTools.Utils
             {
                 res &= ~v;
             }
+
             return res;
         }
 
         public static bool GetBitAsBool(uint val, int index)
         {
-            return ((int)(val >> index) & 1) == 1;
+            return ((int) (val >> index) & 1) == 1;
         }
 
         public static uint SetBitAsBool(uint val, int index, bool bitValue)
@@ -111,48 +117,51 @@ namespace EfsTools.Utils
             {
                 res &= ~v;
             }
+
             return res;
         }
 
         public static bool GetBitAsBool(ushort val, int index)
         {
-            var v = ((int) (val >> index) & 1);
+            var v = (val >> index) & 1;
             return v == 1;
         }
-        
+
         public static ushort SetBitAsBool(ushort val, int index, bool bitValue)
         {
             var res = val;
-            var v = (ushort) 1 << index;
+            var v = 1 << index;
             if (bitValue)
             {
-                res = (ushort)(res | v);
+                res = (ushort) (res | v);
             }
             else
             {
-                res = (ushort)(res & ~v);
+                res = (ushort) (res & ~v);
             }
+
             return res;
         }
 
         public static bool GetBitAsBool(byte val, int index)
         {
-            var v = ((int) (val >> index) & 1);
+            var v = (val >> index) & 1;
             return v == 1;
         }
 
         public static byte SetBitAsBool(byte val, int index, bool bitValue)
         {
             var res = val;
-            var v = (byte) 1 << index;
+            var v = 1 << index;
             if (bitValue)
             {
-                res = (byte)(res | v);
+                res = (byte) (res | v);
             }
             else
             {
-                res = (byte)(res & ~v);
+                res = (byte) (res & ~v);
             }
+
             return res;
         }
     }

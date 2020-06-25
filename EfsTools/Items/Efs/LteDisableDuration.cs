@@ -1,18 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/nv/item_files/modem/mmode/lte_disable_duration", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteDisableDuration
+    public sealed class LteDisableDuration
     {
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint Value { get; set; }
     }
 }

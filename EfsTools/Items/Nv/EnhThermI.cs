@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5479)]
     [Attributes(9)]
-    public class EnhTherm
+    public sealed class EnhTherm
     {
-        [ElementsCount(2)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public uint[] Value { get; set; }
-        
     }
 }

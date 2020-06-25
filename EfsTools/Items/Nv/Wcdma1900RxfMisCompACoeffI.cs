@@ -1,21 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5900)]
     [Attributes(9)]
-    public class Wcdma1900RxfMisCompACoeff
+    public sealed class Wcdma1900RxfMisCompACoeff
     {
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short Value { get; set; }
-        
     }
 }

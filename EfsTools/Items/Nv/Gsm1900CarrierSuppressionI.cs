@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4872)]
     [Attributes(9)]
-    public class Gsm1900CarrierSuppression
+    public sealed class Gsm1900CarrierSuppression
     {
-        [ElementsCount(2)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public short[] Value { get; set; }
-        
     }
 }

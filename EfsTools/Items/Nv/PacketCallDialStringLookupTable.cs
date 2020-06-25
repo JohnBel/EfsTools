@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,14 +7,13 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(930)]
     [Attributes(9)]
-    public class PacketCallDialStringLookupTable
+    public sealed class PacketCallDialStringLookupTable
     {
         [JsonIgnore]
-        [ElementsCount(5)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] DialString1 { get; set; }
 
         public string DialString1String
@@ -24,21 +23,14 @@ namespace EfsTools.Items.Nv
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort CallType1 { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort ModesPermitted1 { get; set; }
 
 
         [JsonIgnore]
-        [ElementsCount(5)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] DialString2 { get; set; }
 
         public string DialString2String
@@ -47,21 +39,14 @@ namespace EfsTools.Items.Nv
             set => DialString2 = StringUtils.GetBytes(value, 5);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort CallType2 { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort ModesPermitted2 { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(5)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] DialString3 { get; set; }
 
         public string DialString3String
@@ -71,21 +56,13 @@ namespace EfsTools.Items.Nv
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort CallType3 { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort ModesPermitted3 { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(5)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] DialString4 { get; set; }
 
         public string DialString4String
@@ -95,15 +72,9 @@ namespace EfsTools.Items.Nv
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort CallType4 { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort ModesPermitted4 { get; set; }
     }
 }

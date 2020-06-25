@@ -43,7 +43,10 @@ namespace EfsTools.Utils
         public ushort ComputeChecksum(byte[] bytes)
         {
             var crc = 0xFFFF;
-            for (var i = 0; i < bytes.Length; ++i) crc = ((crc >> 8) ^ _table[(crc ^ bytes[i]) & 0xFF]) & 0xFFFF;
+            for (var i = 0; i < bytes.Length; ++i)
+            {
+                crc = ((crc >> 8) ^ _table[(crc ^ bytes[i]) & 0xFF]) & 0xFFFF;
+            }
 
             crc = ~crc;
             crc = ((crc >> 8) & 0xFF) | (crc << 8);

@@ -5,6 +5,10 @@ namespace EfsTools.Layouts
 {
     internal class DateTimeLayoutRule : ILayoutRuleWithParameters
     {
+        private readonly string _format;
+
+        private readonly bool _useUtc;
+
         public DateTimeLayoutRule(Dictionary<string, string> parameters)
         {
             Parameters = parameters;
@@ -12,23 +16,24 @@ namespace EfsTools.Layouts
             _format = "yyyy-MM-dd HH:mm:ss";
             if (parameters != null)
             {
-                if (parameters.TryGetValue("universalTime", out string val))
+                if (parameters.TryGetValue("universalTime", out var val))
                 {
                     val = val.ToLowerInvariant();
-                    _useUtc = (val == "true");
+                    _useUtc = val == "true";
                 }
-                if (parameters.TryGetValue("format", out string val2))
+
+                if (parameters.TryGetValue("format", out var val2))
                 {
                     _format = val2;
                 }
             }
         }
 
-        public Dictionary<string, string> Parameters { get; private set; }
+        public Dictionary<string, string> Parameters
+        {
+            get;
+        }
 
-        private readonly bool _useUtc;
-        private readonly string _format;
-        
         public string Render()
         {
             var now = _useUtc ? DateTime.UtcNow : DateTime.Now;

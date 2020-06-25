@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
     [NvItemId(4952)]
     [Attributes(9)]
-    public class WcdmaBc4Rel6TxMprBackoff
+    public sealed class WcdmaBc4Rel6TxMprBackoff
     {
-        [ElementsCount(7)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
         public byte[] Value { get; set; }
-        
     }
 }

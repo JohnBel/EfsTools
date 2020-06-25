@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00022083", true, 0xE1FF)]
     [Attributes(9)]
-    public class C2Bc15RxCalChanLru
+    public sealed class C2Bc15RxCalChanLru
     {
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Value { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public byte[] Value
+        {
+            get;
+        }
     }
 }

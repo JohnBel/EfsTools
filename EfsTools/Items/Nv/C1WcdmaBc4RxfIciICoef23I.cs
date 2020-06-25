@@ -1,21 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5997)]
     [Attributes(9)]
-    public class C1WcdmaBc4RxfIciICoef23
+    public sealed class C1WcdmaBc4RxfIciICoef23
     {
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint Value { get; set; }
-        
     }
 }

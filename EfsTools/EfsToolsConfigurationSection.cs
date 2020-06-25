@@ -2,11 +2,13 @@
 
 namespace EfsTools
 {
-    internal class EfsToolsConfigurationSection 
+    internal class EfsToolsConfigurationSection
     {
+        private readonly IConfigurationSection _configurationSection;
+
         public EfsToolsConfigurationSection(IConfigurationRoot configurationRoot)
         {
-            _configurationSection = (configurationRoot == null) ? null : configurationRoot.GetSection("efstool");
+            _configurationSection = configurationRoot == null ? null : configurationRoot.GetSection("efstool");
         }
 
         public string Port
@@ -43,6 +45,7 @@ namespace EfsTools
                     return val.Value;
                 }
             }
+
             return defaultValue;
         }
 
@@ -57,7 +60,5 @@ namespace EfsTools
                 }
             }
         }
-
-        private readonly IConfigurationSection _configurationSection;
     }
 }

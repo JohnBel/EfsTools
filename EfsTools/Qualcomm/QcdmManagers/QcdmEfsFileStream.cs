@@ -18,6 +18,7 @@ namespace EfsTools.Qualcomm.QcdmManagers
 
     internal class QcdmEfsFileStream : Stream, IDisposable
     {
+        private static int _syncSequence;
         private readonly string _fileName;
         private readonly EfsFileFlag _flags;
         private readonly QcdmManager _manager;
@@ -47,11 +48,17 @@ namespace EfsTools.Qualcomm.QcdmManagers
             set
             {
                 if (value < 0)
+                {
                     _position = 0;
+                }
                 else if (value > Length)
+                {
                     _position = Length;
+                }
                 else
+                {
                     _position = value;
+                }
             }
         }
 
@@ -119,8 +126,15 @@ namespace EfsTools.Qualcomm.QcdmManagers
 
         private void CheckManager()
         {
-            if (_manager == null) throw new QcdmEfsFileStreamException("Manager is null");
-            if (!_manager.IsOpen) throw new QcdmEfsFileStreamException("Manager is not open");
+            if (_manager == null)
+            {
+                throw new QcdmEfsFileStreamException("Manager is null");
+            }
+
+            if (!_manager.IsOpen)
+            {
+                throw new QcdmEfsFileStreamException("Manager is not open");
+            }
         }
 
         public override void Flush()
@@ -128,7 +142,7 @@ namespace EfsTools.Qualcomm.QcdmManagers
             if (_manager != null)
             {
                 var syncSequence = Interlocked.Increment(ref _syncSequence);
-                _manager.Efs.SyncNoWait(_fileName, (ushort)syncSequence);
+                _manager.Efs.SyncNoWait(_fileName, (ushort) syncSequence);
             }
         }
 
@@ -138,17 +152,26 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 case SeekOrigin.Begin:
                     if (offset < 0)
+                    {
                         _position = 0;
+                    }
                     else
+                    {
                         _position = Math.Min(offset, Length);
+                    }
+
                     break;
                 case SeekOrigin.Current:
                 {
                     var newPosition = _position + offset;
                     if (newPosition < 0)
+                    {
                         _position = 0;
+                    }
                     else
+                    {
                         _position = Math.Min(newPosition, Length);
+                    }
                 }
                     break;
                 case SeekOrigin.End:
@@ -160,9 +183,13 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     {
                         var newPosition = _position + offset;
                         if (newPosition < 0)
+                        {
                             _position = 0;
+                        }
                         else
+                        {
                             _position = Math.Min(newPosition, Length);
+                        }
                     }
 
                     break;
@@ -195,9 +222,10 @@ namespace EfsTools.Qualcomm.QcdmManagers
             QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
             var written = response.BytesWritten;
             _position += written;
-            if (_stat != null) _stat = FStat();
+            if (_stat != null)
+            {
+                _stat = FStat();
+            }
         }
-
-        private static int _syncSequence = 0;
     }
 }

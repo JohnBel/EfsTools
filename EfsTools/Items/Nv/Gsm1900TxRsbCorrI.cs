@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4182)]
     [Attributes(9)]
-    public class Gsm1900TxRsbCorr
+    public sealed class Gsm1900TxRsbCorr
     {
-        [ElementsCount(2)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public byte[] Value { get; set; }
-        
     }
 }

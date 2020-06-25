@@ -1,25 +1,18 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5432)]
     [Attributes(9)]
-    public class ProcessCal
+    public sealed class ProcessCal
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Value1 { get; set; }
-        
-        [ElementsCount(3)]
-        [ElementType("uint8")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
         public byte[] Value2 { get; set; }
-        
     }
 }

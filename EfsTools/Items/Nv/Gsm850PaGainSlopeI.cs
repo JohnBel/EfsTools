@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1136)]
     [Attributes(9)]
-    public class Gsm850PaGainSlope
+    public sealed class Gsm850PaGainSlope
     {
-        [ElementsCount(15)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 15)]
         public byte[] Value { get; set; }
-        
     }
 }

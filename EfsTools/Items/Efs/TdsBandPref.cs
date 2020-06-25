@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
@@ -7,11 +8,9 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/modem/mmode/tds_bandpref", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdsBandPref
+    public sealed class TdsBandPref
     {
-        [ElementsCount(8)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public byte[] Value { get; set; }
     }
 }

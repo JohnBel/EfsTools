@@ -1,15 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(69750)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsConfig
+    public sealed class QpImsConfig
     {
         public QpImsConfig()
         {
@@ -17,21 +19,12 @@ namespace EfsTools.Items.Efs
         }
 
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte TipTirMode { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte IrRestrictedType { get; set; }
 
 
@@ -46,37 +39,23 @@ namespace EfsTools.Items.Efs
      15 = Enable all above services
 }
          */
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
+
+
         public uint OmaDmServicesMask { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte WfcStatus { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte CallModePreference { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte ImsOperationSubmode { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte IWfcRoaming { get; set; }
 
-        [ElementsCount(501)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 501)]
         public byte[] Reserved { get; set; }
     }
 }

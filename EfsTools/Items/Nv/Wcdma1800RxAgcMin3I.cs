@@ -1,19 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2862)]
     [Attributes(9)]
-    public class Wcdma1800RxAgcMin3I
+    public sealed class Wcdma1800RxAgcMin3I
     {
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short Value { get; set; }
-        
     }
 }

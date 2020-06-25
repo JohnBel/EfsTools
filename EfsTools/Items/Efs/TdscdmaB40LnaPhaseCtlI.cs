@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022701", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40LnaPhaseCtl
+    public sealed class TdscdmaB40LnaPhaseCtl
     {
-        [ElementsCount(4)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public ushort[] Value { get; set; }
-        
     }
 }

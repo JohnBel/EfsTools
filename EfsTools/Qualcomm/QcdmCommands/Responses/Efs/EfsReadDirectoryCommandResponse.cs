@@ -74,7 +74,11 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             var mtime = BitConverter.ToInt32(data, 32);
             var ctime = BitConverter.ToInt32(data, 36);
             var nameLength = data.Length - 41;
-            if (nameLength < 0) nameLength = 0;
+            if (nameLength < 0)
+            {
+                nameLength = 0;
+            }
+
             var name = Encoding.ASCII.GetString(data, 40, nameLength);
             result.DirectoryEntry = new DirectoryEntry(name, entryType, mode, size, atime, mtime, ctime);
             return result;

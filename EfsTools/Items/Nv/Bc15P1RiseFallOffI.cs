@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4291)]
     [Attributes(9)]
-    public class Bc15P1RiseFallOff
+    public sealed class Bc15P1RiseFallOff
     {
-        [ElementsCount(8)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Value { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public byte[] Value
+        {
+            get;
+        }
     }
 }

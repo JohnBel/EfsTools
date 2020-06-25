@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020662", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma900PaSmpsAptRangeList
+    public sealed class Wcdma900PaSmpsAptRangeList
     {
-        [ElementsCount(4)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public byte[] Value { get; set; }
-        
     }
 }

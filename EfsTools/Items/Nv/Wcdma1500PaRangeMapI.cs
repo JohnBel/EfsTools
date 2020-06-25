@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6989)]
     [Attributes(9)]
-    public class Wcdma1500PaRangeMap
+    public sealed class Wcdma1500PaRangeMap
     {
-        [ElementsCount(4)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public sbyte[] Value { get; set; }
-        
     }
 }

@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxEtDpdAmamsType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxEtDpdAmamsType
     {
-        [ElementsCount(16)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint[] Amam { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public uint[] Amam
+        {
+            get;
+        }
     }
 }

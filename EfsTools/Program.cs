@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using CommandLine;
 using CommandLine.Text;
 using EfsTools.CommandLineOptions;
@@ -12,6 +11,8 @@ namespace EfsTools
     {
         private static void Main(string[] args)
         {
+            //args = args.Skip(1).ToArray();
+            args = new[] { "getModemConfig", "-p", "modemConfigS0_${ date:format = yyyyMMdd_HHmmss }.json", "-s", "0" };
             Logger logger = null;
             try
             {
@@ -51,7 +52,7 @@ namespace EfsTools
                     cmd.WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo());
                     cmd.WithParsed<EfsReadFileOptions>(opts =>
                         tools.EfsReadFile(opts.InEfsFilePath, opts.OutComputerFilePath));
-                    cmd.WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath, 
+                    cmd.WithParsed<EfsWriteFileOptions>(opts => tools.EfsWriteFile(opts.InComputerFilePath,
                         opts.OutEfsFilePath, !opts.DontCreateEfsFile, opts.IsItemFile));
                     cmd.WithParsed<EfsRenameFileOptions>(opts =>
                         tools.EfsRenameFile(opts.EfsFilePath, opts.NewEfsFilePath));

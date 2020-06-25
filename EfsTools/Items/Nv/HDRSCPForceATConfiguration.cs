@@ -1,17 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4964)]
     [Attributes(9)]
-    public class HdrScpForceAtConfiguration
+    public sealed class HdrScpForceAtConfiguration
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Value { get; set; }
     }
 }

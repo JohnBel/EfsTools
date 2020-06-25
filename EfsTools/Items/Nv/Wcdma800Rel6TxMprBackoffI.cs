@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4949)]
     [Attributes(9)]
-    public class Wcdma800Rel6TxMprBackoff
+    public sealed class Wcdma800Rel6TxMprBackoff
     {
-        [ElementsCount(7)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
         public byte[] Value { get; set; }
-        
     }
 }

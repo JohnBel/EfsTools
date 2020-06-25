@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6149)]
     [Attributes(9)]
-    public class C0BcxBlockIntelliceiverDetThresh
+    public sealed class C0BcxBlockIntelliceiverDetThresh
     {
-        [ElementsCount(10)]
-        [ElementType("int8")]
-        [Description("")]
-        public sbyte[] Value { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        public sbyte[] Value
+        {
+            get;
+        }
     }
 }

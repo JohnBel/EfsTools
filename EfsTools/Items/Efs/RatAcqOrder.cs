@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -10,54 +11,87 @@ namespace EfsTools.Items.Efs
     public enum RatMode : byte
     {
         None = byte.MaxValue, /* FOR INTERNAL USE ONLY! */
-        NoSrv = 0, /**< No service; NV_MODE_INACTIVE. */
-        AMPS = 1, /**< Analog Mobile Phone System (AMPS) mode. */
-        CDMA = 2, /**< CDMA mode. */
-        GSM = 3, /**< GSM mode. */
-        HDR = 4, /**< HDR mode. */
-        WCDMA = 5, /**< WCDMA mode. */
-        GPS = 6, /**< GPS mode. */
-        GW = 7, /**< GSM and WCDMA mode. */
-        WLAN = 8, /**< WLAN mode. */
-        LTE = 9, /**< LTE mode. */
-        GWL = 10, /**< GSM, WCDMA, and LTE mode. */
+        NoSrv = 0,
+
+        /**
+         * < No service; NV_MODE_INACTIVE.
+         */
+        AMPS = 1,
+
+        /**
+         * < Analog Mobile Phone System ( AMPS) mode.
+         */
+        CDMA = 2,
+
+        /**
+         * < CDMA mode.
+         */
+        GSM = 3,
+
+        /**
+         * < GSM mode.
+         */
+        HDR = 4,
+
+        /**
+         * < HDR mode.
+         */
+        WCDMA = 5,
+
+        /**
+         * < WCDMA mode.
+         */
+        GPS = 6,
+
+        /**
+         * < GPS mode.
+         */
+        GW = 7,
+
+        /**
+         * < GSM and WCDMA mode.
+         */
+        WLAN = 8,
+
+        /**
+         * < WLAN mode.
+         */
+        LTE = 9,
+
+        /**
+         * < LTE mode.
+         */
+        GWL = 10,
+
+        /**
+         * < GSM, WCDMA, and LTE mode.
+         */
         TDS = 11
     }
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/sd/rat_acq_order", true, 0xE1FF)]
     [Attributes(9)]
-    public class RatAcqOrder
+    public sealed class RatAcqOrder
     {
-        public RatAcqOrder()
-        {
-        }
-
         [Required]
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short Version { get; set; }
 
         [JsonIgnore]
         [ConvertEndian]
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort RatCount { get; set; }
 
 
+        
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        private readonly byte[] _rawValues = new byte[10];
+        
         [JsonIgnore]
-        [ElementsCount(10)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte[] RawValues
         {
-            get
-            {
-                return _rawValues;
-            }
+            get => _rawValues;
             set
             {
                 if (value != null)
@@ -76,23 +110,26 @@ namespace EfsTools.Items.Efs
                 {
                     RatCount = 10;
                 }
+
                 var res = new string[RatCount];
                 var raw = RawValues;
-                for (var i = 0; i < RatCount; ++i) res[i] = $"{(RatMode) raw[i]}";
+                for (var i = 0; i < RatCount; ++i)
+                {
+                    res[i] = $"{(RatMode) raw[i]}";
+                }
+
                 return res;
             }
             set
             {
                 var data = value.Select(s => EnumUtils.ParseEnumByte(typeof(RatMode), s)).ToArray();
                 RawValues = data;
-                RatCount = (ushort)data.Length;
+                RatCount = (ushort) data.Length;
                 if (RatCount > 10)
                 {
                     RatCount = 10;
                 }
             }
         }
-
-        private readonly byte[] _rawValues = new byte[10];
     }
 }

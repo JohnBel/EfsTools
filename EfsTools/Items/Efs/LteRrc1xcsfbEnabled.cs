@@ -1,17 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/modem/lte/rrc/lte_rrc_1xcsfb_enabled", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteRrc1xcsfbEnabled
+    public sealed class LteRrc1xcsfbEnabled
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

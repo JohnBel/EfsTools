@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/nv/item_files/modem/mmode/device_mode", true, 0xE1FF)]
     [Attributes(9)]
-    public class DeviceMode
+    public sealed class DeviceMode
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

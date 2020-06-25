@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Resourses;
@@ -15,7 +13,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
     //    uint16 numbits;         /* number of bits in the mask           */
     //    unsigned char mask[1];  /* size of this field = (numbits + 7)/8 */
     //    } event_mask_set_rsp_type;
-    
+
     [QcdmCommand(QcdmCommand.EventMaskSet)]
     [QcdmMinResponseLength(10)]
     internal class EventMaskSetCommandResponse : BaseCommandResponse
@@ -38,7 +36,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             {
                 var numBits = data[4] + (data[5] << 8);
                 var maskLength = (numBits + 7) / 8;
-                if (data.Length < (maskLength + 6))
+                if (data.Length < maskLength + 6)
                 {
                     throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
                 }
@@ -54,6 +52,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
 
                 result.EnabledEvents = enabledEvents.ToArray();
             }
+
             return result;
         }
     }

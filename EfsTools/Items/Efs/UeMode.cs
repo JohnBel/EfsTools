@@ -1,8 +1,6 @@
 using System;
 using System.ComponentModel;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
@@ -10,11 +8,8 @@ namespace EfsTools.Items.Efs
     [Subscription]
     [EfsFile("/policyman/ue_mode", true, 0xE1FF)]
     [Attributes(9)]
-    public class UeMode
+    public sealed class UeMode
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

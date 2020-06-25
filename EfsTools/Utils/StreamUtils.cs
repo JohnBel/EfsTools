@@ -10,7 +10,11 @@ namespace EfsTools.Utils
             while (source.Position < source.Length)
             {
                 var read = source.Read(buf, 0, buf.Length);
-                if (read == 0) break;
+                if (read == 0)
+                {
+                    break;
+                }
+
                 dest.Write(buf, 0, read);
             }
         }

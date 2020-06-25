@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
     [NvItemId(4967)]
     [Attributes(9)]
-    public class WcdmaTxCompVsFreq2Secondary
+    public sealed class WcdmaTxCompVsFreq2Secondary
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public sbyte[] Value { get; set; }
-        
     }
 }

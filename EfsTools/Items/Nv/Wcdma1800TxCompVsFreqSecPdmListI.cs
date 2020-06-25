@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4984)]
     [Attributes(9)]
-    public class Wcdma1800TxCompVsFreqSecPdmList
+    public sealed class Wcdma1800TxCompVsFreqSecPdmList
     {
-        [ElementsCount(4)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public ushort[] Value { get; set; }
-        
     }
 }

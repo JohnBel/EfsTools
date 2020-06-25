@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6587)]
     [Attributes(9)]
-    public class LteB7C1ImLevel
+    public sealed class LteB7C1ImLevel
     {
-        [ElementsCount(16)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public short[] Value { get; set; }
-        
     }
 }

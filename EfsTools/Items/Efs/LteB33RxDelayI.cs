@@ -1,21 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024845", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB33RxDelay
+    public sealed class LteB33RxDelay
     {
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short RxDelay { get; set; }
-        
     }
 }

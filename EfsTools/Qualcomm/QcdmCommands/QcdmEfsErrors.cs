@@ -123,7 +123,10 @@ namespace EfsTools.Qualcomm.QcdmCommands
         {
             var message = EfsErrorString(error);
 
-            if (message != null) throw new QcdmEfsException(message);
+            if (message != null)
+            {
+                throw new QcdmEfsException(message);
+            }
         }
     }
 }

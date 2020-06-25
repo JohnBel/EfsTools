@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022702", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40RxGainVsFreq
+    public sealed class TdscdmaB40RxGainVsFreq
     {
-        [ElementsCount(64)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public short[] Value { get; set; }
-        
     }
 }

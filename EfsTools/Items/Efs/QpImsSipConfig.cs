@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -41,85 +42,49 @@ namespace EfsTools.Items.Efs
         DesEde3Cbc = 4,
         Null_DesEde3Cbc = 5,
         AesCbc_DesEde3Cbc = 6,
-        Null_AesCbc_DesEde3Cbc = 7,
+        Null_AesCbc_DesEde3Cbc = 7
     }
-    
+
     [Serializable]
     [Subscription]
     [NvItemId(67262)]
     [EfsFile("/nv/item_files/ims/qp_ims_sip_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsSipConfig
+    public sealed class QpImsSipConfig
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort SipLocalPort { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TimerSipRegValue { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TimerSipSubscribeValue { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TimerT1Value { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TimerT2Value { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TimerT4Value { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TimerTfValue { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort TcpThresholdValue { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte CompactFormEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte SigCompEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte FmcConfig { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte IpSecIntScheme { get; set; }
 
         public string IpSecIntSchemeString
@@ -127,11 +92,8 @@ namespace EfsTools.Items.Efs
             get => $"{(IpSecIntegritySchemeValues) IpSecIntScheme}";
             set => IpSecIntScheme = EnumUtils.ParseEnumByte(typeof(IpSecIntegritySchemeValues), value);
         }
-        
+
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte IpSecEncAlgo { get; set; }
 
         public string IpSecEncAlgoString
@@ -141,9 +103,6 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte AuthScheme { get; set; }
 
         public string AuthSchemeString
@@ -153,9 +112,6 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte InitialAuthConfig { get; set; }
 
         public string InitialAuthConfigString
@@ -165,9 +121,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] AuthHeaderValue { get; set; }
 
         public string AuthHeaderValueString
@@ -177,9 +131,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] ProxyRouteValue { get; set; }
 
         public string ProxyRouteValueString

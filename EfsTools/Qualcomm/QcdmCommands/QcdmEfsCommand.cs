@@ -58,6 +58,6 @@
         EfsMakeGoldenCopy = 53, // Make golden copy for Remote Storage
         EfsFsImageOpen = 54, //Open FileSystem Image extraction
         EfsFsImageRead = 55, // Read File System Image.        
-        EfsFsImageClose = 56, // Close File System Image.    
+        EfsFsImageClose = 56 // Close File System Image.    
     }
 }

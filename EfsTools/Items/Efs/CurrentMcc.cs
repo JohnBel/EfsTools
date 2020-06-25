@@ -1,21 +1,17 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/policyman/current_mcc", true, 0xE1FF)]
     [Attributes(9)]
-    public class CurrentMcc
+    public sealed class CurrentMcc
 
     {
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
-        public UInt32 Value { get; set; }
+        public uint Value { get; set; }
     }
 }

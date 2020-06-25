@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(729)]
     [Attributes(9)]
-    public class GsmRxGainRange4FreqComp
+    public sealed class GsmRxGainRange4FreqComp
     {
-        [ElementsCount(8)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public ushort[] Value { get; set; }
-        
     }
 }

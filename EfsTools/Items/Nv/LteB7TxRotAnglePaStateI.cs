@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6557)]
     [Attributes(9)]
-    public class LteB7TxRotAnglePaState
+    public sealed class LteB7TxRotAnglePaState
     {
-        [ElementsCount(8)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public ushort[] Value { get; set; }
-        
     }
 }

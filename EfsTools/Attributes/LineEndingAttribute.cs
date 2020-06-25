@@ -16,9 +16,16 @@ namespace EfsTools.Attributes
             LineEnding = lineEnding;
             NeedLastEndLine = needLastEndLine;
         }
-        
-        public LineEnding LineEnding { get; private set; }
-        public bool NeedLastEndLine { get; private set; }
+
+        public LineEnding LineEnding
+        {
+            get;
+        }
+
+        public bool NeedLastEndLine
+        {
+            get;
+        }
 
         public string LineEndingString
         {
@@ -40,6 +47,7 @@ namespace EfsTools.Attributes
                         result = string.Empty;
                         break;
                 }
+
                 return result;
             }
         }

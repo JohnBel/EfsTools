@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5657)]
     [Attributes(9)]
-    public class Gsm850AmpmLinearPaRangeaF3Seg1
+    public sealed class Gsm850AmpmLinearPaRangeaF3Seg1
     {
-        [ElementsCount(64)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public short[] Value { get; set; }
-        
     }
 }

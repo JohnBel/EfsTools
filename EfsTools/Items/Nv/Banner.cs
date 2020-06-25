@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,20 +7,18 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(71)]
     [Attributes(9)]
-    public class Banner
+    public sealed class Banner
     {
-        [JsonIgnore]
-        [ElementsCount(13)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Value { get; set; }
+        [JsonIgnore] [MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
+        private byte[] _value;
 
         public string ValueString
         {
-            get => StringUtils.GetString(Value);
-            set => Value = StringUtils.GetBytes(value, 13);
+            get => StringUtils.GetString(_value);
+            set => _value = StringUtils.GetBytes(value, 13);
         }
     }
 }

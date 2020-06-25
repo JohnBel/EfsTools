@@ -31,6 +31,7 @@ namespace EfsTools.Utils
             buffer.WriteByte(HdlcControlChar); // start of frame
 
             for (var i = 0; i < data.Length; ++i)
+            {
                 if (data[i] == HdlcControlChar || data[i] == HdlcEscChar)
                 {
                     buffer.WriteByte(HdlcEscChar);
@@ -40,9 +41,11 @@ namespace EfsTools.Utils
                 {
                     buffer.WriteByte(data[i]);
                 }
+            }
 
             // add in each byte of the crc, but account for the crc containing HdlcControlChar or HdlcEscChar
             for (var i = 1; i >= 0; --i)
+            {
                 if (crc[i] == HdlcControlChar || crc[i] == HdlcEscChar)
                 {
                     buffer.WriteByte(HdlcEscChar);
@@ -52,6 +55,7 @@ namespace EfsTools.Utils
                 {
                     buffer.WriteByte(crc[i]);
                 }
+            }
 
             buffer.WriteByte(HdlcControlChar); // Add ending control character
 
@@ -67,9 +71,15 @@ namespace EfsTools.Utils
             var i = 0;
             for (; i < size; ++i)
             {
-                if (data[i] == HdlcControlChar && i == 0) continue;
+                if (data[i] == HdlcControlChar && i == 0)
+                {
+                    continue;
+                }
 
-                if (data[i] == HdlcControlChar) break; // stop from reading into another message
+                if (data[i] == HdlcControlChar)
+                {
+                    break; // stop from reading into another message
+                }
 
                 if (data[i] == HdlcEscChar)
                 {

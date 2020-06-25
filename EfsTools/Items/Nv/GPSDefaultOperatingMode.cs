@@ -1,17 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6273)]
     [Attributes(9)]
-    public class GpsDefaultOperatingMode
+    public sealed class GpsDefaultOperatingMode
     {
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint Value { get; set; }
     }
 }

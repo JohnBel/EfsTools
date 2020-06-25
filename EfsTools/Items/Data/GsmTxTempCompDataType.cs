@@ -1,38 +1,40 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class GsmTxTempCompDataType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class GsmTxTempCompDataType
     {
-        [ElementsCount(16)]
-        [ElementType("int16")]
-        [Description("")]
-        public short[] TempCompPclPwrScaling { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] HotTempCompPclPwrOffsetGsmk { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] ColdTempCompPclPwrOffsetGsmk { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] HotTempCompPclPwrOffset8psk { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] ColdTempCompPclPwrOffset8psk { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public short[] TempCompPclPwrScaling
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] HotTempCompPclPwrOffsetGsmk
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] ColdTempCompPclPwrOffsetGsmk
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] HotTempCompPclPwrOffset8psk
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] ColdTempCompPclPwrOffset8psk
+        {
+            get;
+        }
     }
 }

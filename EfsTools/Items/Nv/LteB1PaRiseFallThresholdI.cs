@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6719)]
     [Attributes(9)]
-    public class LteB1PaRiseFallThreshold
+    public sealed class LteB1PaRiseFallThreshold
     {
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public ushort[] Value { get; set; }
-        
     }
 }

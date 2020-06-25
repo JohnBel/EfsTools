@@ -2,13 +2,13 @@
 {
     internal class TextLayoutRule : ILayoutRule
     {
+        private readonly string _text;
+
         public TextLayoutRule(string text)
         {
             _text = text;
         }
 
-        private readonly string _text;
-        
         public string Render()
         {
             return _text;

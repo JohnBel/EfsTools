@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2259)]
     [Attributes(9)]
-    public class Gsm1900VhTmBrui15
+    public sealed class Gsm1900VhTmBrui15
     {
-        [ElementsCount(30)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
         public ushort[] Value { get; set; }
-        
     }
 }

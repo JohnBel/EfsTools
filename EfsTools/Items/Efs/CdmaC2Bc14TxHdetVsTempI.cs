@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024769", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc14TxHdetVsTemp
+    public sealed class CdmaC2Bc14TxHdetVsTemp
     {
-        [ElementsCount(8)]
-        [ElementType("int8")]
-        [Description("")]
-        public sbyte[] HdetVsTemp { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public sbyte[] HdetVsTemp
+        {
+            get;
+        }
     }
 }

@@ -7,11 +7,8 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/ims/voip_prfrd_codec", true, 0xE1FF)]
     [Attributes(9)]
-    public class VoipPreferredCodec
+    public sealed class VoipPreferredCodec
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Value { get; set; }
     }
 }

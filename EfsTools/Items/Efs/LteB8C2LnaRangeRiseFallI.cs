@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025177", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB8C2LnaRangeRiseFall
+    public sealed class LteB8C2LnaRangeRiseFall
     {
-        [ElementsCount(32)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public short[] Value { get; set; }
-        
     }
 }

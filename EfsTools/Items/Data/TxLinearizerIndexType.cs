@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class TxLinearizerIndexType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class TxLinearizerIndexType
     {
-        [ElementsCount(16)]
-        [ElementType("QMSL_Tx_Cal_Multi_Linearizer_Index_Node_NV_Type")]
-        [Description("")]
-        public QmslTxCalMultiLinearizerIndexNodeNvType[] NodeType { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public QmslTxCalMultiLinearizerIndexNodeNvType[] NodeType
+        {
+            get;
+        }
     }
 }

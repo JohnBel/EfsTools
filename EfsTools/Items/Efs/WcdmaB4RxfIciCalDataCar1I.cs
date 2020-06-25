@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023808", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB4RxfIciCalDataCar1
+    public sealed class WcdmaB4RxfIciCalDataCar1
     {
-        [ElementsCount(17)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 17)]
         public uint[] Value { get; set; }
-        
     }
 }

@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021578", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma800PaCompensateUpR3VsFreq
+    public sealed class Wcdma800PaCompensateUpR3VsFreq
     {
-        [ElementsCount(16)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public short[] Value { get; set; }
-        
     }
 }

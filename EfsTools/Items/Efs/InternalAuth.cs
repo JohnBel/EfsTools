@@ -1,17 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/data/3gpp2/internal_auth", true, 0xE1FF)]
     [Attributes(9)]
-    public class InternalAuth
+    public sealed class InternalAuth
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

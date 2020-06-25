@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Qualcomm.QcdmCommands.Requests;
@@ -43,6 +42,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                     ParseSetMask(result, data);
                     break;
             }
+
             return result;
         }
 
@@ -51,7 +51,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             result.Scope = data[12];
             var numBits = data[16] + (data[17] << 8);
             var maskLength = (numBits + 7) / 8;
-            if (data.Length < (maskLength + 16))
+            if (data.Length < maskLength + 16)
             {
                 throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
             }
@@ -63,9 +63,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                 if (BitsUtils.GetBitAsBool(data, 20, i))
                 {
                     var v = i + scopeDelta;
-                    enabledLogs.Add((LogId)v);
+                    enabledLogs.Add((LogId) v);
                 }
             }
+
             result.LogIds = enabledLogs.ToArray();
         }
 
@@ -76,9 +77,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             var logIds = new LogId[count];
             for (var i = 0; i < count; ++i)
             {
-                logIds[i] = (LogId)BitConverter.ToUInt16(data, pos);
+                logIds[i] = (LogId) BitConverter.ToUInt16(data, pos);
                 pos += 2;
             }
+
             result.LogIds = logIds;
             return result;
         }

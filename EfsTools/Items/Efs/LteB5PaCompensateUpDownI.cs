@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00020805", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB5PaCompensateUpDown
+    public sealed class LteB5PaCompensateUpDown
     {
-        [ElementsCount(16)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public short[] Value { get; set; }
-        
     }
 }

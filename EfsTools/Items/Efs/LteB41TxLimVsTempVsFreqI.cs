@@ -1,25 +1,18 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024581", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB41TxLimVsTempVsFreq
+    public sealed class LteB41TxLimVsTempVsFreq
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte MatrixEnabled { get; set; }
-        
-        [ElementsCount(128)]
-        [ElementType("int8")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public sbyte[] LimVsTempVsFreq { get; set; }
-        
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -55,13 +56,14 @@ namespace EfsTools.Items.Efs
         Level5 = 15,
         Level51 = 16
     }
-    
+
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67332)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_media_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsMediaConfig
+    public sealed class QpImsMediaConfig
     {
         public QpImsMediaConfig()
         {
@@ -69,16 +71,10 @@ namespace EfsTools.Items.Efs
         }
 
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
 
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte VideoResolution { get; set; }
 
         public string VideoResolutionString
@@ -87,21 +83,13 @@ namespace EfsTools.Items.Efs
             set => VideoResolution = EnumUtils.ParseEnumByte(typeof(VideoResolutionValues), value);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort VideoEncodingBitRate { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte FramesPerSecond { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte VideoCodec { get; set; }
 
         public string VideoCodecString
@@ -111,34 +99,22 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Sar { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Par { get; set; }
 
-        
+
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte H264Profile { get; set; }
-        
+
         public string H264ProfileString
         {
             get => $"{(H264ProfileValues) H264Profile}";
             set => H264Profile = EnumUtils.ParseEnumByte(typeof(H264ProfileValues), value);
         }
-        
+
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte H264ProfileLevel { get; set; }
 
         public string H264ProfileLevelString
@@ -148,123 +124,64 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort IpSyncDropUpperLimit { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort IpSyncDropLowerLimit { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte IpSyncEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjTimeWrapping { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjIbaMax { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjMaxFramesAtStart { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjMaxDelay { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjMinDelay { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjDelayByFrameCount { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjMaxFramesAtRun { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjMaxBumpedUpDelay { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte QdjJitterIncrement { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort QdjTargetUnderflow { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort QdjDefaultJitter { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort QdjGoThroughThreshold { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort QdjDropThreshold { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Qmin { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte TxSystemDelay { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RxSystemDelay { get; set; }
 
 
-        [ElementsCount(500)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 500)]
         public byte[] Reserved { get; set; }
     }
 }

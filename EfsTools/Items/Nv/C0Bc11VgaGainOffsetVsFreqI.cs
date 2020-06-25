@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(3889)]
     [Attributes(9)]
-    public class C0Bc11VgaGainOffsetVsFreq
+    public sealed class C0Bc11VgaGainOffsetVsFreq
     {
-        [ElementsCount(48)]
-        [ElementType("int8")]
-        [Description("")]
-        public sbyte[] Value { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 48)]
+        public sbyte[] Value
+        {
+            get;
+        }
     }
 }

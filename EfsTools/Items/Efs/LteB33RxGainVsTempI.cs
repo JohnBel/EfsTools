@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024849", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB33RxGainVsTemp
+    public sealed class LteB33RxGainVsTemp
     {
-        [ElementsCount(128)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public sbyte[] RxGainVsTemp { get; set; }
-        
     }
 }

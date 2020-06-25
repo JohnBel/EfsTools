@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -17,135 +18,92 @@ namespace EfsTools.Items.Efs
      */
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(67348)]
     [EfsFile("/nv/item_files/ims/qipcall_config_items", true, 0xE1FF)]
     [Attributes(9)]
-    public class QipcallConfigItems
-	{
-		public QipcallConfigItems()
-		{
-		    Version = 9;
-		}
-		
-        [Required]
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte Version { get; set; }
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte EnableRtcpForActiveVoipCall { get; set; }
-        
-		[ElementsCount(1)]
-		[ElementType("uint32")]
-		[Description("")]
-		public uint VtRtcpReportingInterval { get; set; }
-        
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte RtpNbAmrPayloadType { get; set; }
-        
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte RtpWbAmrPayloadType { get; set; }
-        
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte RtpNbDtmpPayloadType { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte RtpWbDtmpPayloadType { get; set; }
-
-	    [JsonIgnore]
-        [ElementsCount(16)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] MediaAttribute { get; set; }
-
-	    public string MediaAttributeString
+    public sealed class QipcallConfigItems
+    {
+        public QipcallConfigItems()
         {
-	        get { return StringUtils.GetString(MediaAttribute); }
-	        set { MediaAttribute = StringUtils.GetBytes(value, 16); }
-	    }
-
-        [ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte DesiredQosStrength { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte CmrAmrNb { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte CmrAmrWb { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte EmergCallCsOnly { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte VideoMediaProfileMode { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte VideoCalls { get; set; }
-
-		
-		[ElementsCount(1)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte MobileData { get; set; }
-
-
-	    [JsonIgnore]
-	    [ElementsCount(128)]
-		[ElementType("uint8")]
-		[Description("")]
-		public byte[] AudioFeatureTag { get; set; }
-
-	    public string AudioFeatureTagString
-        {
-	        get { return StringUtils.GetString(AudioFeatureTag); }
-	        set { AudioFeatureTag = StringUtils.GetBytes(value, 128); }
+            Version = 9;
         }
 
-	    [JsonIgnore]
-        [ElementsCount(128)]
-		[ElementType("uint8")]
-		[Description("")]
+        [Required]
+        public byte Version { get; set; }
+
+
+        public byte EnableRtcpForActiveVoipCall { get; set; }
+
+
+        public uint VtRtcpReportingInterval { get; set; }
+
+
+        public byte RtpNbAmrPayloadType { get; set; }
+
+
+        public byte RtpWbAmrPayloadType { get; set; }
+
+
+        public byte RtpNbDtmpPayloadType { get; set; }
+
+
+        public byte RtpWbDtmpPayloadType { get; set; }
+
+        [JsonIgnore]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public byte[] MediaAttribute { get; set; }
+
+        public string MediaAttributeString
+        {
+            get => StringUtils.GetString(MediaAttribute);
+            set => MediaAttribute = StringUtils.GetBytes(value, 16);
+        }
+
+
+        public byte DesiredQosStrength { get; set; }
+
+
+        public byte CmrAmrNb { get; set; }
+
+
+        public byte CmrAmrWb { get; set; }
+
+
+        public byte EmergCallCsOnly { get; set; }
+
+
+        public byte VideoMediaProfileMode { get; set; }
+
+
+        public byte VideoCalls { get; set; }
+
+
+        public byte MobileData { get; set; }
+
+
+        [JsonIgnore]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        public byte[] AudioFeatureTag { get; set; }
+
+        public string AudioFeatureTagString
+        {
+            get => StringUtils.GetString(AudioFeatureTag);
+            set => AudioFeatureTag = StringUtils.GetBytes(value, 128);
+        }
+
+        [JsonIgnore]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] VideoFeatureTag { get; set; }
 
-	    public string VideoFeatureTagString
+        public string VideoFeatureTagString
         {
-	        get { return StringUtils.GetString(VideoFeatureTag); }
-	        set { VideoFeatureTag = StringUtils.GetBytes(value, 128); }
+            get => StringUtils.GetString(VideoFeatureTag);
+            set => VideoFeatureTag = StringUtils.GetBytes(value, 128);
         }
 
-	    [ElementsCount(223)]
-		[ElementType("uint8")]
-		[Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 223)]
         public byte[] ReservedBytes { get; set; }
     }
 }

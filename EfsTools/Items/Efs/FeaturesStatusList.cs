@@ -1,26 +1,22 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Ignore]
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(73763)]
     [Subscription]
     [EfsFile("/nv/item_files/modem/uim/mmgsdi/features_status_list", true, 0xE1FF)]
     [Attributes(9)]
-    public class FeaturesStatusList
+    public sealed class FeaturesStatusList
     {
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
-        
-        [ElementsCount(63)]
-        [ElementType("uint8")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 63)]
         public byte[] Value { get; set; }
     }
 }

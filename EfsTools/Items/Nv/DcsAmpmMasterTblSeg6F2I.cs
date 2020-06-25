@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2630)]
     [Attributes(9)]
-    public class DcsAmpmMasterTblSeg6F2
+    public sealed class DcsAmpmMasterTblSeg6F2
     {
-        [ElementsCount(32)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public uint[] Value { get; set; }
-        
     }
 }

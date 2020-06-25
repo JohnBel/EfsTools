@@ -1,18 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Items.Efs;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1877)]
     [Attributes(9)]
-    public class RfBandConfiguration
+    public sealed class RfBandConfiguration
     {
-        [ElementsCount(1)]
-        [ElementType("uint64")]
-        [Description("")]
         public ulong Value { get; set; }
     }
 }

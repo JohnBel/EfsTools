@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,22 +8,18 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(70263)]
     [EfsFile("/nv/item_files/ims/qp_ims_ut_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsUtConfig
+    public sealed class QpImsUtConfig
     {
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(64)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public byte[] ApnName { get; set; }
 
         public string ApnNameString
@@ -32,9 +29,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(256)] //Todo: check
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] //Todo: check
         public byte[] DomainName { get; set; }
 
         public string DomainNameString
@@ -44,9 +39,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(256)] //Todo: check
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] //Todo: check
         public byte[] AssociatedUri { get; set; }
 
         public string AssociatedUriString
@@ -57,9 +50,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] ApplicationUid { get; set; }
 
         public string ApplicationUidString
@@ -68,51 +59,29 @@ namespace EfsTools.Items.Efs
             set => ApplicationUid = StringUtils.GetBytes(value, 128);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
+
         public uint RatConfig { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte IpAddrType { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RetryTimerValue { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RetryAttemptCount { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte ApnType { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte GbaUbType { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte GbaUbMode { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(512)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 512)]
         public byte[] BsfAddr { get; set; }
 
         public string BsfAddrString
@@ -121,35 +90,23 @@ namespace EfsTools.Items.Efs
             set => BsfAddr = StringUtils.GetBytes(value, 512);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte DisableUt { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte GbaTlsMode { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort PdnHysTimerValue { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
+
         public uint RatMaskValue { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte Apn2IpAddrType { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(64)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public byte[] Apn2ApnName { get; set; }
 
         public string Apn2ApnNameString

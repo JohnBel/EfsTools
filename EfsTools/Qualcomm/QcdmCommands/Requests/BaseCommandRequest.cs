@@ -14,7 +14,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
 
         public virtual byte[] GetData()
         {
-            return new[] {(byte) Command};
+            return new[] { (byte) Command };
         }
 
         private void InitializeCommand()
@@ -22,7 +22,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             var type = GetType();
             if (Command == QcdmCommand.Max &&
                 type.GetCustomAttributes(typeof(QcdmCommandAttribute), true).FirstOrDefault() is QcdmCommandAttribute
-                    attribute) Command = attribute.Command;
+                    attribute)
+            {
+                Command = attribute.Command;
+            }
         }
     }
 }

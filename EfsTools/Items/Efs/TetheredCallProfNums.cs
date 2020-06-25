@@ -7,7 +7,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/pdp_profiles/tethered_call_prof_nums", false, 0x81FF)]
     [Attributes(9)]
-    public class TetheredCallProfNums
+    public sealed class TetheredCallProfNums
     {
     }
 }

@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -19,11 +19,13 @@ namespace EfsTools.Items.Efs
         Rel8Jun10 = 0x17,
         Rel8Sep10 = 0x18,
         Rel8Dec10 = 0x19,
+
         /*Rel 9 versions*/
         Rel9 = 0x20,
         Rel9Mar10 = 0x21,
         Rel9Jun10 = 0x22,
         Rel9Sep10 = 0x23,
+
         /*Rel 10 versions*/
         Rel10Jun11 = 0x40, /*June 2011 release*/
         Rel10Sep11 = 0x41,
@@ -37,16 +39,14 @@ namespace EfsTools.Items.Efs
         Rel11Jun13 = 129,
         Rel11Dec13 = 130
     }
-    
+
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/modem/lte/lte_3gpp_release_ver", true, 0xE1FF)]
     [Attributes(9)]
-    public class Lte3gppReleaseVer
+    public sealed class Lte3gppReleaseVer
     {
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
 
         public string StringValue

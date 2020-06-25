@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,35 +8,25 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(70233)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsRcsAutoConfig
+    public sealed class QpImsRcsAutoConfig
     {
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte DisableAutoConfig { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RcsOnlyDeviceType { get; set; }
 
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] RcsPdpProfilename { get; set; }
 
         public string RcsPdpProfilenameString
@@ -45,9 +36,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] InternetPdpProfilename { get; set; }
 
         public string InternetPdpProfilenameString
@@ -57,33 +46,19 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte PcoConfigPriority { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte ISimConfigPriority { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte PreConfigPriority { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte AutoConfigPriority { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] RcsClientVendor { get; set; }
 
         public string RcsClientVendorString
@@ -93,9 +68,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] RcsClientVersion { get; set; }
 
         public string RcsClientVersionString
@@ -105,9 +78,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] RcsTerminalVendor { get; set; }
 
         public string RcsTerminalVendorString
@@ -117,9 +88,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] RcsTerminalModel { get; set; }
 
         public string RcsTerminalModelString
@@ -129,9 +98,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] RcsTerminalSwVersion { get; set; }
 
         public string RcsTerminalSwVersionString
@@ -141,9 +108,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(45)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 45)]
         public byte[] RcsConfigServerAddress { get; set; }
 
         public string RcsConfigServerAddressString
@@ -153,9 +118,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(5)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public byte[] RcsConfigServerPort { get; set; }
 
         public string RcsConfigServerPortString
@@ -165,9 +128,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(270)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 270)]
         public byte[] RcsLteFtList { get; set; }
 
         public string RcsLteFtListString
@@ -177,9 +138,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(270)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 270)]
         public byte[] RcsHspaFtList { get; set; }
 
         public string RcsHspaFtListString
@@ -189,9 +148,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(270)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 270)]
         public byte[] RcsWifiFtList { get; set; }
 
         public string RcsWifiFtListString
@@ -200,9 +157,7 @@ namespace EfsTools.Items.Efs
             set => RcsWifiFtList = StringUtils.GetBytes(value, 270);
         }
 
-        [ElementsCount(13)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 13)]
         public byte[] ReservedByte { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
         public override byte[] GetData()
         {
             var cmd = BitConverter.GetBytes(SubSystemCommand);
-            var data = new[] {(byte) Command, (byte) SubSystem, cmd[0], cmd[1]};
+            var data = new[] { (byte) Command, (byte) SubSystem, cmd[0], cmd[1] };
             return data;
         }
 

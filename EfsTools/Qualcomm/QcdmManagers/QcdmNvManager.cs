@@ -17,12 +17,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
         public byte[] Read(ushort itemId)
         {
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new NvReadCommandRequest(itemId);
                     var response = (NvReadCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                     return response.Data;
                 }
+            }
 
             return new byte[0];
         }
@@ -30,11 +32,13 @@ namespace EfsTools.Qualcomm.QcdmManagers
         public void Write(ushort itemId, byte[] data)
         {
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new NvWriteCommandRequest(itemId, data);
                     var response = (NvWriteCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                 }
+            }
         }
 
         public string ReadString(ushort itemId)

@@ -1,23 +1,15 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class VariantMarker
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class VariantMarker
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Version { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
+
         public ushort NumOfElement { get; set; }
-        
     }
 }

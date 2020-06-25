@@ -37,7 +37,10 @@ namespace EfsTools.Utils
         public override void Close()
         {
             _stream.Close();
-            if (_manager != null) _manager.Close();
+            if (_manager != null)
+            {
+                _manager.Close();
+            }
         }
 
         public override void Flush()

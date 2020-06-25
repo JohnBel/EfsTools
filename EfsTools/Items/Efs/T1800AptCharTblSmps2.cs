@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00021304", true, 0xE1FF)]
     [Attributes(9)]
-    public class T1800AptCharTblSmps2
+    public sealed class T1800AptCharTblSmps2
     {
-        [ElementsCount(64)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public ushort[] Value { get; set; }
-        
     }
 }

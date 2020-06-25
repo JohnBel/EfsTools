@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Resourses;
-using EfsTools.Utils;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
@@ -38,11 +35,13 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                 var events = new EventId[count];
                 for (var i = 0; i < count; ++i)
                 {
-                    events[i] = (EventId)BitConverter.ToUInt16(data, pos);
+                    events[i] = (EventId) BitConverter.ToUInt16(data, pos);
                     pos += 2;
                 }
+
                 result.Events = events;
             }
+
             return result;
         }
     }

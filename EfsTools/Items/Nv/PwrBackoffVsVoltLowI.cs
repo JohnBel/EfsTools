@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(491)]
     [Attributes(9)]
-    public class PwrBackoffVsVoltLow
+    public sealed class PwrBackoffVsVoltLow
     {
-        [ElementsCount(20)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
         public byte[] Value { get; set; }
-        
     }
 }

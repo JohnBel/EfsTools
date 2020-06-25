@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6495)]
     [Attributes(9)]
-    public class LteB13RxGainVsTemp
+    public sealed class LteB13RxGainVsTemp
     {
-        [ElementsCount(128)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public sbyte[] Value { get; set; }
-        
     }
 }

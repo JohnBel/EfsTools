@@ -1,6 +1,6 @@
 ﻿using System;
-using RJCP.IO.Ports;
 using EfsTools.Utils;
+using RJCP.IO.Ports;
 
 namespace EfsTools.Qualcomm
 {
@@ -12,7 +12,7 @@ namespace EfsTools.Qualcomm
 
         public HdlcSerial(string port, int baudrate, int timeout)
         {
-            _port = new SerialPortStream(port, baudrate) {ReadTimeout = timeout};
+            _port = new SerialPortStream(port, baudrate) { ReadTimeout = timeout };
         }
 
         public bool IsOpen => _port.IsOpen;

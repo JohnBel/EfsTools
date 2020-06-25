@@ -1,33 +1,34 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class RfcommonAntTunerDataType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class RfcommonAntTunerDataType
     {
-        [ElementsCount(4)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] DeviceEnable { get; set; }
-        
-        [ElementsCount(4)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] DeviceCs { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] ChannelList { get; set; }
-        
-        [ElementsCount(64)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint[] CodeWords { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        public byte[] DeviceEnable
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        public byte[] DeviceCs
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] ChannelList
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public uint[] CodeWords
+        {
+            get;
+        }
     }
 }

@@ -1,21 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025077", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm900PowerLevels
+    public sealed class GsmC0Gsm900PowerLevels
     {
-        [ElementsCount(16)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public short[] GsmPowerLevels { get; set; }
-        
     }
 }

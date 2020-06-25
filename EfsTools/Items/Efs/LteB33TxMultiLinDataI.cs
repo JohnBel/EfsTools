@@ -1,21 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024928", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB33TxMultiLinData
+    public sealed class LteB33TxMultiLinData
     {
-        [ElementsCount(1)]
-        [ElementType("QMSL_Tx_Cal_Complete_NV_Type")]
-        [Description("")]
         public QmslTxCalCompleteNvType TxBandCalData { get; set; }
-        
     }
 }

@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6564)]
     [Attributes(9)]
-    public class LteB7TxLimitVsTemp
+    public sealed class LteB7TxLimitVsTemp
     {
-        [ElementsCount(8)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public sbyte[] Value { get; set; }
-        
     }
 }

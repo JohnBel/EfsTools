@@ -6,6 +6,8 @@ namespace EfsTools.CommandLineOptions
     [Verb("downloadDirectory", HelpText = "Download EFS directory to computer")]
     internal class EfsDownloadDirectoryOptions
     {
+        private Layout _outComputerPathLayout;
+
         [Option('i', "inEfsPath", Required = true, HelpText = "EFS directory path")]
         public string InEfsPath { get; set; }
 
@@ -13,13 +15,8 @@ namespace EfsTools.CommandLineOptions
         public string OutComputerPath
         {
             get => _outComputerPathLayout?.Render();
-            set
-            {
-                _outComputerPathLayout = Layout.Parse(value);
-            }
+            set => _outComputerPathLayout = Layout.Parse(value);
         }
-
-        private Layout _outComputerPathLayout;
 
         [Option('n', "noExtraData", Required = false, HelpText = "Don't save extra data in file name", Default = false)]
         public bool NoExtraData { get; set; }

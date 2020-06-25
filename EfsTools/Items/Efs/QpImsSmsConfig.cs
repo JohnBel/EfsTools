@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,16 +8,15 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(67259)]
     [EfsFile("/nv/item_files/ims/qp_ims_sms_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsSmsConfig
+    public sealed class QpImsSmsConfig
     {
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] SmsConfigVDN { get; set; }
 
         public string SmsConfigVdnString
@@ -26,16 +26,11 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte SmsFormat { get; set; }
 
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] SmsAcceptContact { get; set; }
 
         public string SmsAcceptContactString
@@ -45,9 +40,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(64)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public byte[] SmsRatMaskStringValue { get; set; }
 
         public string SmsRatMaskString
@@ -57,15 +50,10 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint RatMaskValue { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] PhoneContextUri { get; set; }
 
         public string PhoneContextUriString
@@ -75,9 +63,6 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte ISmsOverIpNetworkIndication { get; set; }
     }
 }

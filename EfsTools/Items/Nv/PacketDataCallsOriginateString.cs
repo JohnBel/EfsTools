@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,25 +7,21 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(298)]
     [Attributes(9)]
-    public class PacketDataCallsOriginateString
+    public sealed class PacketDataCallsOriginateString
     {
         public PacketDataCallsOriginateString()
         {
             Digits = new byte[16];
         }
-        
+
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte NumDigits { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] Digits { get; set; }
 
         public string DigitsString

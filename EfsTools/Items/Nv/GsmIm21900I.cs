@@ -1,25 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4177)]
     [Attributes(9)]
-    public class GsmIm21900
+    public sealed class GsmIm21900
     {
-        [ElementsCount(3)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
         public ushort[] Value1 { get; set; }
-        
-        [ElementsCount(7)]
-        [ElementType("uint8")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
         public byte[] Value2 { get; set; }
-        
     }
 }

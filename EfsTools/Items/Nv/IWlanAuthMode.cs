@@ -1,7 +1,6 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Items.Efs;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
@@ -15,21 +14,20 @@ namespace EfsTools.Items.Nv
     }
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5828)]
     [Attributes(9)]
-    public class IWlanAuthMode
+    public sealed class IWlanAuthMode
     {
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
 
         public string ValueString
         {
-            get => $"{(IWlanAuthModeValues)Value}";
-            set => Value =
-                EnumUtils.ParseEnumByte(typeof(IWlanAuthModeValues), value);
+            get => $"{(IWlanAuthModeValues) Value}";
+            set =>
+                Value =
+                    EnumUtils.ParseEnumByte(typeof(IWlanAuthModeValues), value);
         }
     }
 }

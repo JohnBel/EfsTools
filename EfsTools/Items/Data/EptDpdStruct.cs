@@ -1,33 +1,31 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class EptDpdStruct
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class EptDpdStruct
     {
-        [ElementsCount(4)]
-        [ElementType("int32")]
-        [Description("")]
-        public int[] Am { get; set; }
-        
-        [ElementsCount(3)]
-        [ElementType("int32")]
-        [Description("")]
-        public int[] Pm { get; set; }
-        
-        [ElementsCount(3)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] PmShift { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        public int[] Am
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public int[] Pm
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        public byte[] PmShift
+        {
+            get;
+        }
+
+
         public sbyte Status { get; set; }
-        
     }
 }

@@ -18,12 +18,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
             get
             {
                 if (_manager.TryGetTarget(out var manager))
+                {
                     if (manager.IsOpen)
                     {
                         var request = new CallManagerStateInfoCommandRequest();
                         var response = (CallManagerStateInfoCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                         return response.CallState;
                     }
+                }
 
                 return 0;
             }

@@ -1,33 +1,24 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class RfnvDataPmeasListType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class RfnvDataPmeasListType
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Mod { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
+
         public byte ChannelIndex { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
+
         public byte PaState { get; set; }
-        
-        [ElementsCount(32)]
-        [ElementType("int16")]
-        [Description("")]
-        public short[] PmeasList { get; set; }
-        
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public short[] PmeasList
+        {
+            get;
+        }
     }
 }

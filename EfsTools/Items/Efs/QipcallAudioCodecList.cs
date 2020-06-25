@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,15 +8,14 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qipcall_audio_codec_list", false, 0x81FF)]
     [Attributes(9)]
-    public class QipcallAudioCodecList
+    public sealed class QipcallAudioCodecList
     {
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] Value { get; set; }
 
         public string ValueString

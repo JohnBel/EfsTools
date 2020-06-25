@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using EfsTools.Attributes;
 using EfsTools.Utils;
@@ -36,12 +37,19 @@ namespace EfsTools.Items
                             .GetCustomAttributes(typeof(ElementsCountAttribute)).FirstOrDefault();
                         if (elemCount != null)
                         {
+                            var marshalAs = (MarshalAsAttribute) property
+                                .GetCustomAttributes(typeof(MarshalAsAttribute)).FirstOrDefault();
+                            if (marshalAs == null || marshalAs.SizeConst == 0)
+                            {
+                                throw new ItemsBinarySerializerException("Invalid code");
+                            }
+
                             var val = (IEnumerable) property.GetValue(obj);
                             if (val != null)
                             {
                                 var lineEnding = (LineEndingAttribute) property
                                     .GetCustomAttributes(typeof(LineEndingAttribute)).FirstOrDefault();
-                                var lineEnd = (lineEnding == null) ? "\n" : lineEnding.LineEndingString;
+                                var lineEnd = lineEnding == null ? "\n" : lineEnding.LineEndingString;
                                 var lineEndBuf = Encoding.ASCII.GetBytes(lineEnd);
                                 var addEndLine = false;
                                 foreach (var item in val)
@@ -58,6 +66,7 @@ namespace EfsTools.Items
                                         stream.Write(buf, 0, buf.Length);
                                     }
                                 }
+
                                 if (lineEnding != null)
                                 {
                                     if (addEndLine && lineEnding.NeedLastEndLine)
@@ -99,15 +108,29 @@ namespace EfsTools.Items
                             .GetCustomAttributes(typeof(ElementsCountAttribute)).FirstOrDefault();
                         if (elemCount != null)
                         {
+                            var marshalAs = (MarshalAsAttribute) property
+                                .GetCustomAttributes(typeof(MarshalAsAttribute)).FirstOrDefault();
+                            if (marshalAs == null || marshalAs.SizeConst == 0)
+                            {
+                                throw new ItemsBinarySerializerException("Invalid code");
+                            }
+
                             var size = GetArrayElementTypeSize(propType);
-                            if (size == 0) size = (int) stream.Length;
+                            if (size == 0)
+                            {
+                                size = (int) stream.Length;
+                            }
+
                             var buf = elemCount.Value == 0 ? new byte[stream.Length] : new byte[size * elemCount.Value];
                             var pos = 0;
                             while (stream.Position < stream.Length)
                             {
                                 var read = stream.Read(buf, pos, buf.Length - pos);
                                 pos += read;
-                                if (read == 0) break;
+                                if (read == 0)
+                                {
+                                    break;
+                                }
                             }
 
                             if (pos < buf.Length)
@@ -117,6 +140,7 @@ namespace EfsTools.Items
                                     throw new ItemsBinarySerializerException(
                                         $"Error on deserialize item '{type.Name}'. (Property = '{property.Name}')");
                                 }
+
                                 continue;
                             }
 
@@ -136,6 +160,7 @@ namespace EfsTools.Items
                                 throw new ItemsBinarySerializerException(
                                     $"Error on deserialize item '{type.Name}'. (Property = '{property.Name}')");
                             }
+
                             continue;
                         }
 
@@ -169,13 +194,13 @@ namespace EfsTools.Items
             switch (type.Name)
             {
                 case "Char":
-                    result = new[] {Convert.ToByte(val)};
+                    result = new[] { Convert.ToByte(val) };
                     break;
                 case "Byte":
-                    result = new[] {(byte) val};
+                    result = new[] { (byte) val };
                     break;
                 case "SByte":
-                    result = new[] {ToByte((sbyte) val)};
+                    result = new[] { ToByte((sbyte) val) };
                     break;
                 case "Int16":
                     result = BitConverter.GetBytes((short) val);
@@ -207,8 +232,11 @@ namespace EfsTools.Items
         {
             var size = 0;
             if (type.IsArray)
+            {
                 size = 0;
+            }
             else
+            {
                 switch (type.Name)
                 {
                     case "Char":
@@ -232,6 +260,8 @@ namespace EfsTools.Items
                         size = 0;
                         break;
                 }
+            }
+
             return size;
         }
 
@@ -239,6 +269,7 @@ namespace EfsTools.Items
         {
             var size = 0;
             if (type.IsArray)
+            {
                 switch (type.Name)
                 {
                     case "Char[]":
@@ -262,8 +293,12 @@ namespace EfsTools.Items
                         size = 0;
                         break;
                 }
+            }
             else
+            {
                 size = 0;
+            }
+
             return size;
         }
 
@@ -271,6 +306,7 @@ namespace EfsTools.Items
         {
             object result = null;
             if (!type.IsArray)
+            {
                 switch (type.Name)
                 {
                     case "Char":
@@ -284,32 +320,58 @@ namespace EfsTools.Items
                         break;
                     case "Int16":
                         result = BitConverter.ToInt16(buf, 0);
-                        if (convertEndian) result = EndianConverter.Convert((short) result);
+                        if (convertEndian)
+                        {
+                            result = EndianConverter.Convert((short) result);
+                        }
+
                         break;
                     case "UInt16":
                         result = BitConverter.ToUInt16(buf, 0);
-                        if (convertEndian) result = EndianConverter.Convert((ushort) result);
+                        if (convertEndian)
+                        {
+                            result = EndianConverter.Convert((ushort) result);
+                        }
+
                         break;
                     case "Int32":
                         result = BitConverter.ToInt32(buf, 0);
-                        if (convertEndian) result = EndianConverter.Convert((int) result);
+                        if (convertEndian)
+                        {
+                            result = EndianConverter.Convert((int) result);
+                        }
+
                         break;
                     case "UInt32":
                         result = BitConverter.ToUInt32(buf, 0);
-                        if (convertEndian) result = EndianConverter.Convert((uint) result);
+                        if (convertEndian)
+                        {
+                            result = EndianConverter.Convert((uint) result);
+                        }
+
                         break;
                     case "Int64":
                         result = BitConverter.ToInt64(buf, 0);
-                        if (convertEndian) result = EndianConverter.Convert((long) result);
+                        if (convertEndian)
+                        {
+                            result = EndianConverter.Convert((long) result);
+                        }
+
                         break;
                     case "UInt64":
                         result = BitConverter.ToUInt64(buf, 0);
-                        if (convertEndian) result = EndianConverter.Convert((ulong) result);
+                        if (convertEndian)
+                        {
+                            result = EndianConverter.Convert((ulong) result);
+                        }
+
                         break;
                     case "String":
                         result = Encoding.ASCII.GetString(buf);
                         break;
                 }
+            }
+
             return result;
         }
 
@@ -317,19 +379,28 @@ namespace EfsTools.Items
         {
             object result = null;
             if (type.IsArray)
+            {
                 switch (type.Name)
                 {
                     case "Char[]":
                     {
                         var arr = new char[buf.Length];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = (char) buf[i];
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = (char) buf[i];
+                        }
+
                         result = arr;
                     }
                         break;
                     case "SByte[]":
                     {
                         var arr = new sbyte[buf.Length];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = (sbyte) buf[i];
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = (sbyte) buf[i];
+                        }
+
                         result = arr;
                     }
                         break;
@@ -339,42 +410,66 @@ namespace EfsTools.Items
                     case "Int16[]":
                     {
                         var arr = new short[buf.Length / 2];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = BitConverter.ToInt16(buf, 2 * i);
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = BitConverter.ToInt16(buf, 2 * i);
+                        }
+
                         result = arr;
                     }
                         break;
                     case "UInt16[]":
                     {
                         var arr = new ushort[buf.Length / 2];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = BitConverter.ToUInt16(buf, 2 * i);
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = BitConverter.ToUInt16(buf, 2 * i);
+                        }
+
                         result = arr;
                     }
                         break;
                     case "Int32[]":
                     {
                         var arr = new int[buf.Length / 4];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = BitConverter.ToInt32(buf, 4 * i);
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = BitConverter.ToInt32(buf, 4 * i);
+                        }
+
                         result = arr;
                     }
                         break;
                     case "UInt32[]":
                     {
                         var arr = new uint[buf.Length / 4];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = BitConverter.ToUInt32(buf, 4 * i);
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = BitConverter.ToUInt32(buf, 4 * i);
+                        }
+
                         result = arr;
                     }
                         break;
                     case "Int64[]":
                     {
                         var arr = new long[buf.Length / 8];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = BitConverter.ToInt64(buf, 8 * i);
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = BitConverter.ToInt64(buf, 8 * i);
+                        }
+
                         result = arr;
                     }
                         break;
                     case "UInt64[]":
                     {
                         var arr = new ulong[buf.Length / 8];
-                        for (var i = 0; i < arr.Length; ++i) arr[i] = BitConverter.ToUInt64(buf, 8 * i);
+                        for (var i = 0; i < arr.Length; ++i)
+                        {
+                            arr[i] = BitConverter.ToUInt64(buf, 8 * i);
+                        }
+
                         result = arr;
                     }
                         break;
@@ -383,19 +478,22 @@ namespace EfsTools.Items
                         var str = Encoding.ASCII.GetString(buf);
                         var lineEnding = (LineEndingAttribute) property
                             .GetCustomAttributes(typeof(LineEndingAttribute)).FirstOrDefault();
-                        var lineEnd = (lineEnding == null) ? "\n" : lineEnding.LineEndingString;
+                        var lineEnd = lineEnding == null ? "\n" : lineEnding.LineEndingString;
                         str = str.Replace(lineEnd, "\n");
-                        var parts = str.Split(new[] {'\n'}, StringSplitOptions.None);
+                        var parts = str.Split(new[] { '\n' }, StringSplitOptions.None);
                         if (parts.Length > 1 && string.IsNullOrEmpty(parts[parts.Length - 1]))
                         {
                             var newParts = new string[parts.Length - 1];
                             Array.Copy(parts, 0, newParts, 0, newParts.Length);
                             parts = newParts;
                         }
+
                         result = parts;
                     }
                         break;
                 }
+            }
+
             return result;
         }
     }

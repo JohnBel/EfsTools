@@ -1,14 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(70329)]
     [EfsFile("/nv/item_files/ims/qp_ims_auto_prov_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsAutoProvConfig
+    public sealed class QpImsAutoProvConfig
     {
         public QpImsAutoProvConfig()
         {
@@ -20,56 +22,35 @@ namespace EfsTools.Items.Efs
             AcsServerAddress = new byte[360];
             AcsServerPort = new byte[40];
         }
-        
+
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte DisableAcs { get; set; }
-        
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] ServiceName { get; set; }
 
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] DeviceType { get; set; }
 
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] NetType { get; set; }
 
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] RcsIdentifier { get; set; }
 
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] AcsPdpProfileName { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte AcsApnType { get; set; }
 
-        [ElementsCount(360)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 360)]
         public byte[] AcsServerAddress { get; set; }
 
-        [ElementsCount(40)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
         public byte[] AcsServerPort { get; set; }
     }
 }

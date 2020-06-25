@@ -1,23 +1,18 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(176)]
     [Attributes(45)]
-    public class ImsiMcc
+    public sealed class ImsiMcc
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Nam { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Value { get; set; }
     }
 }

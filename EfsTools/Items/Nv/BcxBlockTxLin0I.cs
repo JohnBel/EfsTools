@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6158)]
     [Attributes(9)]
-    public class BcxBlockTxLin0
+    public sealed class BcxBlockTxLin0
     {
-        [ElementsCount(64)]
-        [ElementType("int16")]
-        [Description("")]
-        public short[] Value { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public short[] Value
+        {
+            get;
+        }
     }
 }

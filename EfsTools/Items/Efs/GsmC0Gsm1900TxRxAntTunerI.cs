@@ -1,26 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025095", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900TxRxAntTuner
+    public sealed class GsmC0Gsm1900TxRxAntTuner
     {
-        [ElementsCount(1)]
-        [ElementType("RFCOMMON_ANT_TUNER_DATA_TYPE")]
-        [Description("")]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("RFCOMMON_ANT_TUNER_DATA_TYPE")]
-        [Description("")]
+
+
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
-        
     }
 }

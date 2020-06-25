@@ -1,21 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1269)]
     [Attributes(9)]
-    public class C1Bc6DigitalMisCompBOffset
+    public sealed class C1Bc6DigitalMisCompBOffset
     {
-        [ElementsCount(1)]
-        [ElementType("int32")]
-        [Description("")]
         public int Value { get; set; }
-        
     }
 }

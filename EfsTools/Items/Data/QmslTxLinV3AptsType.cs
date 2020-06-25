@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxLinV3AptsType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxLinV3AptsType
     {
-        [ElementsCount(64)]
-        [ElementType("uint32")]
-        [Description("")]
-        public uint[] Apt { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public uint[] Apt
+        {
+            get;
+        }
     }
 }

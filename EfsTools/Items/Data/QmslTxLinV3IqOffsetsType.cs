@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxLinV3IqOffsetsType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxLinV3IqOffsetsType
     {
-        [ElementsCount(64)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] IqOffset { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public ushort[] IqOffset
+        {
+            get;
+        }
     }
 }

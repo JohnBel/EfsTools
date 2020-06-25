@@ -34,16 +34,22 @@ namespace EfsTools.Items
         public static object CreateNvItem(int id)
         {
             InitilaizeNvItemsMetadata();
-            if (_nvItemsMetadata.TryGetValue(id, out var type)) 
+            if (_nvItemsMetadata.TryGetValue(id, out var type))
+            {
                 return Activator.CreateInstance(type);
+            }
+
             return null;
         }
 
         public static object CreateEfsFile(string path)
         {
             InitilaizeEfsFileMetadata();
-            if (_efsFileMetadata.TryGetValue(path, out var type)) 
+            if (_efsFileMetadata.TryGetValue(path, out var type))
+            {
                 return Activator.CreateInstance(type);
+            }
+
             return null;
         }
 
@@ -58,6 +64,7 @@ namespace EfsTools.Items
                     return true;
                 }
             }
+
             return false;
         }
 
@@ -67,18 +74,20 @@ namespace EfsTools.Items
             {
                 var assembly = Assembly.GetCallingAssembly();
                 foreach (var type in assembly.GetTypes())
+                {
                     if (!type.IsAbstract && !type.IsEnum)
                     {
                         var ignore = IgnoreAttributeUtils.Get(type);
                         if (ignore == null)
                         {
                             var nvItemId = NvItemIdAttributeUtils.Get(type);
-                            if (nvItemId != null && nvItemId.Id <= UInt16.MaxValue)
+                            if (nvItemId != null && nvItemId.Id <= ushort.MaxValue)
                             {
                                 _nvItemsMetadata.Add(nvItemId.Id, type);
                             }
                         }
                     }
+                }
             }
         }
 
@@ -89,15 +98,20 @@ namespace EfsTools.Items
             {
                 var assembly = Assembly.GetCallingAssembly();
                 foreach (var type in assembly.GetTypes())
+                {
                     if (!type.IsAbstract && !type.IsEnum)
                     {
                         var ignore = IgnoreAttributeUtils.Get(type);
                         if (ignore == null)
                         {
                             var efsFile = EfsFileAttributeUtils.Get(type);
-                            if (efsFile != null) _efsFileMetadata.Add(efsFile.Path, type);
+                            if (efsFile != null)
+                            {
+                                _efsFileMetadata.Add(efsFile.Path, type);
+                            }
                         }
                     }
+                }
             }
         }
     }

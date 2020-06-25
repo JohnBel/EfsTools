@@ -1,21 +1,20 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024746", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC0Bc15TxLimVsTempVsFreq
+    public sealed class CdmaC0Bc15TxLimVsTempVsFreq
     {
-        [ElementsCount(8)]
-        [ElementType("QMSL_Tx_Cal_Freq_Num_Type")]
-        [Description("")]
-        public QmslTxCalFreqNumType[] Temp { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public QmslTxCalFreqNumType[] Temp
+        {
+            get;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -57,15 +58,14 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(67264)]
     [EfsFile("/nv/item_files/ims/qp_ims_reg_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsRegConfig
+    public sealed class QpImsRegConfig
     {
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
         [Description("0 Power on, 1 On Call)")]
         public byte RegOnMode { get; set; }
 
@@ -76,8 +76,6 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
         [Description("0 IETF, 1 EARLY, 2 IMS with IPSec, 3, IMS without IPSec, 4 No IMS")]
         public byte RegModeConfig { get; set; }
 
@@ -88,8 +86,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         [Description(
             "In NI 5.0 or later, APN name is used instead of the profile number.Please confirm with test labs for exact APN info")]
         public byte[] RegManagerPdpProfileName { get; set; }
@@ -101,33 +98,19 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegEventPacket { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegPcoeEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegDhcpEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegPreConfigEnabled { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] RegManagerPreConfigServerBase { get; set; }
 
         public string RegManagerPreConfigServerBaseString
@@ -137,8 +120,6 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
         [Description("RegRatConfig = CONFIG_RAT_LTE")]
         public byte RegRatConfig { get; set; }
 
@@ -149,39 +130,22 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegNvPcScfEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegWlanEnabled { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort RegUserNameImsi { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegResponseForOptions { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigMaxDiscoveryCount { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] RegManagerDiscoverySchedule { get; set; }
 
         public string RegManagerDiscoveryScheduleString
@@ -192,9 +156,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] RegManagerCdmaPdpProfileName { get; set; }
 
         public string RegManagerCdmaPdpProfileNameString
@@ -204,16 +166,11 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigPdnRecoveryDelayTimerVal { get; set; }
 
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] RegManagerPdpFailureSchedule { get; set; }
 
         public string RegManagerPdpFailureScheduleString
@@ -223,39 +180,21 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigMaxIntermediatePDPRetries { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigEhrpdRecoveryTime { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigRegistrationAttempts { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigDelayAttemptTimer { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RegConfigTestMode { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort RegPcScfPort { get; set; }
     }
 }

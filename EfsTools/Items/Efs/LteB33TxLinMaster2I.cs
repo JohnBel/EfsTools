@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024874", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB33TxLinMaster2
+    public sealed class LteB33TxLinMaster2
     {
-        [ElementsCount(64)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public ushort[] TxLinMaster2 { get; set; }
-        
     }
 }

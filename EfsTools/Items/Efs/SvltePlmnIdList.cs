@@ -7,7 +7,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/mmode/cmph/svlte_plmn_id_list", false, 0x81FF)]
     [Attributes(9)]
-    public class SvltePlmnIdList
+    public sealed class SvltePlmnIdList
     {
     }
 }

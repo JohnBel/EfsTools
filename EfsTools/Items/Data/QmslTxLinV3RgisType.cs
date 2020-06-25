@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxLinV3RgisType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxLinV3RgisType
     {
-        [ElementsCount(64)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] Rgi { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public ushort[] Rgi
+        {
+            get;
+        }
     }
 }

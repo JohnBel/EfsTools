@@ -1,25 +1,19 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024713", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB8HdetHpmThreshold
+    public sealed class LteB8HdetHpmThreshold
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Enable { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
+
         public ushort Value { get; set; }
-        
     }
 }

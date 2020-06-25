@@ -1,18 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/Data_Profiles/Profile7", false, 0x81B6)]
     [Attributes(9)]
-    public class Profile7
+    public sealed class Profile7 : ProfileBase
     {
-        [ElementsCount(0)]
-        [ElementType("uint8[]")]
-        [Description("")]
-        public byte[] Values { get; set; }
     }
 }

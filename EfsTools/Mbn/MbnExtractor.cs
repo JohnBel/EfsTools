@@ -14,9 +14,12 @@ namespace EfsTools.Mbn
         {
         }
     }
-    
+
     internal static class MbnExtractor
     {
+        private static readonly string MagicString = "MCFG";
+        private static readonly string TrailerMagicString = "MCFG_TRL";
+
         public static void Extract(string inputMbnFilePath, string outputDirectory, bool noExtraData, Logger logger)
         {
             try
@@ -27,6 +30,7 @@ namespace EfsTools.Mbn
                 {
                     throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatElfDataNotExist);
                 }
+
                 var segment = segments[2];
                 var contents = segment.GetFileContents();
                 using (var stream = new MemoryStream(contents))
@@ -44,9 +48,6 @@ namespace EfsTools.Mbn
             }
         }
 
-        private static readonly string MagicString = "MCFG";
-        private static readonly string TrailerMagicString = "MCFG_TRL";
-
         private static McfgHeader ReadMcfgHeader(Stream contents)
         {
             var buf = new byte[MagicString.Length];
@@ -63,35 +64,36 @@ namespace EfsTools.Mbn
                 {
                     throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatCantFindMagicString);
                 }
-                
             }
-            
+
             var result = new McfgHeader();
             result.Magic = Encoding.ASCII.GetString(buf);
             var readToBuf = contents.Read(buf, 0, 2);
-            result.FormatType = BitConverter.ToUInt16(buf, 0); 
+            result.FormatType = BitConverter.ToUInt16(buf, 0);
             readToBuf = contents.Read(buf, 0, 2);
-            result.ConfigurationType = (ConfigurationType)BitConverter.ToUInt16(buf, 0); 
+            result.ConfigurationType = (ConfigurationType) BitConverter.ToUInt16(buf, 0);
             readToBuf = contents.Read(buf, 0, 4);
-            result.ItemsCount = BitConverter.ToUInt32(buf, 0); 
+            result.ItemsCount = BitConverter.ToUInt32(buf, 0);
             readToBuf = contents.Read(buf, 0, 2);
-            result.CarrierIndex = BitConverter.ToUInt16(buf, 0); 
+            result.CarrierIndex = BitConverter.ToUInt16(buf, 0);
             readToBuf = contents.Read(buf, 0, 2);
-            result.Reserved = BitConverter.ToUInt16(buf, 0); 
+            result.Reserved = BitConverter.ToUInt16(buf, 0);
             readToBuf = contents.Read(buf, 0, 2);
             var versionId = BitConverter.ToUInt16(buf, 0);
             if (versionId != 4995)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidHeaderVersionId);
             }
+
             readToBuf = contents.Read(buf, 0, 2);
             var versionSize = BitConverter.ToUInt16(buf, 0);
             if (versionSize != 4)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidHeaderVersionValue);
             }
+
             readToBuf = contents.Read(buf, 0, 4);
-            result.Version = BitConverter.ToUInt32(buf, 0); 
+            result.Version = BitConverter.ToUInt32(buf, 0);
             return result;
         }
 
@@ -100,13 +102,13 @@ namespace EfsTools.Mbn
             var buf = new byte[4];
             var result = new ItemHeader();
             var readToBuf = contents.Read(buf, 0, 4);
-            result.Length = BitConverter.ToUInt32(buf, 0); 
+            result.Length = BitConverter.ToUInt32(buf, 0);
             readToBuf = contents.Read(buf, 0, 1);
-            result.Type = (ItemType)buf[0]; 
+            result.Type = (ItemType) buf[0];
             readToBuf = contents.Read(buf, 0, 1);
-            result.Attributes = buf[0]; 
+            result.Attributes = buf[0];
             readToBuf = contents.Read(buf, 0, 2);
-            result.Reserved = BitConverter.ToUInt16(buf, 0); 
+            result.Reserved = BitConverter.ToUInt16(buf, 0);
             return result;
         }
 
@@ -119,19 +121,20 @@ namespace EfsTools.Mbn
 
                 switch (itemHeader.Type)
                 {
-                case ItemType.Nv:
-                    ParseNv(contents, itemHeader, outputDirectory, logger);
-                    break;
-                case ItemType.NvFile:
-                    ParseFile(contents, itemHeader, outputDirectory, true, noExtraData, logger);
-                    break;
-                case ItemType.File:
-                    ParseFile(contents, itemHeader, outputDirectory, false, noExtraData, logger);
-                    break;
-                default:
-                    throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatUnknownItemType);
+                    case ItemType.Nv:
+                        ParseNv(contents, itemHeader, outputDirectory, logger);
+                        break;
+                    case ItemType.NvFile:
+                        ParseFile(contents, itemHeader, outputDirectory, true, noExtraData, logger);
+                        break;
+                    case ItemType.File:
+                        ParseFile(contents, itemHeader, outputDirectory, false, noExtraData, logger);
+                        break;
+                    default:
+                        throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatUnknownItemType);
                 }
             }
+
             ReadTrailer(contents);
         }
 
@@ -140,15 +143,16 @@ namespace EfsTools.Mbn
             var buf = new byte[4];
             var readToBuf = contents.Read(buf, 0, 4);
             var recordLength = BitConverter.ToUInt32(buf, 0);
-            
+
             var pos = contents.Position;
-            
+
             readToBuf = contents.Read(buf, 0, 2);
             var trailerMagic = BitConverter.ToUInt16(buf, 0);
             if (trailerMagic != 10)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidTrailerMagic1);
             }
+
             readToBuf = contents.Read(buf, 0, 2);
             var reserved = BitConverter.ToUInt16(buf, 0);
 
@@ -165,17 +169,19 @@ namespace EfsTools.Mbn
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidTrailerSize);
             }
+
             buf = new byte[dataLength];
             readToBuf = contents.Read(buf, 0, dataLength);
             var magic3 = Encoding.ASCII.GetString(buf, 0, 8);
-            
+
             if (magic3 != TrailerMagicString)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidTrailerMagicValue);
             }
         }
 
-        private static void ParseFile(MemoryStream contents, ItemHeader itemHeader, string outputDirectory, bool isNvFile, bool noExtraData, Logger logger)
+        private static void ParseFile(MemoryStream contents, ItemHeader itemHeader, string outputDirectory,
+            bool isNvFile, bool noExtraData, Logger logger)
         {
             var pos = contents.Position;
             var buf = new byte[2];
@@ -185,30 +191,33 @@ namespace EfsTools.Mbn
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidInvalidFileHeaderMagic);
             }
+
             readToBuf = contents.Read(buf, 0, 2);
-            var fileNameLength = BitConverter.ToUInt16(buf, 0); 
+            var fileNameLength = BitConverter.ToUInt16(buf, 0);
             buf = new byte[fileNameLength];
             readToBuf = contents.Read(buf, 0, fileNameLength);
             var fileName = Encoding.ASCII.GetString(buf, 0, fileNameLength - 1);
-            
+
             readToBuf = contents.Read(buf, 0, 2);
             var fileSizeMagic = BitConverter.ToUInt16(buf, 0);
             if (fileSizeMagic != 2)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidInvalidFileSizeMagic);
             }
+
             readToBuf = contents.Read(buf, 0, 2);
-            var dataLength = BitConverter.ToUInt16(buf, 0) - 1; 
+            var dataLength = BitConverter.ToUInt16(buf, 0) - 1;
             readToBuf = contents.Read(buf, 0, 1);
             var dataMagic = buf[0];
 
             buf = new byte[dataLength];
             readToBuf = contents.Read(buf, 0, dataLength);
-            var realLength = (contents.Position - pos + 8);
+            var realLength = contents.Position - pos + 8;
             if (realLength != itemHeader.Length)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidInvalidFileItemSize);
             }
+
             logger.LogInfo(isNvFile ? $"  ItemFile:{fileName}" : $"  File:{fileName}");
             if (noExtraData)
             {
@@ -217,7 +226,7 @@ namespace EfsTools.Mbn
             else
             {
                 var fileNameWithAttributes = isNvFile ? $"{fileName}__E1FF_F" : $"{fileName}__81FF_0";
-                SaveToFile(fileNameWithAttributes, buf, outputDirectory);                
+                SaveToFile(fileNameWithAttributes, buf, outputDirectory);
             }
         }
 
@@ -226,18 +235,19 @@ namespace EfsTools.Mbn
             var pos = contents.Position;
             var buf = new byte[2];
             var readToBuf = contents.Read(buf, 0, 2);
-            var nvId = BitConverter.ToUInt16(buf, 0); 
+            var nvId = BitConverter.ToUInt16(buf, 0);
             readToBuf = contents.Read(buf, 0, 2);
-            var dataLength = BitConverter.ToUInt16(buf, 0) - 1; 
+            var dataLength = BitConverter.ToUInt16(buf, 0) - 1;
             readToBuf = contents.Read(buf, 0, 1);
             var dataMagic = buf[0];
             buf = new byte[dataLength];
             readToBuf = contents.Read(buf, 0, dataLength);
-            var realLength = (contents.Position - pos + 8);
+            var realLength = contents.Position - pos + 8;
             if (realLength != itemHeader.Length)
             {
                 throw new MbnExtractorException(Strings.MbnExtractorInvalidFormatInvalidInvalidNvItemSize);
             }
+
             logger.LogInfo($"  Nv:{nvId:00000}");
             var fileName = $"NvItem__{nvId:00000000}";
             SaveToFile(fileName, buf, outputDirectory);

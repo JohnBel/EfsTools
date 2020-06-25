@@ -1,19 +1,17 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(70287)]
     [EfsFile("/nv/item_files/ims/ims_hybrid_enable", true, 0xE1FF)]
     [Attributes(9)]
-    public class ImsHybridEnable
+    public sealed class ImsHybridEnable
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

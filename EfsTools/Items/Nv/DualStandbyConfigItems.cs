@@ -1,47 +1,30 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6876)]
     [Attributes(25)]
-    public class DualStandbyConfigItems
+    public sealed class DualStandbyConfigItems
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte DedicatedVoiceSubs { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte DedicatedDataSubs { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte ActiveSubs { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte PrioritySubs { get; set; }
 
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte DualStandbyPref { get; set; }
 
-        
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte Reserved { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -14,52 +15,35 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(70235)]
     [EfsFile("/nv/item_files/ims/qp_ims_reg_extended_0_config", true, 0xE1B6)]
     [Attributes(9)]
-    public class QpImsRegExtended0Config
+    public sealed class QpImsRegExtended0Config
     {
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
+
         public ushort RegConfigNetworkInitiatedDeRegTimer { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TDelay { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort EmerIpFallback { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte RegConfigPdnRecoveryImmediateTimer { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort RegRetryBaseTime { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort RegRetryMaxTime { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte EnableRegInLpm { get; set; }
 
         public string EnableRegInLpmString
@@ -68,19 +52,14 @@ namespace EfsTools.Items.Efs
             set => EnableRegInLpm = EnumUtils.ParseEnumByte(typeof(EnableRegInLpmValues), value);
         }
 
-        [ElementsCount(1011)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 1011)]
         public byte[] Reserved { get; set; }
 
-        /*[ElementsCount(1019)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Field3 { get; set; }
+        /*[field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 1019)]
+		public byte[] Field3 { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+        
+        
         public ushort Field4 { get; set; }*/
     }
 }

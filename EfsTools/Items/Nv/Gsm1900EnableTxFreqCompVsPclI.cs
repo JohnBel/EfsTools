@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2327)]
     [Attributes(9)]
-    public class Gsm1900EnableTxFreqCompVsPcl
+    public sealed class Gsm1900EnableTxFreqCompVsPcl
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public sbyte[] Value { get; set; }
-        
     }
 }

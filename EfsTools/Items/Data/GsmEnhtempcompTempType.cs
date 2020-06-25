@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Data
 {
+    [Ignore]
     [Serializable]
-    public class GsmEnhtempcompTempType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class GsmEnhtempcompTempType
     {
-        [ElementsCount(16)]
-        //[ElementType("GSM_EnhTempComp_pcl_type")]
-        [Description("")]
+        /*
         public GsmEnhtempcompPclType[] TempBin { get; set; }
-        
+        */
     }
 }

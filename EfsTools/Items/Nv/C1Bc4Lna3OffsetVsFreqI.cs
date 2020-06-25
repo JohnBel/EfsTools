@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1522)]
     [Attributes(9)]
-    public class C1Bc4Lna3OffsetVsFreq
+    public sealed class C1Bc4Lna3OffsetVsFreq
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public sbyte[] Value { get; set; }
-        
     }
 }

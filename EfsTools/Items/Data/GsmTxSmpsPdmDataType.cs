@@ -1,28 +1,28 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class GsmTxSmpsPdmDataType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class GsmTxSmpsPdmDataType
     {
-        [ElementsCount(6)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] CalSmpsPdmTbl { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] GsmSmpsPdmTbl { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] EdgeSmpsPdmTbl { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
+        public ushort[] CalSmpsPdmTbl
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] GsmSmpsPdmTbl
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public ushort[] EdgeSmpsPdmTbl
+        {
+            get;
+        }
     }
 }

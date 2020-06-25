@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2745)]
     [Attributes(9)]
-    public class DcsAmamDynamicRange
+    public sealed class DcsAmamDynamicRange
     {
-        [ElementsCount(2)]
-        [ElementType("int32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public int[] Value { get; set; }
-        
     }
 }

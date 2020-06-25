@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
     [NvItemId(4114)]
     [Attributes(9)]
-    public class WcdmaBc4TxPdmLin2
+    public sealed class WcdmaBc4TxPdmLin2
     {
-        [ElementsCount(32)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public ushort[] Value { get; set; }
-        
     }
 }

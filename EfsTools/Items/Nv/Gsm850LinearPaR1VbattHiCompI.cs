@@ -1,21 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6361)]
     [Attributes(9)]
-    public class Gsm850LinearPaR1VbattHiComp
+    public sealed class Gsm850LinearPaR1VbattHiComp
     {
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short Value { get; set; }
-        
     }
 }

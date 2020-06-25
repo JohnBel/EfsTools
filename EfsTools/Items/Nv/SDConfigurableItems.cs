@@ -1,37 +1,29 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(3635)]
     [Attributes(9)]
-    public class SdConfigurableItems
+    public sealed class SdConfigurableItems
     {
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Version { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Count { get; set; }
 
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 25)]
+        private readonly uint[] _items = new uint[25];
+
         [JsonIgnore]
-        [ElementsCount(25)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint[] RawItems
         {
-            get
-            {
-                return _items;
-            }
+            get => _items;
             set
             {
                 if (value != null)
@@ -51,6 +43,7 @@ namespace EfsTools.Items.Nv
                 {
                     return _items;
                 }
+
                 var data = new uint[Count];
                 Array.Copy(_items, data, Count);
                 return data;
@@ -61,11 +54,9 @@ namespace EfsTools.Items.Nv
                 {
                     var len = Math.Min(value.Length, _items.Length);
                     Array.Copy(value, _items, len);
-                    Count = (ushort)len;
+                    Count = (ushort) len;
                 }
             }
         }
-
-        private readonly uint[] _items = new uint[25];
     }
 }

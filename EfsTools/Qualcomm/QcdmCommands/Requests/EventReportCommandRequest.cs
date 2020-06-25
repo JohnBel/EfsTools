@@ -1,5 +1,4 @@
-﻿using System;
-using EfsTools.Qualcomm.QcdmCommands.Attributes;
+﻿using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
 {
@@ -17,7 +16,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
         {
             var data = new byte[2];
             data[0] = (byte) Command;
-            data[1] = _enable ? (byte)1 : (byte)0;
+            data[1] = _enable ? (byte) 1 : (byte) 0;
             return data;
         }
     }

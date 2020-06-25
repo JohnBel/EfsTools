@@ -1,21 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025119", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900PolarRampProfile
+    public sealed class GsmC0Gsm1900PolarRampProfile
     {
-        [ElementsCount(1)]
-        [ElementType("GSM_TX_POLAR_RAMP_PROFILE_DATA_TYPE")]
-        [Description("")]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
-        
     }
 }

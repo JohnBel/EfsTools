@@ -1,18 +1,22 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
+using EfsTools.Utils;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/rmnet_config.txt", false, 0x81FF)]
     [Attributes(9)]
-    public class RmnetConfigTxt
+    public sealed class RmnetConfigTxt
     {
-        [ElementsCount(1)]
-        [ElementType("string[]")]
-        [LineEnding(LineEnding.Linux, true)]
-        [Description("")]
-        public string[] Values { get; set; }
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0)]
+        private byte[] _values;
+
+        public string[] Values
+        {
+            get => StringUtils.GetStringLines(_values, LineEnding.Linux);
+            set => _values = StringUtils.GetBytes(value, LineEnding.Linux);
+        }
     }
 }

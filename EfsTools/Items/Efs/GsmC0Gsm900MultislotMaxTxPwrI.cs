@@ -1,25 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025061", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm900MultislotMaxTxPwr
+    public sealed class GsmC0Gsm900MultislotMaxTxPwr
     {
-        [ElementsCount(5)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
-        
-        [ElementsCount(5)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
-        
     }
 }

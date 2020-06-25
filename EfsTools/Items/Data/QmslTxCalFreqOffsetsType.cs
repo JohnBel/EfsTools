@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxCalFreqOffsetsType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxCalFreqOffsetsType
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
-        public sbyte[] FreqOffset { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public sbyte[] FreqOffset
+        {
+            get;
+        }
     }
 }

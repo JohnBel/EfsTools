@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024184", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma900TxEptDpdConfigParams
+    public sealed class Wcdma900TxEptDpdConfigParams
     {
-        [ElementsCount(32)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public uint[] Value { get; set; }
-        
     }
 }

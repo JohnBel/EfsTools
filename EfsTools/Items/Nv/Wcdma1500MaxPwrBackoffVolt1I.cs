@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6999)]
     [Attributes(9)]
-    public class Wcdma1500MaxPwrBackoffVolt1
+    public sealed class Wcdma1500MaxPwrBackoffVolt1
     {
-        [ElementsCount(4)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public short[] Value { get; set; }
-        
     }
 }

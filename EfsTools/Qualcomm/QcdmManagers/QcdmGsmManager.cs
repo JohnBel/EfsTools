@@ -19,12 +19,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
             get
             {
                 if (_manager.TryGetTarget(out var manager))
+                {
                     if (manager.IsOpen)
                     {
                         var request = new GsmVersionCommandRequest();
                         var response = (GsmVersionCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                         return response.Version;
                     }
+                }
 
                 return null;
             }

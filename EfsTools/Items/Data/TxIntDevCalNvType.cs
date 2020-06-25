@@ -1,38 +1,40 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class TxIntDevCalNvType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class TxIntDevCalNvType
     {
-        [ElementsCount(8)]
-        [ElementType("uint64")]
-        [Description("")]
-        public ulong[] CdmaBcTxIntCal { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] GsmBcTxIntCal { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("uint64")]
-        [Description("")]
-        public ulong[] WcdmaBcTxIntCal { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("uint64")]
-        [Description("")]
-        public ulong[] LteBcTxIntCal { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("uint64")]
-        [Description("")]
-        public ulong[] TdscdmaBcTxIntCal { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public ulong[] CdmaBcTxIntCal
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public byte[] GsmBcTxIntCal
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public ulong[] WcdmaBcTxIntCal
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public ulong[] LteBcTxIntCal
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public ulong[] TdscdmaBcTxIntCal
+        {
+            get;
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using EfsTools.Qualcomm.QcdmCommands.Attributes;
+﻿using EfsTools.Qualcomm.QcdmCommands.Attributes;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Utils;
 
@@ -24,7 +20,6 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
     //uint16 numbits;         /* number of bits in the mask           */
     //unsigned char mask[1];  /* size of this field = (numbits + 7)/8 */
     //} event_mask_set_req_type;
-
     internal class EventMaskSetCommandRequest : BaseCommandRequest
     {
         private readonly EventId[] _enableEvents;
@@ -34,6 +29,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             _enableEvents = enableEvents;
         }
 
+        public int MaxMaskBitsCount => 0x0C86;
+
         public override byte[] GetData()
         {
             var maskLength = (MaxMaskBitsCount + 7) / 8;
@@ -42,15 +39,14 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
             data[1] = 0;
             data[2] = 0;
             data[3] = 0;
-            data[4] = (byte)(MaxMaskBitsCount & 0xFF);
-            data[5] = (byte)((MaxMaskBitsCount >> 8) & 0xFF);
+            data[4] = (byte) (MaxMaskBitsCount & 0xFF);
+            data[5] = (byte) ((MaxMaskBitsCount >> 8) & 0xFF);
             foreach (var enableEvent in _enableEvents)
             {
                 BitsUtils.SetBitAsBool(data, 6, (int) enableEvent, true);
             }
+
             return data;
         }
-
-        public int MaxMaskBitsCount => 0x0C86;
     }
 }

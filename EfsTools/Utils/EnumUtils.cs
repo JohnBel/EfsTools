@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
 
 namespace EfsTools.Utils
 {
@@ -14,16 +13,19 @@ namespace EfsTools.Utils
                 {
                     return 0;
                 }
-                if (val.StartsWith("0x") && byte.TryParse(val.Substring(2), 
-                    NumberStyles.HexNumber, CultureInfo.InvariantCulture.NumberFormat, out byte b))
+
+                if (val.StartsWith("0x") && byte.TryParse(val.Substring(2),
+                    NumberStyles.HexNumber, CultureInfo.InvariantCulture.NumberFormat, out var b))
                 {
                     return b;
                 }
-                if (val.Length < 4 && byte.TryParse(val, out byte b1))
+
+                if (val.Length < 4 && byte.TryParse(val, out var b1))
                 {
                     return b1;
                 }
-                return (byte)Enum.Parse(enumType, val, true);
+
+                return (byte) Enum.Parse(enumType, val, true);
             }
             catch (Exception ex)
             {
@@ -31,6 +33,7 @@ namespace EfsTools.Utils
                 {
                     logger.LogError(ex.Message);
                 }
+
                 return 0;
             }
         }
@@ -43,16 +46,19 @@ namespace EfsTools.Utils
                 {
                     return 0;
                 }
-                if (val.StartsWith("0x") && ushort.TryParse(val.Substring(2), 
-                    NumberStyles.HexNumber, CultureInfo.InvariantCulture.NumberFormat, out ushort b))
+
+                if (val.StartsWith("0x") && ushort.TryParse(val.Substring(2),
+                    NumberStyles.HexNumber, CultureInfo.InvariantCulture.NumberFormat, out var b))
                 {
                     return b;
                 }
-                if (val.Length < 6 && ushort.TryParse(val, out ushort b1))
+
+                if (val.Length < 6 && ushort.TryParse(val, out var b1))
                 {
                     return b1;
                 }
-                return (ushort)Enum.Parse(enumType, val, true);
+
+                return (ushort) Enum.Parse(enumType, val, true);
             }
             catch (Exception ex)
             {
@@ -60,6 +66,7 @@ namespace EfsTools.Utils
                 {
                     logger.LogError(ex.Message);
                 }
+
                 return 0;
             }
         }
@@ -72,16 +79,19 @@ namespace EfsTools.Utils
                 {
                     return 0;
                 }
-                if (val.StartsWith("0x") && int.TryParse(val.Substring(2), 
-                    NumberStyles.HexNumber, CultureInfo.InvariantCulture.NumberFormat, out int b))
+
+                if (val.StartsWith("0x") && int.TryParse(val.Substring(2),
+                    NumberStyles.HexNumber, CultureInfo.InvariantCulture.NumberFormat, out var b))
                 {
                     return b;
                 }
-                if (val.Length < 10 && int.TryParse(val, out int b1))
+
+                if (val.Length < 10 && int.TryParse(val, out var b1))
                 {
                     return b1;
                 }
-                return (int)Enum.Parse(enumType, val, true);
+
+                return (int) Enum.Parse(enumType, val, true);
             }
             catch (Exception ex)
             {
@@ -89,6 +99,7 @@ namespace EfsTools.Utils
                 {
                     logger.LogError(ex.Message);
                 }
+
                 return 0;
             }
         }

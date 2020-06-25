@@ -22,12 +22,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 InitializeIfNeed();
                 if (_manager.TryGetTarget(out var manager))
+                {
                     if (manager.IsOpen)
                     {
                         var request = new EfsQueryCommandRequest();
                         var response = (EfsQueryCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                         return response.Info;
                     }
+                }
 
                 return null;
             }
@@ -39,12 +41,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 InitializeIfNeed();
                 if (_manager.TryGetTarget(out var manager))
+                {
                     if (manager.IsOpen)
                     {
                         var request = new EfsDeviceInfoCommandRequest();
                         var response = (EfsDeviceInfoResponse) manager.ExecuteQcdmCommandRequest(request);
                         return response.DeviceInfo;
                     }
+                }
 
                 return null;
             }
@@ -77,13 +81,18 @@ namespace EfsTools.Qualcomm.QcdmManagers
             try
             {
                 if (_manager.TryGetTarget(out var manager))
+                {
                     if (manager.IsOpen)
                     {
                         var request = new EfsStatFileCommandRequest(path);
                         var response = (EfsStatFileCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                         var stat = response.Stat;
-                        if (stat.Size > 0 || stat.LinkCount > 0) return true;
+                        if (stat.Size > 0 || stat.LinkCount > 0)
+                        {
+                            return true;
+                        }
                     }
+                }
 
                 return false;
             }
@@ -97,24 +106,28 @@ namespace EfsTools.Qualcomm.QcdmManagers
         {
             InitializeIfNeed();
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new EfsRenameFileCommandRequest(path, newPath);
                     var response = (EfsRenameFileCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                     QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
                 }
+            }
         }
 
         public FileStat FileStat(string path)
         {
             InitializeIfNeed();
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new EfsStatFileCommandRequest(path);
                     var response = (EfsStatFileCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                     return response.Stat;
                 }
+            }
 
             return null;
         }
@@ -123,12 +136,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
         {
             InitializeIfNeed();
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new EfsAccessCommandRequest(path, permissionBits);
                     var response = (EfsAccessCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                     QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
                 }
+            }
         }
 
         public QcdmEfsDirectory OpenDirectory(string path)
@@ -152,7 +167,9 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 var request = new EfsMakeDirectoryCommandRequest(mode, path);
                 var response = (EfsMakeDirectoryCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                 if (response.Error != QcdmEfsErrors.DirectoryExist)
+                {
                     QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
+                }
             }
         }
 
@@ -182,36 +199,44 @@ namespace EfsTools.Qualcomm.QcdmManagers
         {
             InitializeIfNeed();
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new EfsSyncNoWaitCommandRequest(path, sequence);
                     var response = (EfsSyncNoWaitCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                     QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
                 }
+            }
         }
 
         public void PutItemFile(string path, EfsFileFlag flags, int permission, byte[] data)
         {
             InitializeIfNeed();
             if (_manager.TryGetTarget(out var manager))
+            {
                 if (manager.IsOpen)
                 {
                     var request = new EfsPutItemFileCommandRequest(path, flags, permission, data);
                     var response = (EfsPutItemFileCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                     QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
                 }
+            }
         }
 
         private void InitializeIfNeed()
         {
             if (_helloInfo == null)
+            {
                 if (_manager.TryGetTarget(out var manager))
+                {
                     if (manager.IsOpen)
                     {
                         var request = new EfsHelloCommandRequest();
                         var response = (EfsHelloCommandResponse) manager.ExecuteQcdmCommandRequest(request);
                         _helloInfo = response.Info;
                     }
+                }
+            }
         }
     }
 }

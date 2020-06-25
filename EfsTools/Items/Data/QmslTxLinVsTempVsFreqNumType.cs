@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxLinVsTempVsFreqNumType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxLinVsTempVsFreqNumType
     {
-        [ElementsCount(8)]
-        [ElementType("QMSL_Tx_Cal_Freq_Num_Type")]
-        [Description("")]
-        public QmslTxCalFreqNumType[] Temp { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public QmslTxCalFreqNumType[] Temp
+        {
+            get;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,15 +8,14 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67258)]
     [EfsFile("/nv/item_files/ims/qp_ims_param_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsParamConfig
+    public sealed class QpImsParamConfig
     {
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] RegConfigUserName { get; set; }
 
         public string RegConfigUserNameString
@@ -25,9 +25,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] RegConfigPassword { get; set; }
 
         public string RegConfigPasswordString
@@ -38,9 +36,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] RegConfigPrivateUri { get; set; }
 
         public string RegConfigPrivateUriString
@@ -50,9 +46,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] RegConfigDisplayName { get; set; }
 
         public string RegConfigDisplayNameString
@@ -62,9 +56,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(256)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
         public byte[] RegConfigDomainName { get; set; }
 
         public string RegConfigDomainNameString
@@ -74,9 +66,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] RegAuthSecretKey { get; set; }
 
         public string RegAuthSecretKeyString
@@ -85,15 +75,11 @@ namespace EfsTools.Items.Efs
             set => RegAuthSecretKey = StringUtils.GetBytes(value, 32);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte ThreeGppEnabled { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] RegConfigOPField { get; set; }
 
         public string RegConfigOPFieldString

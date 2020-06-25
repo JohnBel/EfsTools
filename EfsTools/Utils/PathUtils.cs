@@ -15,7 +15,11 @@ namespace EfsTools.Utils
 
         public static string GetDirectoryName(string path)
         {
-            if (string.IsNullOrEmpty(path)) return string.Empty;
+            if (string.IsNullOrEmpty(path))
+            {
+                return string.Empty;
+            }
+
             var index = path.LastIndexOf('/');
             return path.Substring(0, index);
         }
@@ -88,7 +92,10 @@ namespace EfsTools.Utils
                     var fileName = Path.GetFileName(path);
                     var fileNameMask = $"{fileName}*";
                     var result = Directory.GetFiles(directoryPath, fileNameMask, SearchOption.TopDirectoryOnly);
-                    if (result.Length > 0) return result[0];
+                    if (result.Length > 0)
+                    {
+                        return result[0];
+                    }
                 }
             }
             catch

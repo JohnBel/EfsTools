@@ -8,11 +8,8 @@ namespace EfsTools.Items.Efs
     [Subscription]
     [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_feature", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaRrcFeature
+    public sealed class WcdmaRrcFeature
     {
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Value { get; set; }
     }
 }

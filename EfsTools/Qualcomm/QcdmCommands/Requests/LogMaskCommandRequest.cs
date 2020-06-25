@@ -1,5 +1,4 @@
-﻿using System;
-using EfsTools.Qualcomm.QcdmCommands.Attributes;
+﻿using EfsTools.Qualcomm.QcdmCommands.Attributes;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Requests

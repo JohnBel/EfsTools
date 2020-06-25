@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,11 +8,12 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(73527)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_plani_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsPlaniConfig
+    public sealed class QpImsPlaniConfig
     {
         public QpImsPlaniConfig()
         {
@@ -22,55 +24,34 @@ namespace EfsTools.Items.Efs
         }
 
         [Required]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Version { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
+
         public uint AccessType { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort Lac { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort Tac { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
+
         public uint CellIdentity { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort Sid { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort Nid { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort Pzid { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort BaseId { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] SectorId { get; set; }
 
         public string SectorIdString
@@ -79,50 +60,32 @@ namespace EfsTools.Items.Efs
             set => SectorId = StringUtils.GetBytes(value, 16);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte SubnetLength { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeSeconds { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeMinutes { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeHours { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeDays { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeMonths { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeYears { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort TimeDayOfWeek { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(6)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
         public byte[] Mcc { get; set; }
 
         public string MccString
@@ -132,9 +95,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [ElementsCount(6)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
         public byte[] Mnc { get; set; }
 
         public string MncString
@@ -143,9 +104,7 @@ namespace EfsTools.Items.Efs
             set => Mnc = StringUtils.GetBytes(value, 48);
         }
 
-        [ElementsCount(65)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 65)]
         public byte[] Reserved { get; set; }
     }
 }

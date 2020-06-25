@@ -14,7 +14,7 @@ namespace EfsTools.Utils
             }
             else
             {
-                if ((data.Length > 3) && (command == QcdmCommand.SubsysCmd))
+                if (data.Length > 3 && command == QcdmCommand.SubsysCmd)
                 {
                     var text = QcdmSubSystemCommandUtils.ToString(data);
                     sb.Append(text);
@@ -23,8 +23,10 @@ namespace EfsTools.Utils
                 {
                     sb.Append(command);
                 }
+
                 sb.Append(ToString(data));
             }
+
             return sb.ToString();
         }
 
@@ -45,11 +47,14 @@ namespace EfsTools.Utils
                     {
                         sb.Append(", ");
                     }
+
                     addComma = true;
                     sb.AppendFormat("{0:X2}", b);
                 }
+
                 sb.Append("]");
             }
+
             return sb.ToString();
         }
     }

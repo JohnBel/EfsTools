@@ -1,17 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/ims/ims_sip_config", false, 0x81FF)]
     [Attributes(9)]
-    public class ImsSipConfig
+    public sealed class ImsSipConfig
     {
-        [ElementsCount(1024)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 1024)]
         public byte[] Value { get; set; }
     }
 }

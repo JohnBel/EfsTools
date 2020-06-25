@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022516", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaB8TxLinMaster1ChanRange2
+    public sealed class WcdmaB8TxLinMaster1ChanRange2
     {
-        [ElementsCount(32)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public ushort[] Value { get; set; }
-        
     }
 }

@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022658", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB39HsLnaRangeRiseFallNbModeTracking
+    public sealed class TdscdmaB39HsLnaRangeRiseFallNbModeTracking
     {
-        [ElementsCount(12)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
         public byte[] Value { get; set; }
-        
     }
 }

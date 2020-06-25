@@ -1,23 +1,18 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class GsmTxVbattCompDataType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class GsmTxVbattCompDataType
     {
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short VbattCompDbx100 { get; set; }
-        
-        [ElementsCount(4)]
-        [ElementType("int16")]
-        [Description("")]
-        public short[] VbattCompParangeDbx100 { get; set; }
-        
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        public short[] VbattCompParangeDbx100
+        {
+            get;
+        }
     }
 }

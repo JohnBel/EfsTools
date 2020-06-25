@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00022706", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB40TxLimVsTemp
+    public sealed class TdscdmaB40TxLimVsTemp
     {
-        [ElementsCount(8)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public sbyte[] Value { get; set; }
-        
     }
 }

@@ -1,21 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4938)]
     [Attributes(9)]
-    public class Wcdma900C0C1Delay
+    public sealed class Wcdma900C0C1Delay
     {
-        [ElementsCount(1)]
-        [ElementType("int8")]
-        [Description("")]
         public sbyte Value { get; set; }
-        
     }
 }

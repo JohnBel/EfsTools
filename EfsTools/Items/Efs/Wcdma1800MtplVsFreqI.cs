@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024588", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma1800MtplVsFreq
+    public sealed class Wcdma1800MtplVsFreq
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public sbyte[] Value { get; set; }
-        
     }
 }

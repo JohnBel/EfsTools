@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using EfsTools.Qualcomm.QcdmCommands.Attributes;
-using EfsTools.Qualcomm.QcdmCommands.Base;
-using EfsTools.Utils;
+﻿using EfsTools.Qualcomm.QcdmCommands.Attributes;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Requests
 {
@@ -24,13 +18,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
     //uint16 numbits;         /* number of bits in the mask           */
     //unsigned char mask[1];  /* size of this field = (numbits + 7)/8 */
     //} event_mask_set_req_type;
-
     internal class EventMaskGetCommandRequest : BaseCommandRequest
     {
-        public EventMaskGetCommandRequest()
-        {
-        }
-
         public override byte[] GetData()
         {
             var data = new byte[4];

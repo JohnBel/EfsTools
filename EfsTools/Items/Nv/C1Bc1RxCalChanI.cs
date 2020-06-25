@@ -1,20 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1686)]
     [Attributes(9)]
-    public class C1Bc1RxCalChan
+    public sealed class C1Bc1RxCalChan
     {
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort[] Value { get; set; }
-        
     }
 }

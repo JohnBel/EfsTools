@@ -1,31 +1,22 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024966", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1800RxCalData
+    public sealed class GsmC0Gsm1800RxCalData
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte RxCalChanSize { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public short[] RxCalChanList { get; set; }
-        
-        [ElementsCount(4)]
-        [ElementType("GSM_RX_FREQ_COMP_DATA_TYPE")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
-        
     }
 }

@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2934)]
     [Attributes(9)]
-    public class Wcdma1800PaCompensateDnWithDvs
+    public sealed class Wcdma1800PaCompensateDnWithDvs
     {
-        [ElementsCount(10)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
         public short[] Value { get; set; }
-        
     }
 }

@@ -6,20 +6,25 @@ namespace EfsTools.Utils
 {
     internal static class QualcommSerialPortUtils
     {
+        private static HashSet<string> _qualcommPorts;
+
         public static bool IsQualcommPort(string port)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 return IsWindowsQualcommPort(port);
             }
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
                 return IsLinuxQualcommPort(port);
             }
+
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 return IsOsxQualcommPort(port);
             }
+
             return IsOtherOsQualcommPort(port);
         }
 
@@ -33,16 +38,16 @@ namespace EfsTools.Utils
         {
             return true;
         }
+
         private static bool IsOsxQualcommPort(string port)
         {
             return true;
         }
+
         private static bool IsOtherOsQualcommPort(string port)
         {
             return true;
         }
-
-        private static HashSet<string> _qualcommPorts;
 
         private static void InitializeQualcommPorts()
         {
@@ -92,6 +97,7 @@ namespace EfsTools.Utils
                             _qualcommPorts.Add(assignedPortForQcDevice);
                         }
                     }
+
                     // "Qualcomm HS-USB"
                 }
             }

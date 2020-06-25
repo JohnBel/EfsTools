@@ -1,21 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2899)]
     [Attributes(9)]
-    public class Wcdma1800EncBtf
+    public sealed class Wcdma1800EncBtf
     {
-        [ElementsCount(1)]
-        [ElementType("int32")]
-        [Description("")]
         public int Value { get; set; }
-        
     }
 }

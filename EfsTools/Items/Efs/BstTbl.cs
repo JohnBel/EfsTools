@@ -1,21 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Ignore]
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/sd/bst_tbl", false, 0x81FF)]
     [Attributes(9)]
-    public class BstTbl
+    public sealed class BstTbl
     {
         /*[JsonIgnore]
-        [ConvertEndian]
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort Length
+		[ConvertEndian]
+		public ushort Length
         {
             get => _length;
             set
@@ -33,9 +31,10 @@ namespace EfsTools.Items.Efs
 
         private ushort _length;*/
 
-        [ElementsCount(58)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Value { get; set; }
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 58)]
+        public byte[] Value
+        {
+            get;
+        }
     }
 }

@@ -7,11 +7,8 @@ namespace EfsTools.Items.Nv
     [Serializable]
     [NvItemId(3649)]
     [Attributes(9)]
-    public class WcdmaRrcVersion
+    public sealed class WcdmaRrcVersion
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

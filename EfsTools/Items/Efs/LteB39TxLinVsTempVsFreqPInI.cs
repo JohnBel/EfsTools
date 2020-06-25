@@ -1,26 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025713", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB39TxLinVsTempVsFreqPIn
+    public sealed class LteB39TxLinVsTempVsFreqPIn
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Enabled { get; set; }
-        
-        [ElementsCount(4)]
-        [ElementType("QMSL_Tx_Lin_Vs_Temp_Vs_Freq_Num_Type")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
-        
     }
 }

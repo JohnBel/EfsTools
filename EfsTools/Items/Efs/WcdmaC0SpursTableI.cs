@@ -1,21 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023761", true, 0xE1FF)]
     [Attributes(9)]
-    public class WcdmaC0SpursTable
+    public sealed class WcdmaC0SpursTable
     {
-        [ElementsCount(30)]
-        [ElementType("QMSL_Rx_SPUR_Table_NV_Type")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
-        
     }
 }

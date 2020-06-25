@@ -1,21 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(638)]
     [Attributes(9)]
-    public class GpsDaccEstIoffset
+    public sealed class GpsDaccEstIoffset
     {
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint Value { get; set; }
-        
     }
 }

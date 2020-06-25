@@ -1,18 +1,16 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxCalLinearizerEptDpdTableNvType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxCalLinearizerEptDpdTableNvType
     {
-        [ElementsCount(64)]
-        [ElementType("ept_dpd_struct")]
-        [Description("")]
-        public EptDpdStruct[] Dpd { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        public EptDpdStruct[] Dpd
+        {
+            get;
+        }
     }
 }

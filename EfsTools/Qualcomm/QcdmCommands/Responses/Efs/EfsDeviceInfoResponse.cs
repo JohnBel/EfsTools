@@ -64,7 +64,11 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             var deviceId = BitConverter.ToInt32(data, 36);
             var deviceType = data[40];
             var nameLength = data.Length - 42;
-            if (nameLength < 0) nameLength = 0;
+            if (nameLength < 0)
+            {
+                nameLength = 0;
+            }
+
             var name = Encoding.ASCII.GetString(data, 41, nameLength);
 
 

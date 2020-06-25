@@ -1,21 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
-using EfsTools.Items.Data;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2897)]
     [Attributes(9)]
-    public class Wcdma1800MaxTxPower
+    public sealed class Wcdma1800MaxTxPower
     {
-        [ElementsCount(1)]
-        [ElementType("int8")]
-        [Description("")]
         public sbyte Value { get; set; }
-        
     }
 }

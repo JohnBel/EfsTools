@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(781)]
     [Attributes(9)]
-    public class DcsTxBurstRampUpIndex11
+    public sealed class DcsTxBurstRampUpIndex11
     {
-        [ElementsCount(30)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
         public ushort[] Value { get; set; }
-        
     }
 }

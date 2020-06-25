@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5274)]
     [Attributes(9)]
-    public class Wcdma900Rel6TxBetaScalingComp
+    public sealed class Wcdma900Rel6TxBetaScalingComp
     {
-        [ElementsCount(7)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
         public ushort[] Value { get; set; }
-        
     }
 }

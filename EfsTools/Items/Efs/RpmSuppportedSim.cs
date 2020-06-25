@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 
@@ -8,11 +9,9 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [EfsFile("/nv/item_files/data/3gpp/rpm_suppported_sim", true, 0xE1FF)]
     [Attributes(9)]
-    public class RpmSuppportedSim
+    public sealed class RpmSuppportedSim
     {
-        [ElementsCount(60)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 60)]
         public byte[] Value { get; set; }
 
         public string ValueString

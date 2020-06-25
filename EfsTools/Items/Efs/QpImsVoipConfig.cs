@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -20,31 +21,23 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [NvItemId(67257)]
     [EfsFile("/nv/item_files/ims/qp_ims_voip_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsVoipConfig
+    public sealed class QpImsVoipConfig
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte VoipConfigDisableChecksFor380Res { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte VoipConfigDomainNotificationEnable { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte VoipConfigRtcp { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] VoipConfigAcceptContact { get; set; }
 
         public string VoipConfigAcceptContactString
@@ -53,25 +46,17 @@ namespace EfsTools.Items.Efs
             set => VoipConfigAcceptContact = StringUtils.GetBytes(value, 128);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort VoipConfigExpires { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort VoipMinSessionExpires { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte VoipSessionTimerEnabled { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] VoipConfigConfUri { get; set; }
 
         public string VoipConfigConfUriString
@@ -80,47 +65,37 @@ namespace EfsTools.Items.Efs
             set => VoipConfigConfUri = StringUtils.GetBytes(value, 128);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte VoipSilentRedialEnabled { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort VoipAllowSeNegotiation { get; set; }
 
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte VoipConfigSessionRefresherType { get; set; }
 
         public string VoipConfigSessionRefresherTypeString
         {
             get => $"{(VoipConfigSessionRefresherTypeValues) VoipConfigSessionRefresherType}";
-            set => VoipConfigSessionRefresherType =
-                EnumUtils.ParseEnumByte(typeof(VoipConfigSessionRefresherTypeValues), value);
+            set =>
+                VoipConfigSessionRefresherType =
+                    EnumUtils.ParseEnumByte(typeof(VoipConfigSessionRefresherTypeValues), value);
         }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte VoipConfigSessionRefresherMethod { get; set; }
 
         public string VoipConfigSessionRefresherMethodString
         {
             get => $"{(VoipConfigSessionRefresherMethodValues) VoipConfigSessionRefresherMethod}";
-            set => VoipConfigSessionRefresherMethod =
-                EnumUtils.ParseEnumByte(typeof(VoipConfigSessionRefresherMethodValues), value);
+            set =>
+                VoipConfigSessionRefresherMethod =
+                    EnumUtils.ParseEnumByte(typeof(VoipConfigSessionRefresherMethodValues), value);
         }
 
         [JsonIgnore]
-        [ElementsCount(128)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] VoipConfigInviteHeader { get; set; }
 
         public string VoipConfigInviteHeaderString

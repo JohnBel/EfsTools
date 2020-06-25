@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024808", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB23AmprNs11Bw052010mhzAndLower
+    public sealed class LteB23AmprNs11Bw052010mhzAndLower
     {
-        [ElementsCount(16)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public byte[] Value { get; set; }
-        
     }
 }

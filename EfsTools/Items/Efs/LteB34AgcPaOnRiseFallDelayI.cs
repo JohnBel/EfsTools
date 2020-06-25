@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00023656", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB34AgcPaOnRiseFallDelay
+    public sealed class LteB34AgcPaOnRiseFallDelay
     {
-        [ElementsCount(2)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public ushort[] Value { get; set; }
-        
     }
 }

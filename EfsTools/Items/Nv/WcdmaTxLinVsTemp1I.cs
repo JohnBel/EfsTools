@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
     [NvItemId(534)]
     [Attributes(9)]
-    public class WcdmaTxLinVsTemp1
+    public sealed class WcdmaTxLinVsTemp1
     {
-        [ElementsCount(8)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public sbyte[] Value { get; set; }
-        
     }
 }

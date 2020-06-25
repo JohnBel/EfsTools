@@ -1,41 +1,29 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025031", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900SarBackoff
+    public sealed class GsmC0Gsm1900SarBackoff
     {
-        [ElementsCount(8)]
-        [ElementType("GSM_TX_SAR_BACKOFF_DATA_TYPE")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("GSM_TX_SAR_BACKOFF_DATA_TYPE")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("GSM_TX_SAR_BACKOFF_DATA_TYPE")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("GSM_TX_SAR_BACKOFF_DATA_TYPE")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("GSM_TX_SAR_BACKOFF_DATA_TYPE")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
-        
     }
 }

@@ -1,45 +1,31 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00025424", true, 0xE1FF)]
     [Attributes(9)]
-    public class TdscdmaB39SarBackoffLimit
+    public sealed class TdscdmaB39SarBackoffLimit
     {
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] SarBackOffLimitSlot1 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] SarBackOffLimitSlot2 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] SarBackOffLimitSlot3 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] SarBackOffLimitSlot4 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] SarBackOffLimitSlot5 { get; set; }
-        
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] SarBackOffLimitSlot6 { get; set; }
-        
     }
 }

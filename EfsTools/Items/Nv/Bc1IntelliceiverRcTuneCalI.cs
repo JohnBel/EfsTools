@@ -1,20 +1,19 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6276)]
     [Attributes(9)]
-    public class Bc1IntelliceiverRcTuneCal
+    public sealed class Bc1IntelliceiverRcTuneCal
     {
-        [ElementsCount(2)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] Value { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        public ushort[] Value
+        {
+            get;
+        }
     }
 }

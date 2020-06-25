@@ -6,6 +6,8 @@ namespace EfsTools.CommandLineOptions
     [Verb("readFile", HelpText = "Read EFS file")]
     internal class EfsReadFileOptions
     {
+        private Layout _outComputerFilePathLayout;
+
         [Option('i', "inEfsFilePath", Required = true, HelpText = "EFS file path")]
         public string InEfsFilePath { get; set; }
 
@@ -13,12 +15,7 @@ namespace EfsTools.CommandLineOptions
         public string OutComputerFilePath
         {
             get => _outComputerFilePathLayout?.Render();
-            set
-            {
-                _outComputerFilePathLayout = Layout.Parse(value);
-            }
+            set => _outComputerFilePathLayout = Layout.Parse(value);
         }
-
-        private Layout _outComputerFilePathLayout;
     }
 }

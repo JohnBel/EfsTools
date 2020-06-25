@@ -1,40 +1,27 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025533", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB2TxXptDelay
+    public sealed class LteB2TxXptDelay
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte NumActiveEntries { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("uint16")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public ushort[] UpperBoundChannels { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("int32")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public int[] DelayLtebw5mhz { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("int32")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public int[] DelayLtebw10mhz { get; set; }
-        
-        [ElementsCount(16)]
-        [ElementType("int32")]
-        [Description("")]
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
         public int[] DelayLtebw20mhz { get; set; }
-        
     }
 }

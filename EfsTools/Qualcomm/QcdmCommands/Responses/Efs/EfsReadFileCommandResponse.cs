@@ -27,7 +27,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.Efs
             var error = (QcdmEfsErrors) BitConverter.ToInt32(data, 16);
             result.Error = error;
 
-            if (data.Length < 20 + bytesRead) throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
+            if (data.Length < 20 + bytesRead)
+            {
+                throw new QcdmManagerException(Strings.QcdmInvalidResponseLength);
+            }
 
             var buf = new byte[bytesRead];
             Array.Copy(data, 20, buf, 0, bytesRead);

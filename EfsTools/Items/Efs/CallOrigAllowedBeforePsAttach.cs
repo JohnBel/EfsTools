@@ -1,17 +1,15 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/modem/data/3gpp/call_orig_allowed_before_ps_attach", true, 0xE1FF)]
     [Attributes(9)]
-    public class CallOrigAllowedBeforePsAttach
+    public sealed class CallOrigAllowedBeforePsAttach
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Value { get; set; }
     }
 }

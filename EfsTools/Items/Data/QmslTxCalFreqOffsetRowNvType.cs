@@ -1,23 +1,19 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxCalFreqOffsetRowNvType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxCalFreqOffsetRowNvType
     {
-        [ElementsCount(16)]
-        [ElementType("int8")]
-        [Description("")]
-        public sbyte[] FreqComp { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        public sbyte[] FreqComp
+        {
+            get;
+        }
+
+
         public short RgiThreshold { get; set; }
-        
     }
 }

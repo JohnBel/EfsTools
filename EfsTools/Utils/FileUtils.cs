@@ -21,7 +21,11 @@ namespace EfsTools.Utils
             var fixedPath = path.Replace("\n", "[LF]");
             fixedPath = fixedPath.Replace("\r", "[CR]");
             var directoryPath = Path.GetDirectoryName(fixedPath);
-            if (directoryPath != null) Directory.CreateDirectory(directoryPath);
+            if (directoryPath != null)
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
             return File.Create(fixedPath);
         }
 
@@ -34,9 +38,17 @@ namespace EfsTools.Utils
         public static Stream PhoneCreateWrite(QcdmManager manager, string path, int permission, Logger logger)
         {
             var efs = manager.Efs;
-            if (efs.FileExists(path)) efs.DeleteFile(path);
+            if (efs.FileExists(path))
+            {
+                efs.DeleteFile(path);
+            }
+
             var directoryPath = PathUtils.GetDirectoryName(path);
-            if (!efs.FileExists(directoryPath)) PhoneCreateDirectory(manager, directoryPath, true, logger);
+            if (!efs.FileExists(directoryPath))
+            {
+                PhoneCreateDirectory(manager, directoryPath, true, logger);
+            }
+
             var file = manager.Efs.OpenFile(path, EfsFileFlag.Writeonly | EfsFileFlag.Create, permission);
             return file;
         }
@@ -50,9 +62,17 @@ namespace EfsTools.Utils
         public static Stream PhoneItemCreateWrite(QcdmManager manager, string path, int permission, Logger logger)
         {
             var efs = manager.Efs;
-            if (efs.FileExists(path)) efs.DeleteFile(path);
+            if (efs.FileExists(path))
+            {
+                efs.DeleteFile(path);
+            }
+
             var directoryPath = PathUtils.GetDirectoryName(path);
-            if (!efs.FileExists(directoryPath)) PhoneCreateDirectory(manager, directoryPath, true, logger);
+            if (!efs.FileExists(directoryPath))
+            {
+                PhoneCreateDirectory(manager, directoryPath, true, logger);
+            }
+
             return new QcdmManagerItemWriteStreamAdapter(manager, path, permission);
         }
 
@@ -61,7 +81,10 @@ namespace EfsTools.Utils
             if (!string.IsNullOrEmpty(path) && path != "/")
             {
                 var p = path;
-                if (p[p.Length - 1] == '/') p = p.Substring(0, p.Length - 1);
+                if (p[p.Length - 1] == '/')
+                {
+                    p = p.Substring(0, p.Length - 1);
+                }
 
                 if (recursive)
                 {
@@ -70,7 +93,9 @@ namespace EfsTools.Utils
                     {
                         var parentPath = p.Substring(0, ind);
                         if (!string.IsNullOrEmpty(parentPath) && parentPath != "/")
+                        {
                             PhoneCreateDirectory(manager, parentPath, true, logger);
+                        }
                     }
 
                     PhoneCreateDirectory(manager, p, logger);
@@ -89,7 +114,10 @@ namespace EfsTools.Utils
                 if (!string.IsNullOrEmpty(path))
                 {
                     var p = path;
-                    if (p[p.Length - 1] == '/') p = p.Substring(0, p.Length - 1);
+                    if (p[p.Length - 1] == '/')
+                    {
+                        p = p.Substring(0, p.Length - 1);
+                    }
 
                     if (recursive)
                     {
@@ -98,6 +126,7 @@ namespace EfsTools.Utils
                         {
                             var entries = PhoneOpenDirectory(manager, p, logger);
                             if (entries != null)
+                            {
                                 foreach (var entry in entries)
                                 {
                                     if (entry.EntryType == DirectoryEntryType.Directory)
@@ -114,6 +143,7 @@ namespace EfsTools.Utils
                                         PhoneDeleteFile(manager, filePath, logger);
                                     }
                                 }
+                            }
                         }
 
                         manager.Efs.DeleteDirectory(p);
@@ -138,7 +168,10 @@ namespace EfsTools.Utils
                 var p = path == "/" ? "." : path;
                 using (var directory = manager.Efs.OpenDirectory(p))
                 {
-                    if (directory != null) return directory.QueryEntries().ToArray();
+                    if (directory != null)
+                    {
+                        return directory.QueryEntries().ToArray();
+                    }
                 }
             }
             catch (Exception e)
@@ -156,7 +189,10 @@ namespace EfsTools.Utils
                 var p = string.IsNullOrEmpty(path) || path == "/" ? "." : path;
                 using (var directory = manager.Efs.OpenDirectory(p))
                 {
-                    if (directory != null) return directory.QueryEntries().ToArray();
+                    if (directory != null)
+                    {
+                        return directory.QueryEntries().ToArray();
+                    }
                 }
             }
             catch (Exception e)
@@ -187,6 +223,7 @@ namespace EfsTools.Utils
                 {
                     var entries = PhoneOpenDirectory(manager, path, logger);
                     if (entries != null)
+                    {
                         foreach (var entry in entries)
                         {
                             if (entry.EntryType == DirectoryEntryType.Directory)
@@ -198,8 +235,11 @@ namespace EfsTools.Utils
 
                             if (entry.EntryType == DirectoryEntryType.File ||
                                 entry.EntryType == DirectoryEntryType.ItemFile)
+                            {
                                 PhoneCheckAndFixFileName(manager, entry.Name, path, logger);
+                            }
                         }
+                    }
                 }
             }
             catch (Exception e)
@@ -216,10 +256,14 @@ namespace EfsTools.Utils
                 if (!string.IsNullOrEmpty(path))
                 {
                     var p = path;
-                    if (p[p.Length - 1] == '/') p = p.Substring(0, p.Length - 1);
+                    if (p[p.Length - 1] == '/')
+                    {
+                        p = p.Substring(0, p.Length - 1);
+                    }
 
                     var entries = PhoneOpenDirectoryForList(manager, p, logger);
                     if (entries != null)
+                    {
                         foreach (var entry in entries)
                         {
                             if (entry.EntryType == DirectoryEntryType.Directory)
@@ -240,11 +284,16 @@ namespace EfsTools.Utils
                             {
                                 var offsetName = $"{offset}{entry.Name}";
                                 var len = 80 - offsetName.Length;
-                                if (len <= 0) len = 1;
+                                if (len <= 0)
+                                {
+                                    len = 1;
+                                }
+
                                 var fill = GetFillString(len);
                                 logger.LogInfo($"{offsetName}{fill}{entry.Size} b\t{entry.Mode:X}\t{entry.EntryType}");
                             }
                         }
+                    }
                 }
             }
             catch (Exception e)
@@ -274,7 +323,9 @@ namespace EfsTools.Utils
 
                         if (entry.EntryType == DirectoryEntryType.File ||
                             entry.EntryType == DirectoryEntryType.ItemFile)
+                        {
                             PhoneDownloadFile(manager, entry, efsPath, computerPath, noExtraData, logger);
+                        }
                     }
                 }
             }
@@ -302,12 +353,14 @@ namespace EfsTools.Utils
                 }
 
                 foreach (var file in files)
+                {
                     if (file != null && !PathUtils.IsNvItemFileName(file))
                     {
                         var fileName = Path.GetFileName(file);
                         var path = PathUtils.RemoveExtraData(fileName, efsPath);
                         PhoneUploadFile(manager, file, path, createItemFilesAsDefault, logger);
                     }
+                }
             }
             catch (Exception e)
             {
@@ -318,6 +371,7 @@ namespace EfsTools.Utils
         public static void PhoneReadFile(QcdmManager manager, string efsPath, string computerPath, Logger logger)
         {
             if (!string.IsNullOrEmpty(efsPath))
+            {
                 using (var input = PhoneOpenRead(manager, efsPath))
                 {
                     using (var output = string.IsNullOrEmpty(computerPath)
@@ -331,12 +385,14 @@ namespace EfsTools.Utils
 
                     input.Close();
                 }
+            }
         }
 
         public static void PhoneWriteFile(QcdmManager manager, string computerPath, string efsPath, int permission,
             bool itemFile, Logger logger)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
+            {
                 using (var input = LocalOpenRead(computerPath))
                 {
                     using (var output = itemFile
@@ -350,6 +406,7 @@ namespace EfsTools.Utils
 
                     input.Close();
                 }
+            }
         }
 
         private static void PhoneDownloadFile(QcdmManager manager, DirectoryEntry entry, string efsPath,
@@ -419,7 +476,11 @@ namespace EfsTools.Utils
         private static string GetFillString(int length)
         {
             var result = new StringBuilder();
-            for (var i = 0; i < length; ++i) result.Append(' ');
+            for (var i = 0; i < length; ++i)
+            {
+                result.Append(' ');
+            }
+
             return result.ToString();
         }
 

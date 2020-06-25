@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -19,6 +18,8 @@ namespace EfsTools
     internal class EfsTools
     {
         private readonly EfsToolsConfigurationSection _config;
+
+        private readonly IConfigurationRoot _configurationRoot;
         private readonly Logger _logger;
 
         public EfsTools(Logger logger)
@@ -64,11 +65,11 @@ namespace EfsTools
             var enabledMessageMasks = string.IsNullOrEmpty(messageMask)
                 ? new MessageId[0]
                 : messageMask.Split(',')
-                    .Select((it) => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it, _logger))
+                    .Select(it => (MessageId) EnumUtils.ParseEnumInt(typeof(MessageId), it, _logger))
                     .ToArray();
             var enabledLogMasks = string.IsNullOrEmpty(logMask)
                 ? new LogId[0]
-                : logMask.Split(',').Select((it) => (LogId) EnumUtils.ParseEnumInt(typeof(LogId), it, _logger))
+                : logMask.Split(',').Select(it => (LogId) EnumUtils.ParseEnumInt(typeof(LogId), it, _logger))
                     .ToArray();
 
             using (var manager = OpenQcdmManager())
@@ -77,13 +78,13 @@ namespace EfsTools
                 {
                     if (enabledMessageMasks.Length > 0)
                     {
-                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToMessagesFormat,
+                        _logger.LogInfo(Strings.QcdmLogSubcribingToMessagesFormat,
                             string.Join(", ", enabledMessageMasks));
                     }
 
                     if (enabledLogMasks.Length > 0)
                     {
-                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToLogsFormat,
+                        _logger.LogInfo(Strings.QcdmLogSubcribingToLogsFormat,
                             string.Join(", ", enabledLogMasks));
                     }
                 }
@@ -108,12 +109,12 @@ namespace EfsTools
                         {
                             if (!affectedMessages.Contains(enabledMessageMask))
                             {
-                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingMessageNotSupportedErrorFormat,
+                                _logger.LogWarning(Strings.QcdmLogSubcribingMessageNotSupportedErrorFormat,
                                     enabledMessageMask);
                             }
                         }
 
-                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToMessagesResultFormat,
+                        _logger.LogInfo(Strings.QcdmLogSubcribingToMessagesResultFormat,
                             string.Join(", ", affectedMessages));
                     }
 
@@ -123,22 +124,19 @@ namespace EfsTools
                         {
                             if (!affectedLogs.Contains(enabledLogMask))
                             {
-                                _logger.LogWarning(Resourses.Strings.QcdmLogSubcribingLogNotSupportedErrorFormat,
+                                _logger.LogWarning(Strings.QcdmLogSubcribingLogNotSupportedErrorFormat,
                                     enabledLogMask);
                             }
                         }
 
-                        _logger.LogInfo(Resourses.Strings.QcdmLogSubcribingToLogsResultFormat,
+                        _logger.LogInfo(Strings.QcdmLogSubcribingToLogsResultFormat,
                             string.Join(", ", affectedLogs));
                     }
                 }
 
 
                 var cancellationTokenSource = new CancellationTokenSource();
-                Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) =>
-                {
-                    cancellationTokenSource.Cancel();
-                };
+                Console.CancelKeyPress += (sender, e) => { cancellationTokenSource.Cancel(); };
 
                 manager.ProcessLogs(_logger, cancellationTokenSource.Token);
             }
@@ -169,42 +167,53 @@ namespace EfsTools
         public void EfsReadFile(string efsPath, string computerPath)
         {
             if (!string.IsNullOrEmpty(efsPath))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     FileUtils.PhoneReadFile(manager, efsPath, computerPath, _logger);
                 }
+            }
         }
 
         public void EfsWriteFile(string computerPath, string efsPath, bool create, bool itemFile)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     FileUtils.PhoneWriteFile(manager, computerPath, efsPath, 0777, itemFile, _logger);
                 }
+            }
         }
 
         public void EfsRenameFile(string efsPath, string newEfsPath)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(newEfsPath))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     var efs = manager.Efs;
                     efs.RenameFile(efsPath, newEfsPath);
                     efs.SyncNoWait(newEfsPath, 1);
                 }
+            }
         }
 
         public void EfsDownloadDirectory(string efsPath, string computerPath, bool noExtraData, bool processNvItems)
         {
             if (!string.IsNullOrEmpty(efsPath) && !string.IsNullOrEmpty(computerPath))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     var path1 = PathUtils.FixUnixPath(efsPath);
                     var path2 = PathUtils.FixPath(computerPath);
                     FileUtils.PhoneDownloadDirectory(manager, path1, path2, noExtraData, _logger);
-                    if (processNvItems) NvItemUtils.PhoneDownloadNvItems(manager, path2, _logger);
+                    if (processNvItems)
+                    {
+                        NvItemUtils.PhoneDownloadNvItems(manager, path2, _logger);
+                    }
                 }
+            }
         }
 
         public void EfsUploadDirectory(string computerPath, string efsPath, bool createItemFilesAsDefault,
@@ -221,7 +230,10 @@ namespace EfsTools
                     {
                         var path2 = PathUtils.FixUnixPath(efsPath);
                         FileUtils.PhoneUploadDirectory(manager, path1, path2, createItemFilesAsDefault, _logger);
-                        if (processNvItems) NvItemUtils.PhoneUploadNvItems(manager, path1, _logger);
+                        if (processNvItems)
+                        {
+                            NvItemUtils.PhoneUploadNvItems(manager, path1, _logger);
+                        }
                     }
                 }
             }
@@ -263,6 +275,7 @@ namespace EfsTools
             _logger.LogInfo(Strings.QcdmGeneratingModemConfig);
 
             if (string.IsNullOrEmpty(inputDirectory))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     using (var output = File.CreateText(path))
@@ -276,6 +289,7 @@ namespace EfsTools
                         output.Close();
                     }
                 }
+            }
             else
             {
                 using (var output = File.CreateText(path))
@@ -330,11 +344,13 @@ namespace EfsTools
         public void EfsFixFileNames(string efsPath)
         {
             if (!string.IsNullOrEmpty(efsPath))
+            {
                 using (var manager = OpenQcdmManager())
                 {
                     var path = PathUtils.FixUnixPath(efsPath);
                     FileUtils.PhoneFixFileNames(manager, path, _logger);
                 }
+            }
         }
 
         public void ExtractMbn(string inputMbnFilePath, string outputComputerDirectoryPath, bool noExtraData)
@@ -343,7 +359,6 @@ namespace EfsTools
             MbnExtractor.Extract(inputMbnFilePath, outputComputerDirectoryPath, noExtraData, _logger);
         }
 
-        private readonly IConfigurationRoot _configurationRoot;
         private string CheckAndFixPath(string path)
         {
             if (File.Exists(path) && Path.GetExtension(path) == ".mbn")

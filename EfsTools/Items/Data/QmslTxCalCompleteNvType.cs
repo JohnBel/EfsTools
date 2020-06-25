@@ -1,23 +1,18 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class QmslTxCalCompleteNvType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class QmslTxCalCompleteNvType
     {
-        [ElementsCount(1)]
-        [ElementType("QMSL_Tx_Band_Cal_NV_Type")]
-        [Description("")]
         public QmslTxBandCalNvType BandCalData { get; set; }
-        
-        [ElementsCount(192)]
-        [ElementType("QMSL_Tx_Cal_Linearizer_Table_NV_Type")]
-        [Description("")]
-        public QmslTxCalLinearizerTableNvType[] TxLinData { get; set; }
-        
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 192)]
+        public QmslTxCalLinearizerTableNvType[] TxLinData
+        {
+            get;
+        }
     }
 }

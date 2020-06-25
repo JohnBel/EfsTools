@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using EfsTools.Items;
 using EfsTools.Qualcomm;
@@ -27,7 +26,8 @@ namespace EfsTools.Utils
             return result;
         }
 
-        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription, HashSet<string> configItems)
+        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription,
+            HashSet<string> configItems)
         {
             var items = new Dictionary<string, object>();
             foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
@@ -45,6 +45,7 @@ namespace EfsTools.Utils
                             stream.Close();
                         }
                     }
+
                     items.Add(itemType.Name, item);
                 }
             }
@@ -86,6 +87,7 @@ namespace EfsTools.Utils
                         ItemsBinarySerializer.Deserialize(item, stream);
                         stream.Close();
                     }
+
                     items.Add(itemType.Name, item);
                 }
             }
@@ -104,6 +106,7 @@ namespace EfsTools.Utils
                     }
                 }
             }
+
             return items;
         }
 
@@ -111,13 +114,15 @@ namespace EfsTools.Utils
         {
             if (ItemsFactory.HasSubscription(filePath))
             {
-                var subscriptionFilePath = (subscription <= 0) ? filePath : $"{filePath}_Subscription{subscription:D2}";
+                var subscriptionFilePath = subscription <= 0 ? filePath : $"{filePath}_Subscription{subscription:D2}";
                 return subscriptionFilePath;
             }
+
             return filePath;
         }
 
-        public static void PhoneSaveItems(QcdmManager manager, int subscription, Dictionary<string, object> items, Logger logger)
+        public static void PhoneSaveItems(QcdmManager manager, int subscription, Dictionary<string, object> items,
+            Logger logger)
         {
             var efs = manager.Efs;
             foreach (var item in items)
@@ -127,7 +132,7 @@ namespace EfsTools.Utils
                 if (fileAttribute == null)
                 {
                     var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
-                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= UInt16.MaxValue)
+                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= ushort.MaxValue)
                     {
                         using (var stream = NvOpenWrite(manager, (ushort) nvItemIdAttribute.Id))
                         {
@@ -172,13 +177,19 @@ namespace EfsTools.Utils
                         ? $"{directoryPath}{filePath}"
                         : PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions,
                             fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File, false);
-                    if (!File.Exists(path)) path = $"{directoryPath}{filePath}";
+                    if (!File.Exists(path))
+                    {
+                        path = $"{directoryPath}{filePath}";
+                    }
+
                     if (File.Exists(path))
+                    {
                         using (var stream = FileUtils.LocalOpenRead(path))
                         {
                             ItemsBinarySerializer.Deserialize(item, stream);
                             stream.Close();
                         }
+                    }
 
                     items.Add(itemType.Name, item);
                 }
@@ -193,11 +204,13 @@ namespace EfsTools.Utils
                     var nvItemFileName = PathUtils.GetNvItemFileName((ushort) nvItemId);
                     var path = Path.Combine(directoryPath, nvItemFileName);
                     if (File.Exists(path))
+                    {
                         using (var stream = FileUtils.LocalOpenRead(path))
                         {
                             ItemsBinarySerializer.Deserialize(item, stream);
                             stream.Close();
                         }
+                    }
 
                     items.Add(itemType.Name, item);
                 }
@@ -219,8 +232,16 @@ namespace EfsTools.Utils
                     ? $"{directoryPath}{filePath}"
                     : PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions,
                         fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File, false);
-                if (!File.Exists(path)) path = $"{directoryPath}{filePath}";
-                if (!File.Exists(path)) path = PathUtils.FindFile(path);
+                if (!File.Exists(path))
+                {
+                    path = $"{directoryPath}{filePath}";
+                }
+
+                if (!File.Exists(path))
+                {
+                    path = PathUtils.FindFile(path);
+                }
+
                 if (File.Exists(path))
                 {
                     using (var stream = FileUtils.LocalOpenRead(path))
@@ -254,7 +275,8 @@ namespace EfsTools.Utils
             return items;
         }
 
-        public static void LocalSaveItems(string directoryPath, int subscription, Dictionary<string, object> items, Logger logger)
+        public static void LocalSaveItems(string directoryPath, int subscription, Dictionary<string, object> items,
+            Logger logger)
         {
             foreach (var item in items)
             {
@@ -263,7 +285,7 @@ namespace EfsTools.Utils
                 if (fileAttribute == null)
                 {
                     var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
-                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= UInt16.MaxValue)
+                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= ushort.MaxValue)
                     {
                         var nvItemFileName = PathUtils.GetNvItemFileName((ushort) nvItemIdAttribute.Id);
                         var path = Path.Combine(directoryPath, nvItemFileName);
@@ -286,6 +308,7 @@ namespace EfsTools.Utils
                     {
                         File.Delete(path);
                     }
+
                     using (var stream = FileUtils.LocalCreateWrite(path))
                     {
                         ItemsBinarySerializer.Serialize(item.Value, stream);
@@ -300,14 +323,18 @@ namespace EfsTools.Utils
         {
             logger.LogInfo(string.Format(Strings.QcdmDownloadingNvItems));
             for (ushort nvItemId = 1; nvItemId < ushort.MaxValue; ++nvItemId)
+            {
                 PhoneDownloadNvItem(manager, path, nvItemId, logger);
+            }
         }
 
         public static void PhoneUploadNvItems(QcdmManager manager, string path, Logger logger)
         {
             logger.LogInfo(string.Format(Strings.QcdmUploadingNvItems));
             for (ushort nvItemId = 1; nvItemId < ushort.MaxValue; ++nvItemId)
+            {
                 PhoneUploadNvItem(manager, path, nvItemId, logger);
+            }
         }
 
         private static void PhoneDownloadNvItem(QcdmManager manager, string path, ushort nvItemId, Logger logger)
@@ -331,7 +358,10 @@ namespace EfsTools.Utils
             }
             catch
             {
-                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath)) File.Delete(filePath);
+                if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
             }
         }
 
@@ -342,6 +372,7 @@ namespace EfsTools.Utils
                 var filePath = PathUtils.GetNvItemFileName(nvItemId);
                 filePath = Path.Combine(path, filePath);
                 if (File.Exists(filePath))
+                {
                     using (var input = FileUtils.LocalOpenRead(filePath))
                     {
                         using (var output = NvOpenWrite(manager, nvItemId))
@@ -353,6 +384,7 @@ namespace EfsTools.Utils
 
                         input.Close();
                     }
+                }
             }
             catch
             {

@@ -1,23 +1,22 @@
 using System;
-using System.ComponentModel;
-using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    public class GsmTxPolarRampProfileDataType
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public sealed class GsmTxPolarRampProfileDataType
     {
-        [ElementsCount(30)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] RampUp { get; set; }
-        
-        [ElementsCount(30)]
-        [ElementType("uint16")]
-        [Description("")]
-        public ushort[] RampDown { get; set; }
-        
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        public ushort[] RampUp
+        {
+            get;
+        }
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        public ushort[] RampDown
+        {
+            get;
+        }
     }
 }

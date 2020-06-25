@@ -1,35 +1,24 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00023864", true, 0xE1FF)]
     [Attributes(9)]
-    public class CdmaC2Bc15TxGtrThresh
+    public sealed class CdmaC2Bc15TxGtrThresh
     {
-        [ElementsCount(1)]
-        [ElementType("int8")]
-        [Description("")]
         public sbyte Enable { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
+
+
         public short RiseThresh { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
+
+
         public short FallThresh { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
+
+
         public short Reserved { get; set; }
-        
     }
 }

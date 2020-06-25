@@ -81,7 +81,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 while (true)
                 {
                     var entry = GetEntry(index++);
-                    if (entry == null || string.IsNullOrEmpty(entry.Name)) break;
+                    if (entry == null || string.IsNullOrEmpty(entry.Name))
+                    {
+                        break;
+                    }
+
                     yield return entry;
                 }
             }
@@ -91,15 +95,26 @@ namespace EfsTools.Qualcomm.QcdmManagers
         {
             var request = new EfsReadDirectoryCommandRequest(_directory, index);
             var response = (EfsReadDirectoryCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-            if (response.Error == QcdmEfsErrors.InvalidSequence) return null;
+            if (response.Error == QcdmEfsErrors.InvalidSequence)
+            {
+                return null;
+            }
+
             QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
             return response.DirectoryEntry;
         }
 
         private void CheckManager()
         {
-            if (_manager == null) throw new QcdmEfsDirectoryException("Manager is null");
-            if (!_manager.IsOpen) throw new QcdmEfsDirectoryException("Manager is not open");
+            if (_manager == null)
+            {
+                throw new QcdmEfsDirectoryException("Manager is null");
+            }
+
+            if (!_manager.IsOpen)
+            {
+                throw new QcdmEfsDirectoryException("Manager is not open");
+            }
         }
     }
 }

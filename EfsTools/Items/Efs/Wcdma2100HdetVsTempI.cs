@@ -1,20 +1,16 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00024590", true, 0xE1FF)]
     [Attributes(9)]
-    public class Wcdma2100HdetVsTemp
+    public sealed class Wcdma2100HdetVsTemp
     {
-        [ElementsCount(8)]
-        [ElementType("int16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public short[] Value { get; set; }
-        
     }
 }

@@ -1,31 +1,23 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00025023", true, 0xE1FF)]
     [Attributes(9)]
-    public class GsmC0Gsm1900Vbatt
+    public sealed class GsmC0Gsm1900Vbatt
     {
-        [ElementsCount(3)]
-        [ElementType("uint16")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
         public ushort[] VbattLevels { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("GSM_TX_VBATT_COMP_DATA_TYPE")]
-        [Description("")]
+
+
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
-        
-        [ElementsCount(1)]
-        [ElementType("GSM_TX_VBATT_COMP_DATA_TYPE")]
-        [Description("")]
+
+
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
-        
     }
 }

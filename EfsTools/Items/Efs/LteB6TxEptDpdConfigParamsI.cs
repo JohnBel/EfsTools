@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/rfnv/00024540", true, 0xE1FF)]
     [Attributes(9)]
-    public class LteB6TxEptDpdConfigParams
+    public sealed class LteB6TxEptDpdConfigParams
     {
-        [ElementsCount(32)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public uint[] Value { get; set; }
-        
     }
 }

@@ -1,17 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [EfsFile("/nv/item_files/modem/nas/emm_nas_nv_items", true, 0xE1FF)]
     [Attributes(9)]
-    public class EmmNasNvItems
+    public sealed class EmmNasNvItems
     {
-        [ElementsCount(32)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] Value { get; set; }
     }
 }

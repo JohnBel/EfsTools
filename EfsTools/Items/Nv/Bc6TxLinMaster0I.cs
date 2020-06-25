@@ -1,25 +1,21 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1212)]
     [Attributes(9)]
-    public class Bc6TxLinMaster0
+    public sealed class Bc6TxLinMaster0
     {
-        [ElementsCount(1)]
-        [ElementType("int16")]
-        [Description("")]
         public short Value1 { get; set; }
-        
-        [ElementsCount(37)]
-        [ElementType("uint8")]
-        [Description("")]
-        public byte[] Value2 { get; set; }
-        
+
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 37)]
+        public byte[] Value2
+        {
+            get;
+        }
     }
 }

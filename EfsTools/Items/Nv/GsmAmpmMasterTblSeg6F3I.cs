@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(3115)]
     [Attributes(9)]
-    public class GsmAmpmMasterTblSeg6F3
+    public sealed class GsmAmpmMasterTblSeg6F3
     {
-        [ElementsCount(32)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public uint[] Value { get; set; }
-        
     }
 }

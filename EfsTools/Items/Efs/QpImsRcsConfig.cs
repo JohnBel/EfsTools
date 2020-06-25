@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,15 +8,14 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67260)]
     [EfsFile("/nv/item_files/ims/qp_ims_rcs_config", true, 0xE1FF)]
     [Attributes(9)]
-    public class QpImsRcsConfig
+    public sealed class QpImsRcsConfig
     {
         [JsonIgnore]
-        [ElementsCount(256)] //Todo: check
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] //Todo: check
         public byte[] PresenceMgrConfigHttpProxy { get; set; }
 
         public string PresenceMgrConfigHttpProxyString
@@ -24,19 +24,13 @@ namespace EfsTools.Items.Efs
             set => PresenceMgrConfigHttpProxy = StringUtils.GetBytes(value, 256);
         }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte PresenceMgrConfigPresence { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
+
         public ushort PresenceExpires { get; set; }
 
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
+
         public byte PublishRetryAttempt { get; set; }
     }
 }

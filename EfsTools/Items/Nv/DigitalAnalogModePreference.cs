@@ -1,5 +1,5 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -82,24 +82,19 @@ namespace EfsTools.Items.Nv
     }
 
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(10)]
     [Attributes(41)]
-    public class DigitalAnalogModePreference
+    public sealed class DigitalAnalogModePreference
     {
-        [ElementsCount(1)]
-        [ElementType("uint8")]
-        [Description("")]
         public byte Nam { get; set; }
 
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint16")]
-        [Description("")]
         public ushort Mode { get; set; }
 
         public string StringMode
         {
-            get => $"{(DigitalAnalogPreferenceMode)Mode}";
+            get => $"{(DigitalAnalogPreferenceMode) Mode}";
             set => Mode = EnumUtils.ParseEnumByte(typeof(DigitalAnalogPreferenceMode), value);
         }
     }

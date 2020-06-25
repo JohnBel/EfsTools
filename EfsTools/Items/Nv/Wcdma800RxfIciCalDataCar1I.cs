@@ -1,20 +1,17 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(7159)]
     [Attributes(9)]
-    public class Wcdma800RxfIciCalDataCar1
+    public sealed class Wcdma800RxfIciCalDataCar1
     {
-        [ElementsCount(17)]
-        [ElementType("uint32")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 17)]
         public uint[] Value { get; set; }
-        
     }
 }

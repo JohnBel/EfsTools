@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(3849)]
     [Attributes(9)]
-    public class RfrVcoCoarseTune21900
+    public sealed class RfrVcoCoarseTune21900
     {
-        [ElementsCount(12)]
-        [ElementType("uint8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
         public byte[] Value { get; set; }
-        
     }
 }

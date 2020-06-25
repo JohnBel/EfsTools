@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,10 +8,11 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qipcall_codec_mode_set", true, 0xE1FF)]
     [Attributes(9)]
-    public class QipcallCodecModeSetAmrNb
+    public sealed class QipcallCodecModeSetAmrNb
     {
         /*
           0x1 -- 4.75 kbps \n
@@ -22,11 +24,8 @@ namespace EfsTools.Items.Efs
         - 0x40 -- 10.2 kbps \n
         - 0x80 -- 12.2 kbps
          */
-        
+
         [JsonIgnore]
-        [ElementsCount(1)]
-        [ElementType("uint32")]
-        [Description("")]
         public uint Value { get; set; }
 
         public bool Enable_4_75kbps

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using EfsTools.Qualcomm.QcdmCommands.Attributes;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Qualcomm.QcdmCommands.Requests;
 using EfsTools.Resourses;
-using EfsTools.Utils;
 
 namespace EfsTools.Qualcomm.QcdmCommands.Responses
 {
@@ -18,9 +16,20 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             State2 = state2;
         }
 
-        public MessageId MessageId { get; private set; }
-        public ushort State1 { get; private set; }
-        public ushort State2 { get; private set; }
+        public MessageId MessageId
+        {
+            get;
+        }
+
+        public ushort State1
+        {
+            get;
+        }
+
+        public ushort State2
+        {
+            get;
+        }
 
         public override string ToString()
         {
@@ -47,7 +56,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
         {
             var result = new ExtMessageConfigCommandResponse();
             result.CheckResponse(data);
-            var command = (ExtMessageConfigOperation)data[1];
+            var command = (ExtMessageConfigOperation) data[1];
             switch (command)
             {
                 case ExtMessageConfigOperation.Disable:
@@ -61,6 +70,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                     ParseSetMask(result, data);
                     break;
             }
+
             return result;
         }
 
@@ -71,7 +81,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             var start = data[2] + (data[3] << 8);
             var end = data[4] + (data[5] << 8);
             var maskLength = end - start + 1;
-            if (data.Length < (maskLength + 8))
+            if (data.Length < maskLength + 8)
             {
                 throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
             }
@@ -85,10 +95,11 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
                     var v = data[ind] + (data[ind + 1] << 8) + (data[ind + 2] << 16) + (data[ind + 3] << 24);
                     if (v != 0)
                     {
-                        enabledMessages.Add((MessageId)(i + start));
+                        enabledMessages.Add((MessageId) (i + start));
                     }
                 }
             }
+
             result.Messages = enabledMessages.ToArray();
         }
 
@@ -104,9 +115,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             var messages = new MessageId[count];
             for (var i = 0; i < count; ++i)
             {
-                messages[i] = (MessageId)BitConverter.ToUInt16(data, pos);
+                messages[i] = (MessageId) BitConverter.ToUInt16(data, pos);
                 pos += 2;
             }
+
             result.Messages = messages;
         }
 
@@ -116,6 +128,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             {
                 throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
             }
+
             var start = data[2] + (data[3] << 8);
             var end = data[4] + (data[5] << 8);
 
@@ -125,10 +138,12 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             for (var i = 0; i < count; ++i)
             {
                 var messageId = (MessageId) (start + i);
-                var message = new MessageIdState(messageId, BitConverter.ToUInt16(data, pos), BitConverter.ToUInt16(data, pos + 2));
+                var message = new MessageIdState(messageId, BitConverter.ToUInt16(data, pos),
+                    BitConverter.ToUInt16(data, pos + 2));
                 pos += 4;
                 messages[i] = message;
             }
+
             result.MessageStates = messages;
         }
     }

@@ -1,20 +1,16 @@
 using System;
-using System.ComponentModel;
+using System.Runtime.InteropServices;
 using EfsTools.Attributes;
-using EfsTools.Utils;
-using Newtonsoft.Json;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6050)]
     [Attributes(9)]
-    public class Wcdma1800HsSwitchpointsShift
+    public sealed class Wcdma1800HsSwitchpointsShift
     {
-        [ElementsCount(2)]
-        [ElementType("int8")]
-        [Description("")]
+        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         public sbyte[] Value { get; set; }
-        
     }
 }

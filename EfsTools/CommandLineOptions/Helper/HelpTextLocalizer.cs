@@ -18,6 +18,7 @@ namespace EfsTools.CommandLineOptions.Helper
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 foreach (var type in assembly.GetTypes())
+                {
                     if (!type.IsAbstract && !type.IsEnum)
                     {
                         if (type.GetCustomAttributes(typeof(VerbAttribute), true).FirstOrDefault() is VerbAttribute
@@ -34,6 +35,7 @@ namespace EfsTools.CommandLineOptions.Helper
                             attribute2.HelpText = helpText;
                         }
                     }
+                }
             }
             catch
             {
