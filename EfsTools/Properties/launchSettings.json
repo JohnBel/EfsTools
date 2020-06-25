@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EfsTools": {
+      "commandName": "Project",
+      "commandLineArgs": "getModemConfig -p modemConfigS0_${date:format=yyyyMMdd_HHmmss}.json -s 0"
+    }
+  }
+}
