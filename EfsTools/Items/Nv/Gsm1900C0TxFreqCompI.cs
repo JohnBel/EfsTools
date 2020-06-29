@@ -1,16 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(2321)]
     [Attributes(9)]
     public sealed class Gsm1900C0TxFreqComp
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public sbyte[] Value { get; set; }
     }
 }

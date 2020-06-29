@@ -1,16 +1,14 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6730)]
     [Attributes(9)]
     public sealed class LteB1TxGainIndex0
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public ushort[] Value { get; set; }
     }
 }

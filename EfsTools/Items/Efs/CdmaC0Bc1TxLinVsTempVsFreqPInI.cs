@@ -1,19 +1,20 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00025586", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00025586", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class CdmaC0Bc1TxLinVsTempVsFreqPIn
     {
         public byte Reserved { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get;

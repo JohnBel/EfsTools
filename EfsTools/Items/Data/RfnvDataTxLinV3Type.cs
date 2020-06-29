@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class RfnvDataTxLinV3Type
+        public sealed class RfnvDataTxLinV3Type
     {
         public byte PaState { get; set; }
 

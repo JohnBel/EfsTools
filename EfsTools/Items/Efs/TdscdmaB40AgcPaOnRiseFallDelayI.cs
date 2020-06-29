@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB40AgcPaOnRiseFallDelay
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        [FieldCount(2)]
         public short[] Value { get; set; }
     }
 }

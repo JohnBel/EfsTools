@@ -25,7 +25,6 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(69737)]
     [EfsFile("/nv/item_files/pbm/pbm_hardcoded_ecc_list", true, 0xE1FF)]
     [Attributes(9)]
@@ -35,7 +34,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits1 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits1 { get; set; }
 
         [JsonIgnore]
@@ -72,7 +71,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits2 { get; set; }
 
         [JsonIgnore]
@@ -108,7 +107,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits3 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits3 { get; set; }
 
         [JsonIgnore]
@@ -144,7 +143,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits4 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits4 { get; set; }
 
         [JsonIgnore]
@@ -180,7 +179,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits5 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits5 { get; set; }
 
         [JsonIgnore]
@@ -216,7 +215,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits6 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits6 { get; set; }
 
         [JsonIgnore]
@@ -252,7 +251,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits7 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits7 { get; set; }
 
         [JsonIgnore]
@@ -288,7 +287,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits8 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits8 { get; set; }
 
         [JsonIgnore]
@@ -324,7 +323,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits9 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits9 { get; set; }
 
         [JsonIgnore]
@@ -360,7 +359,7 @@ namespace EfsTools.Items.Efs
         public byte NumDigits10 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
+        [FieldCount(28)]
         public byte[] Digits10 { get; set; }
 
         [JsonIgnore]

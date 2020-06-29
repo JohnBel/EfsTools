@@ -15,8 +15,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(70235)]
     [EfsFile("/nv/item_files/ims/qp_ims_reg_extended_0_config", true, 0xE1B6)]
     [Attributes(9)]
@@ -52,10 +51,10 @@ namespace EfsTools.Items.Efs
             set => EnableRegInLpm = EnumUtils.ParseEnumByte(typeof(EnableRegInLpmValues), value);
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 1011)]
+        [FieldCount(1011)]
         public byte[] Reserved { get; set; }
 
-        /*[field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 1019)]
+        /*[FieldCount(1019)]
 		public byte[] Field3 { get; set; }
 
         

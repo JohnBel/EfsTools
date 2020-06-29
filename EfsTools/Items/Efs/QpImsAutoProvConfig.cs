@@ -6,7 +6,6 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(70329)]
     [EfsFile("/nv/item_files/ims/qp_ims_auto_prov_config", true, 0xE1FF)]
     [Attributes(9)]
@@ -29,28 +28,28 @@ namespace EfsTools.Items.Efs
 
         public byte DisableAcs { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] ServiceName { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] DeviceType { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] NetType { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] RcsIdentifier { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] AcsPdpProfileName { get; set; }
 
 
         public byte AcsApnType { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 360)]
+        [FieldCount(360)]
         public byte[] AcsServerAddress { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
+        [FieldCount(40)]
         public byte[] AcsServerPort { get; set; }
     }
 }

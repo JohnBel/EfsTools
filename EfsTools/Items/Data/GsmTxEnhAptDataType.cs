@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class GsmTxEnhAptDataType
+        public sealed class GsmTxEnhAptDataType
     {
         public byte PclThresholdVal { get; set; }
 

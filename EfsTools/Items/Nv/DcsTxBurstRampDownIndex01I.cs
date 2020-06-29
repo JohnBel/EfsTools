@@ -1,16 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(787)]
     [Attributes(9)]
     public sealed class DcsTxBurstRampDownIndex01
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        [FieldCount(30)]
         public ushort[] Value { get; set; }
     }
 }

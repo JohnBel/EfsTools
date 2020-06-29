@@ -10,10 +10,10 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma900HdetModRange
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] LowerBoundOffset { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] UpperBoundOffset { get; set; }
     }
 }

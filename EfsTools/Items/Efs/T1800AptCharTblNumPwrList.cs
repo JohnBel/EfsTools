@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class T1800AptCharTblNumPwrList
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [FieldCount(4)]
         public byte[] Value { get; set; }
     }
 }

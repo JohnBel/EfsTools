@@ -121,7 +121,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] AuthHeaderValue { get; set; }
 
         public string AuthHeaderValueString
@@ -131,7 +131,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] ProxyRouteValue { get; set; }
 
         public string ProxyRouteValueString

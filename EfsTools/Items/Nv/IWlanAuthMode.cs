@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -14,7 +13,6 @@ namespace EfsTools.Items.Nv
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5828)]
     [Attributes(9)]
     public sealed class IWlanAuthMode

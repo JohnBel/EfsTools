@@ -1,17 +1,16 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/data/default_andsf.xml", false, 0x81B6)]
+        [EfsFile("/data/default_andsf.xml", false, 0x81B6)]
     [Attributes(9)]
     public sealed class DefaultAndsfXml
     {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0)]
+        [FieldCount(0)]
         private byte[] _values;
 
         public string[] Values

@@ -8,8 +8,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(70263)]
     [EfsFile("/nv/item_files/ims/qp_ims_ut_config", true, 0xE1FF)]
     [Attributes(9)]
@@ -19,7 +18,7 @@ namespace EfsTools.Items.Efs
         public byte Version { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public byte[] ApnName { get; set; }
 
         public string ApnNameString
@@ -29,7 +28,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] //Todo: check
+        [FieldCount(256)] //Todo: check
         public byte[] DomainName { get; set; }
 
         public string DomainNameString
@@ -39,7 +38,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] //Todo: check
+        [FieldCount(256)] //Todo: check
         public byte[] AssociatedUri { get; set; }
 
         public string AssociatedUriString
@@ -50,7 +49,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] ApplicationUid { get; set; }
 
         public string ApplicationUidString
@@ -81,7 +80,7 @@ namespace EfsTools.Items.Efs
         public byte GbaUbMode { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 512)]
+        [FieldCount(512)]
         public byte[] BsfAddr { get; set; }
 
         public string BsfAddrString
@@ -106,7 +105,7 @@ namespace EfsTools.Items.Efs
         public byte Apn2IpAddrType { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public byte[] Apn2ApnName { get; set; }
 
         public string Apn2ApnNameString

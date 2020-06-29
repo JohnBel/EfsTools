@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1900PaSmpsAptPdm3
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public ushort[] Value { get; set; }
     }
 }

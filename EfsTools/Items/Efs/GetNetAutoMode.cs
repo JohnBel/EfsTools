@@ -1,12 +1,11 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/modem/mmode/get_net_auto_mode", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/modem/mmode/get_net_auto_mode", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class GetNetAutoMode
     {

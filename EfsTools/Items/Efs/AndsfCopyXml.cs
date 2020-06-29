@@ -1,17 +1,18 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/data/andsf_copy.xml", false, 0x81B6)]
+        [EfsFile("/data/andsf_copy.xml", false, 0x81B6)]
     [Attributes(9)]
     public sealed class AndsfCopyXml
     {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0)]
+        [FieldCount(0)]
         private byte[] _values;
 
         public string[] Values

@@ -1,17 +1,16 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Items.Data;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00023758", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00023758", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class CdmaC3HdrSpurTable
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 }

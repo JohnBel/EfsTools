@@ -70,8 +70,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [EfsFile("/sd/rat_acq_order", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class RatAcqOrder
@@ -85,7 +84,7 @@ namespace EfsTools.Items.Efs
 
 
         
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        [FieldCount(10)]
         private readonly byte[] _rawValues = new byte[10];
         
         [JsonIgnore]

@@ -6,8 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/modem/data/3gpp/lteps/profile_pdn_type_override", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/modem/data/3gpp/lteps/profile_pdn_type_override", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class ProfilePdnTypeOverride
     {

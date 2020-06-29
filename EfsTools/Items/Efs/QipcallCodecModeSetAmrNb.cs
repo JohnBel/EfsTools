@@ -8,8 +8,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [EfsFile("/nv/item_files/ims/qipcall_codec_mode_set", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QipcallCodecModeSetAmrNb

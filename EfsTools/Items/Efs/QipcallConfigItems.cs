@@ -18,8 +18,7 @@ namespace EfsTools.Items.Efs
      */
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(67348)]
     [EfsFile("/nv/item_files/ims/qipcall_config_items", true, 0xE1FF)]
     [Attributes(9)]
@@ -52,7 +51,7 @@ namespace EfsTools.Items.Efs
         public byte RtpWbDtmpPayloadType { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public byte[] MediaAttribute { get; set; }
 
         public string MediaAttributeString
@@ -84,7 +83,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] AudioFeatureTag { get; set; }
 
         public string AudioFeatureTagString
@@ -94,7 +93,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] VideoFeatureTag { get; set; }
 
         public string VideoFeatureTagString
@@ -103,7 +102,7 @@ namespace EfsTools.Items.Efs
             set => VideoFeatureTag = StringUtils.GetBytes(value, 128);
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 223)]
+        [FieldCount(223)]
         public byte[] ReservedBytes { get; set; }
     }
 }

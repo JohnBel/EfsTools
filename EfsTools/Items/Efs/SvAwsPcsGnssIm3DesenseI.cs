@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class SvAwsPcsGnssIm3Desense
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        [FieldCount(10)]
         public short[] Value { get; set; }
     }
 }

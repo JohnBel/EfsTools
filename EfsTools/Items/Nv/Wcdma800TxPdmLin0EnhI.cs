@@ -11,7 +11,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class Wcdma800TxPdmLin0Enh
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public ushort[] Value { get; set; }
     }
 }

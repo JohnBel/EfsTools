@@ -1,16 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5273)]
     [Attributes(9)]
     public sealed class Gsm1900KvCalChan
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        [FieldCount(2)]
         public ushort[] Value { get; set; }
     }
 }

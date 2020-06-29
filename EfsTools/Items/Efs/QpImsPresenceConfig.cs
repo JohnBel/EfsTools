@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67314)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_presence_config", true, 0xE1FF)]
@@ -45,7 +44,7 @@ namespace EfsTools.Items.Efs
         public byte VoLteProvisioningStatus { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] LastPublishedEtag { get; set; }
 
         public string LastPublishedEtagString

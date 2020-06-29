@@ -6,8 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [EfsFile("/nv/item_files/ims/qipcall_is_conf_server_refer_recipient", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QipcallIsConfServerReferRecipient

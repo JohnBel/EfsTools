@@ -11,7 +11,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class Wcdma800TxCompVsFreqSecPdmList
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [FieldCount(4)]
         public ushort[] Value { get; set; }
     }
 }

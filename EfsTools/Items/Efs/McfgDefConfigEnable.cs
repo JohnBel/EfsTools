@@ -6,8 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [EfsFile("/client-key/mcfg_def_config_enable", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class McfgDefConfigEnable

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB34LnaRangeAllowed
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 24)]
+        [FieldCount(24)]
         public byte[] Value { get; set; }
     }
 }

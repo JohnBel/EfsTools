@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class T900AptCharTblPout0
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public short[] Value { get; set; }
     }
 }

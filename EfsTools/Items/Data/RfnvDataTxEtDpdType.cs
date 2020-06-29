@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class RfnvDataTxEtDpdType
+        public sealed class RfnvDataTxEtDpdType
     {
         public ushort EtDpdIndex { get; set; }
 

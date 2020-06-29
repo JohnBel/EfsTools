@@ -24,7 +24,7 @@ namespace EfsTools.Items.Efs
         public byte WifiCsScanTimer { get; set; }
 
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public byte[] Reserved { get; set; }
     }
 }

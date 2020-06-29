@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(73713)]
     [EfsFile("/nv/item_files/ims/ims_rat_ho_config", true, 0xE1FF)]
     [Attributes(9)]

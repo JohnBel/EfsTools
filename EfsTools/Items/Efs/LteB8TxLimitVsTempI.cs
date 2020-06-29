@@ -6,12 +6,11 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00020869", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00020869", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class LteB8TxLimitVsTemp
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public sbyte[] Value { get; set; }
     }
 }

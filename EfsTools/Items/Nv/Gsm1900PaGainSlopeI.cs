@@ -1,16 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(1094)]
     [Attributes(9)]
     public sealed class Gsm1900PaGainSlope
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public byte[] Value { get; set; }
     }
 }

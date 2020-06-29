@@ -1,16 +1,14 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(6686)]
     [Attributes(9)]
     public sealed class LteB40Antsel
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [FieldCount(4)]
         public byte[] Value { get; set; }
     }
 }

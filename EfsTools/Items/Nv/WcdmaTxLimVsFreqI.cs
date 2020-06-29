@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaTxLimVsFreq
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public short[] Value { get; set; }
     }
 }

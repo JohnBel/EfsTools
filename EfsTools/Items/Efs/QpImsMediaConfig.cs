@@ -58,7 +58,6 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67332)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_media_config", true, 0xE1FF)]
@@ -181,7 +180,7 @@ namespace EfsTools.Items.Efs
         public byte RxSystemDelay { get; set; }
 
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 500)]
+        [FieldCount(500)]
         public byte[] Reserved { get; set; }
     }
 }

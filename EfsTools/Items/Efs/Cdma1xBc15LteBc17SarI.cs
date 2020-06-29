@@ -1,16 +1,17 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00025719", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00025719", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class Cdma1xBc15LteBc17Sar
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public short[] Value
         {
             get;

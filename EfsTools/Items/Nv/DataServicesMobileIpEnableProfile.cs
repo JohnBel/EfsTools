@@ -1,11 +1,10 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(714)]
     [Attributes(13)]
     public sealed class DataServicesMobileIpEnableProfile
@@ -15,7 +14,7 @@ namespace EfsTools.Items.Nv
             EnableProfs = new byte[6];
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
+        [FieldCount(6)]
         public byte[] EnableProfs { get; set; }
     }
 }

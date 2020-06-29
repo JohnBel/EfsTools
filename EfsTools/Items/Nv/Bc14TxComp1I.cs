@@ -1,16 +1,17 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(3543)]
     [Attributes(9)]
     public sealed class Bc14TxComp1
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public sbyte[] Value
         {
             get;

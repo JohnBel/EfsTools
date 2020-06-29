@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB40TxCalChan
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public ushort[] Value { get; set; }
     }
 }

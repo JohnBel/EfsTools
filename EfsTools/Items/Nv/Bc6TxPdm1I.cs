@@ -1,16 +1,17 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4816)]
     [Attributes(9)]
     public sealed class Bc6TxPdm1
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public short[] Value
         {
             get;

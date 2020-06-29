@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaBc4TxLinVsTemp2
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public sbyte[] Value { get; set; }
     }
 }

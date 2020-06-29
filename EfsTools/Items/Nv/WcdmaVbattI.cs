@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaVbatt
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        [FieldCount(2)]
         public byte[] Value { get; set; }
     }
 }

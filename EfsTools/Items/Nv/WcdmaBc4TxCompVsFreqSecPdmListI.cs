@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaBc4TxCompVsFreqSecPdmList
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [FieldCount(4)]
         public ushort[] Value { get; set; }
     }
 }

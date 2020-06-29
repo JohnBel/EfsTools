@@ -21,8 +21,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(67257)]
     [EfsFile("/nv/item_files/ims/qp_ims_voip_config", true, 0xE1FF)]
     [Attributes(9)]
@@ -37,7 +36,7 @@ namespace EfsTools.Items.Efs
         public byte VoipConfigRtcp { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] VoipConfigAcceptContact { get; set; }
 
         public string VoipConfigAcceptContactString
@@ -56,7 +55,7 @@ namespace EfsTools.Items.Efs
         public byte VoipSessionTimerEnabled { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] VoipConfigConfUri { get; set; }
 
         public string VoipConfigConfUriString
@@ -95,7 +94,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] VoipConfigInviteHeader { get; set; }
 
         public string VoipConfigInviteHeaderString

@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1800RxfIciCalDataCar0
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 17)]
+        [FieldCount(17)]
         public uint[] Value { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,7 +6,6 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(298)]
     [Attributes(9)]
     public sealed class PacketDataCallsOriginateString
@@ -21,7 +19,7 @@ namespace EfsTools.Items.Nv
         public byte NumDigits { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public byte[] Digits { get; set; }
 
         public string DigitsString

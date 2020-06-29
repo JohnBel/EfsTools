@@ -11,7 +11,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaBc4HsSwitchpointsShift
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        [FieldCount(2)]
         public sbyte[] Value { get; set; }
     }
 }

@@ -25,7 +25,6 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67261)]
     [EfsFile("/nv/item_files/ims/qp_ims_dpl_config", true, 0xE1FF)]
     [Attributes(9)]

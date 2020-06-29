@@ -21,7 +21,7 @@ namespace EfsTools.Items.Efs
         public ushort Count { get; set; }
 
 
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
+        [FieldCount(50)]
         private readonly uint[] _value = new uint[50];
         
         [JsonIgnore]

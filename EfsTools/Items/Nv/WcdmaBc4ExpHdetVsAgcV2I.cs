@@ -11,7 +11,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaBc4ExpHdetVsAgcV2
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public ushort[] Value { get; set; }
     }
 }

@@ -1,16 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(5573)]
     [Attributes(9)]
     public sealed class Edge1900PmeasG1F3
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public ushort[] Value { get; set; }
     }
 }

@@ -1,18 +1,17 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(369)]
     [Attributes(9)]
     public sealed class CdmaTxLinMaster2
     {
         public short Value1 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 37)]
+        [FieldCount(37)]
         public byte[] Value2 { get; set; }
     }
 }

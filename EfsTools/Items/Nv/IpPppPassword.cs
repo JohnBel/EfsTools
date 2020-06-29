@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,7 +6,6 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(906)]
     [Attributes(9)]
     public sealed class IpPppPassword
@@ -16,7 +14,7 @@ namespace EfsTools.Items.Nv
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 127)]
+        [FieldCount(127)]
         public byte[] Value { get; set; }
 
         public string ValueString

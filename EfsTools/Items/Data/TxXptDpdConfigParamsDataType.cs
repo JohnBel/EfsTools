@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class TxXptDpdConfigParamsDataType
+        public sealed class TxXptDpdConfigParamsDataType
     {
         public uint XptConfig { get; set; }
 
@@ -54,7 +52,7 @@ namespace EfsTools.Items.Data
 
         public uint RgiSelOffsetHigh2 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public uint[] Reserved2
         {
             get;

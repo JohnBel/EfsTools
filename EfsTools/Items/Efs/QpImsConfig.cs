@@ -6,7 +6,6 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(69750)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_config", true, 0xE1FF)]
@@ -55,7 +54,7 @@ namespace EfsTools.Items.Efs
 
         public byte IWfcRoaming { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 501)]
+        [FieldCount(501)]
         public byte[] Reserved { get; set; }
     }
 }

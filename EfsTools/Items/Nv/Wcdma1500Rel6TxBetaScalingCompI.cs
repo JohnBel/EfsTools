@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
@@ -10,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class Wcdma1500Rel6TxBetaScalingComp
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public ushort[] Value { get; set; }
     }
 }

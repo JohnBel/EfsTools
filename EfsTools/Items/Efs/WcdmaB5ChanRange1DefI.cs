@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class WcdmaB5ChanRange1Def
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        [FieldCount(3)]
         public ushort[] Value { get; set; }
     }
 }

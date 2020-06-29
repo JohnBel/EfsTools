@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 
@@ -10,7 +9,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class RmnetConfigTxt
     {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0)]
+        [FieldCount(0)]
         private byte[] _values;
 
         public string[] Values

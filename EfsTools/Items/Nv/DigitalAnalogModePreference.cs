@@ -1,9 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     public enum DigitalAnalogPreferenceMode : ushort
@@ -82,7 +82,6 @@ namespace EfsTools.Items.Nv
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(10)]
     [Attributes(41)]
     public sealed class DigitalAnalogModePreference

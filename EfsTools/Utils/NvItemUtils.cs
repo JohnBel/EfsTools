@@ -33,39 +33,35 @@ namespace EfsTools.Utils
             foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
             {
                 var realFilePath = GetEfsFilePath(filePath, subscription);
-                var item = ItemsFactory.CreateEfsFile(filePath);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetEfsFileType(filePath);
                 if (configItems == null || configItems.Contains(itemType.Name))
                 {
                     if (manager.Efs.FileExists(realFilePath))
                     {
                         using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
                         {
-                            ItemsBinarySerializer.Deserialize(item, stream);
+                            var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                            items.Add(itemType.Name, item);
                             stream.Close();
                         }
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 
             foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
             {
-                var item = ItemsFactory.CreateNvItem(nvItemId);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetNvItemType(nvItemId);
                 if (configItems == null || configItems.Contains(itemType.Name))
                 {
                     using (var stream = NvOpenRead(manager, (ushort) nvItemId))
                     {
                         if (stream != null)
                         {
-                            ItemsBinarySerializer.Deserialize(item, stream);
+                            var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                            items.Add(itemType.Name, item);
                             stream.Close();
                         }
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 
@@ -80,29 +76,26 @@ namespace EfsTools.Utils
                 var realFilePath = GetEfsFilePath(filePath, subscription);
                 if (manager.Efs.FileExists(realFilePath))
                 {
-                    var item = ItemsFactory.CreateEfsFile(filePath);
-                    var itemType = item.GetType();
+                    var itemType = ItemsFactory.GetEfsFileType(filePath); 
                     using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
                     {
-                        ItemsBinarySerializer.Deserialize(item, stream);
+                        var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                        items.Add(itemType.Name, item);
                         stream.Close();
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 
             foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
             {
-                var item = ItemsFactory.CreateNvItem(nvItemId);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetNvItemType(nvItemId);
                 using (var stream = NvOpenRead(manager, (ushort) nvItemId))
                 {
                     if (stream != null)
                     {
-                        ItemsBinarySerializer.Deserialize(item, stream);
-                        stream.Close();
+                        var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                         items.Add(itemType.Name, item);
+                        stream.Close();
                     }
                 }
             }
@@ -167,8 +160,7 @@ namespace EfsTools.Utils
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
             {
-                var item = ItemsFactory.CreateEfsFile(fileUnixPath);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetEfsFileType(fileUnixPath);
                 if (configItems == null || configItems.Contains(itemType.Name))
                 {
                     var filePath = fileUnixPath.Replace('/', '\\');
@@ -186,19 +178,17 @@ namespace EfsTools.Utils
                     {
                         using (var stream = FileUtils.LocalOpenRead(path))
                         {
-                            ItemsBinarySerializer.Deserialize(item, stream);
+                            var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                            items.Add(itemType.Name, item);
                             stream.Close();
                         }
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 
             foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
             {
-                var item = ItemsFactory.CreateNvItem(nvItemId);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetNvItemType(nvItemId);
                 if (configItems == null || configItems.Contains(itemType.Name))
                 {
                     var nvItemFileName = PathUtils.GetNvItemFileName((ushort) nvItemId);
@@ -207,12 +197,11 @@ namespace EfsTools.Utils
                     {
                         using (var stream = FileUtils.LocalOpenRead(path))
                         {
-                            ItemsBinarySerializer.Deserialize(item, stream);
+                            var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                            items.Add(itemType.Name, item);
                             stream.Close();
                         }
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 
@@ -224,8 +213,7 @@ namespace EfsTools.Utils
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
             {
-                var item = ItemsFactory.CreateEfsFile(fileUnixPath);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetEfsFileType(fileUnixPath);
                 var fileAttribute = EfsFileAttributeUtils.Get(itemType);
                 var filePath = fileUnixPath.Replace('/', '\\');
                 var path = fileAttribute == null
@@ -246,29 +234,26 @@ namespace EfsTools.Utils
                 {
                     using (var stream = FileUtils.LocalOpenRead(path))
                     {
-                        ItemsBinarySerializer.Deserialize(item, stream);
+                        var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                        items.Add(itemType.Name, item);
                         stream.Close();
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 
             foreach (var nvItemId in ItemsFactory.SupportedNvItemIds)
             {
-                var item = ItemsFactory.CreateNvItem(nvItemId);
-                var itemType = item.GetType();
+                var itemType = ItemsFactory.GetNvItemType(nvItemId);
                 var nvItemFileName = PathUtils.GetNvItemFileName((ushort) nvItemId);
                 var path = Path.Combine(directoryPath, nvItemFileName);
                 if (File.Exists(path))
                 {
                     using (var stream = FileUtils.LocalOpenRead(path))
                     {
-                        ItemsBinarySerializer.Deserialize(item, stream);
+                        var item = ItemsBinarySerializer.Deserialize(stream, itemType);
+                        items.Add(itemType.Name, item);
                         stream.Close();
                     }
-
-                    items.Add(itemType.Name, item);
                 }
             }
 

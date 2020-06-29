@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaTxLimVsVoltOffset
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        [FieldCount(3)]
         public sbyte[] Value { get; set; }
     }
 }

@@ -6,12 +6,11 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00025288", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00025288", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class LteB7IntraCaRxGainVsFreq
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 384)]
+        [FieldCount(384)]
         public sbyte[] Value { get; set; }
     }
 }

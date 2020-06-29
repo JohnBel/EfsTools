@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB39TxLinVsTemp
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public sbyte[] Value { get; set; }
     }
 }

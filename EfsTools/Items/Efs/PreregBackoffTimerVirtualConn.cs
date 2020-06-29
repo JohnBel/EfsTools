@@ -6,8 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/data/3gpp2/prereg_backoff_timer_virtual_conn", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/data/3gpp2/prereg_backoff_timer_virtual_conn", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class PreregBackoffTimerVirtualConn
     {

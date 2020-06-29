@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -7,13 +6,12 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(930)]
     [Attributes(9)]
     public sealed class PacketCallDialStringLookupTable
     {
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
+        [FieldCount(5)]
         public byte[] DialString1 { get; set; }
 
         public string DialString1String
@@ -30,7 +28,7 @@ namespace EfsTools.Items.Nv
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
+        [FieldCount(5)]
         public byte[] DialString2 { get; set; }
 
         public string DialString2String
@@ -46,7 +44,7 @@ namespace EfsTools.Items.Nv
         public ushort ModesPermitted2 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
+        [FieldCount(5)]
         public byte[] DialString3 { get; set; }
 
         public string DialString3String
@@ -62,7 +60,7 @@ namespace EfsTools.Items.Nv
         public ushort ModesPermitted3 { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 5)]
+        [FieldCount(5)]
         public byte[] DialString4 { get; set; }
 
         public string DialString4String

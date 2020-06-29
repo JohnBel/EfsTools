@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaRel6TxAgcOffset
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public byte[] Value { get; set; }
     }
 }

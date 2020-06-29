@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaBc4TxLinMaster2
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 37)]
+        [FieldCount(37)]
         public ushort[] Value { get; set; }
     }
 }

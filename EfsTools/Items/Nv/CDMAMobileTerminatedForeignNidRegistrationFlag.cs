@@ -1,11 +1,10 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(36)]
     [Attributes(41)]
     public sealed class CdmaMobileTerminatedForeignNidRegistrationFlag
@@ -19,7 +18,7 @@ namespace EfsTools.Items.Nv
         public byte Name { get; set; }
 
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
+        [FieldCount(2)]
         public sbyte[] Enabled { get; set; }
     }
 }

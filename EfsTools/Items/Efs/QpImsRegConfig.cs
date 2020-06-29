@@ -58,8 +58,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(67264)]
     [EfsFile("/nv/item_files/ims/qp_ims_reg_config", true, 0xE1FF)]
     [Attributes(9)]
@@ -86,7 +85,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         [Description(
             "In NI 5.0 or later, APN name is used instead of the profile number.Please confirm with test labs for exact APN info")]
         public byte[] RegManagerPdpProfileName { get; set; }
@@ -110,7 +109,7 @@ namespace EfsTools.Items.Efs
         public byte RegPreConfigEnabled { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] RegManagerPreConfigServerBase { get; set; }
 
         public string RegManagerPreConfigServerBaseString
@@ -145,7 +144,7 @@ namespace EfsTools.Items.Efs
         public byte RegConfigMaxDiscoveryCount { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public byte[] RegManagerDiscoverySchedule { get; set; }
 
         public string RegManagerDiscoveryScheduleString
@@ -156,7 +155,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public byte[] RegManagerCdmaPdpProfileName { get; set; }
 
         public string RegManagerCdmaPdpProfileNameString
@@ -170,7 +169,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public byte[] RegManagerPdpFailureSchedule { get; set; }
 
         public string RegManagerPdpFailureScheduleString

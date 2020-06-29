@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(73527)]
     [Subscription]
     [EfsFile("/nv/item_files/ims/qp_ims_plani_config", true, 0xE1FF)]
@@ -51,7 +50,7 @@ namespace EfsTools.Items.Efs
         public ushort BaseId { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
+        [FieldCount(16)]
         public byte[] SectorId { get; set; }
 
         public string SectorIdString
@@ -85,7 +84,7 @@ namespace EfsTools.Items.Efs
         public ushort TimeDayOfWeek { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
+        [FieldCount(6)]
         public byte[] Mcc { get; set; }
 
         public string MccString
@@ -95,7 +94,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
+        [FieldCount(6)]
         public byte[] Mnc { get; set; }
 
         public string MncString
@@ -104,7 +103,7 @@ namespace EfsTools.Items.Efs
             set => Mnc = StringUtils.GetBytes(value, 48);
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 65)]
+        [FieldCount(65)]
         public byte[] Reserved { get; set; }
     }
 }

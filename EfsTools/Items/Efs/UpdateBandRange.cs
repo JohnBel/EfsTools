@@ -13,7 +13,7 @@ namespace EfsTools.Items.Efs
     public sealed class UpdateBandRange
     {
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
+        [FieldCount(20)]
         public byte[] Value { get; set; }
 
         public string ValueString

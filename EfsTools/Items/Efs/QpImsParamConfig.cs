@@ -8,14 +8,13 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(67258)]
     [EfsFile("/nv/item_files/ims/qp_ims_param_config", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QpImsParamConfig
     {
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] RegConfigUserName { get; set; }
 
         public string RegConfigUserNameString
@@ -25,7 +24,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] RegConfigPassword { get; set; }
 
         public string RegConfigPasswordString
@@ -36,7 +35,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] RegConfigPrivateUri { get; set; }
 
         public string RegConfigPrivateUriString
@@ -46,7 +45,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] RegConfigDisplayName { get; set; }
 
         public string RegConfigDisplayNameString
@@ -56,7 +55,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] RegConfigDomainName { get; set; }
 
         public string RegConfigDomainNameString
@@ -66,7 +65,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public byte[] RegAuthSecretKey { get; set; }
 
         public string RegAuthSecretKeyString
@@ -79,7 +78,7 @@ namespace EfsTools.Items.Efs
         public byte ThreeGppEnabled { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public byte[] RegConfigOPField { get; set; }
 
         public string RegConfigOPFieldString

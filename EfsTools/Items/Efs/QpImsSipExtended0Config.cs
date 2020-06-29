@@ -8,8 +8,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(69744)]
     [EfsFile("/nv/item_files/ims/qp_ims_sip_extended_0_config", true, 0xE1FF)]
     [Attributes(9)]
@@ -92,7 +91,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] ShortCodeList { get; set; }
 
         public string ShortCodeListString
@@ -102,7 +101,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] ProxyRouteValue { get; set; }
 
         public string ProxyRouteValueString
@@ -162,7 +161,7 @@ namespace EfsTools.Items.Efs
 
         public byte GzipDecodingOutBufferMultiplier { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 424)]
+        [FieldCount(424)]
         public byte[] ReservedBytes { get; set; }
     }
 }

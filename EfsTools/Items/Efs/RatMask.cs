@@ -6,8 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [EfsFile("/policyman/rat_mask", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class RatMask
@@ -18,7 +17,7 @@ namespace EfsTools.Items.Efs
             Value = new byte[56];
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 56)]
+        [FieldCount(56)]
         public byte[] Value { get; set; }
     }
 }

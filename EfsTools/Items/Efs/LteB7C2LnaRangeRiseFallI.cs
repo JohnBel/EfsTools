@@ -6,12 +6,11 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00025286", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00025286", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class LteB7C2LnaRangeRiseFall
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        [FieldCount(32)]
         public short[] Value { get; set; }
     }
 }

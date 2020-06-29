@@ -11,7 +11,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaBc4LnaPhaseCtl
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
+        [FieldCount(6)]
         public ushort[] Value { get; set; }
     }
 }

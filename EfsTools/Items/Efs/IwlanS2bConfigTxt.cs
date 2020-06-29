@@ -1,17 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/data/iwlan_s2b_config.txt", false, 0x81B6)]
+        [EfsFile("/data/iwlan_s2b_config.txt", false, 0x81B6)]
     [Attributes(9)]
     public sealed class IwlanS2bConfigTxt
     {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0)]
+        [FieldCount(0)]
         private byte[] _values;
 
         public string[] Values

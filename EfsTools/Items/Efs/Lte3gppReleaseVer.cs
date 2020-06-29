@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 using Newtonsoft.Json;
@@ -41,8 +40,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/modem/lte/lte_3gpp_release_ver", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/modem/lte/lte_3gpp_release_ver", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class Lte3gppReleaseVer
     {

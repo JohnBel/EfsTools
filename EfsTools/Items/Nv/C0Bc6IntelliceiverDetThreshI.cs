@@ -1,16 +1,17 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(3474)]
     [Attributes(9)]
     public sealed class C0Bc6IntelliceiverDetThresh
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        [FieldCount(10)]
         public sbyte[] Value
         {
             get;

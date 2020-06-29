@@ -31,25 +31,43 @@ namespace EfsTools.Items
             }
         }
 
-        public static object CreateNvItem(int id)
+        public static Type GetNvItemType(int id)
         {
             InitilaizeNvItemsMetadata();
             if (_nvItemsMetadata.TryGetValue(id, out var type))
             {
+                return type;
+            }
+            return null;
+        }
+
+        public static object CreateNvItem(int id)
+        {
+            var type = GetNvItemType(id);
+            if (type != null)
+            {
                 return Activator.CreateInstance(type);
             }
+            return null;
+        }
 
+        public static Type GetEfsFileType(string path)
+        {
+            InitilaizeEfsFileMetadata();
+            if (_efsFileMetadata.TryGetValue(path, out var type))
+            {
+                return type;
+            }
             return null;
         }
 
         public static object CreateEfsFile(string path)
         {
-            InitilaizeEfsFileMetadata();
-            if (_efsFileMetadata.TryGetValue(path, out var type))
+            var type = GetEfsFileType(path);
+            if (type != null)
             {
                 return Activator.CreateInstance(type);
             }
-
             return null;
         }
 

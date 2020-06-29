@@ -7,8 +7,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public class LteBandsConfigBase
+        public class LteBandsConfigBase
     {
         private ulong _value;
         public bool B1

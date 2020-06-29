@@ -11,7 +11,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class RpmSuppportedSim
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 60)]
+        [FieldCount(60)]
         public byte[] Value { get; set; }
 
         public string ValueString

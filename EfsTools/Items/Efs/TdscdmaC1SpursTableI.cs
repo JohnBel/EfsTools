@@ -11,7 +11,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaC1SpursTable
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 30)]
+        [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 }

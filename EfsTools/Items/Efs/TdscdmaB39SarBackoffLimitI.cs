@@ -10,22 +10,22 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB39SarBackoffLimit
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] SarBackOffLimitSlot1 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] SarBackOffLimitSlot2 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] SarBackOffLimitSlot3 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] SarBackOffLimitSlot4 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] SarBackOffLimitSlot5 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] SarBackOffLimitSlot6 { get; set; }
     }
 }

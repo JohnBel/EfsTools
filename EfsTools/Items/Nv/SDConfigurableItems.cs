@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using Newtonsoft.Json;
 
@@ -17,7 +16,7 @@ namespace EfsTools.Items.Nv
         [JsonIgnore]
         public ushort Count { get; set; }
 
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 25)]
+        [FieldCount(25)]
         private readonly uint[] _items = new uint[25];
 
         [JsonIgnore]

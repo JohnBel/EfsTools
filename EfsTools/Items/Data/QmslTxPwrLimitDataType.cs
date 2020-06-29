@@ -1,11 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace EfsTools.Items.Data
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class QmslTxPwrLimitDataType
+        public sealed class QmslTxPwrLimitDataType
     {
         public byte Bw { get; set; }
 
@@ -18,19 +16,19 @@ namespace EfsTools.Items.Data
 
         public ushort HighestFreqChan { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        [FieldCount(8)]
         public short[] TxPwrLimitDbm10
         {
             get;
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public QmslTxPwrImbalanceDbm10CoordinateType[] HiBackoffLut
         {
             get;
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public QmslTxPwrImbalanceDbm10CoordinateType[] LoBackoffLut
         {
             get;
@@ -48,7 +46,7 @@ namespace EfsTools.Items.Data
 
         public byte TableVersion { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        [FieldCount(3)]
         public byte[] Reserved
         {
             get;

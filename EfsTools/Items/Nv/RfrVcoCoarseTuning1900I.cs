@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
@@ -10,7 +9,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class RfrVcoCoarseTuning1900
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
+        [FieldCount(12)]
         public byte[] Value { get; set; }
     }
 }

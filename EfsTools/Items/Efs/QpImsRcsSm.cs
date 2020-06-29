@@ -6,7 +6,6 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(71565)]
     [EfsFile("/nv/item_files/ims/qp_ims_rcs_sm", true, 0xE1FF)]
     [Attributes(9)]
@@ -26,7 +25,7 @@ namespace EfsTools.Items.Efs
 
         public uint StandaloneMessageMaxSize { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] StandaloneMessageExplorerUri { get; set; }
     }
 }

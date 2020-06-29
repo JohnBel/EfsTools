@@ -1,13 +1,14 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Ignore]
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/sd/bst_tbl", false, 0x81FF)]
+        [EfsFile("/sd/bst_tbl", false, 0x81FF)]
     [Attributes(9)]
     public sealed class BstTbl
     {
@@ -31,7 +32,7 @@ namespace EfsTools.Items.Efs
 
         private ushort _length;*/
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 58)]
+        [FieldCount(58)]
         public byte[] Value
         {
             get;

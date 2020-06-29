@@ -10,7 +10,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class WcdmaPaCompensateDnWithDvs
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        [FieldCount(10)]
         public short[] Value { get; set; }
     }
 }

@@ -148,8 +148,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class QpImsRegConfigDbItem
+        public sealed class QpImsRegConfigDbItem
     {
         public ushort Rat { get; set; }
 
@@ -173,8 +172,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    public sealed class QpImsRegConfigDbItem2
+        public sealed class QpImsRegConfigDbItem2
     {
         public ushort RatApnFallback { get; set; }
 
@@ -183,8 +181,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(71527)]
     [EfsFile("/nv/item_files/ims/qp_ims_reg_config_db", true, 0xE1FF)]
     [Attributes(9)]
@@ -720,7 +717,7 @@ namespace EfsTools.Items.Efs
         public short ImsServiceStatus { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
+        [FieldCount(50)]
         public byte[] ApnName1 { get; set; }
 
         [JsonIgnore]
@@ -731,7 +728,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
+        [FieldCount(50)]
         public byte[] ApnName2 { get; set; }
 
         [JsonIgnore]
@@ -742,7 +739,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 50)]
+        [FieldCount(50)]
         public byte[] ApnName3 { get; set; }
 
         [JsonIgnore]
@@ -777,7 +774,7 @@ namespace EfsTools.Items.Efs
             }
         }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 754)]
+        [FieldCount(754)]
         public byte[] ReservedBytes { get; set; }
     }
 }

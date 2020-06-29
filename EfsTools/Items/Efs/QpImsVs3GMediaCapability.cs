@@ -6,8 +6,7 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(70294)]
     [EfsFile("/nv/item_files/ims/qp_ims_vs_3G_media_capability", true, 0xE1FF)]
     [Attributes(9)]

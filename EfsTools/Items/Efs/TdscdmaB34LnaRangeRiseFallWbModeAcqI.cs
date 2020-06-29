@@ -10,7 +10,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB34LnaRangeRiseFallWbModeAcq
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
+        [FieldCount(12)]
         public byte[] Value { get; set; }
     }
 }

@@ -6,12 +6,11 @@ using EfsTools.Attributes;
 namespace EfsTools.Items.Nv
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     [NvItemId(4950)]
     [Attributes(9)]
     public sealed class WcdmaBc4Rel6TxBetaScalingComp
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public ushort[] Value { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace EfsTools.Items.Efs
     {
         public byte Reserved { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 }

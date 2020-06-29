@@ -13,7 +13,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaOpPlmnList
     {
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 61)]
+        [FieldCount(61)]
         public byte[] Value { get; set; }
 
         public string ValueString

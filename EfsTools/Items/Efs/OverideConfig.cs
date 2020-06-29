@@ -1,17 +1,15 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 using EfsTools.Utils;
 
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/efsprofiles/overideconfig", false, 0x81FF)]
+        [EfsFile("/efsprofiles/overideconfig", false, 0x81FF)]
     [Attributes(9)]
     public sealed class OverideConfig
     {
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 0)]
+        [FieldCount(0)]
         private byte[] _values;
 
         public string[] Values

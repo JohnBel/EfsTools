@@ -1,16 +1,17 @@
 using System;
 using System.Runtime.InteropServices;
+using BinarySerialization;
 using EfsTools.Attributes;
 
+using BinarySerialization;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [EfsFile("/nv/item_files/rfnv/00021997", true, 0xE1FF)]
+        [EfsFile("/nv/item_files/rfnv/00021997", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class C2Bc10IntelliceiverCal
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 7)]
+        [FieldCount(7)]
         public ushort[] Value
         {
             get;

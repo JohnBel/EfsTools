@@ -8,15 +8,14 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(67259)]
     [EfsFile("/nv/item_files/ims/qp_ims_sms_config", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QpImsSmsConfig
     {
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] SmsConfigVDN { get; set; }
 
         public string SmsConfigVdnString
@@ -30,7 +29,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] SmsAcceptContact { get; set; }
 
         public string SmsAcceptContactString
@@ -40,7 +39,7 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+        [FieldCount(64)]
         public byte[] SmsRatMaskStringValue { get; set; }
 
         public string SmsRatMaskString
@@ -53,7 +52,7 @@ namespace EfsTools.Items.Efs
         public uint RatMaskValue { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [FieldCount(256)]
         public byte[] PhoneContextUri { get; set; }
 
         public string PhoneContextUriString

@@ -11,7 +11,7 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class Wcdma900DrxModeSel
     {
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 3)]
+        [FieldCount(3)]
         public byte[] Value { get; set; }
     }
 }

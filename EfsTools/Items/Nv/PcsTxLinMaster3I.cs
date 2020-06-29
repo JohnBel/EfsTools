@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using EfsTools.Attributes;
 
 namespace EfsTools.Items.Nv
@@ -12,7 +11,7 @@ namespace EfsTools.Items.Nv
     {
         public short Value1 { get; set; }
 
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 37)]
+        [FieldCount(37)]
         public byte[] Value2 { get; set; }
     }
 }

@@ -8,8 +8,7 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Efs
 {
     [Serializable]
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [Subscription]
+        [Subscription]
     [NvItemId(67263)]
     [EfsFile("/nv/item_files/ims/qp_ims_vs_config", true, 0xE1FF)]
     [Attributes(9)]
@@ -24,7 +23,7 @@ namespace EfsTools.Items.Efs
         public byte ConfigSessionType { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] ConfigSdpApplicationAttribute { get; set; }
 
         public string ConfigSdpApplicationAttributeString
@@ -38,7 +37,7 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)] //Todo: check
+        [FieldCount(256)] //Todo: check
         public byte[] ConfigReceiverUri { get; set; }
 
         public string ConfigReceiverUriString
@@ -90,7 +89,7 @@ namespace EfsTools.Items.Efs
         public ushort ConfigMSRPPort { get; set; }
 
         [JsonIgnore]
-        [field: MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
+        [FieldCount(128)]
         public byte[] ConfigFilePath { get; set; }
 
         public string ConfigFilePathString
