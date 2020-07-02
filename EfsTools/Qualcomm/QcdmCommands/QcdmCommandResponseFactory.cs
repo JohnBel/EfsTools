@@ -90,7 +90,10 @@ namespace EfsTools.Qualcomm.QcdmCommands
                                 {
                                     try
                                     {
-                                        return (IQcdmCommandResponse) methodInfo.Invoke(null, new object[] { data });
+                                        return (IQcdmCommandResponse) methodInfo.Invoke(null, new object[]
+                                        {
+                                            data
+                                        });
                                     }
                                     catch (Exception e)
                                     {
@@ -122,7 +125,10 @@ namespace EfsTools.Qualcomm.QcdmCommands
                 {
                     var command = BitConverter.GetBytes(attribute.Command);
                     var subSystem = attribute.SubSystem;
-                    var bytes = new[] { (byte) QcdmCommand.SubsysCmd, (byte) subSystem, command[0], command[1] };
+                    var bytes = new[]
+                    {
+                        (byte) QcdmCommand.SubsysCmd, (byte) subSystem, command[0], command[1]
+                    };
                     var key = BitConverter.ToUInt32(bytes, 0);
                     var methodInfo = type.GetMethod("Parse",
                         BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.Static);
@@ -132,7 +138,10 @@ namespace EfsTools.Qualcomm.QcdmCommands
                         {
                             try
                             {
-                                return (IQcdmCommandResponse) methodInfo.Invoke(null, new object[] { data });
+                                return (IQcdmCommandResponse) methodInfo.Invoke(null, new object[]
+                                {
+                                    data
+                                });
                             }
                             catch (Exception e)
                             {

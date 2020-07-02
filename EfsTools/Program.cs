@@ -12,7 +12,10 @@ namespace EfsTools
         private static void Main(string[] args)
         {
             //args = args.Skip(1).ToArray();
-            args = new[] { "getModemConfig", "-p", "modemConfigS0_${ date:format = yyyyMMdd_HHmmss }.json", "-s", "0" };
+            args = new[]
+            {
+                "getModemConfig", "-p", "modemConfigS0_${ date:format = yyyyMMdd_HHmmss }.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_125947"
+            };
             Logger logger = null;
             try
             {

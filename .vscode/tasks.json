@@ -12,7 +12,8 @@
                 "/property:GenerateFullPaths=true",
                 "/t:build",
                 // Do not generate summary otherwise it leads to duplicate errors in Problems panel
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary;Encoding=UTF-8;Verbosity=diagnostic",
+                "-maxCpuCount:4"
             ],
             "group": "build",
             "presentation": {

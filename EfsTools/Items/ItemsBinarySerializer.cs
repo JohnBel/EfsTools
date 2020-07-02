@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using BinarySerialization;
+using EfsTools.Items.Base;
 using EfsTools.Attributes;
-using EfsTools.Utils;
 
 namespace EfsTools.Items
 {
@@ -32,10 +26,24 @@ namespace EfsTools.Items
                 if (_binarySerializer == null)
                 {
                     _binarySerializer = new BinarySerializer();
+
+                    if (Debugger.IsAttached)
+                    {
+                        _binarySerializer.MemberSerializing += (object sender, MemberSerializingEventArgs e)
+                            => Debugger.Log(0, "info", $"Serializion-Start: m: {e.MemberName}, offset: {e.Offset}\n");
+                        _binarySerializer.MemberSerialized += (object sender, MemberSerializedEventArgs e)
+                            => Debugger.Log(0, "info", $"Serializion-End: m: {e.MemberName}, v: {e.Value}, offset: {e.Offset}\n");
+                        _binarySerializer.MemberDeserializing += (object sender, MemberSerializingEventArgs e)
+                            => Debugger.Log(0, "info", $"Deserializion-Start: m: {e.MemberName}, offset: {e.Offset}\n");
+                        _binarySerializer.MemberDeserialized += (object sender, MemberSerializedEventArgs e)
+                            => Debugger.Log(0, "info", $"Deserializion-End: m: {e.MemberName}, v: {e.Value}, offset: {e.Offset}\n");
+
+                    }
                 }
                 return _binarySerializer;
             }
         }
+
         public static void Serialize<T>(T obj, Stream stream)
         {
             if (obj != null)
@@ -47,7 +55,7 @@ namespace EfsTools.Items
         public static T Deserialize<T>(Stream stream)
         {
             var obj = Deserialize(stream, typeof(T));
-            return (T)obj;
+            return (T) obj;
         }
 
         public static object Deserialize(Stream stream, Type type)
@@ -55,6 +63,5 @@ namespace EfsTools.Items
             var obj = BinarySerializer.Deserialize(stream, type);
             return obj;
         }
-
     }
 }

@@ -10,13 +10,17 @@
 	<Nullable>disable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BinarySerializer" Version="8.5.1" />
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="ELFSharp" Version="2.11.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="3.1.5" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="SerialPortStreamCore" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BinarySerializer">
+      <HintPath>..\..\BinarySerializer\BinarySerializer\bin\Debug\netcoreapp3.1\BinarySerializer.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   

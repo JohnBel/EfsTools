@@ -14,7 +14,10 @@ namespace EfsTools.Qualcomm.QcdmCommands.Requests
 
         public virtual byte[] GetData()
         {
-            return new[] { (byte) Command };
+            return new[]
+            {
+                (byte) Command
+            };
         }
 
         private void InitializeCommand()

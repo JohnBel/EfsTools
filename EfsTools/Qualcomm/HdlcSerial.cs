@@ -12,7 +12,10 @@ namespace EfsTools.Qualcomm
 
         public HdlcSerial(string port, int baudrate, int timeout)
         {
-            _port = new SerialPortStream(port, baudrate) { ReadTimeout = timeout };
+            _port = new SerialPortStream(port, baudrate)
+            {
+                ReadTimeout = timeout
+            };
         }
 
         public bool IsOpen => _port.IsOpen;

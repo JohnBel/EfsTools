@@ -76,7 +76,7 @@ namespace EfsTools.Utils
                 var realFilePath = GetEfsFilePath(filePath, subscription);
                 if (manager.Efs.FileExists(realFilePath))
                 {
-                    var itemType = ItemsFactory.GetEfsFileType(filePath); 
+                    var itemType = ItemsFactory.GetEfsFileType(filePath);
                     using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
                     {
                         var item = ItemsBinarySerializer.Deserialize(stream, itemType);

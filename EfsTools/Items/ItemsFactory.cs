@@ -38,6 +38,7 @@ namespace EfsTools.Items
             {
                 return type;
             }
+
             return null;
         }
 
@@ -48,6 +49,7 @@ namespace EfsTools.Items
             {
                 return Activator.CreateInstance(type);
             }
+
             return null;
         }
 
@@ -58,6 +60,7 @@ namespace EfsTools.Items
             {
                 return type;
             }
+
             return null;
         }
 
@@ -68,6 +71,7 @@ namespace EfsTools.Items
             {
                 return Activator.CreateInstance(type);
             }
+
             return null;
         }
 
@@ -95,7 +99,7 @@ namespace EfsTools.Items
                 {
                     if (!type.IsAbstract && !type.IsEnum)
                     {
-                        var ignore = IgnoreAttributeUtils.Get(type);
+                        var ignore = IgnoreItemAttributeUtils.Get(type);
                         if (ignore == null)
                         {
                             var nvItemId = NvItemIdAttributeUtils.Get(type);
@@ -119,7 +123,7 @@ namespace EfsTools.Items
                 {
                     if (!type.IsAbstract && !type.IsEnum)
                     {
-                        var ignore = IgnoreAttributeUtils.Get(type);
+                        var ignore = IgnoreItemAttributeUtils.Get(type);
                         if (ignore == null)
                         {
                             var efsFile = EfsFileAttributeUtils.Get(type);
