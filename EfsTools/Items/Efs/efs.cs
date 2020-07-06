@@ -15,21 +15,18 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
    public sealed class AdditionalDialString : ItemBase
     {
-        private byte[] _value1;
-
-
-        public byte[] _value2;
-
-        public string Value1String
+        [FieldOrder(0)]
+        [FieldLength(20)]
+        public string Value1
         {
-            get => StringUtils.GetString(_value1);
-            set => _value1 = StringUtils.GetBytes(value, 20);
+            get; set;
         }
 
-        public string Value2String
+        [FieldOrder(1)]
+        [FieldLength(20)]
+        public string Value2
         {
-            get => StringUtils.GetString(_value2);
-            set => _value2 = StringUtils.GetBytes(value, 20);
+            get; set;
         }
     }
 
@@ -1184,7 +1181,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(58)]
         public byte[] Value
         {
-            get;
+            get; set;
         }
     }
 
@@ -5237,7 +5234,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
-            get;
+            get; set;
         }
     }
 
@@ -5249,190 +5246,190 @@ namespace EfsTools.Items.Efs
         [FieldOffset(0)]
         public byte Ic0Active { get; set; }
 
-
+        [FieldOffset(1)]
         public byte Ic0Swpt1Type { get; set; }
 
-
+        [FieldOffset(2)]
         public short Ic0Swpt1FallOrHyst { get; set; }
 
-
+        [FieldOffset(3)]
         public short Ic0Swpt1RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(4)]
         public short Ic0Swpt1FallHold { get; set; }
 
-
+        [FieldOffset(5)]
         public short Ic0Swpt1RiseHold { get; set; }
 
-
+        [FieldOffset(6)]
         public byte Ic0Swpt2Type { get; set; }
 
-
+        [FieldOffset(7)]
         public short Ic0Swpt2FallOrHyst { get; set; }
 
-
+        [FieldOffset(8)]
         public short Ic0Swpt2RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(9)]
         public short Ic0Swpt2FallHold { get; set; }
 
-
+        [FieldOffset(10)]
         public short Ic0Swpt2RiseHold { get; set; }
 
-
+        [FieldOffset(11)]
         public byte Ic0Swpt3Type { get; set; }
 
-
+        [FieldOffset(12)]
         public short Ic0Swpt3FallOrHyst { get; set; }
 
-
+        [FieldOffset(13)]
         public short Ic0Swpt3RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(14)]
         public short Ic0Swpt3FallHold { get; set; }
 
-
+        [FieldOffset(15)]
         public short Ic0Swpt3RiseHold { get; set; }
 
-
+        [FieldOffset(16)]
         public byte Ic0Swpt4Type { get; set; }
 
-
+        [FieldOffset(17)]
         public short Ic0Swpt4FallOrHyst { get; set; }
 
-
+        [FieldOffset(18)]
         public short Ic0Swpt4RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(19)]
         public short Ic0Swpt4FallHold { get; set; }
 
-
+        [FieldOffset(20)]
         public short Ic0Swpt4RiseHold { get; set; }
 
-
+        [FieldOffset(21)]
         public byte Ic1Active { get; set; }
 
-
+        [FieldOffset(22)]
         public byte Ic1Swpt1Type { get; set; }
 
-
+        [FieldOffset(23)]
         public short Ic1Swpt1FallOrHyst { get; set; }
 
-
+        [FieldOffset(24)]
         public short Ic1Swpt1RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(25)]
         public short Ic1Swpt1FallHold { get; set; }
 
-
+        [FieldOffset(26)]
         public short Ic1Swpt1RiseHold { get; set; }
 
-
+        [FieldOffset(27)]
         public byte Ic1Swpt2Type { get; set; }
 
-
+        [FieldOffset(28)]
         public short Ic1Swpt2FallOrHyst { get; set; }
 
-
+        [FieldOffset(29)]
         public short Ic1Swpt2RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(30)]
         public short Ic1Swpt2FallHold { get; set; }
 
-
+        [FieldOffset(31)]
         public short Ic1Swpt2RiseHold { get; set; }
 
-
+        [FieldOffset(32)]
         public byte Ic1Swpt3Type { get; set; }
 
-
+        [FieldOffset(33)]
         public short Ic1Swpt3FallOrHyst { get; set; }
 
-
+        [FieldOffset(34)]
         public short Ic1Swpt3RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(35)]
         public short Ic1Swpt3FallHold { get; set; }
 
-
+        [FieldOffset(36)]
         public short Ic1Swpt3RiseHold { get; set; }
 
-
+        [FieldOffset(37)]
         public byte Ic1Swpt4Type { get; set; }
 
-
+        [FieldOffset(38)]
         public short Ic1Swpt4FallOrHyst { get; set; }
 
-
+        [FieldOffset(39)]
         public short Ic1Swpt4RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(40)]
         public short Ic1Swpt4FallHold { get; set; }
 
-
+        [FieldOffset(41)]
         public short Ic1Swpt4RiseHold { get; set; }
 
-
+        [FieldOffset(42)]
         public byte Ic2Active { get; set; }
 
-
+        [FieldOffset(43)]
         public byte Ic2Swpt1Type { get; set; }
 
-
+        [FieldOffset(44)]
         public short Ic2Swpt1FallOrHyst { get; set; }
 
-
+        [FieldOffset(45)]
         public short Ic2Swpt1RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(46)]
         public short Ic2Swpt1FallHold { get; set; }
 
-
+        [FieldOffset(47)]
         public short Ic2Swpt1RiseHold { get; set; }
 
-
+        [FieldOffset(48)]
         public byte Ic2Swpt2Type { get; set; }
 
-
+        [FieldOffset(49)]
         public short Ic2Swpt2FallOrHyst { get; set; }
 
-
+        [FieldOffset(50)]
         public short Ic2Swpt2RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(51)]
         public short Ic2Swpt2FallHold { get; set; }
 
-
+        [FieldOffset(52)]
         public short Ic2Swpt2RiseHold { get; set; }
 
-
+        [FieldOffset(53)]
         public byte Ic2Swpt3Type { get; set; }
 
-
+        [FieldOffset(54)]
         public short Ic2Swpt3FallOrHyst { get; set; }
 
-
+        [FieldOffset(55)]
         public short Ic2Swpt3RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(56)]
         public short Ic2Swpt3FallHold { get; set; }
 
-
+        [FieldOffset(57)]
         public short Ic2Swpt3RiseHold { get; set; }
 
-
+        [FieldOffset(58)]
         public byte Ic2Swpt4Type { get; set; }
 
-
+        [FieldOffset(59)]
         public short Ic2Swpt4FallOrHyst { get; set; }
 
-
+        [FieldOffset(60)]
         public short Ic2Swpt4RiseOrBackoff { get; set; }
 
-
+        [FieldOffset(61)]
         public short Ic2Swpt4FallHold { get; set; }
 
-
+        [FieldOffset(62)]
         public short Ic2Swpt4RiseHold { get; set; }
     }
 
@@ -6209,13 +6206,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -6436,7 +6433,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -6478,7 +6475,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -6521,7 +6518,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -6535,7 +6532,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -6549,7 +6546,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -6673,49 +6670,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -7687,14 +7684,14 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldOffset(1)]
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -7915,7 +7912,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -7958,7 +7955,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -8001,7 +7998,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -8015,7 +8012,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -8029,7 +8026,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -8150,49 +8147,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -9540,13 +9537,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -9767,7 +9764,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -9809,7 +9806,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -9852,7 +9849,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -9866,7 +9863,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -9880,7 +9877,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -10001,49 +9998,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -11014,13 +11011,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -11241,7 +11238,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -11283,7 +11280,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -11326,7 +11323,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -11340,7 +11337,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -11354,7 +11351,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -11475,49 +11472,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -12111,13 +12108,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -12338,7 +12335,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -12380,7 +12377,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -12423,7 +12420,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -12437,7 +12434,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -12451,7 +12448,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -12572,49 +12569,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -13585,13 +13582,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -13812,7 +13809,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -13854,7 +13851,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -13897,7 +13894,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -13911,7 +13908,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -13925,7 +13922,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -14046,49 +14043,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -15059,13 +15056,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -15286,7 +15283,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -15328,7 +15325,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -15371,7 +15368,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -15385,7 +15382,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -15399,7 +15396,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -15520,49 +15517,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -16533,13 +16530,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -16760,7 +16757,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -16802,7 +16799,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -16845,7 +16842,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -16859,7 +16856,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -16873,7 +16870,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -16994,49 +16991,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -17048,7 +17045,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
-            get;
+            get; set;
         }
     }
 
@@ -17060,7 +17057,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
-            get;
+            get; set;
         }
     }
 
@@ -23280,7 +23277,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
-            get;
+            get; set;
         }
     }
 
@@ -23292,7 +23289,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(30)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
-            get;
+            get; set;
         }
     }
 
@@ -24277,13 +24274,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -24518,7 +24515,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -24595,7 +24592,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -24652,7 +24649,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -24694,7 +24691,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -24708,7 +24705,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -24885,49 +24882,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -25912,13 +25909,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -26153,7 +26150,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -26230,7 +26227,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -26287,7 +26284,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -26329,7 +26326,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -26343,7 +26340,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -26520,49 +26517,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -27931,13 +27928,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -28172,7 +28169,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -28249,7 +28246,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -28306,7 +28303,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -28348,7 +28345,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -28362,7 +28359,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -28539,49 +28536,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -29566,13 +29563,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -29807,7 +29804,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -29884,7 +29881,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -29941,7 +29938,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -29983,7 +29980,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -29997,7 +29994,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -30174,49 +30171,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -30817,13 +30814,13 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public short[] LowerBoundOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] UpperBoundOffset
         {
-            get;
+            get; set;
         }
     }
 
@@ -31058,7 +31055,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -31135,7 +31132,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(16)]
         public ushort[] LpmHdetVsAgcTable
         {
-            get;
+            get; set;
         }
     }
 
@@ -31192,7 +31189,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -31234,7 +31231,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -31248,7 +31245,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(4)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
-            get;
+            get; set;
         }
     }
 
@@ -31425,49 +31422,49 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public sbyte[] Pa0PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa0PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa1PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa1PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa2PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa2PowerSlope
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public sbyte[] Pa3PowerOffset
         {
-            get;
+            get; set;
         }
 
         [FieldCount(8)]
         public short[] Pa3PowerSlope
         {
-            get;
+            get; set;
         }
     }
 
@@ -32688,7 +32685,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(25)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
-            get;
+            get; set;
         }
     }
 
@@ -32824,7 +32821,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(8)]
         public QmslTxCalFreqNumType[] Temp
         {
-            get;
+            get; set;
         }
     }
 
@@ -45777,13 +45774,9 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
    public sealed class ImsUserAgent : ItemBase
     {
-        [JsonIgnore] [FieldCount(1024)] private byte[] _value;
-
-        public string ValueString
-        {
-            get => StringUtils.GetString(_value);
-            set => _value = StringUtils.GetBytes(value, 1024);
-        }
+        [FieldOrder(0)]
+        [FieldLength(1024)]
+        public string Value { get; set; }
     }
 
     [Serializable]
@@ -68868,6 +68861,7 @@ namespace EfsTools.Items.Efs
         public byte HardcodedType { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [NvItemId(69737)]
     [EfsFile("/nv/item_files/pbm/pbm_hardcoded_ecc_list", true, 0xE1FF)]
@@ -68875,24 +68869,16 @@ namespace EfsTools.Items.Efs
    public sealed class PbmHardcodedEccList : ItemBase
     {
         [JsonIgnore]
+        [FieldOrder(0)]
         public byte NumDigits1 { get; set; }
 
         [JsonIgnore]
-        [FieldCount(28)]
-        public byte[] Digits1 { get; set; }
+        [FieldOrder(1)]
+        [FieldLength(28)]
+        public string Digits1 { get; set; }
 
         [JsonIgnore]
-        public string Digits1String
-        {
-            get => StringUtils.GetString(Digits1);
-            set
-            {
-                Digits1 = StringUtils.GetBytes(value, 28);
-                NumDigits1 = (byte) value.Length;
-            }
-        }
-
-        [JsonIgnore]
+        [FieldOrder(2)]
         public byte Value1 { get; set; }
 
         [JsonIgnore]
@@ -69245,7 +69231,7 @@ namespace EfsTools.Items.Efs
                     {
                         Value = Value1,
                         CategoryLength = CategoryLength1,
-                        DigitsString = Digits1String,
+                        DigitsString = Digits1,
                         EmergencyCategory = EmergencyCategory1,
                         EmergencyMode = EmergencyMode1,
                         HardcodedType = HardcodedType1,
@@ -69354,7 +69340,7 @@ namespace EfsTools.Items.Efs
                     var val = Items[0];
                     Value1 = val.Value;
                     CategoryLength1 = val.CategoryLength;
-                    Digits1String = val.DigitsString;
+                    Digits1 = val.DigitsString;
                     EmergencyCategory1 = val.EmergencyCategory;
                     EmergencyMode1 = val.EmergencyMode;
                     HardcodedType1 = val.HardcodedType;
@@ -69755,7 +69741,7 @@ namespace EfsTools.Items.Efs
         [FieldCount(0)]
         public byte[] Values
         {
-            get;
+            get; set;
         }
     }
 
@@ -69795,14 +69781,9 @@ namespace EfsTools.Items.Efs
    public sealed class QipcallAudioCodecList : ItemBase
     {
         [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] Value { get; set; }
-
-        public string ValueString
-        {
-            get => StringUtils.GetString(Value);
-            set => Value = StringUtils.GetBytes(value, 128);
-        }
+        [FieldOrder(0)]
+        [FieldLength(128)]
+        public string Value { get; set; }
     }
 
     [Serializable]
@@ -69979,78 +69960,63 @@ namespace EfsTools.Items.Efs
         }
 
         [Required]
+        [FieldOrder(0)]
         public byte Version { get; set; }
 
-
+        [FieldOrder(1)]
         public byte EnableRtcpForActiveVoipCall { get; set; }
 
 
+        [FieldOrder(2)]
         public uint VtRtcpReportingInterval { get; set; }
 
-
+        [FieldOrder(3)]
         public byte RtpNbAmrPayloadType { get; set; }
 
-
+        [FieldOrder(4)]
         public byte RtpWbAmrPayloadType { get; set; }
 
-
+        [FieldOrder(5)]
         public byte RtpNbDtmpPayloadType { get; set; }
 
-
+        [FieldOrder(6)]
         public byte RtpWbDtmpPayloadType { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(16)]
-        public byte[] MediaAttribute { get; set; }
+        [FieldOrder(7)]
+        [FieldLength(16)]
+        public string MediaAttribute { get; set; }
 
-        public string MediaAttributeString
-        {
-            get => StringUtils.GetString(MediaAttribute);
-            set => MediaAttribute = StringUtils.GetBytes(value, 16);
-        }
-
-
+        [FieldOrder(8)]
         public byte DesiredQosStrength { get; set; }
 
-
+        [FieldOrder(9)]
         public byte CmrAmrNb { get; set; }
 
-
+        [FieldOrder(10)]
         public byte CmrAmrWb { get; set; }
 
-
+        [FieldOrder(11)]
         public byte EmergCallCsOnly { get; set; }
 
-
+        [FieldOrder(12)]
         public byte VideoMediaProfileMode { get; set; }
 
-
+        [FieldOrder(13)]
         public byte VideoCalls { get; set; }
 
-
+        [FieldOrder(14)]
         public byte MobileData { get; set; }
 
 
-        [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] AudioFeatureTag { get; set; }
+        [FieldOrder(15)]
+        [FieldLength(128)]
+        public string AudioFeatureTag { get; set; }
 
-        public string AudioFeatureTagString
-        {
-            get => StringUtils.GetString(AudioFeatureTag);
-            set => AudioFeatureTag = StringUtils.GetBytes(value, 128);
-        }
+        [FieldOrder(16)]
+        [FieldLength(128)]
+        public string VideoFeatureTag { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] VideoFeatureTag { get; set; }
-
-        public string VideoFeatureTagString
-        {
-            get => StringUtils.GetString(VideoFeatureTag);
-            set => VideoFeatureTag = StringUtils.GetBytes(value, 128);
-        }
-
+        [FieldOrder(17)]
         [FieldCount(223)]
         public byte[] ReservedBytes { get; set; }
     }
@@ -70358,21 +70324,16 @@ namespace EfsTools.Items.Efs
     {
         public QpImsCellid()
         {
-            CellId = new byte[192];
         }
 
         [Required]
+        [FieldOrder(0)]
         public byte Version { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(192)]
-        public byte[] CellId { get; set; }
+        [FieldOrder(1)]
+        [FieldLength(192)]
+        public string CellId { get; set; }
 
-        public string CellIdString
-        {
-            get => StringUtils.GetString(CellId);
-            set => CellId = StringUtils.GetBytes(value, 192);
-        }
     }
 
     [Serializable]
@@ -70825,79 +70786,36 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
    public sealed class QpImsParamConfig : ItemBase
     {
-        [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] RegConfigUserName { get; set; }
+        [FieldOrder(0)]
+        [FieldLength(128)]
+        public string RegConfigUserName { get; set; }
 
-        public string RegConfigUserNameString
-        {
-            get => StringUtils.GetString(RegConfigUserName);
-            set => RegConfigUserName = StringUtils.GetBytes(value, 128);
-        }
+        [FieldOrder(1)]
+        [FieldLength(128)]
+        public string RegConfigPassword { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] RegConfigPassword { get; set; }
+        [FieldOrder(2)]
+        [FieldLength(128)]
+        public string RegConfigPrivateUri { get; set; }
 
-        public string RegConfigPasswordString
-        {
-            get => StringUtils.GetString(RegConfigPassword);
-            set => RegConfigPassword = StringUtils.GetBytes(value, 128);
-        }
+        [FieldOrder(3)]
+        [FieldLength(128)]
+        public string RegConfigDisplayName { get; set; }
 
+        [FieldOrder(4)]
+        [FieldLength(256)]
+        public string RegConfigDomainName { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] RegConfigPrivateUri { get; set; }
+        [FieldOrder(5)]
+        [FieldLength(32)]
+        public string RegAuthSecretKey { get; set; }
 
-        public string RegConfigPrivateUriString
-        {
-            get => StringUtils.GetString(RegConfigPrivateUri);
-            set => RegConfigPrivateUri = StringUtils.GetBytes(value, 128);
-        }
-
-        [JsonIgnore]
-        [FieldCount(128)]
-        public byte[] RegConfigDisplayName { get; set; }
-
-        public string RegConfigDisplayNameString
-        {
-            get => StringUtils.GetString(RegConfigDisplayName);
-            set => RegConfigDisplayName = StringUtils.GetBytes(value, 128);
-        }
-
-        [JsonIgnore]
-        [FieldCount(256)]
-        public byte[] RegConfigDomainName { get; set; }
-
-        public string RegConfigDomainNameString
-        {
-            get => StringUtils.GetString(RegConfigDomainName);
-            set => RegConfigDomainName = StringUtils.GetBytes(value, 256);
-        }
-
-        [JsonIgnore]
-        [FieldCount(32)]
-        public byte[] RegAuthSecretKey { get; set; }
-
-        public string RegAuthSecretKeyString
-        {
-            get => StringUtils.GetString(RegAuthSecretKey);
-            set => RegAuthSecretKey = StringUtils.GetBytes(value, 32);
-        }
-
-
+        [FieldOrder(6)]
         public byte ThreeGppEnabled { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(32)]
-        public byte[] RegConfigOPField { get; set; }
-
-        public string RegConfigOPFieldString
-        {
-            get => StringUtils.GetString(RegConfigOPField);
-            set => RegConfigOPField = StringUtils.GetBytes(value, 32);
-        }
+        [FieldOrder(7)]
+        [FieldLength(32)]
+        public string RegConfigOPField { get; set; }
     }
 
     [Serializable]
