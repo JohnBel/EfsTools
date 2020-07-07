@@ -60,8 +60,16 @@ namespace EfsTools.Items
 
         public static object Deserialize(Stream stream, Type type)
         {
-            var obj = BinarySerializer.Deserialize(stream, type);
-            return obj;
+            try
+            {
+                var obj = BinarySerializer.Deserialize(stream, type);
+                return obj;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            
         }
     }
 }
