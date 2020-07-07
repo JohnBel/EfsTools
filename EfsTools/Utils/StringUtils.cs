@@ -151,7 +151,7 @@ namespace EfsTools.Utils
             var result = new List<string>();
             while (index < data.Length)
             {
-                for (var i = index; index < data.Length; ++i)
+                for (var i = index; i < data.Length; ++i)
                 {
                     if (endLineBufIndex < endLineString.Length)
                     {
@@ -164,16 +164,13 @@ namespace EfsTools.Utils
 
                             ++endLineBufIndex;
                         }
-                        else
+                       
+                        if (endLineBufIndex >= endLineString.Length)
                         {
-                            if (endLineBufIndex >= endLineString.Length)
-                            {
-                                var str = data.Substring(index, beforeEndLineIndex - index);
-                                result.Add(str);
-                                index = i;
-                                beforeEndLineIndex = i;
-                            }
-
+                            var str = data.Substring(index, beforeEndLineIndex - index);
+                            result.Add(str);
+                            index = i + 1;
+                            beforeEndLineIndex = i;
                             endLineBufIndex = 0;
                         }
                     }

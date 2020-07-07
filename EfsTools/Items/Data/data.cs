@@ -9,29 +9,29 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class EptDpdStruct : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(4)]
+        [FieldOrder(0)]
         public int[] Am
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(3)]
+        [FieldOrder(1)]
         public int[] Pm
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(3)]
+        [FieldOrder(2)]
         public byte[] PmShift
         {
             get; set;
         }
 
-        [FieldOrder(3)]
 
+        [FieldOrder(3)]
         public sbyte Status { get; set; }
     }
 
@@ -47,6 +47,7 @@ namespace EfsTools.Items.Data
     public sealed class GsmEnhtempcompTempType : ItemBase
     {
         /*
+        [FieldOrder(0)]
         public GsmEnhtempcompPclType[] TempBin { get; set; }
         */
     }
@@ -135,8 +136,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(1)]
         public ushort EdgeLinearTxGainVal { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(16)]
+        [FieldOrder(2)]
         public byte[] CharpredistEnvGain
         {
             get; set;
@@ -181,15 +182,15 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class GsmTxPolarRampProfileDataType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(30)]
+        [FieldOrder(0)]
         public ushort[] RampUp
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(30)]
+        [FieldOrder(1)]
         public ushort[] RampDown
         {
             get; set;
@@ -210,22 +211,22 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class GsmTxSmpsPdmDataType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(6)]
+        [FieldOrder(0)]
         public ushort[] CalSmpsPdmTbl
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] GsmSmpsPdmTbl
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(16)]
+        [FieldOrder(2)]
         public ushort[] EdgeSmpsPdmTbl
         {
             get; set;
@@ -235,36 +236,36 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class GsmTxTempCompDataType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] TempCompPclPwrScaling
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] HotTempCompPclPwrOffsetGsmk
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(16)]
+        [FieldOrder(2)]
         public ushort[] ColdTempCompPclPwrOffsetGsmk
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(16)]
+        [FieldOrder(3)]
         public ushort[] HotTempCompPclPwrOffset8psk
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(16)]
+        [FieldOrder(4)]
         public ushort[] ColdTempCompPclPwrOffset8psk
         {
             get; set;
@@ -309,8 +310,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(0)]
         public short VbattCompDbx100 { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public short[] VbattCompParangeDbx100
         {
             get; set;
@@ -330,22 +331,22 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxBandCalNvType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] Reserved
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(4)]
+        [FieldOrder(2)]
         public QmslTxPaStateCalDataNvType[] TxPaStateCalData
         {
             get; set;
@@ -356,22 +357,22 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxBandCalRev2NvType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] Reserved
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(4)]
+        [FieldOrder(2)]
         public QmslTxPaStateCalDataRev2NvType[] TxPaStateCalData
         {
             get; set;
@@ -384,8 +385,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(0)]
         public QmslTxBandCalNvType BandCalData { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(192)]
+        [FieldOrder(1)]
         public QmslTxCalLinearizerTableNvType[] TxLinData
         {
             get; set;
@@ -398,15 +399,15 @@ namespace EfsTools.Items.Data
         [FieldOrder(0)]
         public QmslTxBandCalRev2NvType BandCalData { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(192)]
+        [FieldOrder(1)]
         public QmslTxCalLinearizerTableNvType[] TxLinData
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(32)]
+        [FieldOrder(2)]
         public QmslTxCalLinearizerEptDpdTableNvType[] TxDpdData
         {
             get; set;
@@ -421,8 +422,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxCalFreqOffsetRowNvType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] FreqComp
         {
             get; set;
@@ -441,8 +442,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxCalLinearizerEptDpdTableNvType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(64)]
+        [FieldOrder(0)]
         public EptDpdStruct[] Dpd
         {
             get;
@@ -455,22 +456,22 @@ namespace EfsTools.Items.Data
         [FieldOrder(0)]
         public ushort TxChain { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(64)]
+        [FieldOrder(1)]
         public ushort[] Rgi
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(64)]
+        [FieldOrder(2)]
         public short[] Power
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(64)]
+        [FieldOrder(3)]
         public uint[] Apt
         {
             get; set;
@@ -506,8 +507,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxEptDpdV2AmamsType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public uint[] Amam
         {
             get; set;
@@ -517,8 +518,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxEptDpdV2AmpmsType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public int[] Ampm
         {
             get; set;
@@ -528,8 +529,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxEtDpdAmamsType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public uint[] Amam
         {
             get; set;
@@ -539,8 +540,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxEtDpdAmpmsType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public int[] Ampm
         {
             get; set;
@@ -550,8 +551,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxEtDpdEpdtsType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public uint[] Epdt
         {
             get; set;
@@ -573,8 +574,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(1)]
         public ushort NumDpdUsed { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(64)]
+        [FieldOrder(2)]
         public ushort[] DpdIdx
         {
             get; set;
@@ -591,8 +592,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(1)]
         public ushort NumFcompUsed { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(64)]
+        [FieldOrder(2)]
         public ushort[] FcompIdx
         {
             get; set;
@@ -622,8 +623,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxLinVsTempVsFreqNumType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -636,8 +637,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(0)]
         public TxFreqOffsetTableType TxFreqOffsets { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(3)]
+        [FieldOrder(1)]
         public TxLinearizerIndexType[] TxLinearizerIndex
         {
             get;
@@ -648,16 +649,16 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class QmslTxPaStateCalDataRev2NvType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(2)]
+        [FieldOrder(0)]
         public TxFreqOffsetTableType[] TxFreqOffsets
         {
             get;
             set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public TxLinearizerIndexRev2Type[] TxLinearizerIndex
         {
             get;
@@ -693,24 +694,24 @@ namespace EfsTools.Items.Data
         [FieldOrder(3)]
         public ushort HighestFreqChan { get; set; }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] TxPwrLimitDbm10
         {
             get;
             set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(7)]
+        [FieldOrder(5)]
         public QmslTxPwrImbalanceDbm10CoordinateType[] HiBackoffLut
         {
             get;
             set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(7)]
+        [FieldOrder(6)]
         public QmslTxPwrImbalanceDbm10CoordinateType[] LoBackoffLut
         {
             get;
@@ -733,8 +734,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(10)]
         public byte TableVersion { get; set; }
 
-        [FieldOrder(11)]
         [FieldCount(3)]
+        [FieldOrder(11)]
         public byte[] Reserved
         {
             get;
@@ -745,32 +746,32 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class RfcommonAntTunerDataType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(4)]
+        [FieldOrder(0)]
         public byte[] DeviceEnable
         {
             get;
             set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public byte[] DeviceCs
         {
             get;
             set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(16)]
+        [FieldOrder(2)]
         public ushort[] ChannelList
         {
             get;
             set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(64)]
+        [FieldOrder(3)]
         public uint[] CodeWords
         {
             get;
@@ -788,8 +789,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(1)]
         public byte ChannelIndex { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(128)]
+        [FieldOrder(2)]
         public ushort[] DataList
         {
             get; set;
@@ -806,8 +807,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(1)]
         public byte ChannelIndex { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(128)]
+        [FieldOrder(2)]
         public short[] DataList
         {
             get; set;
@@ -828,8 +829,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(2)]
         public byte PaState { get; set; }
 
-        [FieldOrder(3)]
         [FieldCount(32)]
+        [FieldOrder(3)]
         public short[] PmeasList
         {
             get; set;
@@ -850,8 +851,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(2)]
         public byte ValidRgiNum { get; set; }
 
-        [FieldOrder(3)]
         [FieldCount(32)]
+        [FieldOrder(3)]
         public byte[] RgiList
         {
             get; set;
@@ -861,8 +862,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class RfnvDataTxCalChansU32Type : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public uint[] TxCalChans
         {
             get;
@@ -967,8 +968,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(1)]
         public byte ChannelIndex { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(16)]
+        [FieldOrder(2)]
         public short[] PwrErrList
         {
             get;
@@ -979,8 +980,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class TxFreqOffsetTableType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqOffsetRowNvType[] Row
         {
             get;
@@ -991,40 +992,40 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class TxIntDevCalNvType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public ulong[] CdmaBcTxIntCal
         {
             get;
             set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public byte[] GsmBcTxIntCal
         {
             get;
             set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public ulong[] WcdmaBcTxIntCal
         {
             get;
             set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public ulong[] LteBcTxIntCal
         {
             get;
             set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public ulong[] TdscdmaBcTxIntCal
         {
             get;
@@ -1035,8 +1036,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class TxLinearizerIndexRev2Type : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public QmslTxCalMultiLinearizerIndexNodeRev2NvType[] NodeType
         {
             get;
@@ -1047,8 +1048,8 @@ namespace EfsTools.Items.Data
     [Serializable]
     public sealed class TxLinearizerIndexType : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(16)]
+        [FieldOrder(0)]
         public QmslTxCalMultiLinearizerIndexNodeNvType[] NodeType
         {
             get;
@@ -1122,8 +1123,8 @@ namespace EfsTools.Items.Data
         [FieldOrder(15)]
         public uint RgiSelOffsetHigh2 { get; set; }
 
-        [FieldOrder(16)]
         [FieldCount(7)]
+        [FieldOrder(16)]
         public uint[] Reserved2
         {
             get;

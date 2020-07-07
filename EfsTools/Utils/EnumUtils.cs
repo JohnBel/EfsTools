@@ -19,10 +19,13 @@ namespace EfsTools.Utils
                 {
                     return b;
                 }
-
-                if (val.Length < 4 && byte.TryParse(val, out var b1))
+                if (val.Length <= 4 && byte.TryParse(val, out var b1))
                 {
                     return b1;
+                }
+                if (val.Length == 1)
+                {
+                    return (byte)val[0];
                 }
 
                 return (byte) Enum.Parse(enumType, val, true);

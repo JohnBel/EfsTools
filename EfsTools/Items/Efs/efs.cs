@@ -1207,6 +1207,7 @@ namespace EfsTools.Items.Efs
 
         [FieldOffset(0)]
         [FieldCount(58)]
+        [FieldOrder(1)]
         public byte[] Value
         {
             get; set;
@@ -5260,6 +5261,7 @@ namespace EfsTools.Items.Efs
     {
         [FieldOffset(0)]
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
             get; set;
@@ -6539,15 +6541,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc0HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -6831,8 +6833,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc0HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(0)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -6881,8 +6883,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -6930,6 +6932,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC0Bc0TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -6944,8 +6947,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -6960,8 +6963,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -7083,6 +7086,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC0Bc0TxMultiLinData : ItemBase
     {
         [FieldOffset(0)]
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -7092,6 +7096,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC0Bc0TxMultiLinV2Data : ItemBase
     {
         [FieldOffset(0)]
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -7101,6 +7106,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC0Bc0TxMultiLinV3Data : ItemBase
     {
         [FieldOffset(0)]
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -7112,57 +7118,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -8443,6 +8449,7 @@ namespace EfsTools.Items.Efs
     {
         [FieldOffset(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
@@ -8450,6 +8457,7 @@ namespace EfsTools.Items.Efs
 
         [FieldOffset(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -8733,9 +8741,9 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc10HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
         ///[FieldCount(0)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -8747,6 +8755,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc10TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -8784,8 +8793,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -8832,8 +8841,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc10TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -8848,8 +8857,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -8864,8 +8873,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -9016,57 +9025,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -10841,15 +10850,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -11133,8 +11142,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -11146,6 +11155,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -11182,8 +11192,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -11230,8 +11240,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -11246,8 +11256,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -11262,8 +11272,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -11384,6 +11394,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -11392,6 +11403,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -11400,6 +11412,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc14TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -11411,57 +11424,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -12740,15 +12753,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -13032,8 +13045,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -13045,6 +13058,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -13081,8 +13095,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
         
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -13129,8 +13143,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -13145,8 +13159,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -13161,8 +13175,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -13283,6 +13297,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -13291,6 +13306,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -13299,6 +13315,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc15TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -13310,57 +13327,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
         
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
         
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
         
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
         
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
         
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -14143,15 +14160,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc1HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
         
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -14435,8 +14452,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc1HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -14448,6 +14465,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc1TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -14485,6 +14503,7 @@ namespace EfsTools.Items.Efs
         public ushort LpmTxagcStart { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -14532,6 +14551,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC0Bc1TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -14546,8 +14566,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -14562,8 +14582,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -14684,6 +14704,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc1TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -14692,6 +14713,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc1TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -14700,6 +14722,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc1TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -14711,57 +14734,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]        
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
         
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -16040,15 +16063,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
         
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -16332,8 +16355,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -16345,6 +16368,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -16381,8 +16405,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -16429,8 +16453,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]        
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -16445,8 +16469,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]        
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -16461,8 +16485,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -16583,6 +16607,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -16591,6 +16616,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -16599,6 +16625,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc4TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -16610,57 +16637,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]        
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
         
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -17939,15 +17966,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5HdetModRange : ItemBase
     {
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
         
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -18231,8 +18258,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -18244,6 +18271,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -18280,8 +18308,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -18328,8 +18356,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -18344,8 +18372,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -18360,8 +18388,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -18482,6 +18510,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -18490,6 +18519,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -18498,6 +18528,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc5TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -18509,57 +18540,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -19839,12 +19870,14 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC0Bc6HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -20128,8 +20161,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc6HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -20141,6 +20174,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc6TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -20178,6 +20212,7 @@ namespace EfsTools.Items.Efs
         public ushort LpmTxagcStart { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -20224,8 +20259,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc6TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -20241,6 +20276,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -20255,8 +20291,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -20377,6 +20413,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc6TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -20385,6 +20422,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc6TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -20393,6 +20431,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0Bc6TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -20404,57 +20443,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -20466,8 +20505,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC0HdrSpurTable : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
             get; set;
@@ -20479,8 +20518,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC11xSpurTable : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
             get; set;
@@ -28716,8 +28755,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC1HdrSpurTable : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
             get; set;
@@ -28729,8 +28768,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC21xSpurTable : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo
         {
             get; set;
@@ -30023,15 +30062,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -30329,8 +30368,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -30377,6 +30416,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -30413,8 +30453,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -30475,8 +30515,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -30519,8 +30559,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -30535,8 +30575,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -30657,6 +30697,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -30665,6 +30706,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -30673,6 +30715,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc0TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -30740,57 +30783,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -32083,15 +32126,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -32389,8 +32432,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -32437,6 +32480,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -32473,8 +32517,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -32535,8 +32579,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -32579,8 +32623,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -32595,8 +32639,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -32717,6 +32761,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -32725,6 +32770,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -32733,6 +32779,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc10TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -32800,57 +32847,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -34646,15 +34693,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -34952,8 +34999,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14HdrTxPwrLimData : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -35000,6 +35047,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -35036,8 +35084,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -35098,8 +35146,8 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14TxLimVsTempVsFreq : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -35142,8 +35190,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -35158,8 +35206,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -35280,6 +35328,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -35288,6 +35337,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -35296,6 +35346,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc14TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -35363,57 +35414,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -36706,15 +36757,15 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc15HdetModRange : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -37013,6 +37064,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc15HdrTxPwrLimData : ItemBase
     {
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -37059,6 +37111,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc15TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -37095,8 +37148,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(4)]
         public ushort LpmTxagcStart { get; set; }
 
-        [FieldOrder(5)]
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -37158,6 +37211,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc15TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -37200,8 +37254,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -37216,8 +37270,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -37338,6 +37392,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc15TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -37346,6 +37401,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc15TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -37354,6 +37410,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc15TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -37421,57 +37478,57 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public sbyte Reserved { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(2)]
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(3)]
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(4)]
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(5)]
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(6)]
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
-        [FieldOrder(7)]
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
-        [FieldOrder(8)]
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -38262,12 +38319,14 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc1HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset
         {
             get; set;
@@ -38566,6 +38625,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc1HdrTxPwrLimData : ItemBase
     {
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -38612,6 +38672,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc1TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -38649,6 +38710,7 @@ namespace EfsTools.Items.Efs
         public ushort LpmTxagcStart { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable
         {
             get; set;
@@ -38710,6 +38772,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc1TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -38753,6 +38816,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -38768,6 +38832,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState
         {
             get; set;
@@ -38888,6 +38953,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc1TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -38896,6 +38962,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc1TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -38904,6 +38971,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc1TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -38972,48 +39040,56 @@ namespace EfsTools.Items.Efs
         public sbyte Reserved { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset
         {
             get; set;
         }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope
         {
             get; set;
@@ -40307,9 +40383,11 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc4HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -40606,6 +40684,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc4HdrTxPwrLimData : ItemBase
     {
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
             get; set;
@@ -40653,6 +40732,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc4TxEptDpdConfigParams : ItemBase
     {
         private TxXptDpdConfigParamsDataType _xptCfgParams = new TxXptDpdConfigParamsDataType();
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -40690,6 +40770,7 @@ namespace EfsTools.Items.Efs
         public ushort LpmTxagcStart { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable { get; set; }
     }
 
@@ -40720,6 +40801,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc4TxHdetVsFreq : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] HdetVsFreq { get; set; }
     }
 
@@ -40729,6 +40811,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc4TxHdetVsTemp : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] HdetVsTemp { get; set; }
     }
 
@@ -40752,6 +40835,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc4TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp
         {
             get; set;
@@ -40795,6 +40879,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -40807,6 +40892,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -40924,6 +41010,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc4TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -40932,6 +41019,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc4TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -40940,6 +41028,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc4TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -41008,27 +41097,35 @@ namespace EfsTools.Items.Efs
         public sbyte Reserved { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope { get; set; }
     }
 
@@ -42319,9 +42416,11 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc5HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -42617,6 +42716,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc5HdrTxPwrLimData : ItemBase
     {
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit { get; set; }
     }
 
@@ -42660,6 +42760,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc5TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -42697,6 +42798,7 @@ namespace EfsTools.Items.Efs
         public ushort LpmTxagcStart { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable { get; set; }
     }
 
@@ -42727,6 +42829,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc5TxHdetVsFreq : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] HdetVsFreq { get; set; }
     }
 
@@ -42736,6 +42839,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc5TxHdetVsTemp : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] HdetVsTemp { get; set; }
     }
 
@@ -42759,6 +42863,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc5TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp { get; set; }
     }
 
@@ -42799,6 +42904,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -42811,6 +42917,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -42928,6 +43035,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc5TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -42936,6 +43044,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc5TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -42944,6 +43053,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc5TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -43012,27 +43122,35 @@ namespace EfsTools.Items.Efs
         public sbyte Reserved { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope { get; set; }
     }
 
@@ -44323,9 +44441,11 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc6HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -44621,6 +44741,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc6HdrTxPwrLimData : ItemBase
     {
         [FieldCount(25)]
+        [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit { get; set; }
     }
 
@@ -44664,6 +44785,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc6TxEptDpdConfigParams : ItemBase
     {
+        [FieldOrder(0)]
         public TxXptDpdConfigParamsDataType XptCfgParams { get; set; }
     }
 
@@ -44701,6 +44823,7 @@ namespace EfsTools.Items.Efs
         public ushort LpmTxagcStart { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(5)]
         public ushort[] LpmHdetVsAgcTable { get; set; }
     }
 
@@ -44731,6 +44854,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc6TxHdetVsFreq : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] HdetVsFreq { get; set; }
     }
 
@@ -44740,6 +44864,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc6TxHdetVsTemp : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] HdetVsTemp { get; set; }
     }
 
@@ -44763,6 +44888,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2Bc6TxLimVsTempVsFreq : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public QmslTxCalFreqNumType[] Temp { get; set; }
     }
 
@@ -44803,6 +44929,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -44815,6 +44942,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -44932,6 +45060,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc6TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -44940,6 +45069,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc6TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -44948,6 +45078,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class CdmaC2Bc6TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -45016,27 +45147,35 @@ namespace EfsTools.Items.Efs
         public sbyte Reserved { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] Pa0PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] Pa0PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] Pa1PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] Pa1PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] Pa2PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public short[] Pa2PowerSlope { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] Pa3PowerOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public short[] Pa3PowerSlope { get; set; }
     }
 
@@ -45046,6 +45185,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC2HdrSpurTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -45055,6 +45195,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC31xSpurTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -53288,6 +53429,7 @@ namespace EfsTools.Items.Efs
     public sealed class CdmaC3HdrSpurTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -53545,6 +53687,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class DoInternalDeviceCal : ItemBase
     {
+        [FieldOrder(0)]
         public TxIntDevCalNvType Value { get; set; }
     }
 
@@ -53738,6 +53881,7 @@ namespace EfsTools.Items.Efs
         public byte Version { get; set; }
 
         [FieldCount(63)]
+        [FieldOrder(1)]
         public byte[] Value { get; set; }
     }
 
@@ -53857,6 +54001,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm1800EdgeEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -53893,6 +54038,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm1800GmskEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54027,6 +54173,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm1900EdgeEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54063,6 +54210,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm1900GmskEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54213,6 +54361,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm850EdgeEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54242,6 +54391,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm850GmskEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54355,6 +54505,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm900EdgeEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54384,6 +54535,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Gsm900GmskEnhTempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmEnhtempcompTempType Value { get; set; }
     }
 
@@ -54477,6 +54629,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1800AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -54485,6 +54638,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -54494,6 +54648,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1800EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -54502,16 +54657,16 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800EnvGain : ItemBase
     {
-        [FieldOrder(0)]
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
-        [FieldOrder(1)]
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
-        [FieldOrder(2)]
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -54537,6 +54692,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -54545,6 +54701,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -54554,9 +54711,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1800MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -54574,6 +54733,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -54591,6 +54751,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -54600,6 +54761,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1800PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -54612,9 +54774,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -54624,18 +54788,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1800SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -54644,6 +54813,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -54652,6 +54822,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -54664,17 +54835,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -54683,6 +54856,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -54691,9 +54865,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -54702,6 +54878,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1800TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -54711,12 +54888,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1800Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -54726,6 +54906,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -54734,6 +54915,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -54743,6 +54925,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -54752,12 +54935,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -54783,6 +54969,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -54791,6 +54978,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -54800,9 +54988,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -54820,6 +55010,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -54837,6 +55028,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -54846,6 +55038,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -54858,9 +55051,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -54870,18 +55065,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -54890,6 +55090,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -54898,6 +55099,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -54910,17 +55112,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -54929,6 +55133,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -54937,9 +55142,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -54948,6 +55155,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm1900TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -54957,12 +55165,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm1900Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -54972,6 +55183,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -54980,6 +55192,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -54989,6 +55202,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -54998,12 +55212,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -55029,6 +55246,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -55037,6 +55255,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -55046,9 +55265,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -55066,6 +55287,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -55083,6 +55305,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -55092,6 +55315,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -55104,9 +55328,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -55116,18 +55342,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -55136,6 +55367,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -55144,6 +55376,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -55156,17 +55389,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -55175,6 +55410,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -55183,9 +55419,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -55194,6 +55432,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm850TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -55203,12 +55442,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm850Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -55218,6 +55460,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -55226,6 +55469,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -55235,6 +55479,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -55244,12 +55489,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -55275,6 +55523,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -55283,6 +55532,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -55292,9 +55542,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -55312,6 +55564,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -55329,6 +55582,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -55338,6 +55592,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -55350,9 +55605,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -55362,18 +55619,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -55382,6 +55644,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -55390,6 +55653,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -55402,17 +55666,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -55421,6 +55687,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -55429,9 +55696,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -55440,6 +55709,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC0Gsm900TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -55449,12 +55719,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC0Gsm900Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -55464,6 +55737,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -55472,6 +55746,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -55481,6 +55756,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -55490,12 +55766,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -55521,6 +55800,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -55529,6 +55809,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -55538,9 +55819,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -55558,6 +55841,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -55575,6 +55859,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -55584,6 +55869,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -55596,9 +55882,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -55608,18 +55896,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -55628,6 +55921,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -55636,6 +55930,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -55648,17 +55943,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -55667,6 +55964,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -55675,9 +55973,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -55686,6 +55986,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1800TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -55695,12 +55996,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1800Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -55710,6 +56014,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -55718,6 +56023,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -55727,6 +56033,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -55736,12 +56043,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -55767,6 +56077,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -55775,6 +56086,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -55784,9 +56096,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -55804,6 +56118,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -55821,6 +56136,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -55830,6 +56146,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -55842,9 +56159,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -55854,18 +56173,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -55874,6 +56198,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -55882,6 +56207,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -55894,17 +56220,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -55913,6 +56241,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -55921,9 +56250,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -55932,6 +56263,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm1900TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -55941,12 +56273,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm1900Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -55956,6 +56291,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -55964,6 +56300,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -55973,6 +56310,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -55982,12 +56320,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -56013,6 +56354,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -56021,6 +56363,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -56030,9 +56373,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -56050,6 +56395,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -56067,6 +56413,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -56076,6 +56423,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -56088,9 +56436,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -56100,18 +56450,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -56120,6 +56475,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -56128,6 +56484,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -56140,17 +56497,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -56159,6 +56518,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -56167,9 +56527,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -56178,6 +56540,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm850TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -56187,12 +56550,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm850Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -56202,6 +56568,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900AmamTempComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] AmamTempComp { get; set; }
     }
 
@@ -56210,6 +56577,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900EnhApt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxEnhAptDataType EnhAptData { get; set; }
     }
 
@@ -56219,6 +56587,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900EnhTempComp : ItemBase
     {
         [FieldCount(256)]
+        [FieldOrder(0)]
         public short[] TempcompTable { get; set; }
     }
 
@@ -56228,12 +56597,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900EnvGain : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] EnvGainFreqRgiF1 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(1)]
         public ushort[] EnvGainFreqRgiF2 { get; set; }
 
         [FieldCount(32)]
+        [FieldOrder(2)]
         public ushort[] EnvGainFreqRgiF3 { get; set; }
     }
 
@@ -56259,6 +56631,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900LinearTxGainParam : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxLinearTxGainParamDataType TxGainParam { get; set; }
     }
 
@@ -56267,6 +56640,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900LnaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmRxLnaSwptType GsmRxLnaSwpt { get; set; }
     }
 
@@ -56276,9 +56650,11 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900MultislotMaxTxPwr : ItemBase
     {
         [FieldCount(5)]
+        [FieldOrder(0)]
         public short[] GsmMultislotTxPwrGmsk { get; set; }
 
         [FieldCount(5)]
+        [FieldOrder(1)]
         public short[] GsmMultislotTxPwr8psk { get; set; }
     }
 
@@ -56296,6 +56672,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900PaSwpt : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPaSwptDataType GsmPaSwptData { get; set; }
     }
 
@@ -56313,6 +56690,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900PolarRampProfile : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxPolarRampProfileDataType PolarParampLut { get; set; }
     }
 
@@ -56322,6 +56700,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900PowerLevels : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] GsmPowerLevels { get; set; }
     }
 
@@ -56334,9 +56713,11 @@ namespace EfsTools.Items.Efs
         public byte RxCalChanSize { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public short[] RxCalChanList { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(2)]
         public GsmRxFreqCompDataType[] RxFreqCompData { get; set; }
     }
 
@@ -56346,18 +56727,23 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900SarBackoff : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public GsmTxSarBackoffDataType[] SarBackOffLimitSlot5 { get; set; }
     }
 
@@ -56366,6 +56752,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900SmpsPdmTbl : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxSmpsPdmDataType SmpsPdmData { get; set; }
     }
 
@@ -56374,6 +56761,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900TempComp : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTempCompDataType TempCompData { get; set; }
     }
 
@@ -56386,17 +56774,19 @@ namespace EfsTools.Items.Efs
         public byte TxCalChanSize { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public ushort[] TxCalChan { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public short AmamMaxDbm { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte RgiForPred { get; set; }
 
 
+        [FieldOrder(4)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -56405,6 +56795,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900TxGtrThresh : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxGtrThreshDataType GtrThresh { get; set; }
     }
 
@@ -56413,9 +56804,11 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900TxRxAntTuner : ItemBase
     {
+        [FieldOrder(0)]
         public RfcommonAntTunerDataType AntTunerRx { get; set; }
 
 
+        [FieldOrder(1)]
         public RfcommonAntTunerDataType AntTunerTx { get; set; }
     }
 
@@ -56424,6 +56817,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class GsmC2Gsm900TxTiming : ItemBase
     {
+        [FieldOrder(0)]
         public GsmTxTimingDataType GsmTxTimingData { get; set; }
     }
 
@@ -56433,12 +56827,15 @@ namespace EfsTools.Items.Efs
     public sealed class GsmC2Gsm900Vbatt : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public ushort[] VbattLevels { get; set; }
 
 
+        [FieldOrder(1)]
         public GsmTxVbattCompDataType VbattCompValueLo { get; set; }
 
 
+        [FieldOrder(2)]
         public GsmTxVbattCompDataType VbattCompValueHi { get; set; }
     }
 
@@ -56448,6 +56845,7 @@ namespace EfsTools.Items.Efs
     public sealed class GsmDebug : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public uint[] SpareNv { get; set; }
     }
 
@@ -56788,6 +57186,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class InternalDeviceCalStatus : ItemBase
     {
+        [FieldOrder(0)]
         public TxIntDevCalNvType Value { get; set; }
     }
 
@@ -57500,6 +57899,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -57575,6 +57975,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -57587,6 +57988,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -57609,6 +58011,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB10TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -57617,6 +58020,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB10TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -57625,6 +58029,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB10TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -57644,15 +58049,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -58272,6 +58681,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -58347,6 +58757,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -58359,6 +58770,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -58381,6 +58793,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB11TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -58389,6 +58802,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB11TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -58397,6 +58811,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB11TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -58416,15 +58831,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -59057,6 +59476,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -59132,6 +59552,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -59144,6 +59565,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -59166,6 +59588,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB12TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -59174,6 +59597,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB12TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -59182,6 +59606,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB12TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -59201,15 +59626,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -59528,6 +59957,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -59568,6 +59998,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -59580,6 +60011,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -59588,6 +60020,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB13TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -59596,6 +60029,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB13TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -59604,6 +60038,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB13TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -59616,15 +60051,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -60272,6 +60711,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -60347,6 +60787,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60359,6 +60800,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60381,6 +60823,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB14TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -60389,6 +60832,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB14TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -60397,6 +60841,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB14TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -60416,15 +60861,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -60444,6 +60893,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60456,6 +60906,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60468,15 +60919,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -60496,6 +60951,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60508,6 +60964,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60520,15 +60977,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -60826,6 +61287,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -60866,6 +61328,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60878,6 +61341,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -60886,6 +61350,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB17TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -60894,6 +61359,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB17TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -60902,6 +61368,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB17TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -60914,15 +61381,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -61535,6 +62006,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -61610,6 +62082,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -61622,6 +62095,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -61644,6 +62118,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB18TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -61652,6 +62127,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB18TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -61660,6 +62136,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB18TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -61679,15 +62156,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -62195,6 +62676,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -62242,6 +62724,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -62254,6 +62737,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -62276,6 +62760,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB19TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -62284,6 +62769,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB19TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -62292,6 +62778,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB19TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -62311,15 +62798,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -62624,6 +63115,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -62664,6 +63156,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -62676,6 +63169,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -62684,6 +63178,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB1TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -62692,6 +63187,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB1TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -62700,6 +63196,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB1TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -62712,15 +63209,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -63374,6 +63875,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -63449,6 +63951,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -63461,6 +63964,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -63483,6 +63987,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB20TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -63491,6 +63996,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB20TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -63499,6 +64005,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB20TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -63518,15 +64025,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -64034,6 +64545,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -64081,6 +64593,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -64093,6 +64606,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -64115,6 +64629,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB21TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -64123,6 +64638,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB21TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -64131,6 +64647,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB21TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -64150,15 +64667,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -64178,6 +64699,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -64190,6 +64712,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -64202,15 +64725,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -64900,6 +65427,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -64975,6 +65503,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -64987,6 +65516,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -65009,6 +65539,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB23TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -65017,6 +65548,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB23TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -65025,6 +65557,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB23TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -65044,15 +65577,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -65653,6 +66190,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -65665,6 +66203,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -65698,15 +66237,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -66346,6 +66889,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -66421,6 +66965,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -66433,6 +66978,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -66455,6 +67001,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB25TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -66463,6 +67010,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB25TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -66471,6 +67019,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB25TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -66490,15 +67039,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -67247,6 +67800,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB26TxLimitVsFreqLpm : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] LteTxLimitVsFreqLpm { get; set; }
     }
 
@@ -67266,6 +67820,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -67341,6 +67896,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -67353,6 +67909,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -67375,6 +67932,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB26TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -67383,6 +67941,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB26TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -67391,6 +67950,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB26TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -67410,15 +67970,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -67438,6 +68002,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -67450,6 +68015,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -67462,15 +68028,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -67515,6 +68085,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB28C1RxCalChan : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] C1RxCalChan { get; set; }
     }
 
@@ -67594,6 +68165,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB28Db10SarBackOffLimit : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public ushort[] LteDb10SarBackOffLimit { get; set; }
     }
 
@@ -67674,6 +68246,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB28MaxTxPowerDb10 : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] MaxTxPowerNvDb10 { get; set; }
     }
 
@@ -67843,6 +68416,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB28TxLimitVsFreqLpm : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] LteTxLimitVsFreqLpm { get; set; }
     }
 
@@ -67862,6 +68436,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -67881,6 +68456,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -67893,6 +68469,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -67908,6 +68485,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB28TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType TxBandCalData { get; set; }
     }
 
@@ -67916,6 +68494,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB28TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -67935,15 +68514,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -67974,6 +68557,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB29C1RxCalChan : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] C1RxCalChan { get; set; }
     }
 
@@ -68112,6 +68696,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -68124,6 +68709,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -68136,15 +68722,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -68798,6 +69388,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -68873,6 +69464,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -68885,6 +69477,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -68907,6 +69500,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB2TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -68915,6 +69509,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB2TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -68923,6 +69518,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB2TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -68942,15 +69538,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -68970,6 +69570,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -68982,6 +69583,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -68994,15 +69596,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -69022,6 +69628,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -69034,6 +69641,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -69046,15 +69654,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -69074,6 +69686,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -69086,6 +69699,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -69098,15 +69712,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -69116,6 +69734,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33AgcPaOnRiseFallDelay : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] AgcPaOnRiseFallDelayType { get; set; }
     }
 
@@ -69125,6 +69744,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33AgcTxOnRiseFallDelay : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] AgcTxOnRiseFallDelayType { get; set; }
     }
 
@@ -69134,6 +69754,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33Antsel : ItemBase
     {
         [FieldCount(4)]
+        [FieldOrder(0)]
         public byte[] Antsel { get; set; }
     }
 
@@ -69229,6 +69850,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1Antsel : ItemBase
     {
         [FieldCount(4)]
+        [FieldOrder(0)]
         public byte[] C1Antsel { get; set; }
     }
 
@@ -69238,6 +69860,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1Im2Values : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public byte[] C1Im2ValuesType { get; set; }
     }
 
@@ -69247,6 +69870,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1ImLevel : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] C1ImLevel { get; set; }
     }
 
@@ -69256,6 +69880,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1LnaPhaseCtrl : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] C1LteLnaPhaseCtrl { get; set; }
     }
 
@@ -69265,6 +69890,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1LnaRangeRiseFall : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public short[] C1LnaRangeRiseFallType { get; set; }
     }
 
@@ -69274,6 +69900,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1NonbypassBypassTimer : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] C1NonbypassBypassTimerType { get; set; }
     }
 
@@ -69283,6 +69910,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1RxCalChan : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] C1RxCalChan { get; set; }
     }
 
@@ -69292,6 +69920,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1RxGain : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] C1RxGain { get; set; }
     }
 
@@ -69301,6 +69930,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1RxGainVsFreq : ItemBase
     {
         [FieldCount(128)]
+        [FieldOrder(0)]
         public sbyte[] C1RxGainVsFreq { get; set; }
     }
 
@@ -69310,6 +69940,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33C1RxGainVsTemp : ItemBase
     {
         [FieldCount(128)]
+        [FieldOrder(0)]
         public sbyte[] C1RxGainVsTemp { get; set; }
     }
 
@@ -69368,6 +69999,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33Db10SarBackOffLimit : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public ushort[] LteDb10SarBackOffLimit { get; set; }
     }
 
@@ -69386,6 +70018,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33DrxModeSel : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public byte[] RfDrxModeSel { get; set; }
     }
 
@@ -69404,6 +70037,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33ExpHdetVsAgc : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] ExpHdetVsAgc { get; set; }
     }
 
@@ -69440,6 +70074,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33HdetOffSpan : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] HdetOffSpanType { get; set; }
     }
 
@@ -69449,6 +70084,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33Im2Values : ItemBase
     {
         [FieldCount(3)]
+        [FieldOrder(0)]
         public byte[] Im2ValuesType { get; set; }
     }
 
@@ -69458,6 +70094,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33ImLevel : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] ImLevel { get; set; }
     }
 
@@ -69474,6 +70111,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33LnaPhaseCtrl : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] LteLnaPhaseCtrl { get; set; }
     }
 
@@ -69483,6 +70121,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33LnaRangeRiseFall : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public short[] LnaRangeRiseFallType { get; set; }
     }
 
@@ -69492,6 +70131,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33MaxTxPowerDb10 : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] MaxTxPowerNvDb10 { get; set; }
     }
 
@@ -69523,6 +70163,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33MprBasedPaSwitchpointsShift : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] PaSwitchpointsShift { get; set; }
     }
 
@@ -69532,6 +70173,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33NonbypassBypassTimer : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] NonbypassBypassTimerType { get; set; }
     }
 
@@ -69541,6 +70183,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33PaCompensateUpDown : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] PaCompensateUpDownType { get; set; }
     }
 
@@ -69550,6 +70193,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33PaGainUpDownTime : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public ushort[] PaGainUpDownTimeType { get; set; }
     }
 
@@ -69559,6 +70203,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33PaRangeMap : ItemBase
     {
         [FieldCount(4)]
+        [FieldOrder(0)]
         public sbyte[] PaRangeMap { get; set; }
     }
 
@@ -69568,6 +70213,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33PaRiseFallThreshold : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] PaRiseFallThresholdType { get; set; }
     }
 
@@ -69584,6 +70230,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33PaSmpsGstTemp : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public ushort[] SmpsPdmTempComp { get; set; }
     }
 
@@ -69602,6 +70249,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33RxCalChan : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] RxCalChan { get; set; }
     }
 
@@ -69620,6 +70268,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33RxfMismatchComp : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public short[] RxfMismatchCompType { get; set; }
     }
 
@@ -69629,6 +70278,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33RxGain : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] RxGain { get; set; }
     }
 
@@ -69638,6 +70288,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33RxGainVsFreq : ItemBase
     {
         [FieldCount(128)]
+        [FieldOrder(0)]
         public sbyte[] RxGainVsFreq { get; set; }
     }
 
@@ -69647,6 +70298,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33RxGainVsTemp : ItemBase
     {
         [FieldCount(128)]
+        [FieldOrder(0)]
         public sbyte[] RxGainVsTemp { get; set; }
     }
 
@@ -69683,6 +70335,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxAgcOffset : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] LteTxAgcOffset { get; set; }
     }
 
@@ -69692,6 +70345,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxCalChan : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] TxCalChan { get; set; }
     }
 
@@ -69701,6 +70355,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxCarrierFeedthroughComp : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public short[] TxCarrierFeedthroughCompType { get; set; }
     }
 
@@ -69710,6 +70365,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxCompVsFreq : ItemBase
     {
         [FieldCount(128)]
+        [FieldOrder(0)]
         public sbyte[] TxCompVsFreq { get; set; }
     }
 
@@ -69719,6 +70375,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxDigitalGainComp : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public short[] LteTxDigitalGainComp { get; set; }
     }
 
@@ -69728,6 +70385,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndex0 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndex0 { get; set; }
     }
 
@@ -69737,6 +70395,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndex1 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndex1 { get; set; }
     }
 
@@ -69746,6 +70405,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndex2 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndex2 { get; set; }
     }
 
@@ -69755,6 +70415,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndex3 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndex3 { get; set; }
     }
 
@@ -69764,6 +70425,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndexForApt0 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndexForApt0 { get; set; }
     }
 
@@ -69773,6 +70435,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndexForApt1 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndexForApt1 { get; set; }
     }
 
@@ -69782,6 +70445,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndexForApt2 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndexForApt2 { get; set; }
     }
 
@@ -69791,6 +70455,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxGainIndexForApt3 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxGainIndexForApt3 { get; set; }
     }
 
@@ -69821,6 +70486,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLimitVsFreq : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] TxLimitVsFreq { get; set; }
     }
 
@@ -69830,6 +70496,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLimitVsFreqLpm : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public sbyte[] LteTxLimitVsFreqLpm { get; set; }
     }
 
@@ -69839,6 +70506,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLimitVsTemp : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] TxLimitVsTemp { get; set; }
     }
 
@@ -69851,6 +70519,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -69860,6 +70529,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMaster0 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMaster0 { get; set; }
     }
 
@@ -69869,6 +70539,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMaster1 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMaster1 { get; set; }
     }
 
@@ -69878,6 +70549,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMaster2 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMaster2 { get; set; }
     }
 
@@ -69887,6 +70559,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMaster3 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMaster3 { get; set; }
     }
 
@@ -69896,6 +70569,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMasterForApt0 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMasterForApt0 { get; set; }
     }
 
@@ -69905,6 +70579,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMasterForApt1 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMasterForApt1 { get; set; }
     }
 
@@ -69914,6 +70589,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMasterForApt2 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMasterForApt2 { get; set; }
     }
 
@@ -69923,6 +70599,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinMasterForApt3 : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public ushort[] TxLinMasterForApt3 { get; set; }
     }
 
@@ -69932,6 +70609,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxLinVsTemp : ItemBase
     {
         [FieldCount(64)]
+        [FieldOrder(0)]
         public sbyte[] TxLinVsTemp { get; set; }
     }
 
@@ -69944,6 +70622,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -69956,6 +70635,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -69965,6 +70645,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxMismatchComp : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public short[] TxMismatchCompType { get; set; }
     }
 
@@ -69974,6 +70655,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxMprBackoff : ItemBase
     {
         [FieldCount(16)]
+        [FieldOrder(0)]
         public ushort[] LteTxMprBackoff { get; set; }
     }
 
@@ -69982,6 +70664,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB33TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType TxBandCalData { get; set; }
     }
 
@@ -69990,6 +70673,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB33TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -69999,6 +70683,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteB33TxRotAnglePaState : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public ushort[] TxRotAnglePaState { get; set; }
     }
 
@@ -70011,15 +70696,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -70632,6 +71321,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -70707,6 +71397,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -70719,6 +71410,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -70741,6 +71433,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB34TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -70749,6 +71442,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB34TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -70757,6 +71451,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB34TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -70776,15 +71471,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -70830,6 +71529,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -70842,6 +71542,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -70854,6 +71555,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -70866,15 +71568,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -70920,6 +71626,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -70932,6 +71639,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -70944,6 +71652,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -70956,15 +71665,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -71010,6 +71723,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -71022,6 +71736,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -71034,6 +71749,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -71046,15 +71762,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -71660,6 +72380,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -71735,6 +72456,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -71747,6 +72469,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -71769,6 +72492,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB38TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -71777,6 +72501,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB38TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -71785,6 +72510,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB38TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -71804,15 +72530,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -72425,6 +73155,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -72500,6 +73231,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -72512,6 +73244,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -72534,6 +73267,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB39TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -72542,6 +73276,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB39TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -72550,6 +73285,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB39TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -72569,15 +73305,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -73224,6 +73964,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -73299,6 +74040,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -73311,6 +74053,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -73333,6 +74076,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB3TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -73341,6 +74085,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB3TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -73349,6 +74094,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB3TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -73368,15 +74114,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -73674,6 +74424,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -73714,6 +74465,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -73726,6 +74478,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -73734,6 +74487,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB40TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -73742,6 +74496,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB40TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -73750,6 +74505,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB40TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -73762,15 +74518,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -74424,6 +75184,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -74499,6 +75260,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -74511,6 +75273,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -74533,6 +75296,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB41TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -74541,6 +75305,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB41TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -74549,6 +75314,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB41TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -74568,15 +75334,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -75224,6 +75994,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -75299,6 +76070,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -75311,6 +76083,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -75333,6 +76106,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB42TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -75341,6 +76115,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB42TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -75349,6 +76124,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB42TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -75368,15 +76144,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -75396,6 +76176,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -75408,6 +76189,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -75420,15 +76202,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -75448,6 +76234,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -75460,6 +76247,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -75472,15 +76260,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -76114,6 +76906,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -76189,6 +76982,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -76201,6 +76995,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -76223,6 +77018,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB4TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -76231,6 +77027,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB4TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -76239,6 +77036,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB4TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -76258,15 +77056,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -76879,6 +77681,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -76954,6 +77757,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -76966,6 +77770,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -76988,6 +77793,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB5TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -76996,6 +77802,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB5TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -77004,6 +77811,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB5TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -77023,15 +77831,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -77644,6 +78456,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -77719,6 +78532,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -77731,6 +78545,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -77753,6 +78568,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB6TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -77761,6 +78577,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB6TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -77769,6 +78586,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB6TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -77788,15 +78606,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -78128,6 +78950,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -78168,6 +78991,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -78180,6 +79004,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -78188,6 +79013,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB7TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -78196,6 +79022,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB7TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -78204,6 +79031,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB7TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -78216,15 +79044,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -78871,6 +79703,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -78946,6 +79779,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -78958,6 +79792,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -78980,6 +79815,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB8TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -78988,6 +79824,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB8TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -78996,6 +79833,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB8TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -79015,15 +79853,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -79636,6 +80478,7 @@ namespace EfsTools.Items.Efs
         public byte MatrixEnabled { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(1)]
         public sbyte[] LimVsTempVsFreq { get; set; }
     }
 
@@ -79711,6 +80554,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -79723,6 +80567,7 @@ namespace EfsTools.Items.Efs
         public byte Enabled { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -79745,6 +80590,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB9TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -79753,6 +80599,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB9TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -79761,6 +80608,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class LteB9TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -79780,15 +80628,19 @@ namespace EfsTools.Items.Efs
         public byte NumActiveEntries { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(1)]
         public ushort[] UpperBoundChannels { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(2)]
         public int[] DelayLtebw5mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(3)]
         public int[] DelayLtebw10mhz { get; set; }
 
         [FieldCount(16)]
+        [FieldOrder(4)]
         public int[] DelayLtebw20mhz { get; set; }
     }
 
@@ -79819,6 +80671,7 @@ namespace EfsTools.Items.Efs
         }
 
         [FieldCount(24)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -79828,6 +80681,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteC0SpursTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -79837,6 +80691,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteC1SpursTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -79905,6 +80760,7 @@ namespace EfsTools.Items.Efs
     public sealed class LteGnssBlankingRiseFallDelta : ItemBase
     {
         [FieldCount(2)]
+        [FieldOrder(0)]
         public short[] RiseDelay { get; set; }
     }
 
@@ -80066,6 +80922,7 @@ namespace EfsTools.Items.Efs
     public sealed class Mmode1xsxLteOptimization : ItemBase
     {
         [FieldCount(51)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -80104,6 +80961,7 @@ namespace EfsTools.Items.Efs
     public sealed class MsmSelfCal : ItemBase
     {
         [FieldCount(16384)]
+        [FieldOrder(0)]
         public sbyte[] Reserved { get; set; }
     }
 
@@ -80229,9 +81087,10 @@ namespace EfsTools.Items.Efs
     {
         [JsonIgnore]
         [FieldCount(480)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
 
-        [FieldOrder(0)]
+        [Ignore]
         public string ValueString
         {
             get => StringUtils.GetStringWithZero(Value);
@@ -80249,25 +81108,25 @@ namespace EfsTools.Items.Efs
 
     public sealed class PbmHardcodedEcc : ItemBase
     {
-        [FieldOrder(0)]
+        [Ignore]
         public string DigitsString { get; set; }
 
-        [FieldOrder(1)]
+        [FieldOrder(0)]
         public byte Value { get; set; }
 
-        [FieldOrder(2)]
+        [FieldOrder(1)]
         public byte CategoryLength { get; set; }
 
-        [FieldOrder(3)]
+        [FieldOrder(2)]
         public byte EmergencyCategory { get; set; }
 
-        [FieldOrder(4)]
+        [FieldOrder(3)]
         public byte Reserved { get; set; }
 
-        [FieldOrder(5)]
+        [FieldOrder(4)]
         public byte EmergencyMode { get; set; }
 
-        [FieldOrder(6)]
+        [FieldOrder(5)]
         public byte HardcodedType { get; set; }
     }
 
@@ -80318,10 +81177,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(9)]
         public byte[] Digits2 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(9)]
+        [Ignore]
         public string Digits2String
         {
             get => StringUtils.GetString(Digits2);
@@ -80362,10 +81222,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(17)]
         public byte[] Digits3 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(17)]
+        [Ignore]
         public string Digits3String
         {
             get => StringUtils.GetString(Digits3);
@@ -80406,10 +81267,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(25)]
         public byte[] Digits4 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(25)]
+        [Ignore]
         public string Digits4String
         {
             get => StringUtils.GetString(Digits4);
@@ -80450,10 +81312,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(33)]
         public byte[] Digits5 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(33)]
+        [Ignore]
         public string Digits5String
         {
             get => StringUtils.GetString(Digits5);
@@ -80494,10 +81357,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(41)]
         public byte[] Digits6 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(41)]
+        [Ignore]
         public string Digits6String
         {
             get => StringUtils.GetString(Digits6);
@@ -80538,10 +81402,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(49)]
         public byte[] Digits7 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(49)]
+        [Ignore]
         public string Digits7String
         {
             get => StringUtils.GetString(Digits7);
@@ -80582,10 +81447,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(57)]
         public byte[] Digits8 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(57)]
+        [Ignore]
         public string Digits8String
         {
             get => StringUtils.GetString(Digits8);
@@ -80626,10 +81492,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(65)]
         public byte[] Digits9 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(65)]
+        [Ignore]
         public string Digits9String
         {
             get => StringUtils.GetString(Digits9);
@@ -80670,10 +81537,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(28)]
+        [FieldOrder(73)]
         public byte[] Digits10 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(73)]
+        [Ignore]
         public string Digits10String
         {
             get => StringUtils.GetString(Digits10);
@@ -80709,6 +81577,7 @@ namespace EfsTools.Items.Efs
         public byte HardcodedType10 { get; set; }
 
 
+        [FieldOrder(80)]
         public PbmHardcodedEcc[] Items
         {
             get =>
@@ -81259,6 +82128,7 @@ namespace EfsTools.Items.Efs
     public class ProfileBase
     {
         [FieldCount(0)]
+        [FieldOrder(0)]
         public byte[] Values
         {
             get; set;
@@ -81556,6 +82426,7 @@ namespace EfsTools.Items.Efs
         public string VideoFeatureTag { get; set; }
 
         [FieldCount(223)]
+        [FieldOrder(17)]
         public byte[] ReservedBytes { get; set; }
     }
 
@@ -81681,42 +82552,43 @@ namespace EfsTools.Items.Efs
     public sealed class QipcallQosConfig : ItemBase
     {
         /*[FieldCount(32)]
+		[FieldOrder(0)]
 		public byte[] Value { get; set; }*/
 
         [Required]
-        [FieldOrder(0)]
+        [FieldOrder(1)]
         public byte Version { get; set; }
 
 
-        [FieldOrder(1)]
+        [FieldOrder(2)]
         public byte LocalQosAudio { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(3)]
         public byte LocalQosVideo { get; set; }
 
 
-        [FieldOrder(3)]
+        [FieldOrder(4)]
         public byte QosInactiveInvite { get; set; }
 
 
-        [FieldOrder(4)]
+        [FieldOrder(5)]
         public byte QosInactiveReInvite { get; set; }
 
 
-        [FieldOrder(5)]
+        [FieldOrder(6)]
         public byte QosMbrAudioCheckReq { get; set; }
 
 
-        [FieldOrder(6)]
+        [FieldOrder(7)]
         public byte QosMbrVideoCheckReq { get; set; }
 
 
-        [FieldOrder(7)]
+        [FieldOrder(8)]
         public uint MbrThreshold { get; set; }
 
 
-        [FieldOrder(8)]
+        [FieldOrder(9)]
         public byte QosOptimization { get; set; }
     }
 
@@ -81841,28 +82713,35 @@ namespace EfsTools.Items.Efs
         public byte DisableAcs { get; set; }
 
         [FieldCount(256)]
+        [FieldOrder(2)]
         public byte[] ServiceName { get; set; }
 
         [FieldCount(256)]
+        [FieldOrder(3)]
         public byte[] DeviceType { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(4)]
         public byte[] NetType { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(5)]
         public byte[] RcsIdentifier { get; set; }
 
         [FieldCount(256)]
+        [FieldOrder(6)]
         public byte[] AcsPdpProfileName { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(7)]
         public byte AcsApnType { get; set; }
 
         [FieldCount(360)]
+        [FieldOrder(8)]
         public byte[] AcsServerAddress { get; set; }
 
         [FieldCount(40)]
+        [FieldOrder(9)]
         public byte[] AcsServerPort { get; set; }
     }
 
@@ -81945,6 +82824,7 @@ namespace EfsTools.Items.Efs
         public byte IWfcRoaming { get; set; }
 
         [FieldCount(501)]
+        [FieldOrder(8)]
         public byte[] Reserved { get; set; }
     }
 
@@ -81995,7 +82875,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(5)]
         public byte RuimImsiValue { get; set; }
 
-        [FieldOrder(6)]
+        [Ignore]
         public string RuimImsiValueString
         {
             get => $"{(RuimImsiValues) RuimImsiValue}";
@@ -82003,15 +82883,15 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(7)]
+        [FieldOrder(6)]
         public uint DscpValue { get; set; }
 
 
         [JsonIgnore]
-        [FieldOrder(8)]
+        [FieldOrder(7)]
         public byte ImsParamSrc { get; set; }
 
-        [FieldOrder(9)]
+        [Ignore]
         public string ImsParamSrcString
         {
             get => $"{(ImsParamSrcValues) ImsParamSrc}";
@@ -82030,6 +82910,7 @@ namespace EfsTools.Items.Efs
         Vga = 6
     }
 
+    
     public enum VideoCodecValues : byte
     {
         Invalid = 0,
@@ -82090,7 +82971,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(1)]
         public byte VideoResolution { get; set; }
 
-        [FieldOrder(2)]
+        [Ignore]
         public string VideoResolutionString
         {
             get => $"{(VideoResolutionValues) VideoResolution}";
@@ -82098,18 +82979,18 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(3)]
+        [FieldOrder(2)]
         public ushort VideoEncodingBitRate { get; set; }
 
 
-        [FieldOrder(4)]
+        [FieldOrder(3)]
         public byte FramesPerSecond { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(5)]
+        [FieldOrder(4)]
         public byte VideoCodec { get; set; }
 
-        [FieldOrder(6)]
+        [Ignore]
         public string VideoCodecString
         {
             get => $"{(VideoCodecValues) VideoCodec}";
@@ -82117,19 +82998,19 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(7)]
+        [FieldOrder(5)]
         public byte Sar { get; set; }
 
 
-        [FieldOrder(8)]
+        [FieldOrder(6)]
         public byte Par { get; set; }
 
 
         [JsonIgnore]
-        [FieldOrder(9)]
+        [FieldOrder(7)]
         public byte H264Profile { get; set; }
 
-        [FieldOrder(10)]
+        [Ignore]
         public string H264ProfileString
         {
             get => $"{(H264ProfileValues) H264Profile}";
@@ -82137,10 +83018,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(11)]
+        [FieldOrder(8)]
         public byte H264ProfileLevel { get; set; }
 
-        [FieldOrder(12)]
+        [Ignore]
         public string H264ProfileLevelString
         {
             get => $"{(H264ProfileLevelValues) H264ProfileLevel}";
@@ -82148,83 +83029,84 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(13)]
+        [FieldOrder(9)]
         public ushort IpSyncDropUpperLimit { get; set; }
 
 
-        [FieldOrder(14)]
+        [FieldOrder(10)]
         public ushort IpSyncDropLowerLimit { get; set; }
 
 
-        [FieldOrder(15)]
+        [FieldOrder(11)]
         public byte IpSyncEnabled { get; set; }
 
 
-        [FieldOrder(16)]
+        [FieldOrder(12)]
         public byte QdjTimeWrapping { get; set; }
 
 
-        [FieldOrder(17)]
+        [FieldOrder(13)]
         public byte QdjIbaMax { get; set; }
 
 
-        [FieldOrder(18)]
+        [FieldOrder(14)]
         public byte QdjMaxFramesAtStart { get; set; }
 
 
-        [FieldOrder(19)]
+        [FieldOrder(15)]
         public byte QdjMaxDelay { get; set; }
 
 
-        [FieldOrder(20)]
+        [FieldOrder(16)]
         public byte QdjMinDelay { get; set; }
 
 
-        [FieldOrder(21)]
+        [FieldOrder(17)]
         public byte QdjDelayByFrameCount { get; set; }
 
 
-        [FieldOrder(22)]
+        [FieldOrder(18)]
         public byte QdjMaxFramesAtRun { get; set; }
 
 
-        [FieldOrder(23)]
+        [FieldOrder(19)]
         public byte QdjMaxBumpedUpDelay { get; set; }
 
 
-        [FieldOrder(24)]
+        [FieldOrder(20)]
         public byte QdjJitterIncrement { get; set; }
 
 
-        [FieldOrder(25)]
+        [FieldOrder(21)]
         public ushort QdjTargetUnderflow { get; set; }
 
 
-        [FieldOrder(26)]
+        [FieldOrder(22)]
         public ushort QdjDefaultJitter { get; set; }
 
 
-        [FieldOrder(27)]
+        [FieldOrder(23)]
         public ushort QdjGoThroughThreshold { get; set; }
 
 
-        [FieldOrder(28)]
+        [FieldOrder(24)]
         public ushort QdjDropThreshold { get; set; }
 
 
-        [FieldOrder(29)]
+        [FieldOrder(25)]
         public byte Qmin { get; set; }
 
 
-        [FieldOrder(30)]
+        [FieldOrder(26)]
         public byte TxSystemDelay { get; set; }
 
 
-        [FieldOrder(31)]
+        [FieldOrder(27)]
         public byte RxSystemDelay { get; set; }
 
 
         [FieldCount(500)]
+        [FieldOrder(28)]
         public byte[] Reserved { get; set; }
     }
 }
@@ -82472,9 +83354,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(16)]
+        [FieldOrder(9)]
         public byte[] SectorId { get; set; }
 
-        [FieldOrder(9)]
+        [Ignore]
         public string SectorIdString
         {
             get => StringUtils.GetString(SectorId);
@@ -82515,9 +83398,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(6)]
+        [FieldOrder(18)]
         public byte[] Mcc { get; set; }
 
-        [FieldOrder(18)]
+        [Ignore]
         public string MccString
         {
             get => StringUtils.GetString(Mcc);
@@ -82526,9 +83410,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(6)]
+        [FieldOrder(19)]
         public byte[] Mnc { get; set; }
 
-        [FieldOrder(19)]
+        [Ignore]
         public string MncString
         {
             get => StringUtils.GetString(Mnc);
@@ -82536,6 +83421,7 @@ namespace EfsTools.Items.Efs
         }
 
         [FieldCount(65)]
+        [FieldOrder(20)]
         public byte[] Reserved { get; set; }
     }
 
@@ -82587,9 +83473,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(10)]
         public byte[] LastPublishedEtag { get; set; }
 
-        [FieldOrder(10)]
+        [Ignore]
         public string LastPublishedEtagString
         {
             get => StringUtils.GetString(LastPublishedEtag);
@@ -82633,6 +83520,7 @@ namespace EfsTools.Items.Efs
 
 
         [FieldCount(122)]
+        [FieldOrder(3)]
         public byte[] Reserved { get; set; }
     }
 
@@ -82658,9 +83546,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(32)]
+        [FieldOrder(3)]
         public byte[] RcsPdpProfilename { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string RcsPdpProfilenameString
         {
             get => StringUtils.GetString(RcsPdpProfilename);
@@ -82669,9 +83558,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(32)]
+        [FieldOrder(4)]
         public byte[] InternetPdpProfilename { get; set; }
 
-        [FieldOrder(4)]
+        [Ignore]
         public string InternetPdpProfilenameString
         {
             get => StringUtils.GetString(InternetPdpProfilename);
@@ -82696,9 +83586,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(16)]
+        [FieldOrder(9)]
         public byte[] RcsClientVendor { get; set; }
 
-        [FieldOrder(9)]
+        [Ignore]
         public string RcsClientVendorString
         {
             get => StringUtils.GetString(RcsClientVendor);
@@ -82707,9 +83598,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(16)]
+        [FieldOrder(10)]
         public byte[] RcsClientVersion { get; set; }
 
-        [FieldOrder(10)]
+        [Ignore]
         public string RcsClientVersionString
         {
             get => StringUtils.GetString(RcsClientVersion);
@@ -82718,9 +83610,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(16)]
+        [FieldOrder(11)]
         public byte[] RcsTerminalVendor { get; set; }
 
-        [FieldOrder(11)]
+        [Ignore]
         public string RcsTerminalVendorString
         {
             get => StringUtils.GetString(RcsTerminalVendor);
@@ -82729,9 +83622,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(16)]
+        [FieldOrder(12)]
         public byte[] RcsTerminalModel { get; set; }
 
-        [FieldOrder(12)]
+        [Ignore]
         public string RcsTerminalModelString
         {
             get => StringUtils.GetString(RcsTerminalModel);
@@ -82740,9 +83634,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(16)]
+        [FieldOrder(13)]
         public byte[] RcsTerminalSwVersion { get; set; }
 
-        [FieldOrder(13)]
+        [Ignore]
         public string RcsTerminalSwVersionString
         {
             get => StringUtils.GetString(RcsTerminalSwVersion);
@@ -82751,9 +83646,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(45)]
+        [FieldOrder(14)]
         public byte[] RcsConfigServerAddress { get; set; }
 
-        [FieldOrder(14)]
+        [Ignore]
         public string RcsConfigServerAddressString
         {
             get => StringUtils.GetString(RcsConfigServerAddress);
@@ -82762,9 +83658,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(5)]
+        [FieldOrder(15)]
         public byte[] RcsConfigServerPort { get; set; }
 
-        [FieldOrder(15)]
+        [Ignore]
         public string RcsConfigServerPortString
         {
             get => StringUtils.GetString(RcsConfigServerPort);
@@ -82773,9 +83670,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(270)]
+        [FieldOrder(16)]
         public byte[] RcsLteFtList { get; set; }
 
-        [FieldOrder(16)]
+        [Ignore]
         public string RcsLteFtListString
         {
             get => StringUtils.GetString(RcsLteFtList);
@@ -82784,9 +83682,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(270)]
+        [FieldOrder(17)]
         public byte[] RcsHspaFtList { get; set; }
 
-        [FieldOrder(17)]
+        [Ignore]
         public string RcsHspaFtListString
         {
             get => StringUtils.GetString(RcsHspaFtList);
@@ -82795,9 +83694,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(270)]
+        [FieldOrder(18)]
         public byte[] RcsWifiFtList { get; set; }
 
-        [FieldOrder(18)]
+        [Ignore]
         public string RcsWifiFtListString
         {
             get => StringUtils.GetString(RcsWifiFtList);
@@ -82805,6 +83705,7 @@ namespace EfsTools.Items.Efs
         }
 
         [FieldCount(13)]
+        [FieldOrder(19)]
         public byte[] ReservedByte { get; set; }
     }
 
@@ -82816,9 +83717,10 @@ namespace EfsTools.Items.Efs
     {
         [JsonIgnore]
         [FieldCount(256)] //Todo: check
+        [FieldOrder(0)]
         public byte[] PresenceMgrConfigHttpProxy { get; set; }
 
-        [FieldOrder(0)]
+        [Ignore]
         public string PresenceMgrConfigHttpProxyString
         {
             get => StringUtils.GetString(PresenceMgrConfigHttpProxy);
@@ -82862,6 +83764,7 @@ namespace EfsTools.Items.Efs
         public uint StandaloneMessageMaxSize { get; set; }
 
         [FieldCount(128)]
+        [FieldOrder(3)]
         public byte[] StandaloneMessageExplorerUri { get; set; }
     }
 
@@ -82881,6 +83784,7 @@ namespace EfsTools.Items.Efs
         public byte DisableXdmc { get; set; }
 
         [FieldCount(1022)]
+        [FieldOrder(2)]
         public byte[] Reserved { get; set; }
     }
 }
@@ -82948,7 +83852,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte RegOnMode { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string RegOnModeString
         {
             get => $"{(RegOnModeValues) RegOnMode}";
@@ -82957,10 +83861,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         //[Description("0 IETF, 1 EARLY, 2 IMS with IPSec, 3, IMS without IPSec, 4 No IMS")]
-        [FieldOrder(2)]
+        [FieldOrder(1)]
         public byte RegModeConfig { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string RegModeConfigString
         {
             get => $"{(RegOnModeConfigValues) RegModeConfig}";
@@ -82971,9 +83875,10 @@ namespace EfsTools.Items.Efs
         [FieldCount(32)]
         //[Description(
         //    "In NI 5.0 or later, APN name is used instead of the profile number.Please confirm with test labs for exact APN info")]
+        [FieldOrder(2)]
         public byte[] RegManagerPdpProfileName { get; set; }
 
-        [FieldOrder(4)]
+        [Ignore]
         public string RegManagerPdpProfileNameString
         {
             get => StringUtils.GetString(RegManagerPdpProfileName);
@@ -82981,26 +83886,27 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(5)]
+        [FieldOrder(3)]
         public byte RegEventPacket { get; set; }
 
 
-        [FieldOrder(6)]
+        [FieldOrder(4)]
         public byte RegPcoeEnabled { get; set; }
 
 
-        [FieldOrder(7)]
+        [FieldOrder(5)]
         public byte RegDhcpEnabled { get; set; }
 
 
-        [FieldOrder(8)]
+        [FieldOrder(6)]
         public byte RegPreConfigEnabled { get; set; }
 
         [JsonIgnore]
         [FieldCount(256)]
+        [FieldOrder(7)]
         public byte[] RegManagerPreConfigServerBase { get; set; }
 
-        [FieldOrder(9)]
+        [Ignore]
         public string RegManagerPreConfigServerBaseString
         {
             get => StringUtils.GetString(RegManagerPreConfigServerBase);
@@ -83009,10 +83915,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         //[Description("RegRatConfig = CONFIG_RAT_LTE")]
-        [FieldOrder(10)]
+        [FieldOrder(8)]
         public byte RegRatConfig { get; set; }
 
-        [FieldOrder(11)]
+        [Ignore]
         public string RegRatConfigString
         {
             get => $"{(RegRatConfigValues) RegRatConfig}";
@@ -83020,30 +83926,31 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(12)]
+        [FieldOrder(9)]
         public byte RegNvPcScfEnabled { get; set; }
 
 
-        [FieldOrder(13)]
+        [FieldOrder(10)]
         public byte RegWlanEnabled { get; set; }
 
 
-        [FieldOrder(14)]
+        [FieldOrder(11)]
         public ushort RegUserNameImsi { get; set; }
 
 
-        [FieldOrder(15)]
+        [FieldOrder(12)]
         public byte RegResponseForOptions { get; set; }
 
 
-        [FieldOrder(16)]
+        [FieldOrder(13)]
         public byte RegConfigMaxDiscoveryCount { get; set; }
 
         [JsonIgnore]
         [FieldCount(32)]
+        [FieldOrder(14)]
         public byte[] RegManagerDiscoverySchedule { get; set; }
 
-        [FieldOrder(17)]
+        [Ignore]
         public string RegManagerDiscoveryScheduleString
         {
             get => StringUtils.GetString(RegManagerDiscoverySchedule);
@@ -83053,9 +83960,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(32)]
+        [FieldOrder(15)]
         public byte[] RegManagerCdmaPdpProfileName { get; set; }
 
-        [FieldOrder(18)]
+        [Ignore]
         public string RegManagerCdmaPdpProfileNameString
         {
             get => StringUtils.GetString(RegManagerCdmaPdpProfileName);
@@ -83063,15 +83971,16 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(19)]
+        [FieldOrder(16)]
         public byte RegConfigPdnRecoveryDelayTimerVal { get; set; }
 
 
         [JsonIgnore]
         [FieldCount(32)]
+        [FieldOrder(17)]
         public byte[] RegManagerPdpFailureSchedule { get; set; }
 
-        [FieldOrder(20)]
+        [Ignore]
         public string RegManagerPdpFailureScheduleString
         {
             get => StringUtils.GetString(RegManagerPdpFailureSchedule);
@@ -83079,27 +83988,27 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(21)]
+        [FieldOrder(18)]
         public byte RegConfigMaxIntermediatePDPRetries { get; set; }
 
 
-        [FieldOrder(22)]
+        [FieldOrder(19)]
         public byte RegConfigEhrpdRecoveryTime { get; set; }
 
 
-        [FieldOrder(23)]
+        [FieldOrder(20)]
         public byte RegConfigRegistrationAttempts { get; set; }
 
 
-        [FieldOrder(24)]
+        [FieldOrder(21)]
         public byte RegConfigDelayAttemptTimer { get; set; }
 
 
-        [FieldOrder(25)]
+        [FieldOrder(22)]
         public byte RegConfigTestMode { get; set; }
 
 
-        [FieldOrder(26)]
+        [FieldOrder(23)]
         public ushort RegPcScfPort { get; set; }
     }
 
@@ -83257,7 +84166,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(2)]
         public ushort ImsServiceInfo { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string ImsServiceInfoString
         {
             get => $"{(ImsServiceInfoValues) ImsServiceInfo}";
@@ -83265,11 +84174,11 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(4)]
+        [FieldOrder(3)]
         public sbyte AuthSecType { get; set; }
 
 
-        [FieldOrder(5)]
+        [FieldOrder(4)]
         public byte IpTypeInfo { get; set; }
     }
 
@@ -83498,6 +84407,7 @@ namespace EfsTools.Items.Efs
         public byte IpTypeInfo10 { get; set; }
 
 
+        [FieldOrder(51)]
         public QpImsRegConfigDbItem[] Items
         {
             get =>
@@ -83692,85 +84602,86 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(51)]
+        [FieldOrder(52)]
         public ushort RatApnFallback1 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(52)]
+        [FieldOrder(53)]
         public ushort ServicePriorityWwan1 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(53)]
+        [FieldOrder(54)]
         public ushort RatApnFallback2 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(54)]
+        [FieldOrder(55)]
         public ushort ServicePriorityWwan2 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(55)]
+        [FieldOrder(56)]
         public ushort RatApnFallback3 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(56)]
+        [FieldOrder(57)]
         public ushort ServicePriorityWwan3 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(57)]
+        [FieldOrder(58)]
         public ushort RatApnFallback4 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(58)]
+        [FieldOrder(59)]
         public ushort ServicePriorityWwan4 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(59)]
+        [FieldOrder(60)]
         public ushort RatApnFallback5 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(60)]
+        [FieldOrder(61)]
         public ushort ServicePriorityWwan5 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(61)]
+        [FieldOrder(62)]
         public ushort RatApnFallback6 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(62)]
+        [FieldOrder(63)]
         public ushort ServicePriorityWwan6 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(63)]
+        [FieldOrder(64)]
         public ushort RatApnFallback7 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(64)]
+        [FieldOrder(65)]
         public ushort ServicePriorityWwan7 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(65)]
+        [FieldOrder(66)]
         public ushort RatApnFallback8 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(66)]
+        [FieldOrder(67)]
         public ushort ServicePriorityWwan8 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(67)]
+        [FieldOrder(68)]
         public ushort RatApnFallback9 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(68)]
+        [FieldOrder(69)]
         public ushort ServicePriorityWwan9 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(69)]
+        [FieldOrder(70)]
         public ushort RatApnFallback10 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(70)]
+        [FieldOrder(71)]
         public ushort ServicePriorityWwan10 { get; set; }
 
+        [FieldOrder(72)]
         public QpImsRegConfigDbItem2[] Items2
         {
             get =>
@@ -83905,10 +84816,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(71)]
+        [FieldOrder(73)]
         public ushort AllowedImsSrvOnWlan { get; set; }
 
-        [FieldOrder(72)]
+        [Ignore]
         public string AllowedImsSrvOnWlanString
         {
             get => $"{(ImsServiceInfoValues) AllowedImsSrvOnWlan}";
@@ -83916,35 +84827,36 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(73)]
+        [FieldOrder(74)]
         public byte AddAllFTs { get; set; }
 
 
-        [FieldOrder(74)]
+        [FieldOrder(75)]
         public byte AcsPriority { get; set; }
 
 
-        [FieldOrder(75)]
+        [FieldOrder(76)]
         public byte ISimPriority { get; set; }
 
 
-        [FieldOrder(76)]
+        [FieldOrder(77)]
         public byte NvPriority { get; set; }
 
 
-        [FieldOrder(77)]
+        [FieldOrder(78)]
         public byte PcoPriority { get; set; }
 
 
-        [FieldOrder(78)]
+        [FieldOrder(79)]
         public short ImsServiceStatus { get; set; }
 
         [JsonIgnore]
         [FieldCount(50)]
+        [FieldOrder(80)]
         public byte[] ApnName1 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(79)]
+        [Ignore]
         public string ApnName1String
         {
             get => StringUtils.GetString(ApnName1);
@@ -83953,10 +84865,11 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(50)]
+        [FieldOrder(81)]
         public byte[] ApnName2 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(80)]
+        [Ignore]
         public string ApnName2String
         {
             get => StringUtils.GetString(ApnName2);
@@ -83965,16 +84878,18 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(50)]
+        [FieldOrder(82)]
         public byte[] ApnName3 { get; set; }
 
         [JsonIgnore]
-        [FieldOrder(81)]
+        [Ignore]
         public string ApnName3String
         {
             get => StringUtils.GetString(ApnName3);
             set => ApnName3 = StringUtils.GetBytes(value, 50);
         }
 
+        [FieldOrder(83)]
         public string[] ApnNames
         {
             get =>
@@ -84005,6 +84920,7 @@ namespace EfsTools.Items.Efs
         }
 
         [FieldCount(754)]
+        [FieldOrder(84)]
         public byte[] ReservedBytes { get; set; }
     }
 
@@ -84054,7 +84970,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(7)]
         public byte EnableRegInLpm { get; set; }
 
-        [FieldOrder(8)]
+        [Ignore]
         public string EnableRegInLpmString
         {
             get => $"{(EnableRegInLpmValues) EnableRegInLpm}";
@@ -84062,14 +84978,16 @@ namespace EfsTools.Items.Efs
         }
 
         [FieldCount(1011)]
+        [FieldOrder(8)]
         public byte[] Reserved { get; set; }
 
         /*[FieldCount(1019)]
+		[FieldOrder(9)]
 		public byte[] Field3 { get; set; }
 
         
         
-        [FieldOrder(9)]
+        [FieldOrder(10)]
         public ushort Field4 { get; set; }*/
     }
 
@@ -84165,7 +85083,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(11)]
         public byte IpSecIntScheme { get; set; }
 
-        [FieldOrder(12)]
+        [Ignore]
         public string IpSecIntSchemeString
         {
             get => $"{(IpSecIntegritySchemeValues) IpSecIntScheme}";
@@ -84173,10 +85091,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(13)]
+        [FieldOrder(12)]
         public byte IpSecEncAlgo { get; set; }
 
-        [FieldOrder(14)]
+        [Ignore]
         public string IpSecEncAlgoString
         {
             get => $"{(IpSecEncryptionAlgorithmValues) IpSecEncAlgo}";
@@ -84184,10 +85102,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(15)]
+        [FieldOrder(13)]
         public byte AuthScheme { get; set; }
 
-        [FieldOrder(16)]
+        [Ignore]
         public string AuthSchemeString
         {
             get => $"{(AuthSchemeValues) AuthScheme}";
@@ -84195,10 +85113,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(17)]
+        [FieldOrder(14)]
         public byte InitialAuthConfig { get; set; }
 
-        [FieldOrder(18)]
+        [Ignore]
         public string InitialAuthConfigString
         {
             get => $"{(InitialAuthConfigValues) InitialAuthConfig}";
@@ -84207,9 +85125,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)]
+        [FieldOrder(15)]
         public byte[] AuthHeaderValue { get; set; }
 
-        [FieldOrder(19)]
+        [Ignore]
         public string AuthHeaderValueString
         {
             get => StringUtils.GetString(AuthHeaderValue);
@@ -84218,9 +85137,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)]
+        [FieldOrder(16)]
         public byte[] ProxyRouteValue { get; set; }
 
-        [FieldOrder(20)]
+        [Ignore]
         public string ProxyRouteValueString
         {
             get => StringUtils.GetString(ProxyRouteValue);
@@ -84291,7 +85211,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(13)]
         public byte IpSecIntScheme { get; set; }
 
-        [FieldOrder(14)]
+        [Ignore]
         public string IpSecIntSchemeString
         {
             get => $"{(IpSecIntegritySchemeValues) IpSecIntScheme}";
@@ -84299,10 +85219,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(15)]
+        [FieldOrder(14)]
         public byte IpSecEncAlgo { get; set; }
 
-        [FieldOrder(16)]
+        [Ignore]
         public string IpSecEncAlgoString
         {
             get => $"{(IpSecEncryptionAlgorithmValues) IpSecEncAlgo}";
@@ -84311,10 +85231,10 @@ namespace EfsTools.Items.Efs
 
 
         [JsonIgnore]
-        [FieldOrder(17)]
+        [FieldOrder(15)]
         public byte AuthScheme { get; set; }
 
-        [FieldOrder(18)]
+        [Ignore]
         public string AuthSchemeString
         {
             get => $"{(AuthSchemeValues) AuthScheme}";
@@ -84322,10 +85242,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(19)]
+        [FieldOrder(16)]
         public byte InitialAuthConfig { get; set; }
 
-        [FieldOrder(20)]
+        [Ignore]
         public string InitialAuthConfigString
         {
             get => $"{(InitialAuthConfigValues) InitialAuthConfig}";
@@ -84334,9 +85254,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)]
+        [FieldOrder(17)]
         public byte[] ShortCodeList { get; set; }
 
-        [FieldOrder(21)]
+        [Ignore]
         public string ShortCodeListString
         {
             get => StringUtils.GetString(ShortCodeList);
@@ -84345,9 +85266,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)]
+        [FieldOrder(18)]
         public byte[] ProxyRouteValue { get; set; }
 
-        [FieldOrder(22)]
+        [Ignore]
         public string ProxyRouteValueString
         {
             get => StringUtils.GetString(ProxyRouteValue);
@@ -84355,74 +85277,75 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(23)]
+        [FieldOrder(19)]
         public byte KeepAliveEnabled { get; set; }
 
 
-        [FieldOrder(24)]
+        [FieldOrder(20)]
         public uint TimerNatRtoValue { get; set; }
 
 
-        [FieldOrder(25)]
+        [FieldOrder(21)]
         public uint TimerVzW { get; set; }
 
 
-        [FieldOrder(26)]
+        [FieldOrder(22)]
         public uint TimerEmergencySipRegValue { get; set; }
 
 
-        [FieldOrder(27)]
+        [FieldOrder(23)]
         public uint TimerEmergencyT1Value { get; set; }
 
 
-        [FieldOrder(28)]
+        [FieldOrder(24)]
         public uint TimerEmergencyT2Value { get; set; }
 
 
-        [FieldOrder(29)]
+        [FieldOrder(25)]
         public uint TimerEmergencyT4Value { get; set; }
 
 
-        [FieldOrder(30)]
+        [FieldOrder(26)]
         public uint TimerEmergencyTfValue { get; set; }
 
 
-        [FieldOrder(31)]
+        [FieldOrder(27)]
         public uint TimerEmergencyTJValue { get; set; }
 
 
-        [FieldOrder(32)]
+        [FieldOrder(28)]
         public byte CivicLocQueryTimeout { get; set; }
 
 
-        [FieldOrder(33)]
+        [FieldOrder(29)]
         public ushort GpsLocFixQueryTimeout { get; set; }
 
 
-        [FieldOrder(34)]
+        [FieldOrder(30)]
         public uint TimerTbValue { get; set; }
 
 
-        [FieldOrder(35)]
+        [FieldOrder(31)]
         public byte GruuEnabled { get; set; }
 
 
-        [FieldOrder(36)]
+        [FieldOrder(32)]
         public byte TransportSwitchEnabled { get; set; }
 
 
-        [FieldOrder(37)]
+        [FieldOrder(33)]
         public uint TcpMaxBackOffTimer { get; set; }
 
 
-        [FieldOrder(38)]
+        [FieldOrder(34)]
         public byte RouteHeaderEnabled { get; set; }
 
 
-        [FieldOrder(39)]
+        [FieldOrder(35)]
         public byte GzipDecodingOutBufferMultiplier { get; set; }
 
         [FieldCount(424)]
+        [FieldOrder(36)]
         public byte[] ReservedBytes { get; set; }
     }
 
@@ -84443,9 +85366,10 @@ namespace EfsTools.Items.Efs
     {
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(0)]
         public byte[] SmsConfigVDN { get; set; }
 
-        [FieldOrder(0)]
+        [Ignore]
         public string SmsConfigVdnString
         {
             get => StringUtils.GetString(SmsConfigVDN);
@@ -84459,9 +85383,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(2)]
         public byte[] SmsAcceptContact { get; set; }
 
-        [FieldOrder(2)]
+        [Ignore]
         public string SmsAcceptContactString
         {
             get => StringUtils.GetString(SmsAcceptContact);
@@ -84470,9 +85395,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(64)]
+        [FieldOrder(3)]
         public byte[] SmsRatMaskStringValue { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string SmsRatMaskString
         {
             get => StringUtils.GetString(SmsRatMaskStringValue);
@@ -84485,9 +85411,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)]
+        [FieldOrder(5)]
         public byte[] PhoneContextUri { get; set; }
 
-        [FieldOrder(5)]
+        [Ignore]
         public string PhoneContextUriString
         {
             get => StringUtils.GetString(PhoneContextUri);
@@ -84510,6 +85437,7 @@ namespace EfsTools.Items.Efs
         public byte Value { get; set; }
 
         [FieldCount(3)]
+        [FieldOrder(1)]
         public sbyte[] Reserved { get; set; }
     }
 
@@ -84529,6 +85457,7 @@ namespace EfsTools.Items.Efs
         public byte UssdEnable { get; set; }
 
         [FieldCount(509)]
+        [FieldOrder(2)]
         public byte[] Reserved { get; set; }
     }
 
@@ -84545,9 +85474,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(64)]
+        [FieldOrder(1)]
         public byte[] ApnName { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string ApnNameString
         {
             get => StringUtils.GetString(ApnName);
@@ -84556,9 +85486,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)] //Todo: check
+        [FieldOrder(2)]
         public byte[] DomainName { get; set; }
 
-        [FieldOrder(2)]
+        [Ignore]
         public string DomainNameString
         {
             get => StringUtils.GetString(DomainName);
@@ -84567,9 +85498,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)] //Todo: check
+        [FieldOrder(3)]
         public byte[] AssociatedUri { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string AssociatedUriString
         {
             get => StringUtils.GetString(AssociatedUri);
@@ -84579,9 +85511,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(4)]
         public byte[] ApplicationUid { get; set; }
 
-        [FieldOrder(4)]
+        [Ignore]
         public string ApplicationUidString
         {
             get => StringUtils.GetString(ApplicationUid);
@@ -84618,9 +85551,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(512)]
+        [FieldOrder(12)]
         public byte[] BsfAddr { get; set; }
 
-        [FieldOrder(12)]
+        [Ignore]
         public string BsfAddrString
         {
             get => StringUtils.GetString(BsfAddr);
@@ -84649,9 +85583,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(64)]
+        [FieldOrder(18)]
         public byte[] Apn2ApnName { get; set; }
 
-        [FieldOrder(18)]
+        [Ignore]
         public string Apn2ApnNameString
         {
             get => StringUtils.GetString(Apn2ApnName);
@@ -84692,9 +85627,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(3)]
         public byte[] VoipConfigAcceptContact { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string VoipConfigAcceptContactString
         {
             get => StringUtils.GetString(VoipConfigAcceptContact);
@@ -84715,9 +85651,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(7)]
         public byte[] VoipConfigConfUri { get; set; }
 
-        [FieldOrder(7)]
+        [Ignore]
         public string VoipConfigConfUriString
         {
             get => StringUtils.GetString(VoipConfigConfUri);
@@ -84737,7 +85674,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(10)]
         public byte VoipConfigSessionRefresherType { get; set; }
 
-        [FieldOrder(11)]
+        [Ignore]
         public string VoipConfigSessionRefresherTypeString
         {
             get => $"{(VoipConfigSessionRefresherTypeValues) VoipConfigSessionRefresherType}";
@@ -84747,10 +85684,10 @@ namespace EfsTools.Items.Efs
         }
 
         [JsonIgnore]
-        [FieldOrder(12)]
+        [FieldOrder(11)]
         public byte VoipConfigSessionRefresherMethod { get; set; }
 
-        [FieldOrder(13)]
+        [Ignore]
         public string VoipConfigSessionRefresherMethodString
         {
             get => $"{(VoipConfigSessionRefresherMethodValues) VoipConfigSessionRefresherMethod}";
@@ -84761,9 +85698,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(12)]
         public byte[] VoipConfigInviteHeader { get; set; }
 
-        [FieldOrder(14)]
+        [Ignore]
         public string VoipConfigInviteHeaderString
         {
             get => StringUtils.GetString(VoipConfigInviteHeader);
@@ -85175,9 +86113,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(3)]
         public byte[] ConfigSdpApplicationAttribute { get; set; }
 
-        [FieldOrder(3)]
+        [Ignore]
         public string ConfigSdpApplicationAttributeString
         {
             get => StringUtils.GetString(ConfigSdpApplicationAttribute);
@@ -85191,9 +86130,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(256)] //Todo: check
+        [FieldOrder(5)]
         public byte[] ConfigReceiverUri { get; set; }
 
-        [FieldOrder(5)]
+        [Ignore]
         public string ConfigReceiverUriString
         {
             get => StringUtils.GetString(ConfigReceiverUri);
@@ -85258,9 +86198,10 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
+        [FieldOrder(20)]
         public byte[] ConfigFilePath { get; set; }
 
-        [FieldOrder(20)]
+        [Ignore]
         public string ConfigFilePathString
         {
             get => StringUtils.GetString(ConfigFilePath);
@@ -86151,6 +87092,7 @@ namespace EfsTools.Items.Efs
         public ushort RatCount { get; set; }
 
         [JsonIgnore]
+        [FieldOrder(2)]
         public byte[] RawValues
         {
             get => _rawValues;
@@ -86164,6 +87106,7 @@ namespace EfsTools.Items.Efs
             }
         }
 
+        [FieldOrder(3)]
         public string[] Values
         {
             get
@@ -86208,6 +87151,7 @@ namespace EfsTools.Items.Efs
         }
 
         [FieldCount(56)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -86383,9 +87327,10 @@ namespace EfsTools.Items.Efs
     public sealed class RpmSuppportedSim : ItemBase
     {
         [FieldCount(60)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
 
-        [FieldOrder(0)]
+        [Ignore]
         public string ValueString
         {
             get => StringUtils.GetString(Value);
@@ -86545,6 +87490,7 @@ namespace EfsTools.Items.Efs
         public ushort Count { get; set; }
 
         [JsonIgnore]
+        [FieldOrder(2)]
         public uint[] RawValue
         {
             get => _value;
@@ -86558,6 +87504,7 @@ namespace EfsTools.Items.Efs
             }
         }
 
+        [FieldOrder(3)]
         public uint[] Value
         {
             get
@@ -87019,6 +87966,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34HsLnaRangeRiseFallNbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87028,6 +87976,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34HsLnaRangeRiseFallWbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87044,6 +87993,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeAllowed : ItemBase
     {
         [FieldCount(24)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87053,6 +88003,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallNbModeAcq2 : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87062,6 +88013,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallNbModeAcq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87071,6 +88023,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallNbModeIdle : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87080,6 +88033,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallNbModeIfreq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87089,6 +88043,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallNbModePwrScan : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87098,6 +88053,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallNbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87107,6 +88063,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallWbModeAcq2 : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87116,6 +88073,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallWbModeAcq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87125,6 +88083,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallWbModeIdle : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87134,6 +88093,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallWbModeIfreq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87143,6 +88103,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallWbModePwrScan : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87152,6 +88113,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34LnaRangeRiseFallWbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87252,21 +88214,27 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34SarBackoffLimit : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public short[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] SarBackOffLimitSlot5 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public short[] SarBackOffLimitSlot6 { get; set; }
     }
 
@@ -87388,6 +88356,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB34TxLinVsTemp : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public sbyte[] Value { get; set; }
     }
 
@@ -87400,6 +88369,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -87412,6 +88382,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -87420,6 +88391,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB34TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -87428,6 +88400,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB34TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -87436,6 +88409,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB34TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -87487,6 +88461,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39HsLnaRangeRiseFallNbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87496,6 +88471,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39HsLnaRangeRiseFallWbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87512,6 +88488,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeAllowed : ItemBase
     {
         [FieldCount(24)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87521,6 +88498,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallNbModeAcq2 : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87530,6 +88508,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallNbModeAcq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87539,6 +88518,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallNbModeIdle : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87548,6 +88528,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallNbModeIfreq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87557,6 +88538,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallNbModePwrScan : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87566,6 +88548,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallNbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87575,6 +88558,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallWbModeAcq2 : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87584,6 +88568,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallWbModeAcq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87593,6 +88578,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallWbModeIdle : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87602,6 +88588,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallWbModeIfreq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87611,6 +88598,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallWbModePwrScan : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87620,6 +88608,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39LnaRangeRiseFallWbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87720,21 +88709,27 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39SarBackoffLimit : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public short[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] SarBackOffLimitSlot5 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public short[] SarBackOffLimitSlot6 { get; set; }
     }
 
@@ -87856,6 +88851,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB39TxLinVsTemp : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public sbyte[] Value { get; set; }
     }
 
@@ -87868,6 +88864,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -87880,6 +88877,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -87888,6 +88886,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB39TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -87896,6 +88895,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB39TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -87904,6 +88904,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB39TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -87955,6 +88956,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40HsLnaRangeRiseFallNbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87964,6 +88966,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40HsLnaRangeRiseFallWbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87980,6 +88983,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeAllowed : ItemBase
     {
         [FieldCount(24)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87989,6 +88993,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallNbModeAcq2 : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -87998,6 +89003,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallNbModeAcq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88007,6 +89013,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallNbModeIdle : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88016,6 +89023,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallNbModeIfreq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88025,6 +89033,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallNbModePwrScan : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88034,6 +89043,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallNbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88043,6 +89053,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallWbModeAcq2 : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88052,6 +89063,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallWbModeAcq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88061,6 +89073,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallWbModeIdle : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88070,6 +89083,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallWbModeIfreq : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88079,6 +89093,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallWbModePwrScan : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88088,6 +89103,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40LnaRangeRiseFallWbModeTracking : ItemBase
     {
         [FieldCount(12)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
     }
 
@@ -88188,21 +89204,27 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40SarBackoffLimit : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] SarBackOffLimitSlot1 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] SarBackOffLimitSlot2 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public short[] SarBackOffLimitSlot3 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public short[] SarBackOffLimitSlot4 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public short[] SarBackOffLimitSlot5 { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public short[] SarBackOffLimitSlot6 { get; set; }
     }
 
@@ -88324,6 +89346,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaB40TxLinVsTemp : ItemBase
     {
         [FieldCount(32)]
+        [FieldOrder(0)]
         public sbyte[] Value { get; set; }
     }
 
@@ -88336,6 +89359,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -88348,6 +89372,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -88356,6 +89381,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB40TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -88364,6 +89390,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB40TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -88372,6 +89399,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class TdscdmaB40TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -88413,6 +89441,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaC0SpursTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -88422,6 +89451,7 @@ namespace EfsTools.Items.Efs
     public sealed class TdscdmaC1SpursTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -88432,9 +89462,10 @@ namespace EfsTools.Items.Efs
     {
         [JsonIgnore]
         [FieldCount(61)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
 
-        [FieldOrder(0)]
+        [Ignore]
         public string ValueString
         {
             get => StringUtils.GetString(Value);
@@ -88566,7 +89597,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string ValueString
         {
             get => $"{(UeUsageSettingValue) Value}";
@@ -88589,9 +89620,10 @@ namespace EfsTools.Items.Efs
     {
         [JsonIgnore]
         [FieldCount(20)]
+        [FieldOrder(0)]
         public byte[] Value { get; set; }
 
-        [FieldOrder(0)]
+        [Ignore]
         public string ValueString
         {
             get => StringUtils.GetString(Value);
@@ -88658,9 +89690,11 @@ namespace EfsTools.Items.Efs
     public sealed class Wcdma1500HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -88773,6 +89807,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -88785,6 +89820,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -88793,6 +89829,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1500TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -88801,6 +89838,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1500TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -88809,6 +89847,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1500TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -88818,9 +89857,11 @@ namespace EfsTools.Items.Efs
     public sealed class Wcdma1800HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -89122,6 +90163,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89134,6 +90176,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89142,6 +90185,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1800TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -89150,6 +90194,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1800TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -89158,6 +90203,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1800TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -89174,9 +90220,11 @@ namespace EfsTools.Items.Efs
     public sealed class Wcdma1900HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -89478,6 +90526,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89490,6 +90539,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89498,6 +90548,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1900TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -89506,6 +90557,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1900TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -89514,6 +90566,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma1900TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -89530,9 +90583,11 @@ namespace EfsTools.Items.Efs
     public sealed class Wcdma2100HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -89652,6 +90707,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89664,6 +90720,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89672,6 +90729,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma2100TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -89680,6 +90738,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma2100TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -89688,6 +90747,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma2100TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -89697,9 +90757,11 @@ namespace EfsTools.Items.Efs
     public sealed class Wcdma800HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -89917,6 +90979,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89929,6 +90992,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -89937,6 +91001,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma800TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -89945,6 +91010,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma800TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -89953,6 +91019,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma800TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -89962,9 +91029,11 @@ namespace EfsTools.Items.Efs
     public sealed class Wcdma900HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -90266,6 +91335,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -90278,6 +91348,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -90286,6 +91357,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma900TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -90294,6 +91366,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma900TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -90302,6 +91375,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class Wcdma900TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -90584,51 +91658,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB11TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -90638,51 +91728,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB11TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -90692,51 +91798,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB11TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -90746,51 +91868,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB11TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -90989,51 +92127,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB1TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91043,51 +92197,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB1TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91097,51 +92267,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB1TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91151,51 +92337,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB1TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91387,51 +92589,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB2TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91441,51 +92659,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB2TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91495,51 +92729,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB2TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91549,51 +92799,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB2TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91904,51 +93170,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB4TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -91958,51 +93240,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB4TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92012,51 +93310,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB4TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92066,51 +93380,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB4TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92414,51 +93744,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB5TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92468,51 +93814,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB5TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92522,51 +93884,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB5TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92576,51 +93954,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB5TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92819,51 +94213,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB8TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92873,51 +94283,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB8TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92927,51 +94353,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB8TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -92981,51 +94423,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB8TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -93210,51 +94668,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB9TxLinVsTemp0Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -93264,51 +94738,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB9TxLinVsTemp1Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -93318,51 +94808,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB9TxLinVsTemp2Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -93372,51 +94878,67 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaB9TxLinVsTemp3Addl : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public sbyte[] F0CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public sbyte[] F1CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(2)]
         public sbyte[] F2CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(3)]
         public sbyte[] F3CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(4)]
         public sbyte[] F4CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(5)]
         public sbyte[] F5CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(6)]
         public sbyte[] F6CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(7)]
         public sbyte[] F7CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(8)]
         public sbyte[] F8CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(9)]
         public sbyte[] F9CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(10)]
         public sbyte[] F10CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(11)]
         public sbyte[] F11CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(12)]
         public sbyte[] F12CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(13)]
         public sbyte[] F13CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(14)]
         public sbyte[] F14CompVsTemp { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(15)]
         public sbyte[] F15CompVsTemp { get; set; }
     }
 
@@ -93482,9 +95004,11 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaBc4HdetModRange : ItemBase
     {
         [FieldCount(8)]
+        [FieldOrder(0)]
         public short[] LowerBoundOffset { get; set; }
 
         [FieldCount(8)]
+        [FieldOrder(1)]
         public short[] UpperBoundOffset { get; set; }
     }
 
@@ -93625,6 +95149,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -93637,6 +95162,7 @@ namespace EfsTools.Items.Efs
         public byte Reserved { get; set; }
 
         [FieldCount(4)]
+        [FieldOrder(1)]
         public QmslTxLinVsTempVsFreqNumType[] PaState { get; set; }
     }
 
@@ -93645,6 +95171,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class WcdmaBc4TxMultiLinData : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteNvType Value { get; set; }
     }
 
@@ -93653,6 +95180,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class WcdmaBc4TxMultiLinV2Data : ItemBase
     {
+        [FieldOrder(0)]
         public QmslTxCalCompleteRev2NvType Value { get; set; }
     }
 
@@ -93661,6 +95189,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class WcdmaBc4TxMultiLinV3Data : ItemBase
     {
+        [FieldOrder(0)]
         public VariantMarker VariantDataMarker { get; set; }
     }
 
@@ -93670,6 +95199,7 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaC0SpursTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -93679,6 +95209,7 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaC1SpursTable : ItemBase
     {
         [FieldCount(30)]
+        [FieldOrder(0)]
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
@@ -93946,6 +95477,7 @@ namespace EfsTools.Items.Efs
 
 
         [FieldCount(7)]
+        [FieldOrder(4)]
         public byte[] Reserved { get; set; }
     }
 

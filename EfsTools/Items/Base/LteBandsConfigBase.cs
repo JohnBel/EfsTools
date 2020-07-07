@@ -1,275 +1,323 @@
 ﻿using System;
+using BinarySerialization;
 using EfsTools.Utils;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Base
 {
     [Serializable]
     public class LteBandsConfigBase
     {
-        private ulong _value;
+        [FieldOrder(0)]
+        [JsonIgnore]
+        public ulong Value { get; set; }
 
+        [Ignore]
         public bool B1
         {
-            get => BitsUtils.GetBitAsBool(_value, 0);
-            set => _value = BitsUtils.SetBitAsBool(_value, 0, value);
+            get => BitsUtils.GetBitAsBool(Value, 0);
+            set => Value = BitsUtils.SetBitAsBool(Value, 0, value);
         }
 
+        [Ignore]
         public bool B2
         {
-            get => BitsUtils.GetBitAsBool(_value, 1);
-            set => _value = BitsUtils.SetBitAsBool(_value, 1, value);
+            get => BitsUtils.GetBitAsBool(Value, 1);
+            set => Value = BitsUtils.SetBitAsBool(Value, 1, value);
         }
 
+        [Ignore]
         public bool B3
         {
-            get => BitsUtils.GetBitAsBool(_value, 2);
-            set => _value = BitsUtils.SetBitAsBool(_value, 2, value);
+            get => BitsUtils.GetBitAsBool(Value, 2);
+            set => Value = BitsUtils.SetBitAsBool(Value, 2, value);
         }
 
+        [Ignore]
         public bool B4
         {
-            get => BitsUtils.GetBitAsBool(_value, 3);
-            set => _value = BitsUtils.SetBitAsBool(_value, 3, value);
+            get => BitsUtils.GetBitAsBool(Value, 3);
+            set => Value = BitsUtils.SetBitAsBool(Value, 3, value);
         }
 
+        [Ignore]
         public bool B5
         {
-            get => BitsUtils.GetBitAsBool(_value, 4);
-            set => _value = BitsUtils.SetBitAsBool(_value, 4, value);
+            get => BitsUtils.GetBitAsBool(Value, 4);
+            set => Value = BitsUtils.SetBitAsBool(Value, 4, value);
         }
 
+        [Ignore]
         public bool B6
         {
-            get => BitsUtils.GetBitAsBool(_value, 5);
-            set => _value = BitsUtils.SetBitAsBool(_value, 5, value);
+            get => BitsUtils.GetBitAsBool(Value, 5);
+            set => Value = BitsUtils.SetBitAsBool(Value, 5, value);
         }
 
+        [Ignore]
         public bool B7
         {
-            get => BitsUtils.GetBitAsBool(_value, 6);
-            set => _value = BitsUtils.SetBitAsBool(_value, 6, value);
+            get => BitsUtils.GetBitAsBool(Value, 6);
+            set => Value = BitsUtils.SetBitAsBool(Value, 6, value);
         }
 
+        [Ignore]
         public bool B8
         {
-            get => BitsUtils.GetBitAsBool(_value, 7);
-            set => _value = BitsUtils.SetBitAsBool(_value, 7, value);
+            get => BitsUtils.GetBitAsBool(Value, 7);
+            set => Value = BitsUtils.SetBitAsBool(Value, 7, value);
         }
 
+        [Ignore]
         public bool B9
         {
-            get => BitsUtils.GetBitAsBool(_value, 8);
-            set => _value = BitsUtils.SetBitAsBool(_value, 8, value);
+            get => BitsUtils.GetBitAsBool(Value, 8);
+            set => Value = BitsUtils.SetBitAsBool(Value, 8, value);
         }
 
+        [Ignore]
         public bool B10
         {
-            get => BitsUtils.GetBitAsBool(_value, 9);
-            set => _value = BitsUtils.SetBitAsBool(_value, 9, value);
+            get => BitsUtils.GetBitAsBool(Value, 9);
+            set => Value = BitsUtils.SetBitAsBool(Value, 9, value);
         }
 
+        [Ignore]
         public bool B11
         {
-            get => BitsUtils.GetBitAsBool(_value, 10);
-            set => _value = BitsUtils.SetBitAsBool(_value, 10, value);
+            get => BitsUtils.GetBitAsBool(Value, 10);
+            set => Value = BitsUtils.SetBitAsBool(Value, 10, value);
         }
 
+        [Ignore]
         public bool B12
         {
-            get => BitsUtils.GetBitAsBool(_value, 11);
-            set => _value = BitsUtils.SetBitAsBool(_value, 11, value);
+            get => BitsUtils.GetBitAsBool(Value, 11);
+            set => Value = BitsUtils.SetBitAsBool(Value, 11, value);
         }
 
+        [Ignore]
         public bool B13
         {
-            get => BitsUtils.GetBitAsBool(_value, 12);
-            set => _value = BitsUtils.SetBitAsBool(_value, 12, value);
+            get => BitsUtils.GetBitAsBool(Value, 12);
+            set => Value = BitsUtils.SetBitAsBool(Value, 12, value);
         }
 
+        [Ignore]
         public bool B14
         {
-            get => BitsUtils.GetBitAsBool(_value, 13);
-            set => _value = BitsUtils.SetBitAsBool(_value, 13, value);
+            get => BitsUtils.GetBitAsBool(Value, 13);
+            set => Value = BitsUtils.SetBitAsBool(Value, 13, value);
         }
 
+        [Ignore]
         public bool B15
         {
-            get => BitsUtils.GetBitAsBool(_value, 14);
-            set => _value = BitsUtils.SetBitAsBool(_value, 14, value);
+            get => BitsUtils.GetBitAsBool(Value, 14);
+            set => Value = BitsUtils.SetBitAsBool(Value, 14, value);
         }
-
+        
+        [Ignore]
         public bool B16
         {
-            get => BitsUtils.GetBitAsBool(_value, 15);
-            set => _value = BitsUtils.SetBitAsBool(_value, 15, value);
+            get => BitsUtils.GetBitAsBool(Value, 15);
+            set => Value = BitsUtils.SetBitAsBool(Value, 15, value);
         }
 
+        [Ignore]
         public bool B17
         {
-            get => BitsUtils.GetBitAsBool(_value, 16);
-            set => _value = BitsUtils.SetBitAsBool(_value, 16, value);
+            get => BitsUtils.GetBitAsBool(Value, 16);
+            set => Value = BitsUtils.SetBitAsBool(Value, 16, value);
         }
 
+        [Ignore]
         public bool B18
         {
-            get => BitsUtils.GetBitAsBool(_value, 17);
-            set => _value = BitsUtils.SetBitAsBool(_value, 17, value);
+            get => BitsUtils.GetBitAsBool(Value, 17);
+            set => Value = BitsUtils.SetBitAsBool(Value, 17, value);
         }
 
+        [Ignore]
         public bool B19
         {
-            get => BitsUtils.GetBitAsBool(_value, 18);
-            set => _value = BitsUtils.SetBitAsBool(_value, 18, value);
+            get => BitsUtils.GetBitAsBool(Value, 18);
+            set => Value = BitsUtils.SetBitAsBool(Value, 18, value);
         }
 
+        [Ignore]
         public bool B20
         {
-            get => BitsUtils.GetBitAsBool(_value, 19);
-            set => _value = BitsUtils.SetBitAsBool(_value, 19, value);
+            get => BitsUtils.GetBitAsBool(Value, 19);
+            set => Value = BitsUtils.SetBitAsBool(Value, 19, value);
         }
 
+        [Ignore]
         public bool B21
         {
-            get => BitsUtils.GetBitAsBool(_value, 20);
-            set => _value = BitsUtils.SetBitAsBool(_value, 20, value);
+            get => BitsUtils.GetBitAsBool(Value, 20);
+            set => Value = BitsUtils.SetBitAsBool(Value, 20, value);
         }
 
+        [Ignore]
         public bool B22
         {
-            get => BitsUtils.GetBitAsBool(_value, 21);
-            set => _value = BitsUtils.SetBitAsBool(_value, 21, value);
+            get => BitsUtils.GetBitAsBool(Value, 21);
+            set => Value = BitsUtils.SetBitAsBool(Value, 21, value);
         }
 
+        [Ignore]
         public bool B23
         {
-            get => BitsUtils.GetBitAsBool(_value, 22);
-            set => _value = BitsUtils.SetBitAsBool(_value, 22, value);
+            get => BitsUtils.GetBitAsBool(Value, 22);
+            set => Value = BitsUtils.SetBitAsBool(Value, 22, value);
         }
 
+        [Ignore]
         public bool B24
         {
-            get => BitsUtils.GetBitAsBool(_value, 23);
-            set => _value = BitsUtils.SetBitAsBool(_value, 23, value);
+            get => BitsUtils.GetBitAsBool(Value, 23);
+            set => Value = BitsUtils.SetBitAsBool(Value, 23, value);
         }
 
+        [Ignore]
         public bool B25
         {
-            get => BitsUtils.GetBitAsBool(_value, 24);
-            set => _value = BitsUtils.SetBitAsBool(_value, 24, value);
+            get => BitsUtils.GetBitAsBool(Value, 24);
+            set => Value = BitsUtils.SetBitAsBool(Value, 24, value);
         }
 
+        [Ignore]
         public bool B26
         {
-            get => BitsUtils.GetBitAsBool(_value, 25);
-            set => _value = BitsUtils.SetBitAsBool(_value, 25, value);
+            get => BitsUtils.GetBitAsBool(Value, 25);
+            set => Value = BitsUtils.SetBitAsBool(Value, 25, value);
         }
 
+        [Ignore]
         public bool B27
         {
-            get => BitsUtils.GetBitAsBool(_value, 26);
-            set => _value = BitsUtils.SetBitAsBool(_value, 26, value);
+            get => BitsUtils.GetBitAsBool(Value, 26);
+            set => Value = BitsUtils.SetBitAsBool(Value, 26, value);
         }
 
+        [Ignore]
         public bool B28
         {
-            get => BitsUtils.GetBitAsBool(_value, 27);
-            set => _value = BitsUtils.SetBitAsBool(_value, 27, value);
+            get => BitsUtils.GetBitAsBool(Value, 27);
+            set => Value = BitsUtils.SetBitAsBool(Value, 27, value);
         }
 
+        [Ignore]
         public bool B29
         {
-            get => BitsUtils.GetBitAsBool(_value, 28);
-            set => _value = BitsUtils.SetBitAsBool(_value, 28, value);
+            get => BitsUtils.GetBitAsBool(Value, 28);
+            set => Value = BitsUtils.SetBitAsBool(Value, 28, value);
         }
 
+        [Ignore]
         public bool B30
         {
-            get => BitsUtils.GetBitAsBool(_value, 29);
-            set => _value = BitsUtils.SetBitAsBool(_value, 29, value);
+            get => BitsUtils.GetBitAsBool(Value, 29);
+            set => Value = BitsUtils.SetBitAsBool(Value, 29, value);
         }
 
+        [Ignore]
         public bool B31
         {
-            get => BitsUtils.GetBitAsBool(_value, 30);
-            set => _value = BitsUtils.SetBitAsBool(_value, 30, value);
+            get => BitsUtils.GetBitAsBool(Value, 30);
+            set => Value = BitsUtils.SetBitAsBool(Value, 30, value);
         }
 
+        [Ignore]
         public bool B32
         {
-            get => BitsUtils.GetBitAsBool(_value, 31);
-            set => _value = BitsUtils.SetBitAsBool(_value, 31, value);
+            get => BitsUtils.GetBitAsBool(Value, 31);
+            set => Value = BitsUtils.SetBitAsBool(Value, 31, value);
         }
 
+        [Ignore]
         public bool B33
         {
-            get => BitsUtils.GetBitAsBool(_value, 32);
-            set => _value = BitsUtils.SetBitAsBool(_value, 32, value);
+            get => BitsUtils.GetBitAsBool(Value, 32);
+            set => Value = BitsUtils.SetBitAsBool(Value, 32, value);
         }
 
+        [Ignore]
         public bool B34
         {
-            get => BitsUtils.GetBitAsBool(_value, 33);
-            set => _value = BitsUtils.SetBitAsBool(_value, 33, value);
+            get => BitsUtils.GetBitAsBool(Value, 33);
+            set => Value = BitsUtils.SetBitAsBool(Value, 33, value);
         }
 
+        [Ignore]
         public bool B35
         {
-            get => BitsUtils.GetBitAsBool(_value, 34);
-            set => _value = BitsUtils.SetBitAsBool(_value, 34, value);
+            get => BitsUtils.GetBitAsBool(Value, 34);
+            set => Value = BitsUtils.SetBitAsBool(Value, 34, value);
         }
 
+        [Ignore]
         public bool B36
         {
-            get => BitsUtils.GetBitAsBool(_value, 35);
-            set => _value = BitsUtils.SetBitAsBool(_value, 35, value);
+            get => BitsUtils.GetBitAsBool(Value, 35);
+            set => Value = BitsUtils.SetBitAsBool(Value, 35, value);
         }
 
+        [Ignore]
         public bool B37
         {
-            get => BitsUtils.GetBitAsBool(_value, 36);
-            set => _value = BitsUtils.SetBitAsBool(_value, 36, value);
+            get => BitsUtils.GetBitAsBool(Value, 36);
+            set => Value = BitsUtils.SetBitAsBool(Value, 36, value);
         }
 
+        [Ignore]
         public bool B38
         {
-            get => BitsUtils.GetBitAsBool(_value, 37);
-            set => _value = BitsUtils.SetBitAsBool(_value, 37, value);
+            get => BitsUtils.GetBitAsBool(Value, 37);
+            set => Value = BitsUtils.SetBitAsBool(Value, 37, value);
         }
 
+        [Ignore]
         public bool B39
         {
-            get => BitsUtils.GetBitAsBool(_value, 38);
-            set => _value = BitsUtils.SetBitAsBool(_value, 38, value);
+            get => BitsUtils.GetBitAsBool(Value, 38);
+            set => Value = BitsUtils.SetBitAsBool(Value, 38, value);
         }
 
+        [Ignore]
         public bool B40
         {
-            get => BitsUtils.GetBitAsBool(_value, 39);
-            set => _value = BitsUtils.SetBitAsBool(_value, 39, value);
+            get => BitsUtils.GetBitAsBool(Value, 39);
+            set => Value = BitsUtils.SetBitAsBool(Value, 39, value);
         }
 
+        [Ignore]
         public bool B41
         {
-            get => BitsUtils.GetBitAsBool(_value, 40);
-            set => _value = BitsUtils.SetBitAsBool(_value, 40, value);
+            get => BitsUtils.GetBitAsBool(Value, 40);
+            set => Value = BitsUtils.SetBitAsBool(Value, 40, value);
         }
 
+        [Ignore]
         public bool B42
         {
-            get => BitsUtils.GetBitAsBool(_value, 41);
-            set => _value = BitsUtils.SetBitAsBool(_value, 41, value);
+            get => BitsUtils.GetBitAsBool(Value, 41);
+            set => Value = BitsUtils.SetBitAsBool(Value, 41, value);
         }
 
+        [Ignore]
         public bool B43
         {
-            get => BitsUtils.GetBitAsBool(_value, 42);
-            set => _value = BitsUtils.SetBitAsBool(_value, 42, value);
+            get => BitsUtils.GetBitAsBool(Value, 42);
+            set => Value = BitsUtils.SetBitAsBool(Value, 42, value);
         }
 
+        [Ignore]
         public bool B44
         {
-            get => BitsUtils.GetBitAsBool(_value, 43);
-            set => _value = BitsUtils.SetBitAsBool(_value, 43, value);
+            get => BitsUtils.GetBitAsBool(Value, 43);
+            set => Value = BitsUtils.SetBitAsBool(Value, 43, value);
         }
     }
 }
