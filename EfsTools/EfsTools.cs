@@ -294,7 +294,7 @@ namespace EfsTools
             {
                 using (var output = File.CreateText(path))
                 {
-                    var items = NvItemUtils.LocalLoadItems(inDirectory);
+                    var items = NvItemUtils.LocalLoadItems(inDirectory, subscription);
                     ItemsJsonSerializer.SerializeItems(items, output);
                     output.Flush();
                     output.Close();
@@ -326,7 +326,7 @@ namespace EfsTools
                     Directory.CreateDirectory(outputDirectory);
                     var configItems = NvItemUtils.GetConfigs(input);
                     input.BaseStream.Seek(0, SeekOrigin.Begin);
-                    var items = NvItemUtils.LocalLoadItems(outputDirectory, configItems);
+                    var items = NvItemUtils.LocalLoadItems(outputDirectory, configItems, subscription);
                     ItemsJsonSerializer.DeserializeItems(items, input);
                     NvItemUtils.LocalSaveItems(outputDirectory, subscription, items, _logger);
                 }

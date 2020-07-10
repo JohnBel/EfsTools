@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using BinarySerialization;
@@ -15,18 +16,34 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class AdditionalDialString : ItemBase
     {
-        [FieldLength(20)]
+        [FieldCount(20)]
         [FieldOrder(0)]
-        public string Value1
+        [JsonIgnore]
+        public byte[] Value1
         {
             get; set;
         }
 
-        [FieldLength(20)]
+        [Ignore]
+        public string Value1String
+        {
+            get => StringUtils.GetString(Value1);
+            set => Value1 = StringUtils.GetBytes(value, 20);
+        }
+
+        [FieldCount(20)]
         [FieldOrder(1)]
-        public string Value2
+        [JsonIgnore]
+        public byte[] Value2
         {
             get; set;
+        }
+
+        [Ignore]
+        public string Value2String
+        {
+            get => StringUtils.GetString(Value2);
+            set => Value2 = StringUtils.GetBytes(value, 20);
         }
     }
 
@@ -6828,12 +6845,13 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023727", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class CdmaC0Bc0HdrTxPwrLimData : ItemBase
     {
-        [FieldCount(0)]
+        [FieldCount(25)]
         [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
@@ -8736,13 +8754,13 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023732", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class CdmaC0Bc10HdrTxPwrLimData : ItemBase
     {
         [FieldCount(25)]
-        ///[FieldCount(0)]
         [FieldOrder(0)]
         public QmslTxPwrLimitDataType[] HdrTxPwrLimit
         {
@@ -11137,6 +11155,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023733", true, 0xE1FF)]
     [Attributes(9)]
@@ -13040,6 +13059,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023734", true, 0xE1FF)]
     [Attributes(9)]
@@ -14447,6 +14467,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023728", true, 0xE1FF)]
     [Attributes(9)]
@@ -16350,6 +16371,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023729", true, 0xE1FF)]
     [Attributes(9)]
@@ -18253,6 +18275,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023730", true, 0xE1FF)]
     [Attributes(9)]
@@ -20156,6 +20179,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023731", true, 0xE1FF)]
     [Attributes(9)]
@@ -30363,6 +30387,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023735", true, 0xE1FF)]
     [Attributes(9)]
@@ -32427,6 +32452,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023740", true, 0xE1FF)]
     [Attributes(9)]
@@ -34994,6 +35020,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023741", true, 0xE1FF)]
     [Attributes(9)]
@@ -37058,6 +37085,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023742", true, 0xE1FF)]
     [Attributes(9)]
@@ -38619,6 +38647,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023736", true, 0xE1FF)]
     [Attributes(9)]
@@ -42710,6 +42739,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023738", true, 0xE1FF)]
     [Attributes(9)]
@@ -44735,6 +44765,7 @@ namespace EfsTools.Items.Efs
         public short FallTimeHyst { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023739", true, 0xE1FF)]
     [Attributes(9)]
@@ -57077,9 +57108,17 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class ImsUserAgent : ItemBase
     {
-        [FieldLength(1024)]
+        [FieldCount(1024)]
         [FieldOrder(0)]
-        public string Value { get; set; }
+        [JsonIgnore]
+        public byte[] Value { get; set; }
+
+        [Ignore]
+        public string ValueString
+        {
+            get => StringUtils.GetString(Value);
+            set => Value = StringUtils.GetBytes(value, 1024);
+        }
     }
 
     [Serializable]
@@ -57275,7 +57314,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string StringValue
         {
             get => $"{(Lte3gppReleaseVerValue) Value}";
@@ -80960,7 +80999,7 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class MsmSelfCal : ItemBase
     {
-        [FieldCount(16384)]
+        [FieldCount(484)]
         [FieldOrder(0)]
         public sbyte[] Reserved { get; set; }
     }
@@ -81142,9 +81181,16 @@ namespace EfsTools.Items.Efs
         public byte NumDigits1 { get; set; }
 
         [JsonIgnore]
-        [FieldLength(28)]
+        [FieldCount(28)]
         [FieldOrder(1)]
-        public string Digits1 { get; set; }
+        public byte[] Digits1 { get; set; }
+
+        [Ignore]
+        public string Digits1String
+        {
+            get => StringUtils.GetString(Digits1);
+            set => Digits1 = StringUtils.GetBytes(value, 28);
+        }
 
         [JsonIgnore]
         [FieldOrder(2)]
@@ -81587,7 +81633,7 @@ namespace EfsTools.Items.Efs
                     {
                         Value = Value1,
                         CategoryLength = CategoryLength1,
-                        DigitsString = Digits1,
+                        DigitsString = Digits1String,
                         EmergencyCategory = EmergencyCategory1,
                         EmergencyMode = EmergencyMode1,
                         HardcodedType = HardcodedType1,
@@ -81696,7 +81742,7 @@ namespace EfsTools.Items.Efs
                     var val = Items[0];
                     Value1 = val.Value;
                     CategoryLength1 = val.CategoryLength;
-                    Digits1 = val.DigitsString;
+                    Digits1String = val.DigitsString;
                     EmergencyCategory1 = val.EmergencyCategory;
                     EmergencyMode1 = val.EmergencyMode;
                     HardcodedType1 = val.HardcodedType;
@@ -82125,13 +82171,32 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    public class ProfileBase
+    public class ProfileBase : ItemBase, IBinarySerializable
     {
-        [FieldCount(0)]
-        [FieldOrder(0)]
         public byte[] Values
         {
             get; set;
+        }
+
+        public void Serialize(Stream stream, Endianness endianness, BinarySerializationContext serializationContext)
+        {
+            if (Values != null)
+            {
+                stream.Write(Values, 0, Values.Length);
+                stream.Flush();
+            }
+        }
+
+        public void Deserialize(Stream stream, Endianness endianness, BinarySerializationContext serializationContext)
+        {
+            var buf = new byte[stream.Length];
+            var i = 0;
+            while (i < buf.Length)
+            {
+                var readed = stream.Read(buf, i, buf.Length);
+                i += readed;
+            }
+            Values = buf;
         }
     }
 
@@ -82171,9 +82236,16 @@ namespace EfsTools.Items.Efs
     public sealed class QipcallAudioCodecList : ItemBase
     {
         [JsonIgnore]
-        [FieldLength(128)]
+        [FieldCount(128)]
         [FieldOrder(0)]
-        public string Value { get; set; }
+        public byte[] Value { get; set; }
+
+        [Ignore]
+        public string ValueString
+        {
+            get => StringUtils.GetString(Value);
+            set => Value = StringUtils.GetBytes(value, 128);
+        }
     }
 
     [Serializable]
@@ -82204,56 +82276,56 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public uint Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public bool Enable_4_75kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 0);
             set => Value = BitsUtils.SetBitAsBool(Value, 0, value);
         }
 
-        [FieldOrder(2)]
+        [Ignore]
         public bool Enable_5_15kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 1);
             set => Value = BitsUtils.SetBitAsBool(Value, 1, value);
         }
 
-        [FieldOrder(3)]
+        [Ignore]
         public bool Enable_5_9kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 2);
             set => Value = BitsUtils.SetBitAsBool(Value, 2, value);
         }
 
-        [FieldOrder(4)]
+        [Ignore]
         public bool Enable_6_17kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 3);
             set => Value = BitsUtils.SetBitAsBool(Value, 3, value);
         }
 
-        [FieldOrder(5)]
+        [Ignore]
         public bool Enable_7_4kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 4);
             set => Value = BitsUtils.SetBitAsBool(Value, 4, value);
         }
 
-        [FieldOrder(6)]
+        [Ignore]
         public bool Enable_7_95kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 5);
             set => Value = BitsUtils.SetBitAsBool(Value, 5, value);
         }
 
-        [FieldOrder(7)]
+        [Ignore]
         public bool Enable_10_2kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 6);
             set => Value = BitsUtils.SetBitAsBool(Value, 6, value);
         }
 
-        [FieldOrder(8)]
+        [Ignore]
         public bool Enable_12_2kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 7);
@@ -82282,63 +82354,63 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public uint Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public bool Enable_6_60kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 0);
             set => Value = BitsUtils.SetBitAsBool(Value, 0, value);
         }
 
-        [FieldOrder(2)]
+        [Ignore]
         public bool Enable_8_85kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 1);
             set => Value = BitsUtils.SetBitAsBool(Value, 1, value);
         }
 
-        [FieldOrder(3)]
+        [Ignore]
         public bool Enable_12_65kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 2);
             set => Value = BitsUtils.SetBitAsBool(Value, 2, value);
         }
 
-        [FieldOrder(4)]
+        [Ignore]
         public bool Enable_14_25kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 3);
             set => Value = BitsUtils.SetBitAsBool(Value, 3, value);
         }
 
-        [FieldOrder(5)]
+        [Ignore]
         public bool Enable_15_85kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 4);
             set => Value = BitsUtils.SetBitAsBool(Value, 4, value);
         }
 
-        [FieldOrder(6)]
+        [Ignore]
         public bool Enable_18_25kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 5);
             set => Value = BitsUtils.SetBitAsBool(Value, 5, value);
         }
 
-        [FieldOrder(7)]
+        [Ignore]
         public bool Enable_19_85kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 6);
             set => Value = BitsUtils.SetBitAsBool(Value, 6, value);
         }
 
-        [FieldOrder(8)]
+        [Ignore]
         public bool Enable_23_05kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 7);
             set => Value = BitsUtils.SetBitAsBool(Value, 7, value);
         }
 
-        [FieldOrder(9)]
+        [Ignore]
         public bool Enable_23_85kbps
         {
             get => BitsUtils.GetBitAsBool(Value, 8);
@@ -82391,9 +82463,17 @@ namespace EfsTools.Items.Efs
         [FieldOrder(6)]
         public byte RtpWbDtmpPayloadType { get; set; }
 
-        [FieldLength(16)]
+        [JsonIgnore]
+        [FieldCount(16)]
         [FieldOrder(7)]
-        public string MediaAttribute { get; set; }
+        public byte[] MediaAttribute { get; set; }
+
+        [Ignore]
+        public string MediaAttributeString
+        {
+            get => StringUtils.GetString(MediaAttribute);
+            set => MediaAttribute = StringUtils.GetBytes(value, 128);
+        }
 
         [FieldOrder(8)]
         public byte DesiredQosStrength { get; set; }
@@ -82416,14 +82496,29 @@ namespace EfsTools.Items.Efs
         [FieldOrder(14)]
         public byte MobileData { get; set; }
 
-
-        [FieldLength(128)]
+        [JsonIgnore]
+        [FieldCount(128)]
         [FieldOrder(15)]
-        public string AudioFeatureTag { get; set; }
+        public byte[] AudioFeatureTag { get; set; }
 
-        [FieldLength(128)]
+        [Ignore]
+        public string AudioFeatureTagString
+        {
+            get => StringUtils.GetString(AudioFeatureTag);
+            set => AudioFeatureTag = StringUtils.GetBytes(value, 128);
+        }
+
+        [JsonIgnore]
+        [FieldCount(128)]
         [FieldOrder(16)]
-        public string VideoFeatureTag { get; set; }
+        public byte[] VideoFeatureTag { get; set; }
+
+        [Ignore]
+        public string VideoFeatureTagString
+        {
+            get => StringUtils.GetString(VideoFeatureTag);
+            set => VideoFeatureTag = StringUtils.GetBytes(value, 128);
+        }
 
         [FieldCount(223)]
         [FieldOrder(17)]
@@ -82556,40 +82651,44 @@ namespace EfsTools.Items.Efs
 		public byte[] Value { get; set; }*/
 
         [Required]
-        [FieldOrder(1)]
+        [FieldOrder(0)]
         public byte Version { get; set; }
 
 
-        [FieldOrder(2)]
+        [FieldOrder(1)]
         public byte LocalQosAudio { get; set; }
 
 
-        [FieldOrder(3)]
+        [FieldOrder(2)]
         public byte LocalQosVideo { get; set; }
 
 
-        [FieldOrder(4)]
+        [FieldOrder(3)]
         public byte QosInactiveInvite { get; set; }
 
 
-        [FieldOrder(5)]
+        [FieldOrder(4)]
         public byte QosInactiveReInvite { get; set; }
 
 
-        [FieldOrder(6)]
+        [FieldOrder(5)]
         public byte QosMbrAudioCheckReq { get; set; }
 
 
-        [FieldOrder(7)]
+        [FieldOrder(6)]
         public byte QosMbrVideoCheckReq { get; set; }
 
 
-        [FieldOrder(8)]
+        [FieldOrder(7)]
         public uint MbrThreshold { get; set; }
 
 
-        [FieldOrder(9)]
+        [FieldOrder(8)]
         public byte QosOptimization { get; set; }
+
+        [FieldOrder(9)]
+        [FieldCount(20)]
+        public byte[] Reserved { get; set; }
     }
 
     [Serializable]
@@ -82760,9 +82859,17 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Version { get; set; }
 
-        [FieldLength(192)]
+        [JsonIgnore]
+        [FieldCount(192)]
         [FieldOrder(1)]
-        public string CellId { get; set; }
+        public byte[] CellId { get; set; }
+
+        [Ignore]
+        public string CellIdString
+        {
+            get => StringUtils.GetString(CellId);
+            set => CellId = StringUtils.GetBytes(value, 192);
+        }
 
     }
 
@@ -83269,36 +83376,92 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class QpImsParamConfig : ItemBase
     {
-        [FieldLength(128)]
+        [JsonIgnore]
+        [FieldCount(128)]
         [FieldOrder(0)]
-        public string RegConfigUserName { get; set; }
+        public byte[] RegConfigUserName { get; set; }
 
-        [FieldLength(128)]
+        [Ignore]
+        public string RegConfigUserNameString
+        {
+            get => StringUtils.GetString(RegConfigUserName);
+            set => RegConfigUserName = StringUtils.GetBytes(value, 128);
+        }
+
+        [JsonIgnore]
+        [FieldCount(128)]
         [FieldOrder(1)]
-        public string RegConfigPassword { get; set; }
+        public byte[] RegConfigPassword { get; set; }
 
-        [FieldLength(128)]
+        [Ignore]
+        public string RegConfigPasswordString
+        {
+            get => StringUtils.GetString(RegConfigPassword);
+            set => RegConfigPassword = StringUtils.GetBytes(value, 128);
+        }
+
+        [JsonIgnore]
+        [FieldCount(128)]
         [FieldOrder(2)]
-        public string RegConfigPrivateUri { get; set; }
+        public byte[] RegConfigPrivateUri { get; set; }
 
-        [FieldLength(128)]
+        [Ignore]
+        public string RegConfigPrivateUriString
+        {
+            get => StringUtils.GetString(RegConfigPrivateUri);
+            set => RegConfigPrivateUri = StringUtils.GetBytes(value, 128);
+        }
+
+        [JsonIgnore]
+        [FieldCount(128)]
         [FieldOrder(3)]
-        public string RegConfigDisplayName { get; set; }
+        public byte[] RegConfigDisplayName { get; set; }
 
-        [FieldLength(256)]
+        [Ignore]
+        public string RegConfigDisplayNameString
+        {
+            get => StringUtils.GetString(RegConfigDisplayName);
+            set => RegConfigDisplayName = StringUtils.GetBytes(value, 128);
+        }
+
+        [JsonIgnore]
+        [FieldCount(256)]
         [FieldOrder(4)]
-        public string RegConfigDomainName { get; set; }
+        public byte[] RegConfigDomainName { get; set; }
 
-        [FieldLength(32)]
+        [Ignore]
+        public string RegConfigDomainNameString
+        {
+            get => StringUtils.GetString(RegConfigDomainName);
+            set => RegConfigDomainName = StringUtils.GetBytes(value, 256);
+        }
+
+        [JsonIgnore]
+        [FieldCount(32)]
         [FieldOrder(5)]
-        public string RegAuthSecretKey { get; set; }
+        public byte[] RegAuthSecretKey { get; set; }
+
+        [Ignore]
+        public string RegAuthSecretKeyString
+        {
+            get => StringUtils.GetString(RegAuthSecretKey);
+            set => RegAuthSecretKey = StringUtils.GetBytes(value, 32);
+        }
 
         [FieldOrder(6)]
         public byte ThreeGppEnabled { get; set; }
 
-        [FieldLength(32)]
+        [JsonIgnore]
+        [FieldCount(32)]
         [FieldOrder(7)]
-        public string RegConfigOPField { get; set; }
+        public byte[] RegConfigOPField { get; set; }
+
+        [Ignore]
+        public string RegConfigOPFieldString
+        {
+            get => StringUtils.GetString(RegConfigOPField);
+            set => RegConfigOPField = StringUtils.GetBytes(value, 32);
+        }
     }
 
     [Serializable]
@@ -83313,7 +83476,7 @@ namespace EfsTools.Items.Efs
             SectorId = new byte[16];
             Mcc = new byte[6];
             Mnc = new byte[6];
-            Reserved = new byte[65];
+            Reserved = new byte[64];
         }
 
         [Required]
@@ -83420,7 +83583,7 @@ namespace EfsTools.Items.Efs
             set => Mnc = StringUtils.GetBytes(value, 48);
         }
 
-        [FieldCount(65)]
+        [FieldCount(64)]
         [FieldOrder(20)]
         public byte[] Reserved { get; set; }
     }
@@ -84153,7 +84316,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    public sealed class QpImsRegConfigDbItem : ItemBase
+    public sealed class QpImsRegConfigDbItem
     {
         [FieldOrder(0)]
         public ushort Rat { get; set; }
@@ -84183,7 +84346,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    public sealed class QpImsRegConfigDbItem2 : ItemBase
+    public sealed class QpImsRegConfigDbItem2
     {
         [FieldOrder(0)]
         public ushort RatApnFallback { get; set; }
@@ -84204,619 +84367,22 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Version { get; set; }
 
-        [JsonIgnore]
         [FieldOrder(1)]
-        public ushort Rat1 { get; set; }
+        [FieldCount(10)]
+        public QpImsRegConfigDbItem[] Items
+        {
+            get; set;
+        }
 
-        [JsonIgnore]
         [FieldOrder(2)]
-        public byte ApnIndex1 { get; set; }
-
+        [FieldCount(10)]
+        public QpImsRegConfigDbItem2[] Items2
+        {
+            get; set;
+        }
 
         [JsonIgnore]
         [FieldOrder(3)]
-        public ushort ImsServiceInfo1 { get; set; }
-
-
-        [JsonIgnore]
-        [FieldOrder(4)]
-        public sbyte AuthSecType1 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(5)]
-        public byte IpTypeInfo1 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(6)]
-        public ushort Rat2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(7)]
-        public byte ApnIndex2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(8)]
-        public ushort ImsServiceInfo2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(9)]
-        public sbyte AuthSecType2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(10)]
-        public byte IpTypeInfo2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(11)]
-        public ushort Rat3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(12)]
-        public byte ApnIndex3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(13)]
-        public ushort ImsServiceInfo3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(14)]
-        public sbyte AuthSecType3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(15)]
-        public byte IpTypeInfo3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(16)]
-        public ushort Rat4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(17)]
-        public byte ApnIndex4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(18)]
-        public ushort ImsServiceInfo4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(19)]
-        public sbyte AuthSecType4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(20)]
-        public byte IpTypeInfo4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(21)]
-        public ushort Rat5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(22)]
-        public byte ApnIndex5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(23)]
-        public ushort ImsServiceInfo5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(24)]
-        public sbyte AuthSecType5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(25)]
-        public byte IpTypeInfo5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(26)]
-        public ushort Rat6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(27)]
-        public byte ApnIndex6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(28)]
-        public ushort ImsServiceInfo6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(29)]
-        public sbyte AuthSecType6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(30)]
-        public byte IpTypeInfo6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(31)]
-        public ushort Rat7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(32)]
-        public byte ApnIndex7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(33)]
-        public ushort ImsServiceInfo7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(34)]
-        public sbyte AuthSecType7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(35)]
-        public byte IpTypeInfo7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(36)]
-        public ushort Rat8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(37)]
-        public byte ApnIndex8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(38)]
-        public ushort ImsServiceInfo8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(39)]
-        public sbyte AuthSecType8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(40)]
-        public byte IpTypeInfo8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(41)]
-        public ushort Rat9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(42)]
-        public byte ApnIndex9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(43)]
-        public ushort ImsServiceInfo9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(44)]
-        public sbyte AuthSecType9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(45)]
-        public byte IpTypeInfo9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(46)]
-        public ushort Rat10 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(47)]
-        public byte ApnIndex10 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(48)]
-        public ushort ImsServiceInfo10 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(49)]
-        public sbyte AuthSecType10 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(50)]
-        public byte IpTypeInfo10 { get; set; }
-
-
-        [FieldOrder(51)]
-        public QpImsRegConfigDbItem[] Items
-        {
-            get =>
-                new[]
-                {
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex1,
-                        AuthSecType = AuthSecType1,
-                        ImsServiceInfo = ImsServiceInfo1,
-                        IpTypeInfo = IpTypeInfo1,
-                        Rat = Rat1
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex2,
-                        AuthSecType = AuthSecType2,
-                        ImsServiceInfo = ImsServiceInfo2,
-                        IpTypeInfo = IpTypeInfo2,
-                        Rat = Rat2
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex3,
-                        AuthSecType = AuthSecType3,
-                        ImsServiceInfo = ImsServiceInfo3,
-                        IpTypeInfo = IpTypeInfo3,
-                        Rat = Rat3
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex4,
-                        AuthSecType = AuthSecType4,
-                        ImsServiceInfo = ImsServiceInfo4,
-                        IpTypeInfo = IpTypeInfo4,
-                        Rat = Rat4
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex5,
-                        AuthSecType = AuthSecType5,
-                        ImsServiceInfo = ImsServiceInfo5,
-                        IpTypeInfo = IpTypeInfo5,
-                        Rat = Rat5
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex6,
-                        AuthSecType = AuthSecType6,
-                        ImsServiceInfo = ImsServiceInfo6,
-                        IpTypeInfo = IpTypeInfo6,
-                        Rat = Rat6
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex7,
-                        AuthSecType = AuthSecType7,
-                        ImsServiceInfo = ImsServiceInfo7,
-                        IpTypeInfo = IpTypeInfo7,
-                        Rat = Rat7
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex8,
-                        AuthSecType = AuthSecType8,
-                        ImsServiceInfo = ImsServiceInfo8,
-                        IpTypeInfo = IpTypeInfo8,
-                        Rat = Rat8
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex9,
-                        AuthSecType = AuthSecType9,
-                        ImsServiceInfo = ImsServiceInfo9,
-                        IpTypeInfo = IpTypeInfo9,
-                        Rat = Rat9
-                    },
-                    new QpImsRegConfigDbItem
-                    {
-                        ApnIndex = ApnIndex10,
-                        AuthSecType = AuthSecType10,
-                        ImsServiceInfo = ImsServiceInfo10,
-                        IpTypeInfo = IpTypeInfo10,
-                        Rat = Rat10
-                    }
-                };
-            set
-            {
-                if (value != null)
-                {
-                    if (value.Length > 0)
-                    {
-                        var val = value[0];
-                        ApnIndex1 = val.ApnIndex;
-                        AuthSecType1 = val.AuthSecType;
-                        ImsServiceInfo1 = val.ImsServiceInfo;
-                        IpTypeInfo1 = val.IpTypeInfo;
-                        Rat1 = val.Rat;
-                    }
-
-                    if (value.Length > 1)
-                    {
-                        var val = value[1];
-                        ApnIndex2 = val.ApnIndex;
-                        AuthSecType2 = val.AuthSecType;
-                        ImsServiceInfo2 = val.ImsServiceInfo;
-                        IpTypeInfo2 = val.IpTypeInfo;
-                        Rat2 = val.Rat;
-                    }
-
-                    if (value.Length > 2)
-                    {
-                        var val = value[2];
-                        ApnIndex3 = val.ApnIndex;
-                        AuthSecType3 = val.AuthSecType;
-                        ImsServiceInfo3 = val.ImsServiceInfo;
-                        IpTypeInfo3 = val.IpTypeInfo;
-                        Rat3 = val.Rat;
-                    }
-
-                    if (value.Length > 3)
-                    {
-                        var val = value[3];
-                        ApnIndex4 = val.ApnIndex;
-                        AuthSecType4 = val.AuthSecType;
-                        ImsServiceInfo4 = val.ImsServiceInfo;
-                        IpTypeInfo4 = val.IpTypeInfo;
-                        Rat4 = val.Rat;
-                    }
-
-                    if (value.Length > 4)
-                    {
-                        var val = value[4];
-                        ApnIndex5 = val.ApnIndex;
-                        AuthSecType5 = val.AuthSecType;
-                        ImsServiceInfo5 = val.ImsServiceInfo;
-                        IpTypeInfo5 = val.IpTypeInfo;
-                        Rat5 = val.Rat;
-                    }
-
-                    if (value.Length > 5)
-                    {
-                        var val = value[5];
-                        ApnIndex6 = val.ApnIndex;
-                        AuthSecType6 = val.AuthSecType;
-                        ImsServiceInfo6 = val.ImsServiceInfo;
-                        IpTypeInfo6 = val.IpTypeInfo;
-                        Rat6 = val.Rat;
-                    }
-
-                    if (value.Length > 6)
-                    {
-                        var val = value[6];
-                        ApnIndex7 = val.ApnIndex;
-                        AuthSecType7 = val.AuthSecType;
-                        ImsServiceInfo7 = val.ImsServiceInfo;
-                        IpTypeInfo7 = val.IpTypeInfo;
-                        Rat7 = val.Rat;
-                    }
-
-                    if (value.Length > 7)
-                    {
-                        var val = value[7];
-                        ApnIndex8 = val.ApnIndex;
-                        AuthSecType8 = val.AuthSecType;
-                        ImsServiceInfo8 = val.ImsServiceInfo;
-                        IpTypeInfo8 = val.IpTypeInfo;
-                        Rat8 = val.Rat;
-                    }
-
-                    if (value.Length > 8)
-                    {
-                        var val = value[8];
-                        ApnIndex9 = val.ApnIndex;
-                        AuthSecType9 = val.AuthSecType;
-                        ImsServiceInfo9 = val.ImsServiceInfo;
-                        IpTypeInfo9 = val.IpTypeInfo;
-                        Rat9 = val.Rat;
-                    }
-
-                    if (value.Length > 9)
-                    {
-                        var val = value[9];
-                        ApnIndex10 = val.ApnIndex;
-                        AuthSecType10 = val.AuthSecType;
-                        ImsServiceInfo10 = val.ImsServiceInfo;
-                        IpTypeInfo10 = val.IpTypeInfo;
-                        Rat10 = val.Rat;
-                    }
-                }
-            }
-        }
-
-        [JsonIgnore]
-        [FieldOrder(52)]
-        public ushort RatApnFallback1 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(53)]
-        public ushort ServicePriorityWwan1 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(54)]
-        public ushort RatApnFallback2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(55)]
-        public ushort ServicePriorityWwan2 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(56)]
-        public ushort RatApnFallback3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(57)]
-        public ushort ServicePriorityWwan3 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(58)]
-        public ushort RatApnFallback4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(59)]
-        public ushort ServicePriorityWwan4 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(60)]
-        public ushort RatApnFallback5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(61)]
-        public ushort ServicePriorityWwan5 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(62)]
-        public ushort RatApnFallback6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(63)]
-        public ushort ServicePriorityWwan6 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(64)]
-        public ushort RatApnFallback7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(65)]
-        public ushort ServicePriorityWwan7 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(66)]
-        public ushort RatApnFallback8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(67)]
-        public ushort ServicePriorityWwan8 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(68)]
-        public ushort RatApnFallback9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(69)]
-        public ushort ServicePriorityWwan9 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(70)]
-        public ushort RatApnFallback10 { get; set; }
-
-        [JsonIgnore]
-        [FieldOrder(71)]
-        public ushort ServicePriorityWwan10 { get; set; }
-
-        [FieldOrder(72)]
-        public QpImsRegConfigDbItem2[] Items2
-        {
-            get =>
-                new[]
-                {
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback1,
-                        ServicePriorityWwan = ServicePriorityWwan1
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback2,
-                        ServicePriorityWwan = ServicePriorityWwan2
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback3,
-                        ServicePriorityWwan = ServicePriorityWwan3
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback4,
-                        ServicePriorityWwan = ServicePriorityWwan4
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback5,
-                        ServicePriorityWwan = ServicePriorityWwan5
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback6,
-                        ServicePriorityWwan = ServicePriorityWwan6
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback7,
-                        ServicePriorityWwan = ServicePriorityWwan7
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback8,
-                        ServicePriorityWwan = ServicePriorityWwan8
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback9,
-                        ServicePriorityWwan = ServicePriorityWwan9
-                    },
-                    new QpImsRegConfigDbItem2
-                    {
-                        RatApnFallback = RatApnFallback10,
-                        ServicePriorityWwan = ServicePriorityWwan10
-                    }
-                };
-            set
-            {
-                if (value != null)
-                {
-                    if (value.Length > 0)
-                    {
-                        var val = value[0];
-                        RatApnFallback1 = val.RatApnFallback;
-                        ServicePriorityWwan1 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 1)
-                    {
-                        var val = value[1];
-                        RatApnFallback2 = val.RatApnFallback;
-                        ServicePriorityWwan2 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 2)
-                    {
-                        var val = value[2];
-                        RatApnFallback3 = val.RatApnFallback;
-                        ServicePriorityWwan3 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 3)
-                    {
-                        var val = value[3];
-                        RatApnFallback4 = val.RatApnFallback;
-                        ServicePriorityWwan4 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 4)
-                    {
-                        var val = value[4];
-                        RatApnFallback5 = val.RatApnFallback;
-                        ServicePriorityWwan5 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 5)
-                    {
-                        var val = value[5];
-                        RatApnFallback6 = val.RatApnFallback;
-                        ServicePriorityWwan6 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 6)
-                    {
-                        var val = value[6];
-                        RatApnFallback7 = val.RatApnFallback;
-                        ServicePriorityWwan7 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 7)
-                    {
-                        var val = value[7];
-                        RatApnFallback8 = val.RatApnFallback;
-                        ServicePriorityWwan8 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 8)
-                    {
-                        var val = value[8];
-                        RatApnFallback9 = val.RatApnFallback;
-                        ServicePriorityWwan9 = val.ServicePriorityWwan;
-                    }
-
-                    if (value.Length > 9)
-                    {
-                        var val = value[9];
-                        RatApnFallback10 = val.RatApnFallback;
-                        ServicePriorityWwan10 = val.ServicePriorityWwan;
-                    }
-                }
-            }
-        }
-
-        [JsonIgnore]
-        [FieldOrder(73)]
         public ushort AllowedImsSrvOnWlan { get; set; }
 
         [Ignore]
@@ -84827,100 +84393,40 @@ namespace EfsTools.Items.Efs
         }
 
 
-        [FieldOrder(74)]
+        [FieldOrder(4)]
         public byte AddAllFTs { get; set; }
 
 
-        [FieldOrder(75)]
+        [FieldOrder(5)]
         public byte AcsPriority { get; set; }
 
 
-        [FieldOrder(76)]
+        [FieldOrder(6)]
         public byte ISimPriority { get; set; }
 
 
-        [FieldOrder(77)]
+        [FieldOrder(7)]
         public byte NvPriority { get; set; }
 
 
-        [FieldOrder(78)]
+        [FieldOrder(8)]
         public byte PcoPriority { get; set; }
 
 
-        [FieldOrder(79)]
+        [FieldOrder(9)]
         public short ImsServiceStatus { get; set; }
 
-        [JsonIgnore]
-        [FieldCount(50)]
-        [FieldOrder(80)]
-        public byte[] ApnName1 { get; set; }
-
-        [JsonIgnore]
-        [Ignore]
-        public string ApnName1String
-        {
-            get => StringUtils.GetString(ApnName1);
-            set => ApnName1 = StringUtils.GetBytes(value, 50);
-        }
-
-        [JsonIgnore]
-        [FieldCount(50)]
-        [FieldOrder(81)]
-        public byte[] ApnName2 { get; set; }
-
-        [JsonIgnore]
-        [Ignore]
-        public string ApnName2String
-        {
-            get => StringUtils.GetString(ApnName2);
-            set => ApnName2 = StringUtils.GetBytes(value, 50);
-        }
-
-        [JsonIgnore]
-        [FieldCount(50)]
-        [FieldOrder(82)]
-        public byte[] ApnName3 { get; set; }
-
-        [JsonIgnore]
-        [Ignore]
-        public string ApnName3String
-        {
-            get => StringUtils.GetString(ApnName3);
-            set => ApnName3 = StringUtils.GetBytes(value, 50);
-        }
-
-        [FieldOrder(83)]
+        
+        [FieldCount(3)]
+        [FieldLength(50)]
+        [FieldOrder(10)]
         public string[] ApnNames
         {
-            get =>
-                new[]
-                {
-                    ApnName1String, ApnName2String, ApnName3String
-                };
-            set
-            {
-                if (value != null)
-                {
-                    if (value.Length > 0)
-                    {
-                        ApnName1String = value[0];
-                    }
-
-                    if (value.Length > 1)
-                    {
-                        ApnName2String = value[1];
-                    }
-
-                    if (value.Length > 2)
-                    {
-                        ApnName3String = value[2];
-                    }
-                }
-            }
+            get; set;
         }
 
         [FieldCount(754)]
-        [FieldOrder(84)]
+        [FieldOrder(11)]
         public byte[] ReservedBytes { get; set; }
     }
 
@@ -85563,28 +85069,28 @@ namespace EfsTools.Items.Efs
 
 
         [FieldOrder(13)]
-        public byte DisableUt { get; set; }
+        public byte? DisableUt { get; set; }
 
 
         [FieldOrder(14)]
-        public byte GbaTlsMode { get; set; }
+        public byte? GbaTlsMode { get; set; }
 
 
         [FieldOrder(15)]
-        public ushort PdnHysTimerValue { get; set; }
+        public ushort? PdnHysTimerValue { get; set; }
 
 
         [FieldOrder(16)]
-        public uint RatMaskValue { get; set; }
+        public uint? RatMaskValue { get; set; }
 
 
         [FieldOrder(17)]
-        public byte Apn2IpAddrType { get; set; }
+        public byte? Apn2IpAddrType { get; set; }
 
         [JsonIgnore]
         [FieldCount(64)]
         [FieldOrder(18)]
-        public byte[] Apn2ApnName { get; set; }
+        public byte[]? Apn2ApnName { get; set; }
 
         [Ignore]
         public string Apn2ApnNameString
@@ -87586,7 +87092,7 @@ namespace EfsTools.Items.Efs
 		[FieldOrder(0)]
 		public byte Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string StringValue
         {
             get => $"{(SmsDomainPrefValue) Value}";
@@ -87692,7 +87198,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string StringValue
         {
             get => $"{(SupplementServiceDomainPrefValue) Value}";
@@ -89662,7 +89168,7 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Value { get; set; }
 
-        [FieldOrder(1)]
+        [Ignore]
         public string StringValue
         {
             get => $"{(VoiceDomainType) Value}";
@@ -95193,6 +94699,7 @@ namespace EfsTools.Items.Efs
         public VariantMarker VariantDataMarker { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023761", true, 0xE1FF)]
     [Attributes(9)]
@@ -95203,6 +94710,7 @@ namespace EfsTools.Items.Efs
         public QmslRxSpurTableNvType[] SpurInfo { get; set; }
     }
 
+    [IgnoreItem]
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00023762", true, 0xE1FF)]
     [Attributes(9)]
@@ -95219,6 +94727,7 @@ namespace EfsTools.Items.Efs
     public sealed class WcdmaImtPaSmpsAptNumPwrList : FourByteItemBase
     {
     }
+
 
     [Serializable]
     [EfsFile("/nv/item_files/rfnv/00020624", true, 0xE1FF)]
@@ -95498,7 +95007,8 @@ namespace EfsTools.Items.Efs
         [FieldOrder(0)]
         public byte Value { get; set; }
 
-        [FieldOrder(1)]
+        
+        [Ignore]
         public string StringValue
         {
             get => $"{(WlanOffloadConfigValue) Value}";

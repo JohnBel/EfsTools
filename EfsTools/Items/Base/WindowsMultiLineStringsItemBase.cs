@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using BinarySerialization;
 using EfsTools.Items.Base;
 using EfsTools.Attributes;
@@ -8,23 +9,32 @@ using Newtonsoft.Json;
 namespace EfsTools.Items.Base
 {
     [Serializable]
-    public class WindowsMultiLineStringsItemBase : ItemBase
+    public class WindowsMultiLineStringsItemBase : ItemBase, IBinarySerializable
     {
         [Ignore]
         public string[] Values
         {
-            get => StringUtils.GetStringLines(RawValue, LineEnding.Windows);
-            set => RawValue = StringUtils.GetString(value, LineEnding.Windows);
+            get; set;
         }
 
 
-        private string _rawValue;
-        [JsonIgnore]
-        [FieldOffset(0)]
-        public string RawValue
+        public void Serialize(Stream stream, Endianness endianness, BinarySerializationContext serializationContext)
         {
-            get => _rawValue;
-            set => _rawValue = value;
+            if (Values != null)
+            {
+                using var writer = new StreamWriter(stream);
+                var txt = StringUtils.GetString(Values, LineEnding.Windows);
+                writer.Write(txt);
+                writer.Flush();
+                writer.Close();
+            }
+        }
+
+        public void Deserialize(Stream stream, Endianness endianness, BinarySerializationContext serializationContext)
+        {
+            using var reader = new StreamReader(stream);
+            var txt = reader.ReadToEnd();
+            Values = StringUtils.GetStringLines(txt, LineEnding.Windows);
         }
     }
 }

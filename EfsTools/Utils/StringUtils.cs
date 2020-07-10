@@ -167,8 +167,11 @@ namespace EfsTools.Utils
                        
                         if (endLineBufIndex >= endLineString.Length)
                         {
-                            var str = data.Substring(index, beforeEndLineIndex - index);
-                            result.Add(str);
+                            if (index < data.Length)
+                            {
+                                var str = data.Substring(index, beforeEndLineIndex - index);
+                                result.Add(str);
+                            }
                             index = i + 1;
                             beforeEndLineIndex = i;
                             endLineBufIndex = 0;
@@ -180,6 +183,7 @@ namespace EfsTools.Utils
                 {
                     var str = data.Substring(index, data.Length - index);
                     result.Add(str);
+                    index = data.Length;
                 }
             }
 
@@ -203,18 +207,14 @@ namespace EfsTools.Utils
         {
             var endLineString = GetLineEndingString(lineEnding);
             var result = new StringBuilder();
-            var addComma = false;
             foreach (var line in lines)
             {
-                if (addComma)
-                {
-                    result.Append(endLineString);
-                }
-                addComma = true;
                 result.Append(line);
+                result.Append(endLineString);
             }
 
-            return result.ToString();
+            var res = result.ToString();
+            return res;
         }
 
         public static string GetStringWithZero(byte[] data)

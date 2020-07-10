@@ -30,13 +30,13 @@ namespace EfsTools.Items
                     if (Debugger.IsAttached)
                     {
                         _binarySerializer.MemberSerializing += (object sender, MemberSerializingEventArgs e)
-                            => Debugger.Log(0, "info", $"Serializion-Start: m: {e.MemberName}, offset: {e.Offset}\n");
+                            => Debugger.Log(0, "info", $"StartSerialization: t: {e.Context.ParentType.Name}, m: {e.MemberName}, offset: {e.Offset}\n");
                         _binarySerializer.MemberSerialized += (object sender, MemberSerializedEventArgs e)
-                            => Debugger.Log(0, "info", $"Serializion-End: m: {e.MemberName}, v: {e.Value}, offset: {e.Offset}\n");
+                            => Debugger.Log(0, "info", $"EndSerialization: t: {e.Context.ParentType.Name}, m: {e.MemberName}, v: {e.Value}, offset: {e.Offset}\n");
                         _binarySerializer.MemberDeserializing += (object sender, MemberSerializingEventArgs e)
-                            => Debugger.Log(0, "info", $"Deserializion-Start: m: {e.MemberName}, offset: {e.Offset}\n");
+                            => Debugger.Log(0, "info", $"StartDeserialization: t: {e.Context.ParentType.Name}, m: {e.MemberName}, offset: {e.Offset}\n");
                         _binarySerializer.MemberDeserialized += (object sender, MemberSerializedEventArgs e)
-                            => Debugger.Log(0, "info", $"Deserializion-End: m: {e.MemberName}, v: {e.Value}, offset: {e.Offset}\n");
+                            => Debugger.Log(0, "info", $"EndDeserialization: t: {e.Context.ParentType.Name}, m: {e.MemberName}, v: {e.Value}, offset: {e.Offset}\n");
 
                     }
                 }

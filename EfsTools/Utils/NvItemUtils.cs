@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using EfsTools.Items;
 using EfsTools.Qualcomm;
@@ -155,7 +156,7 @@ namespace EfsTools.Utils
             }
         }
 
-        public static Dictionary<string, object> LocalLoadItems(string directoryPath, HashSet<string> configItems)
+        public static Dictionary<string, object> LocalLoadItems(string directoryPath, HashSet<string> configItems, int subscription)
         {
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
@@ -163,12 +164,18 @@ namespace EfsTools.Utils
                 var itemType = ItemsFactory.GetEfsFileType(fileUnixPath);
                 if (configItems == null || configItems.Contains(itemType.Name))
                 {
-                    var filePath = fileUnixPath.Replace('/', '\\');
+                    var filePath = GetEfsFilePath(fileUnixPath, subscription);
+                    filePath = filePath.Replace('/', '\\');
                     var fileAttribute = EfsFileAttributeUtils.Get(itemType);
                     var path = fileAttribute == null
                         ? $"{directoryPath}{filePath}"
                         : PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions,
                             fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File, false);
+                    if (!File.Exists(path))
+                    {
+                        path = $"{directoryPath}{filePath}";
+                        path = PathUtils.FindFile($"{path}__");
+                    }
                     if (!File.Exists(path))
                     {
                         path = $"{directoryPath}{filePath}";
@@ -182,6 +189,11 @@ namespace EfsTools.Utils
                             items.Add(itemType.Name, item);
                             stream.Close();
                         }
+                    }
+                    else
+                    {
+                        var newItem = Activator.CreateInstance(itemType);
+                        items.Add(itemType.Name, newItem);
                     }
                 }
             }
@@ -202,20 +214,26 @@ namespace EfsTools.Utils
                             stream.Close();
                         }
                     }
+                    else
+                    {
+                        var newItem = Activator.CreateInstance(itemType);
+                        items.Add(itemType.Name, newItem);
+                    }
                 }
             }
 
             return items;
         }
 
-        public static Dictionary<string, object> LocalLoadItems(string directoryPath)
+        public static Dictionary<string, object> LocalLoadItems(string directoryPath, int subscription)
         {
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
             {
                 var itemType = ItemsFactory.GetEfsFileType(fileUnixPath);
                 var fileAttribute = EfsFileAttributeUtils.Get(itemType);
-                var filePath = fileUnixPath.Replace('/', '\\');
+                var filePath = GetEfsFilePath(fileUnixPath, subscription);
+                filePath = filePath.Replace('/', '\\');
                 var path = fileAttribute == null
                     ? $"{directoryPath}{filePath}"
                     : PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions,
@@ -223,11 +241,11 @@ namespace EfsTools.Utils
                 if (!File.Exists(path))
                 {
                     path = $"{directoryPath}{filePath}";
+                    path = PathUtils.FindFile($"{path}__");
                 }
-
                 if (!File.Exists(path))
                 {
-                    path = PathUtils.FindFile(path);
+                    path = $"{directoryPath}{filePath}";
                 }
 
                 if (File.Exists(path))
@@ -260,47 +278,53 @@ namespace EfsTools.Utils
             return items;
         }
 
+        public static void LocalSaveItem(string directoryPath, int subscription, object item,
+            Logger logger)
+        {
+            var type = item.GetType();
+            var fileAttribute = EfsFileAttributeUtils.Get(type);
+            if (fileAttribute == null)
+            {
+                var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
+                if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= ushort.MaxValue)
+                {
+                    var nvItemFileName = PathUtils.GetNvItemFileName((ushort)nvItemIdAttribute.Id);
+                    var path = Path.Combine(directoryPath, nvItemFileName);
+                    using (var stream = FileUtils.LocalCreateWrite(path))
+                    {
+                        ItemsBinarySerializer.Serialize(item, stream);
+                        stream.Flush();
+                        stream.Close();
+                    }
+                }
+            }
+            else
+            {
+                var filePath = GetEfsFilePath(fileAttribute.Path, subscription);
+                var entryType = fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File;
+                var path = PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions, entryType,
+                    false);
+
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+
+                using (var stream = FileUtils.LocalCreateWrite(path))
+                {
+                    ItemsBinarySerializer.Serialize(item, stream);
+                    stream.Flush();
+                    stream.Close();
+                }
+            }
+        }
+
         public static void LocalSaveItems(string directoryPath, int subscription, Dictionary<string, object> items,
             Logger logger)
         {
             foreach (var item in items)
             {
-                var type = item.Value.GetType();
-                var fileAttribute = EfsFileAttributeUtils.Get(type);
-                if (fileAttribute == null)
-                {
-                    var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
-                    if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= ushort.MaxValue)
-                    {
-                        var nvItemFileName = PathUtils.GetNvItemFileName((ushort) nvItemIdAttribute.Id);
-                        var path = Path.Combine(directoryPath, nvItemFileName);
-                        using (var stream = FileUtils.LocalCreateWrite(path))
-                        {
-                            ItemsBinarySerializer.Serialize(item.Value, stream);
-                            stream.Flush();
-                            stream.Close();
-                        }
-                    }
-                }
-                else
-                {
-                    var filePath = GetEfsFilePath(fileAttribute.Path, subscription);
-                    var entryType = fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File;
-                    var path = PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions, entryType,
-                        false);
-
-                    if (File.Exists(path))
-                    {
-                        File.Delete(path);
-                    }
-
-                    using (var stream = FileUtils.LocalCreateWrite(path))
-                    {
-                        ItemsBinarySerializer.Serialize(item.Value, stream);
-                        stream.Flush();
-                        stream.Close();
-                    }
-                }
+                LocalSaveItem(directoryPath, subscription, item.Value, logger);
             }
         }
 

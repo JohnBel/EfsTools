@@ -1,5 +1,6 @@
 using System;
 using BinarySerialization;
+using Newtonsoft.Json;
 
 namespace EfsTools.Items.Base
 {
@@ -12,10 +13,12 @@ namespace EfsTools.Items.Base
             ItemsCount = itemsCount;
         }
 
+        [JsonIgnore]
         [Ignore]
         public int ItemsCount
         {
             get;
+            set;
         }
 
         [FieldOffset(0)]

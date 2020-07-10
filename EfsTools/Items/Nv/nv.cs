@@ -265,7 +265,9 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class Banner : ItemBase
     {
-        [JsonIgnore] [FieldCount(13)] private byte[] _value;
+        [JsonIgnore] 
+        [FieldCount(13)] 
+        private byte[] _value;
 
         [Ignore]
         public string ValueString
@@ -30069,7 +30071,8 @@ namespace EfsTools.Items.Nv
     [Attributes(9)]
     public sealed class SdConfigurableItems : ItemBase
     {
-        [FieldCount(25)] private readonly uint[] _items = new uint[25];
+        [FieldCount(25)] 
+        private readonly uint[] _items = new uint[25];
 
         [Required]
         [FieldOrder(0)]

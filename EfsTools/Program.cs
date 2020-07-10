@@ -14,7 +14,8 @@ namespace EfsTools
             //args = args.Skip(1).ToArray();
             args = new[]
             {
-                "getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0_${date:format=yyyyMMdd_HHmmss}.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_125947"
+                "setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\new_backup_20190307_130039"
+                //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_130039"
             };
             Logger logger = null;
             try

@@ -24,15 +24,22 @@ namespace EfsTools.Items
 
         public static void DeserializeItems(Dictionary<string, object> items, TextReader reader)
         {
-            var str = reader.ReadToEnd();
-            var jsonObj = (JObject) JsonConvert.DeserializeObject(str);
-            foreach (var jsonItem in jsonObj)
+            using (var jsonReader = new JsonTextReader(reader))
             {
-                var type = jsonItem.Key;
-                if (items.TryGetValue(type, out var item))
+                var serializer = JsonSerializer.CreateDefault();
+
+                var jsonObj = (JObject) serializer.Deserialize(jsonReader, typeof(JObject));
+                if (jsonObj != null)
                 {
-                    var data = jsonItem.Value;
-                    DeserializeItem(item, data);
+                    foreach (var jsonItem in jsonObj)
+                    {
+                        var type = jsonItem.Key;
+                        if (items.TryGetValue(type, out var item))
+                        {
+                            var data = jsonItem.Value;
+                            DeserializeItem(item, data);
+                        }
+                    }
                 }
             }
         }
@@ -41,23 +48,36 @@ namespace EfsTools.Items
         {
             var itemType = item.GetType();
             var json = data.ToString();
-            var sourceItem = JsonConvert.DeserializeObject(json, itemType);
+            //var sourceItem = data.Values();
             foreach (JProperty it in data)
             {
-                var propName = it.Name;
-                SetProperty(item, sourceItem, propName);
+                SetProperty(item, it);
             }
         }
 
-        private static void SetProperty(object obj, object source, string propName)
+        private static void SetProperty(object obj, JProperty jProperty)
         {
             var type = obj.GetType();
-            var propInfo = type.GetProperty(propName);
+            var propInfo = type.GetProperty(jProperty.Name);
             if (propInfo != null)
             {
-                var val = propInfo.GetValue(source);
-                propInfo.SetValue(obj, val);
+                var propType = propInfo.PropertyType;
+                if (propType != null)
+                {
+                    var val = ConvertTo(jProperty.Value, propType);
+                    propInfo.SetValue(obj, val);
+                }
             }
+        }
+
+        private static object ConvertTo(JToken value, Type type)
+        {
+            object result = value.ToObject(type);
+            /*if (value.HasValues)
+            {
+                result = result;
+            }*/
+            return result;
         }
     }
 }
