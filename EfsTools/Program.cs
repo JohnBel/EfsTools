@@ -16,6 +16,7 @@ namespace EfsTools
             {
                 "setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\new_backup_20190307_130039"
                 //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_130039"
+                //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_130039", "-m", "QipcallConfigItems"
             };
             Logger logger = null;
             try

@@ -128,6 +128,11 @@ namespace EfsTools.Items.Base
     {
         public SixtyFourItemsBase() : base(64) { }
     }
+	
+	public class OneHundredTwentySevenItemsBase<T> : ItemsBase<T>
+    {
+        public OneHundredTwentySevenItemsBase() : base(127) { }
+    }
 
     public class OneHundredTwentyEightItemsBase<T> : ItemsBase<T>
     {

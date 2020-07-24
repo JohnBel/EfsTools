@@ -82491,14 +82491,20 @@ namespace EfsTools.Items.Efs
         public byte VideoMediaProfileMode { get; set; }
 
         [FieldOrder(13)]
-        public byte VideoCalls { get; set; }
+        public byte VtCallingEnabled { get; set; }
 
         [FieldOrder(14)]
-        public byte MobileData { get; set; }
+        public byte MobileDataEnabled { get; set; }
+        
+        [FieldOrder(15)]
+        public byte VolteDisabled { get; set; }
+        
+        [FieldOrder(16)]
+        public byte CvoEnabled { get; set; }
 
         [JsonIgnore]
         [FieldCount(128)]
-        [FieldOrder(15)]
+        [FieldOrder(17)]
         public byte[] AudioFeatureTag { get; set; }
 
         [Ignore]
@@ -82510,7 +82516,7 @@ namespace EfsTools.Items.Efs
 
         [JsonIgnore]
         [FieldCount(128)]
-        [FieldOrder(16)]
+        [FieldOrder(18)]
         public byte[] VideoFeatureTag { get; set; }
 
         [Ignore]
@@ -82520,8 +82526,8 @@ namespace EfsTools.Items.Efs
             set => VideoFeatureTag = StringUtils.GetBytes(value, 128);
         }
 
-        [FieldCount(223)]
-        [FieldOrder(17)]
+        [FieldCount(221)]
+        [FieldOrder(19)]
         public byte[] ReservedBytes { get; set; }
     }
 
@@ -82860,7 +82866,7 @@ namespace EfsTools.Items.Efs
         public byte Version { get; set; }
 
         [JsonIgnore]
-        [FieldCount(192)]
+        [FieldCount(24)]
         [FieldOrder(1)]
         public byte[] CellId { get; set; }
 
@@ -82868,7 +82874,7 @@ namespace EfsTools.Items.Efs
         public string CellIdString
         {
             get => StringUtils.GetString(CellId);
-            set => CellId = StringUtils.GetBytes(value, 192);
+            set => CellId = StringUtils.GetBytes(value, 24);
         }
 
     }
@@ -84425,7 +84431,7 @@ namespace EfsTools.Items.Efs
             get; set;
         }
 
-        [FieldCount(754)]
+        [FieldCount(854)]
         [FieldOrder(11)]
         public byte[] ReservedBytes { get; set; }
     }
@@ -86120,183 +86126,77 @@ namespace EfsTools.Items.Efs
 
 
         [FieldOrder(1)]
-        public byte NumH264 { get; set; }
+        public byte PreferredFrameRate { get; set; }
 
 
         [FieldOrder(2)]
-        public byte H263ExcludeConfigFromOffer { get; set; }
+        public ushort PreferredBitRate { get; set; }
 
 
         [FieldOrder(3)]
-        public ushort H263PayloadType { get; set; }
+        public byte PreferredResolution { get; set; }
 
 
         [FieldOrder(4)]
-        public byte H263Profile { get; set; }
+        public byte PreferredProfileLevel { get; set; }
 
 
         [FieldOrder(5)]
-        public byte H263PreferredProfileLevel { get; set; }
+        public byte MinFrameRate { get; set; }
 
 
         [FieldOrder(6)]
-        public byte H263PreferredResolution { get; set; }
+        public byte MaxFrameRate { get; set; }
 
 
         [FieldOrder(7)]
-        public uint H263ResolutionsSupported { get; set; }
+        public ushort MinBitRate { get; set; }
 
 
         [FieldOrder(8)]
-        public ushort H263PreferredBitRate { get; set; }
+        public ushort MaxBitRate { get; set; }
 
-
-        [FieldOrder(9)]
-        public ushort H263MinBitRate { get; set; }
-
-
-        [FieldOrder(10)]
-        public ushort H263MaxBitRate { get; set; }
-
-
+        [FieldOrder(9)]  
+        public uint ResolutionsSupported { get; set; }
+        
+        [FieldOrder(10)]  
+        public uint MinProfileLevelsPerResolution { get; set; }
+        
         [FieldOrder(11)]
+        public byte H263Profile { get; set; }
+        
+        [FieldOrder(12)]
         public byte H263PreferredFrameRate { get; set; }
 
-
-        [FieldOrder(12)]
-        public byte H263MinFrameRate { get; set; }
-
-
-        [FieldOrder(13)]
-        public byte H263MaxFrameRate { get; set; }
-
-
+        [FieldOrder(13)]  
+        public ushort H263PreferredBitRate { get; set; }
+        
         [FieldOrder(14)]
-        public ushort H263Ipv4AsValue { get; set; }
-
+        public byte H263PreferredResolution { get; set; }
 
         [FieldOrder(15)]
-        public ushort H263Ipv6AsValue { get; set; }
-
-
+        public byte H263PreferredProfileLevel { get; set; }
+        
         [FieldOrder(16)]
-        public byte H264ExcludeConfigFromOffer1 { get; set; }
-
+        public byte H263MinFrameRate { get; set; }
 
         [FieldOrder(17)]
-        public ushort H264PayloadTypePacketization01 { get; set; }
-
+        public byte H263MaxFrameRate { get; set; }
 
         [FieldOrder(18)]
-        public ushort H264PayloadTypePacketization11 { get; set; }
-
+        public ushort H263MinBitRate { get; set; }
 
         [FieldOrder(19)]
-        public byte H264Profile1 { get; set; }
+        public ushort H263MaxBitRate { get; set; }
 
-
-        [FieldOrder(20)]
-        public byte H264PreferredProfileLevel1 { get; set; }
-
-
-        [FieldOrder(21)]
-        public byte H264PreferredResolution1 { get; set; }
-
+        [FieldOrder(20)]  
+        public uint H263ResolutionsSupported { get; set; }
+        
+        [FieldOrder(21)]  
+        public uint H263MinProfileLevelsPerResolution { get; set; }        
 
         [FieldOrder(22)]
-        public uint H264ResolutionsSupported1 { get; set; }
-
-
-        [FieldOrder(23)]
-        public ushort H264PreferredBitRate1 { get; set; }
-
-
-        [FieldOrder(24)]
-        public ushort H264MinBitRate1 { get; set; }
-
-
-        [FieldOrder(25)]
-        public ushort H264MaxBitRate1 { get; set; }
-
-
-        [FieldOrder(26)]
-        public byte H264PreferredFrameRate1 { get; set; }
-
-
-        [FieldOrder(27)]
-        public byte H264MinFrameRate1 { get; set; }
-
-
-        [FieldOrder(28)]
-        public byte H264MaxFrameRate1 { get; set; }
-
-
-        [FieldOrder(29)]
-        public ushort H264Ipv4AsValue1 { get; set; }
-
-
-        [FieldOrder(30)]
-        public ushort H264Ipv6AsValue1 { get; set; }
-
-
-        [FieldOrder(31)]
-        public byte H264ExcludeConfigFromOffer2 { get; set; }
-
-
-        [FieldOrder(32)]
-        public ushort H264PayloadTypePacketization02 { get; set; }
-
-
-        [FieldOrder(33)]
-        public ushort H264PayloadTypePacketization12 { get; set; }
-
-
-        [FieldOrder(34)]
-        public byte H264Profile2 { get; set; }
-
-
-        [FieldOrder(35)]
-        public byte H264PreferredProfileLevel2 { get; set; }
-
-
-        [FieldOrder(36)]
-        public byte H264PreferredResolution2 { get; set; }
-
-
-        [FieldOrder(37)]
-        public uint H264ResolutionsSupported2 { get; set; }
-
-
-        [FieldOrder(38)]
-        public ushort H264PreferredBitRate2 { get; set; }
-
-
-        [FieldOrder(39)]
-        public ushort H264MinBitRate2 { get; set; }
-
-
-        [FieldOrder(40)]
-        public ushort H264MaxBitRate2 { get; set; }
-
-
-        [FieldOrder(41)]
-        public byte H264PreferredFrameRate2 { get; set; }
-
-
-        [FieldOrder(42)]
-        public byte H264MinFrameRate2 { get; set; }
-
-
-        [FieldOrder(43)]
-        public byte H264MaxFrameRate2 { get; set; }
-
-
-        [FieldOrder(44)]
-        public ushort H264Ipv4AsValue2 { get; set; }
-
-
-        [FieldOrder(45)]
-        public ushort H264Ipv6AsValue2 { get; set; }
+        public byte H264Profile { get; set; }
     }
 
     [Serializable]

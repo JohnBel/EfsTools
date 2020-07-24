@@ -156,7 +156,7 @@ namespace EfsTools.Utils
             }
         }
 
-        public static Dictionary<string, object> LocalLoadItems(string directoryPath, HashSet<string> configItems, int subscription)
+        public static Dictionary<string, object> LocalLoadItems(string directoryPath, int subscription, HashSet<string> configItems)
         {
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
