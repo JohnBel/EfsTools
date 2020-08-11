@@ -14,6 +14,7 @@ namespace EfsTools.Items.Base
         }
     }
 
+    public class BoolItemBase : OneValueItemBase<byte> { }
     public class ByteItemBase : OneValueItemBase<byte> { }
     public class SByteItemBase : OneValueItemBase<sbyte> { }
     public class Int16ItemBase : OneValueItemBase<short> { }

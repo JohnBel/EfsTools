@@ -94976,4 +94976,17184 @@ namespace EfsTools.Items.Efs
         [FieldOrder(5)]
         public byte Field6 { get; set; }
     }
+    
+    [Serializable]
+    public sealed class RssiOffsetsItem
+    {
+        [FieldOrder(0)]
+        public ushort RssiOffSet0 { get; set; }
+        [FieldOrder(1)]
+        public ushort RssiOffSet1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65613)]
+    [EfsFile("/nv/item_files/wlan/rssi_offsets", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RssiOffsets : TwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdQualThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDQUALTHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65724)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_qual_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdQualThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdTprThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDTPRTHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65725)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_tpr_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdTprThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdRscpThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDRSCPTHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65726)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_rscp_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdRscpThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class GnssXtratFeatureControlItem
+    {
+        [FieldOrder(0)]
+        public byte GnssXtratFeatureControl { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65733)]
+    [EfsFile("/nv/item_files/gps/cgps/ulp/tle/gnss_xtrat_feature_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class GnssXtratFeatureControl : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class GnssXtratClientTokenItem
+    {
+        [FieldOrder(0)]
+        public uint GnssXtratClientToken { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65740)]
+    [EfsFile("/cgps/nv/item_files/ulp/tle/gnss_xtrat_client_token", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class GnssXtratClientToken : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcIgnoreCellBarReserveStatusItem
+    {
+        [FieldOrder(0)]
+        public bool WCDMARRCIGNORECELLBARRESERVESTATUS { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65782)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_ignore_cell_bar_reserve_status", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcIgnoreCellBarReserveStatus : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class DefaultCountryItem
+    {
+        [FieldOrder(0)]
+        public byte RegDomain { get; set; }
+        [FieldOrder(1)]
+        public char[] CountryCode { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65817)]
+    [EfsFile("/nv/item_files/wlan/default_country", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class DefaultCountry : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte RegDomain { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(3)]
+        public char[] CountryCode { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcFreqLockItemItem
+    {
+        [FieldOrder(0)]
+        public ushort WCDMARRCLOCKINGFREQVALUE { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65818)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_freq_lock_item", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcFreqLockItem : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcSnow3gEnabledItem
+    {
+        [FieldOrder(0)]
+        public bool WCDMARRCSNOW3GENABLED { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65820)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_snow3g_enabled", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcSnow3gEnabled : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class FieldCalVersionItem
+    {
+        [FieldOrder(0)]
+        public uint TcxomgrFieldCalVersion { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65822)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/field_cal_version", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FieldCalVersion : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class FactoryCalVersionItem
+    {
+        [FieldOrder(0)]
+        public byte FactoryCalVersion { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65823)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/factory_cal_version", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FactoryCalVersion : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcSetSrb2ActTimeItem
+    {
+        [FieldOrder(0)]
+        public bool WCDMARRCSETSRB2ACTTIMEINSMC { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65825)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_set_srb2_act_time", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcSetSrb2ActTime : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class EnableFdnControlItem
+    {
+        [FieldOrder(0)]
+        public bool EnableFdnControl { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(65887)]
+    [EfsFile("/nv/item_files/modem/sms/enable_fdn_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class EnableFdnControl : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RedialCfgItem
+    {
+        [FieldOrder(0)]
+        public uint RedialInterval { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66006)]
+    [EfsFile("/nv/item_files/modem/uim/gstk/redial_cfg", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RedialCfg : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class AcqDbItem
+    {
+        [FieldOrder(0)]
+        public uint CurrRdIndex { get; set; }
+        [FieldOrder(1)]
+        public uint CurrWrIndex { get; set; }
+        [FieldOrder(2)]
+        public bool LastEntryInvalid { get; set; }
+        [FieldOrder(3)]
+        public byte AcqListIndices0 { get; set; }
+        [FieldOrder(4)]
+        public byte AcqListIndices1 { get; set; }
+        [FieldOrder(5)]
+        public byte AcqListIndices2 { get; set; }
+        [FieldOrder(6)]
+        public byte AcqListIndices3 { get; set; }
+        [FieldOrder(7)]
+        public byte AcqListIndices4 { get; set; }
+        [FieldOrder(8)]
+        public byte AcqListIndices5 { get; set; }
+        [FieldOrder(9)]
+        public byte AcqListIndices6 { get; set; }
+        [FieldOrder(10)]
+        public byte AcqListIndices7 { get; set; }
+        [FieldOrder(11)]
+        public byte AcqListIndices8 { get; set; }
+        [FieldOrder(12)]
+        public byte AcqListIndices9 { get; set; }
+        [FieldOrder(13)]
+        public byte AcqListIndices10 { get; set; }
+        [FieldOrder(14)]
+        public byte AcqListIndices11 { get; set; }
+        [FieldOrder(15)]
+        public byte AcqListIndices12 { get; set; }
+        [FieldOrder(16)]
+        public byte AcqListIndices13 { get; set; }
+        [FieldOrder(17)]
+        public byte AcqListIndices14 { get; set; }
+        [FieldOrder(18)]
+        public byte AcqListIndices15 { get; set; }
+        [FieldOrder(19)]
+        public byte AcqListIndices16 { get; set; }
+        [FieldOrder(20)]
+        public byte AcqListIndices17 { get; set; }
+        [FieldOrder(21)]
+        public byte AcqListIndices18 { get; set; }
+        [FieldOrder(22)]
+        public byte AcqListIndices19 { get; set; }
+        [FieldOrder(23)]
+        public byte AcqListIndices20 { get; set; }
+        [FieldOrder(24)]
+        public byte AcqListIndices21 { get; set; }
+        [FieldOrder(25)]
+        public byte AcqListIndices22 { get; set; }
+        [FieldOrder(26)]
+        public byte AcqListIndices23 { get; set; }
+        [FieldOrder(27)]
+        public byte AcqListIndices24 { get; set; }
+        [FieldOrder(28)]
+        public byte AcqListIndices25 { get; set; }
+        [FieldOrder(29)]
+        public byte AcqListIndices26 { get; set; }
+        [FieldOrder(30)]
+        public byte AcqListIndices27 { get; set; }
+        [FieldOrder(31)]
+        public byte AcqListIndices28 { get; set; }
+        [FieldOrder(32)]
+        public byte AcqListIndices29 { get; set; }
+        [FieldOrder(33)]
+        public byte AcqListIndices30 { get; set; }
+        [FieldOrder(34)]
+        public byte AcqListIndices31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66009)]
+    [EfsFile("/nv/item_files/modem/tdscdma/rrc/acq_db", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class AcqDb : ItemBase
+    {
+        [FieldOrder(0)]
+        public uint CurrRdIndex { get; set; }
+
+        [FieldOrder(1)]
+        public uint CurrWrIndex { get; set; }
+
+        [FieldOrder(2)]
+        public bool LastEntryInvalid { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public byte[] AcqListIndices { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class AcqListItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public byte Mcc0 { get; set; }
+        [FieldOrder(1)]
+        public byte Mcc1 { get; set; }
+        [FieldOrder(2)]
+        public byte Mcc2 { get; set; }
+        [FieldOrder(3)]
+        public byte NumMncDigits { get; set; }
+        [FieldOrder(4)]
+        public byte Mnc0 { get; set; }
+        [FieldOrder(5)]
+        public byte Mnc1 { get; set; }
+        [FieldOrder(6)]
+        public byte Mnc2 { get; set; }
+        [FieldOrder(7)]
+        public uint Freq { get; set; }
+        [FieldOrder(8)]
+        public uint BandClass { get; set; }
+        [FieldOrder(9)]
+        public uint StatusMask { get; set; }
+        [FieldOrder(10)]
+        public uint CellId { get; set; }
+        [FieldOrder(11)]
+        public uint Cpid { get; set; }
+        [FieldOrder(12)]
+        public uint Lac { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class AcqListItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public byte Mcc0 { get; set; }
+        [FieldOrder(1)]
+        public byte Mcc1 { get; set; }
+        [FieldOrder(2)]
+        public byte Mcc2 { get; set; }
+        [FieldOrder(3)]
+        public byte NumMncDigits { get; set; }
+        [FieldOrder(4)]
+        public byte Mnc0 { get; set; }
+        [FieldOrder(5)]
+        public byte Mnc1 { get; set; }
+        [FieldOrder(6)]
+        public byte Mnc2 { get; set; }
+        [FieldOrder(7)]
+        public uint Freq { get; set; }
+        [FieldOrder(8)]
+        public uint BandClass { get; set; }
+        [FieldOrder(9)]
+        public uint StatusMask { get; set; }
+        [FieldOrder(10)]
+        public uint CellId { get; set; }
+        [FieldOrder(11)]
+        public uint Cpid { get; set; }
+        [FieldOrder(12)]
+        public uint Lac { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class AcqListItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public byte Mcc0 { get; set; }
+        [FieldOrder(1)]
+        public byte Mcc1 { get; set; }
+        [FieldOrder(2)]
+        public byte Mcc2 { get; set; }
+        [FieldOrder(3)]
+        public byte NumMncDigits { get; set; }
+        [FieldOrder(4)]
+        public byte Mnc0 { get; set; }
+        [FieldOrder(5)]
+        public byte Mnc1 { get; set; }
+        [FieldOrder(6)]
+        public byte Mnc2 { get; set; }
+        [FieldOrder(7)]
+        public uint Freq { get; set; }
+        [FieldOrder(8)]
+        public uint BandClass { get; set; }
+        [FieldOrder(9)]
+        public uint StatusMask { get; set; }
+        [FieldOrder(10)]
+        public uint CellId { get; set; }
+        [FieldOrder(11)]
+        public uint Cpid { get; set; }
+        [FieldOrder(12)]
+        public uint Lac { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class AcqListItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public byte Mcc0 { get; set; }
+        [FieldOrder(1)]
+        public byte Mcc1 { get; set; }
+        [FieldOrder(2)]
+        public byte Mcc2 { get; set; }
+        [FieldOrder(3)]
+        public byte NumMncDigits { get; set; }
+        [FieldOrder(4)]
+        public byte Mnc0 { get; set; }
+        [FieldOrder(5)]
+        public byte Mnc1 { get; set; }
+        [FieldOrder(6)]
+        public byte Mnc2 { get; set; }
+        [FieldOrder(7)]
+        public uint Freq { get; set; }
+        [FieldOrder(8)]
+        public uint BandClass { get; set; }
+        [FieldOrder(9)]
+        public uint StatusMask { get; set; }
+        [FieldOrder(10)]
+        public uint CellId { get; set; }
+        [FieldOrder(11)]
+        public uint Cpid { get; set; }
+        [FieldOrder(12)]
+        public uint Lac { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class AcqListItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public byte Mcc0 { get; set; }
+        [FieldOrder(1)]
+        public byte Mcc1 { get; set; }
+        [FieldOrder(2)]
+        public byte Mcc2 { get; set; }
+        [FieldOrder(3)]
+        public byte NumMncDigits { get; set; }
+        [FieldOrder(4)]
+        public byte Mnc0 { get; set; }
+        [FieldOrder(5)]
+        public byte Mnc1 { get; set; }
+        [FieldOrder(6)]
+        public byte Mnc2 { get; set; }
+        [FieldOrder(7)]
+        public uint Freq { get; set; }
+        [FieldOrder(8)]
+        public uint BandClass { get; set; }
+        [FieldOrder(9)]
+        public uint StatusMask { get; set; }
+        [FieldOrder(10)]
+        public uint CellId { get; set; }
+        [FieldOrder(11)]
+        public uint Cpid { get; set; }
+        [FieldOrder(12)]
+        public uint Lac { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class AcqListItemValues1Item
+    {
+        [FieldOrder(0)]
+        public AcqListItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public AcqListItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public AcqListItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public AcqListItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public AcqListItemValues1ItemValue4Item Value4 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class AcqListItem
+    {
+        [FieldOrder(0)]
+        public AcqListItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66010)]
+    [EfsFile("/nv/item_files/modem/tdscdma/rrc/acq_list", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class AcqList : ItemBase
+    {
+        [FieldOrder(0)]
+        public AcqListItem Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdPchFiltecioUpperThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDPCHFILTECIOUPPERTHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66025)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_pch_filtecio_upper_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdPchFiltecioUpperThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdPchFiltecioLowerThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDPCHFILTECIOLOWERTHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66026)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_pch_filtecio_lower_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdPchFiltecioLowerThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdPchMinFullDivCyclesItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDPCHMINFULLDIVCYCLES { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66027)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_pch_min_full_div_cycles", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdPchMinFullDivCycles : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdPchPiSumThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDPCHPISUMTHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66028)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_pch_pi_sum_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdPchPiSumThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdPchOrideValItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDPCHORIDEVAL { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66029)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_pch_oride_val", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdPchOrideVal : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class QmiUimSilentPin1Item
+    {
+        [FieldOrder(0)]
+        public bool QMIUIMSILENTPIN1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66036)]
+    [EfsFile("/nv/item_files/modem/qmi/uim/qmi_uim_silent_pin1", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class QmiUimSilentPin1 : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcDoNotForwardPageItem
+    {
+        [FieldOrder(0)]
+        public bool WCDMARRCDONOTFORWARDPAGE { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66047)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_do_not_forward_page", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcDoNotForwardPage : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class MeHotswapConfigurationItem
+    {
+        [FieldOrder(0)]
+        public ushort NumOfSampleForInsertion { get; set; }
+        [FieldOrder(1)]
+        public ushort NumOfSampleForRemoval { get; set; }
+        [FieldOrder(2)]
+        public ushort MaximumDebounceRetryCounter { get; set; }
+        [FieldOrder(3)]
+        public ushort AuxiliaryPeriodForCardDetect { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(66050)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/me_hotswap_configuration", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class MeHotswapConfiguration : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort NumOfSampleForInsertion { get; set; }
+
+        [FieldOrder(1)]
+        public ushort NumOfSampleForRemoval { get; set; }
+
+        [FieldOrder(2)]
+        public ushort MaximumDebounceRetryCounter { get; set; }
+
+        [FieldOrder(3)]
+        public ushort AuxiliaryPeriodForCardDetect { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class TcxoModeItem
+    {
+        [FieldOrder(0)]
+        public uint TcxoMode { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67230)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/tcxo_mode", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class TcxoMode : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDDELTATHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67234)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdThresh : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdMmtTimeItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDMMTTIME { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67235)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_mmt_time", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdMmtTime : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdDwellTimeItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDDWELLTIME { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67236)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_dwell_time", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdDwellTime : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1DsrModeItem
+    {
+        [FieldOrder(0)]
+        public byte DSRmode { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67250)]
+    [EfsFile("/nv/item_files/wcdma/l1utils/wl1_dsr_mode", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1DsrMode : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte DSRmode { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcBandPriorityConfigItem
+    {
+        [FieldOrder(0)]
+        public uint BandPriorityList0 { get; set; }
+        [FieldOrder(1)]
+        public uint BandPriorityList1 { get; set; }
+        [FieldOrder(2)]
+        public uint BandPriorityList2 { get; set; }
+        [FieldOrder(3)]
+        public uint BandPriorityList3 { get; set; }
+        [FieldOrder(4)]
+        public uint BandPriorityList4 { get; set; }
+        [FieldOrder(5)]
+        public uint BandPriorityList5 { get; set; }
+        [FieldOrder(6)]
+        public uint BandPriorityList6 { get; set; }
+        [FieldOrder(7)]
+        public uint BandPriorityList7 { get; set; }
+        [FieldOrder(8)]
+        public uint BandPriorityList8 { get; set; }
+        [FieldOrder(9)]
+        public uint BandPriorityList9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67293)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_band_priority_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcBandPriorityConfig : TenItemsBase<uint>
+    {
+    }
+
+    [Serializable]
+    public sealed class IfcVersionItem
+    {
+        [FieldOrder(0)]
+        public uint Version { get; set; }
+        [FieldOrder(1)]
+        public uint TechsEnabled { get; set; }
+        [FieldOrder(2)]
+        public uint OperatingMode { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67294)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/ifc_version", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class IfcVersion : ItemBase
+    {
+        [FieldOrder(0)]
+        public uint Version { get; set; }
+
+        [FieldOrder(1)]
+        public uint TechsEnabled { get; set; }
+
+        [FieldOrder(2)]
+        public uint OperatingMode { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint C1 { get; set; }
+        [FieldOrder(1)]
+        public uint C0 { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItemValues1Item
+    {
+        [FieldOrder(0)]
+        public IfcC1FilterItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public IfcC1FilterItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public IfcC1FilterItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public IfcC1FilterItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public IfcC1FilterItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public IfcC1FilterItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public IfcC1FilterItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public IfcC1FilterItemValues1ItemValue7Item Value7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class IfcC1FilterItem
+    {
+        [FieldOrder(0)]
+        public IfcC1FilterItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67295)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/ifc_c1_filter", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class IfcC1Filter : ItemBase
+    {
+        [FieldOrder(0)]
+        public IfcC1FilterItem Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class FieldCalParamsItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint C3 { get; set; }
+        [FieldOrder(1)]
+        public uint C2 { get; set; }
+        [FieldOrder(2)]
+        public uint C1 { get; set; }
+        [FieldOrder(3)]
+        public uint C0 { get; set; }
+        [FieldOrder(4)]
+        public uint T0 { get; set; }
+        [FieldOrder(5)]
+        public byte FtQualInd { get; set; }
+        [FieldOrder(6)]
+        public byte XoTrim { get; set; }
+        [FieldOrder(7)]
+        public ulong CalTimestamp { get; set; }
+        [FieldOrder(8)]
+        public uint NvTimestamp { get; set; }
+        [FieldOrder(9)]
+        public byte State { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class FieldCalParamsItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint C3 { get; set; }
+        [FieldOrder(1)]
+        public uint C2 { get; set; }
+        [FieldOrder(2)]
+        public uint C1 { get; set; }
+        [FieldOrder(3)]
+        public uint C0 { get; set; }
+        [FieldOrder(4)]
+        public uint T0 { get; set; }
+        [FieldOrder(5)]
+        public byte FtQualInd { get; set; }
+        [FieldOrder(6)]
+        public byte XoTrim { get; set; }
+        [FieldOrder(7)]
+        public ulong CalTimestamp { get; set; }
+        [FieldOrder(8)]
+        public uint NvTimestamp { get; set; }
+        [FieldOrder(9)]
+        public byte State { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class FieldCalParamsItemValues1Item
+    {
+        [FieldOrder(0)]
+        public FieldCalParamsItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public FieldCalParamsItemValues1ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class FieldCalParamsItem
+    {
+        [FieldOrder(0)]
+        public FieldCalParamsItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67300)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/field_cal_params", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FieldCalParams : ItemBase
+    {
+        [FieldOrder(0)]
+        public FieldCalParamsItem Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcSaveAcqdbItem
+    {
+        [FieldOrder(0)]
+        public bool SaveAcqDb { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67309)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_save_acqdb", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcSaveAcqdb : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2DecisionDeltaThreshItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDV2TAPENGDELTATHRESH { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67319)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_decision_delta_thresh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2DecisionDeltaThresh : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2CpichSnrThresh1Item
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDV2CPICHSNRTHRESH1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67320)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_cpich_snr_thresh1", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2CpichSnrThresh1 : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2CpichSnrThresh2Item
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDV2CPICHSNRTHRESH2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67321)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_cpich_snr_thresh2", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2CpichSnrThresh2 : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2CpichSnrThresh3Item
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDV2CPICHSNRTHRESH3 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67322)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_cpich_snr_thresh3", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2CpichSnrThresh3 : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2CpichSnrThresh4Item
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDV2CPICHSNRTHRESH4 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67323)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_cpich_snr_thresh4", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2CpichSnrThresh4 : Int16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1FetControlItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMAFETCTRL { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67329)]
+    [EfsFile("/nv/item_files/wcdma/fet/wl1_fet_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1FetControl : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class UimFeaturesStatusListItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67330)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_features_status_list", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimFeaturesStatusList : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcDisableCpcFdpchItem
+    {
+        [FieldOrder(0)]
+        public byte RrcDisableCpcFdpch { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67333)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_disable_cpc_fdpch", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcDisableCpcFdpch : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcWtolPsHoSupportItem
+    {
+        [FieldOrder(0)]
+        public bool WcdmaRrcWtolPsHoSupport { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67347)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_wtol_ps_ho_support", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcWtolPsHoSupport : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1CmeQpmAvgRssiVarThreshDisQiceItem
+    {
+        [FieldOrder(0)]
+        public uint ThresholdInQ10 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67349)]
+    [EfsFile("/nv/item_files/wcdma/cme/wl1_cme_qpm_avg_rssi_var_thresh_dis_qice", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1CmeQpmAvgRssiVarThreshDisQice : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1CmeQpmAvgRssiVarThreshEnQiceItem
+    {
+        [FieldOrder(0)]
+        public uint ThresholdInQ10 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67350)]
+    [EfsFile("/nv/item_files/wcdma/cme/wl1_cme_qpm_avg_rssi_var_thresh_en_qice", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1CmeQpmAvgRssiVarThreshEnQice : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2MinDwellTimeKItem
+    {
+        [FieldOrder(0)]
+        public ushort NVWCDMARXDARDV2MINDWELLTIMEK { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67351)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_min_dwell_time_k", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2MinDwellTimeK : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdArdV2FilterSettleTimeLItem
+    {
+        [FieldOrder(0)]
+        public byte NVWCDMARXDARDV2FILTERSETTLETIMEL { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(67352)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_ard_v2_filter_settle_time_l", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdArdV2FilterSettleTimeL : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1DcW2lModeItem
+    {
+        [FieldOrder(0)]
+        public bool Enabled { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(69690)]
+    [EfsFile("/nv/item_files/wcdma/irat/wl1_dc_w2l_mode", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1DcW2lMode : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class StoreToSimIfNvFullItem
+    {
+        [FieldOrder(0)]
+        public bool StoreToSimIfNvFull { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(69707)]
+    [EfsFile("/nv/item_files/modem/sms/store_to_sim_if_nv_full", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class StoreToSimIfNvFull : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcWtolTddPsHoSupportItem
+    {
+        [FieldOrder(0)]
+        public bool WcdmaRrcWtolTddPsHoSupport { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(69732)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_wtol_tdd_ps_ho_support", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcWtolTddPsHoSupport : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WIdleModeOptItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(69733)]
+    [EfsFile("/nv/item_files/wcdma/idle/w_idle_mode_opt", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WIdleModeOpt : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class GnssConfigPremiumServiceItem
+    {
+        [FieldOrder(0)]
+        public uint GnssConfigPremiumService { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(69746)]
+    [EfsFile("/nv/item_files/gps/cgps/sm/gnss_config_premium_service", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class GnssConfigPremiumService : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class G2lBlindRedirControlItem
+    {
+        [FieldOrder(0)]
+        public bool G2lBlindRedirControl { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(69747)]
+    [EfsFile("/nv/item_files/modem/geran/grr/g2l_blind_redir_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class G2lBlindRedirControl : BoolItemBase
+    {
+    }
+
+    /*[Serializable]
+    public sealed class Wl1DlNvItem
+    {
+        [FieldOrder(0)]
+        public byte Wl1MaxNumFingersPriSec { get; set; }
+        [FieldOrder(1)]
+        public byte Wl1MaxNumFingers3rdCarr4thCarr { get; set; }
+        [FieldOrder(2)]
+        public byte DisableEDRXFullSLeep { get; set; }
+        [FieldOrder(3)]
+        public mmgsdi_feature_status_enum Enable { get; set; }
+        [FieldOrder(4)]
+        public byte DUPThresholdPercentage { get; set; }
+        [FieldOrder(5)]
+        public byte TPCImbalanceThresholdPercentage { get; set; }
+        [FieldOrder(6)]
+        public mmgsdi_feature_status_enum EnableTriageDbgF3s { get; set; }
+        [FieldOrder(7)]
+        public mmgsdi_feature_status_enum EnableIdleTriageDbgF3s { get; set; }
+        [FieldOrder(8)]
+        public mmgsdi_feature_status_enum FingerBuckshotAlgorithm { get; set; }
+        [FieldOrder(9)]
+        public mmgsdi_feature_status_enum EnableDlcellCfgF3s { get; set; }
+        [FieldOrder(10)]
+        public mmgsdi_feature_status_enum EnableDlPhchF3s { get; set; }
+        [FieldOrder(11)]
+        public mmgsdi_feature_status_enum FDPCHSIREBiasCompensation { get; set; }
+        [FieldOrder(12)]
+        public mmgsdi_feature_status_enum CPCLiteSleep { get; set; }
+        [FieldOrder(13)]
+        public mmgsdi_feature_status_enum DynFingSwitchDCUPA { get; set; }
+        [FieldOrder(14)]
+        public mmgsdi_feature_status_enum RxbPrioOverQta { get; set; }
+        [FieldOrder(15)]
+        public mmgsdi_feature_status_enum SendModTimingEveryRach { get; set; }
+        [FieldOrder(16)]
+        public mmgsdi_feature_status_enum EnableLtaTlOpts { get; set; }
+    }*/
+
+    /*[Serializable]
+    [NvItemId(70188)]
+    [EfsFile("/nv/item_files/wcdma/l1/dl/wl1_dl_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1DlNv : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Wl1MaxNumFingersPriSec { get; set; }
+
+        [FieldOrder(1)]
+        public byte Wl1MaxNumFingers3rdCarr4thCarr { get; set; }
+
+        [FieldOrder(2)]
+        public byte DisableEDRXFullSLeep { get; set; }
+
+        [FieldOrder(3)]
+        public mmgsdi_feature_status_enum Enable { get; set; }
+
+        [FieldOrder(4)]
+        public byte DUPThresholdPercentage { get; set; }
+
+        [FieldOrder(5)]
+        public byte TPCImbalanceThresholdPercentage { get; set; }
+
+        [FieldOrder(6)]
+        public mmgsdi_feature_status_enum EnableTriageDbgF3s { get; set; }
+
+        [FieldOrder(7)]
+        public mmgsdi_feature_status_enum EnableIdleTriageDbgF3s { get; set; }
+
+        [FieldOrder(8)]
+        public mmgsdi_feature_status_enum FingerBuckshotAlgorithm { get; set; }
+
+        [FieldOrder(9)]
+        public mmgsdi_feature_status_enum EnableDlcellCfgF3s { get; set; }
+
+        [FieldOrder(10)]
+        public mmgsdi_feature_status_enum EnableDlPhchF3s { get; set; }
+
+        [FieldOrder(11)]
+        public mmgsdi_feature_status_enum FDPCHSIREBiasCompensation { get; set; }
+
+        [FieldOrder(12)]
+        public mmgsdi_feature_status_enum CPCLiteSleep { get; set; }
+
+        [FieldOrder(13)]
+        public mmgsdi_feature_status_enum DynFingSwitchDCUPA { get; set; }
+
+        [FieldOrder(14)]
+        public mmgsdi_feature_status_enum RxbPrioOverQta { get; set; }
+
+        [FieldOrder(15)]
+        public mmgsdi_feature_status_enum SendModTimingEveryRach { get; set; }
+
+        [FieldOrder(16)]
+        public mmgsdi_feature_status_enum EnableLtaTlOpts { get; set; }
+
+    }*/
+
+    [Serializable]
+    public sealed class GnssAssistedGloProtocolSelectItem
+    {
+        [FieldOrder(0)]
+        public uint AsstGlonassPosProtocols { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70192)]
+    [EfsFile("/nv/item_files/gps/cgps/sm/gnss_assisted_glo_protocol_select", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class GnssAssistedGloProtocolSelect : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class FieldAgingDataItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint C0Fresh { get; set; }
+        [FieldOrder(1)]
+        public uint Timestamp { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+        [FieldOrder(3)]
+        public bool Valid { get; set; }
+        [FieldOrder(4)]
+        public uint C1NumPoints { get; set; }
+        [FieldOrder(5)]
+        public uint C1StdDev { get; set; }
+        [FieldOrder(6)]
+        public uint C3NumPoints { get; set; }
+        [FieldOrder(7)]
+        public uint C3StdDev { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class FieldAgingDataItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint C0Fresh { get; set; }
+        [FieldOrder(1)]
+        public uint Timestamp { get; set; }
+        [FieldOrder(2)]
+        public uint Count { get; set; }
+        [FieldOrder(3)]
+        public bool Valid { get; set; }
+        [FieldOrder(4)]
+        public uint C1NumPoints { get; set; }
+        [FieldOrder(5)]
+        public uint C1StdDev { get; set; }
+        [FieldOrder(6)]
+        public uint C3NumPoints { get; set; }
+        [FieldOrder(7)]
+        public uint C3StdDev { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class FieldAgingDataItemValues1Item
+    {
+        [FieldOrder(0)]
+        public FieldAgingDataItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public FieldAgingDataItemValues1ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class FieldAgingDataItem
+    {
+        [FieldOrder(0)]
+        public FieldAgingDataItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70209)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/field_aging_data", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FieldAgingData : ItemBase
+    {
+        [FieldOrder(0)]
+        public FieldAgingDataItem Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class SmsRetryLimitItem
+    {
+        [FieldOrder(0)]
+        public byte SmsRetryLimit { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70222)]
+    [EfsFile("/nv/item_files/modem/sms/sms_retry_limit", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class SmsRetryLimit : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class CfaConfItem
+    {
+        [FieldOrder(0)]
+        public uint TdsCfaConf { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70223)]
+    [EfsFile("/nv/item_files/modem/tdscdma/rrc/cfa_conf", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class CfaConf : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class FastReturnToLteAfterCsfbItem
+    {
+        [FieldOrder(0)]
+        public bool TdsFastRetToLteAfterCsfb { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70231)]
+    [EfsFile("/nv/item_files/modem/tdscdma/rrc/fast_return_to_lte_after_csfb", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FastReturnToLteAfterCsfb : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class FastReturnToLteAfterCsfbTimerItem
+    {
+        [FieldOrder(0)]
+        public ushort TdsFastRetToLteAfterCsfbTimer { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70232)]
+    [EfsFile("/nv/item_files/modem/tdscdma/rrc/fast_return_to_lte_after_csfb_timer", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FastReturnToLteAfterCsfbTimer : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1AntNvItem
+    {
+        [FieldOrder(0)]
+        public ushort PowerDelta { get; set; }
+        [FieldOrder(1)]
+        public ushort RscpTrigger { get; set; }
+        [FieldOrder(2)]
+        public ushort AntSwitchEnable { get; set; }
+        [FieldOrder(3)]
+        public byte RSCPSwitchThresholdType2 { get; set; }
+        [FieldOrder(4)]
+        public byte MTPLThresholdType2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70240)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_ant_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1AntNv : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort PowerDelta { get; set; }
+
+        [FieldOrder(1)]
+        public ushort RscpTrigger { get; set; }
+
+        [FieldOrder(2)]
+        public ushort AntSwitchEnable { get; set; }
+
+        [FieldOrder(3)]
+        public byte RSCPSwitchThresholdType2 { get; set; }
+
+        [FieldOrder(4)]
+        public byte MTPLThresholdType2 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcEnablePscLockItem
+    {
+        [FieldOrder(0)]
+        public bool RrcEnablePscLockNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70241)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_enable_psc_lock", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcEnablePscLock : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class XoCrystalTypeItem
+    {
+        [FieldOrder(0)]
+        public uint TcxomgrXoCrystalType { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70250)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/xo_crystal_type", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class XoCrystalType : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class DisableLteCbDupDetectionItem
+    {
+        [FieldOrder(0)]
+        public bool DisableLteCbSupDetection { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70265)]
+    [EfsFile("/nv/item_files/modem/sms/disable_lte_cb_dup_detection", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class DisableLteCbDupDetection : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1AntSwitchBandNvItem
+    {
+        [FieldOrder(0)]
+        public ulong Type1BandsMask { get; set; }
+        [FieldOrder(1)]
+        public ulong Type2BandsMask { get; set; }
+        [FieldOrder(2)]
+        public ushort Type2PostSwitchBackSuspensionTime { get; set; }
+        [FieldOrder(3)]
+        public ushort Type2PostSwitchEvalBaseThre { get; set; }
+        [FieldOrder(4)]
+        public byte Type2RSCPDropThre { get; set; }
+        [FieldOrder(5)]
+        public byte MtplAlgorithmDisable { get; set; }
+        [FieldOrder(6)]
+        public byte Type1PostSwitchBackSuspensionTime { get; set; }
+        [FieldOrder(7)]
+        public byte WcdmaTrafficCrisisModeThr { get; set; }
+        [FieldOrder(8)]
+        public byte WcdmaIdlePingpongMitigationThr { get; set; }
+        [FieldOrder(9)]
+        public byte WcdmaIdleSuspensionDuration { get; set; }
+        [FieldOrder(10)]
+        public byte DbDcAsdivDisable { get; set; }
+        [FieldOrder(11)]
+        public byte DbDcAntSwitchPos { get; set; }
+        [FieldOrder(12)]
+        public byte Is2wayAsdiv { get; set; }
+        [FieldOrder(13)]
+        public byte Type1RSCPThreLoopbackTrigger { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70276)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_ant_switch_band_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1AntSwitchBandNv : ItemBase
+    {
+        [FieldOrder(0)]
+        public ulong Type1BandsMask { get; set; }
+
+        [FieldOrder(1)]
+        public ulong Type2BandsMask { get; set; }
+
+        [FieldOrder(2)]
+        public ushort Type2PostSwitchBackSuspensionTime { get; set; }
+
+        [FieldOrder(3)]
+        public ushort Type2PostSwitchEvalBaseThre { get; set; }
+
+        [FieldOrder(4)]
+        public byte Type2RSCPDropThre { get; set; }
+
+        [FieldOrder(5)]
+        public byte MtplAlgorithmDisable { get; set; }
+
+        [FieldOrder(6)]
+        public byte Type1PostSwitchBackSuspensionTime { get; set; }
+
+        [FieldOrder(7)]
+        public byte WcdmaTrafficCrisisModeThr { get; set; }
+
+        [FieldOrder(8)]
+        public byte WcdmaIdlePingpongMitigationThr { get; set; }
+
+        [FieldOrder(9)]
+        public byte WcdmaIdleSuspensionDuration { get; set; }
+
+        [FieldOrder(10)]
+        public byte DbDcAsdivDisable { get; set; }
+
+        [FieldOrder(11)]
+        public byte DbDcAntSwitchPos { get; set; }
+
+        [FieldOrder(12)]
+        public byte Is2wayAsdiv { get; set; }
+
+        [FieldOrder(13)]
+        public byte Type1RSCPThreLoopbackTrigger { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class Wl1ulRachNvdbgItem
+    {
+        [FieldOrder(0)]
+        public ushort NvPrachControl { get; set; }
+        [FieldOrder(1)]
+        public ushort NvControlledMaxPreamble { get; set; }
+        [FieldOrder(2)]
+        public ushort NvControlledMaxNoACK { get; set; }
+        [FieldOrder(3)]
+        public ushort Reserved { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70282)]
+    [EfsFile("/nv/item_files/wcdma/rach/wl1ul_rach_nvdbg", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1ulRachNvdbg : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort NvPrachControl { get; set; }
+
+        [FieldOrder(1)]
+        public ushort NvControlledMaxPreamble { get; set; }
+
+        [FieldOrder(2)]
+        public ushort NvControlledMaxNoACK { get; set; }
+
+        [FieldOrder(3)]
+        public ushort Reserved { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class DisablePresBcAlertItem
+    {
+        [FieldOrder(0)]
+        public bool PresidentialBcAlertIsDisabled { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70290)]
+    [EfsFile("/nv/item_files/modem/sms/disable_pres_bc_alert", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class DisablePresBcAlert : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Tdsl1UppchTadvOptimizationItem
+    {
+        [FieldOrder(0)]
+        public ushort UppchTadvStepSize { get; set; }
+        [FieldOrder(1)]
+        public ushort FilterCoefficient { get; set; }
+        [FieldOrder(2)]
+        public ushort SuccessRateInit { get; set; }
+        [FieldOrder(3)]
+        public ushort SuccessRateTable0 { get; set; }
+        [FieldOrder(4)]
+        public ushort SuccessRateTable1 { get; set; }
+        [FieldOrder(5)]
+        public ushort SuccessRateTable2 { get; set; }
+        [FieldOrder(6)]
+        public ushort SuccessRateTable3 { get; set; }
+        [FieldOrder(7)]
+        public ushort SuccessRateTable4 { get; set; }
+        [FieldOrder(8)]
+        public ushort SuccessRateTable5 { get; set; }
+        [FieldOrder(9)]
+        public ushort SuccessRateTable6 { get; set; }
+        [FieldOrder(10)]
+        public ushort FeatureEnable { get; set; }
+        [FieldOrder(11)]
+        public ushort Reserved { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70300)]
+    [EfsFile("/nv/item_files/modem/tdscdma/l1/tdsl1_uppch_tadv_optimization", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Tdsl1UppchTadvOptimization : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort UppchTadvStepSize { get; set; }
+
+        [FieldOrder(1)]
+        public ushort FilterCoefficient { get; set; }
+
+        [FieldOrder(2)]
+        public ushort SuccessRateInit { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(7)]
+        public ushort[] SuccessRateTable { get; set; }
+
+        [FieldOrder(4)]
+        public ushort FeatureEnable { get; set; }
+
+        [FieldOrder(5)]
+        public ushort Reserved { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaCmeOptsItem
+    {
+        [FieldOrder(0)]
+        public uint WcdmaCmeOpts { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70309)]
+    [EfsFile("/nv/item_files/wcdma/cme/wcdma_cme_opts", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaCmeOpts : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class EnableThinUiCfgItem
+    {
+        [FieldOrder(0)]
+        public bool ThinUiCfg { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70310)]
+    [EfsFile("/nv/item_files/Thin_UI/enable_thin_ui_cfg", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class EnableThinUiCfg : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class DataWlanThrottleTimerItem
+    {
+        [FieldOrder(0)]
+        public uint DataWlanThrottleTimer { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70316)]
+    [EfsFile("/nv/item_files/data/dsd/data_wlan_throttle_timer", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class DataWlanThrottleTimer : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcBplmnFreqScanTimerInMsItem
+    {
+        [FieldOrder(0)]
+        public uint WcdmaRrcBplmnFreqScanTimerInMs { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70350)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_bplmn_freq_scan_timer_in_ms", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcBplmnFreqScanTimerInMs : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcDeepSleepNoSvcTimerInMsItem
+    {
+        [FieldOrder(0)]
+        public uint WcdmaRrcDeepSleepNoSvcTimerInMs { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70351)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_deep_sleep_no_svc_timer_in_ms", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcDeepSleepNoSvcTimerInMs : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcFreqScanTimerInMsItem
+    {
+        [FieldOrder(0)]
+        public uint WcdmaRrcFreqScanTimerInMs { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70352)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_freq_scan_timer_in_ms", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcFreqScanTimerInMs : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1ulSarNvItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70355)]
+    [EfsFile("/nv/item_files/wcdma/l1/ul/wl1ul_sar_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1ulSarNv : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class CsgSupportConfigurationItem
+    {
+        [FieldOrder(0)]
+        public byte CsgSupport { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70361)]
+    [EfsFile("/nv/item_files/modem/nas/csg_support_configuration", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class CsgSupportConfiguration : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte CsgSupport { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaCsgSrchCarrierSpaceItem
+    {
+        [FieldOrder(0)]
+        public bool WcdmaCsgSrchCarrierSpace { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(70363)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_csg_srch_carrier_space", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaCsgSrchCarrierSpace : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class C00025738Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71498)]
+    [EfsFile("/nv/item_files/rfnv/00025738", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00025738 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00025743Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71502)]
+    [EfsFile("/nv/item_files/rfnv/00025743", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00025743 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class Tdsl1NvClockControlItem
+    {
+        [FieldOrder(0)]
+        public ushort Level { get; set; }
+        [FieldOrder(1)]
+        public ushort Reserved1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Reserved2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Reserved3 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71514)]
+    [EfsFile("/nv/item_files/modem/tdscdma/l1/tdsl1_nv_clock_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Tdsl1NvClockControl : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort Level { get; set; }
+
+        [FieldOrder(1)]
+        public ushort Reserved1 { get; set; }
+
+        [FieldOrder(2)]
+        public ushort Reserved2 { get; set; }
+
+        [FieldOrder(3)]
+        public ushort Reserved3 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class SwVersionItem
+    {
+        [FieldOrder(0)]
+        public byte SwVersion0 { get; set; }
+        [FieldOrder(1)]
+        public byte SwVersion1 { get; set; }
+        [FieldOrder(2)]
+        public byte SwVersion2 { get; set; }
+        [FieldOrder(3)]
+        public byte SwVersion3 { get; set; }
+        [FieldOrder(4)]
+        public byte SwVersion4 { get; set; }
+        [FieldOrder(5)]
+        public byte SwVersion5 { get; set; }
+        [FieldOrder(6)]
+        public byte SwVersion6 { get; set; }
+        [FieldOrder(7)]
+        public byte SwVersion7 { get; set; }
+        [FieldOrder(8)]
+        public byte SwVersion8 { get; set; }
+        [FieldOrder(9)]
+        public byte SwVersion9 { get; set; }
+        [FieldOrder(10)]
+        public byte SwVersion10 { get; set; }
+        [FieldOrder(11)]
+        public byte SwVersion11 { get; set; }
+        [FieldOrder(12)]
+        public byte SwVersion12 { get; set; }
+        [FieldOrder(13)]
+        public byte SwVersion13 { get; set; }
+        [FieldOrder(14)]
+        public byte SwVersion14 { get; set; }
+        [FieldOrder(15)]
+        public byte SwVersion15 { get; set; }
+        [FieldOrder(16)]
+        public byte SwVersion16 { get; set; }
+        [FieldOrder(17)]
+        public byte SwVersion17 { get; set; }
+        [FieldOrder(18)]
+        public byte SwVersion18 { get; set; }
+        [FieldOrder(19)]
+        public byte SwVersion19 { get; set; }
+        [FieldOrder(20)]
+        public byte SwVersion20 { get; set; }
+        [FieldOrder(21)]
+        public byte SwVersion21 { get; set; }
+        [FieldOrder(22)]
+        public byte SwVersion22 { get; set; }
+        [FieldOrder(23)]
+        public byte SwVersion23 { get; set; }
+        [FieldOrder(24)]
+        public byte SwVersion24 { get; set; }
+        [FieldOrder(25)]
+        public byte SwVersion25 { get; set; }
+        [FieldOrder(26)]
+        public byte SwVersion26 { get; set; }
+        [FieldOrder(27)]
+        public byte SwVersion27 { get; set; }
+        [FieldOrder(28)]
+        public byte SwVersion28 { get; set; }
+        [FieldOrder(29)]
+        public byte SwVersion29 { get; set; }
+        [FieldOrder(30)]
+        public byte SwVersion30 { get; set; }
+        [FieldOrder(31)]
+        public byte SwVersion31 { get; set; }
+        [FieldOrder(32)]
+        public byte SwVersion32 { get; set; }
+        [FieldOrder(33)]
+        public byte SwVersion33 { get; set; }
+        [FieldOrder(34)]
+        public byte SwVersion34 { get; set; }
+        [FieldOrder(35)]
+        public byte SwVersion35 { get; set; }
+        [FieldOrder(36)]
+        public byte SwVersion36 { get; set; }
+        [FieldOrder(37)]
+        public byte SwVersion37 { get; set; }
+        [FieldOrder(38)]
+        public byte SwVersion38 { get; set; }
+        [FieldOrder(39)]
+        public byte SwVersion39 { get; set; }
+        [FieldOrder(40)]
+        public byte SwVersion40 { get; set; }
+        [FieldOrder(41)]
+        public byte SwVersion41 { get; set; }
+        [FieldOrder(42)]
+        public byte SwVersion42 { get; set; }
+        [FieldOrder(43)]
+        public byte SwVersion43 { get; set; }
+        [FieldOrder(44)]
+        public byte SwVersion44 { get; set; }
+        [FieldOrder(45)]
+        public byte SwVersion45 { get; set; }
+        [FieldOrder(46)]
+        public byte SwVersion46 { get; set; }
+        [FieldOrder(47)]
+        public byte SwVersion47 { get; set; }
+        [FieldOrder(48)]
+        public byte SwVersion48 { get; set; }
+        [FieldOrder(49)]
+        public byte SwVersion49 { get; set; }
+        [FieldOrder(50)]
+        public byte SwVersion50 { get; set; }
+        [FieldOrder(51)]
+        public byte SwVersion51 { get; set; }
+        [FieldOrder(52)]
+        public byte SwVersion52 { get; set; }
+        [FieldOrder(53)]
+        public byte SwVersion53 { get; set; }
+        [FieldOrder(54)]
+        public byte SwVersion54 { get; set; }
+        [FieldOrder(55)]
+        public byte SwVersion55 { get; set; }
+        [FieldOrder(56)]
+        public byte SwVersion56 { get; set; }
+        [FieldOrder(57)]
+        public byte SwVersion57 { get; set; }
+        [FieldOrder(58)]
+        public byte SwVersion58 { get; set; }
+        [FieldOrder(59)]
+        public byte SwVersion59 { get; set; }
+        [FieldOrder(60)]
+        public byte SwVersion60 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71531)]
+    [EfsFile("/nv/item_files/modem/mmode/sw_version", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class SwVersion : SixtyOneItemsBase<byte>
+    {
+    }
+
+    [Serializable]
+    public sealed class FeaturesStatusListItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71535)]
+    [EfsFile("/nv/item_files/pbm/features_status_list", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class PbmFeaturesStatusList : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1RxdOptsItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71539)]
+    [EfsFile("/nv/item_files/wcdma/rxd/wl1_rxd_opts", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1RxdOpts : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class McfgAutoselectByUimItem
+    {
+        [FieldOrder(0)]
+        public byte AutoselectByUim { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71546)]
+    [EfsFile("/nv/item_files/mcfg/mcfg_autoselect_by_uim", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class McfgAutoselectByUim : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1AtunerConfigItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71551)]
+    [EfsFile("/nv/item_files/wcdma/irat/wl1_atuner_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1AtunerConfig : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class SimResponseTimersConfigItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71561)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/sim_response_timers_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class SimResponseTimersConfig : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcGanssSupportNvItem
+    {
+        [FieldOrder(0)]
+        public bool RrcGanssSupportNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71564)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_ganss_support_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcGanssSupportNv : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcFeFachSupportItem
+    {
+        [FieldOrder(0)]
+        public byte RrcFeFachSupportNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71571)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_fe_fach_support", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcFeFachSupport : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class GsmRxDiversityItem
+    {
+        [FieldOrder(0)]
+        public uint GSMRxDivCtlFlag { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71588)]
+    [EfsFile("/nv/item_files/gsm/gl1/gsm_rx_diversity", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class GsmRxDiversity : ItemBase
+    {
+        [FieldOrder(0)]
+        public uint GSMRxDivCtlFlag { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class UimBusyResponseSimulateNullConfigItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(71589)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_busy_response_simulate_null_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimBusyResponseSimulateNullConfig : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class C00026693Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72451)]
+    [EfsFile("/nv/item_files/rfnv/00026693", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00026693 : SByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcDisableCrashDebugInfoItem
+    {
+        [FieldOrder(0)]
+        public byte RrcDisableCrashDebugInfoNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72515)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_disable_crash_debug_info", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcDisableCrashDebugInfo : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1SrchE1dNvItem
+    {
+        [FieldOrder(0)]
+        public bool Enabled { get; set; }
+        [FieldOrder(1)]
+        public byte Threshold { get; set; }
+        [FieldOrder(2)]
+        public byte NominalTimer { get; set; }
+        [FieldOrder(3)]
+        public byte MinTimer { get; set; }
+        [FieldOrder(4)]
+        public byte Reserved0 { get; set; }
+        [FieldOrder(5)]
+        public byte Reserved1 { get; set; }
+        [FieldOrder(6)]
+        public byte Reserved2 { get; set; }
+        [FieldOrder(7)]
+        public byte Reserved3 { get; set; }
+        [FieldOrder(8)]
+        public byte Reserved4 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72516)]
+    [EfsFile("/nv/item_files/wcdma/l1/srch/wl1_srch_e1d_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1SrchE1dNv : ItemBase
+    {
+        [FieldOrder(0)]
+        public bool Enabled { get; set; }
+
+        [FieldOrder(1)]
+        public byte Threshold { get; set; }
+
+        [FieldOrder(2)]
+        public byte NominalTimer { get; set; }
+
+        [FieldOrder(3)]
+        public byte MinTimer { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(5)]
+        public byte[] Reserved { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class RrcDisableMeasItem
+    {
+        [FieldOrder(0)]
+        public ushort RrcDisableMeasNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72520)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_disable_meas", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcDisableMeas : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcDsdsConcurrencyItem
+    {
+        [FieldOrder(0)]
+        public byte RrcDsdsConcurrency { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72526)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_dsds_concurrency", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcDsdsConcurrency : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1HarqBufFlushTmrItem
+    {
+        [FieldOrder(0)]
+        public byte Wl1HarqBufFlushTmr { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72529)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_harq_buf_flush_tmr", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1HarqBufFlushTmr : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcNvEnableMfbiSupportItem
+    {
+        [FieldOrder(0)]
+        public bool RrcNvEnableMfbiSupport { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72548)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_nv_enable_mfbi_support", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcNvEnableMfbiSupport : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1NbRejectionNvItem
+    {
+        [FieldOrder(0)]
+        public bool Enabled { get; set; }
+        [FieldOrder(1)]
+        public uint RotatorFreq { get; set; }
+        [FieldOrder(2)]
+        public byte AccumBpg { get; set; }
+        [FieldOrder(3)]
+        public byte Threshold1 { get; set; }
+        [FieldOrder(4)]
+        public byte Threshold2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72549)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_nb_rejection_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1NbRejectionNv : ItemBase
+    {
+        [FieldOrder(0)]
+        public bool Enabled { get; set; }
+
+        [FieldOrder(1)]
+        public uint RotatorFreq { get; set; }
+
+        [FieldOrder(2)]
+        public byte AccumBpg { get; set; }
+
+        [FieldOrder(3)]
+        public byte Threshold1 { get; set; }
+
+        [FieldOrder(4)]
+        public byte Threshold2 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class Wl1QtaRotaItem
+    {
+        [FieldOrder(0)]
+        public byte WcdmaQtaRota { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72562)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_qta_rota", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1QtaRota : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcConstant320msDrxItem
+    {
+        [FieldOrder(0)]
+        public bool RrcConstant320msDrx { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72563)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_constant_320ms_drx", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcConstant320msDrx : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaAsfTimerItem
+    {
+        [FieldOrder(0)]
+        public byte ASFtimer { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72574)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_asf_timer", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaAsfTimer : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte ASFtimer { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class RrcUlComprCapSupportItem
+    {
+        [FieldOrder(0)]
+        public bool RrcUlComprCapSupport { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72576)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_ul_compr_cap_support", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcUlComprCapSupport : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcDsdsConcurrencyExtendedItem
+    {
+        [FieldOrder(0)]
+        public ushort RrcDsdsConcurrency { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72581)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_dsds_concurrency_extended", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcDsdsConcurrencyExtended : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcDsdaConcurrencyExtendedItem
+    {
+        [FieldOrder(0)]
+        public ushort RrcDsdaConcurrency { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72582)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_dsda_concurrency_extended", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcDsdaConcurrencyExtended : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcTstsConcurrencyExtendedItem
+    {
+        [FieldOrder(0)]
+        public ushort RrcTstsConcurrency { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72583)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_tsts_concurrency_extended", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcTstsConcurrencyExtended : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcSibSleepSbItem
+    {
+        [FieldOrder(0)]
+        public bool WcdmaRrcSibSleepSB { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72599)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_sib_sleep_sb", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcSibSleepSb : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcPrioritize850BandItem
+    {
+        [FieldOrder(0)]
+        public bool WcdmaRrcPrioritize850Band { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72612)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_prioritize_850_band", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcPrioritize850Band : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class FtTableWwanItem
+    {
+        [FieldOrder(0)]
+        public ushort Rotator0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Rotator1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Rotator2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Rotator3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Rotator4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Rotator5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Rotator6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Rotator7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Rotator8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Rotator9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Rotator10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Rotator11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Rotator12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Rotator13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Rotator14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Rotator15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Rotator16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Rotator17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Rotator18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Rotator19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Rotator20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Rotator21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Rotator22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Rotator23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Rotator24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Rotator25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Rotator26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Rotator27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Rotator28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Rotator29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Rotator30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Rotator31 { get; set; }
+        [FieldOrder(32)]
+        public ushort Rotator32 { get; set; }
+        [FieldOrder(33)]
+        public ushort Rotator33 { get; set; }
+        [FieldOrder(34)]
+        public ushort Rotator34 { get; set; }
+        [FieldOrder(35)]
+        public ushort Rotator35 { get; set; }
+        [FieldOrder(36)]
+        public ushort Rotator36 { get; set; }
+        [FieldOrder(37)]
+        public ushort Rotator37 { get; set; }
+        [FieldOrder(38)]
+        public ushort Rotator38 { get; set; }
+        [FieldOrder(39)]
+        public ushort Rotator39 { get; set; }
+        [FieldOrder(40)]
+        public ushort Rotator40 { get; set; }
+        [FieldOrder(41)]
+        public ushort Rotator41 { get; set; }
+        [FieldOrder(42)]
+        public ushort Rotator42 { get; set; }
+        [FieldOrder(43)]
+        public ushort Rotator43 { get; set; }
+        [FieldOrder(44)]
+        public ushort Rotator44 { get; set; }
+        [FieldOrder(45)]
+        public ushort Rotator45 { get; set; }
+        [FieldOrder(46)]
+        public ushort Rotator46 { get; set; }
+        [FieldOrder(47)]
+        public ushort Rotator47 { get; set; }
+        [FieldOrder(48)]
+        public ushort Rotator48 { get; set; }
+        [FieldOrder(49)]
+        public ushort Rotator49 { get; set; }
+        [FieldOrder(50)]
+        public ushort Rotator50 { get; set; }
+        [FieldOrder(51)]
+        public ushort Rotator51 { get; set; }
+        [FieldOrder(52)]
+        public ushort Rotator52 { get; set; }
+        [FieldOrder(53)]
+        public ushort Rotator53 { get; set; }
+        [FieldOrder(54)]
+        public ushort Rotator54 { get; set; }
+        [FieldOrder(55)]
+        public ushort Rotator55 { get; set; }
+        [FieldOrder(56)]
+        public ushort Rotator56 { get; set; }
+        [FieldOrder(57)]
+        public ushort Rotator57 { get; set; }
+        [FieldOrder(58)]
+        public ushort Rotator58 { get; set; }
+        [FieldOrder(59)]
+        public ushort Rotator59 { get; set; }
+        [FieldOrder(60)]
+        public ushort Rotator60 { get; set; }
+        [FieldOrder(61)]
+        public ushort Rotator61 { get; set; }
+        [FieldOrder(62)]
+        public ushort Rotator62 { get; set; }
+        [FieldOrder(63)]
+        public ushort Rotator63 { get; set; }
+        [FieldOrder(64)]
+        public ushort Rotator64 { get; set; }
+        [FieldOrder(65)]
+        public ushort Rotator65 { get; set; }
+        [FieldOrder(66)]
+        public ushort Rotator66 { get; set; }
+        [FieldOrder(67)]
+        public byte Count0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72619)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/ft_table_wwan", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FtTableWwan : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(67)]
+        public ushort[] Rotator { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(1)]
+        public byte[] Count { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class FtTableGpsItem
+    {
+        [FieldOrder(0)]
+        public ushort Rotator0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Rotator1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Rotator2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Rotator3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Rotator4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Rotator5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Rotator6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Rotator7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Rotator8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Rotator9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Rotator10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Rotator11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Rotator12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Rotator13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Rotator14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Rotator15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Rotator16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Rotator17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Rotator18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Rotator19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Rotator20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Rotator21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Rotator22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Rotator23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Rotator24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Rotator25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Rotator26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Rotator27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Rotator28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Rotator29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Rotator30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Rotator31 { get; set; }
+        [FieldOrder(32)]
+        public ushort Rotator32 { get; set; }
+        [FieldOrder(33)]
+        public ushort Rotator33 { get; set; }
+        [FieldOrder(34)]
+        public ushort Rotator34 { get; set; }
+        [FieldOrder(35)]
+        public ushort Rotator35 { get; set; }
+        [FieldOrder(36)]
+        public ushort Rotator36 { get; set; }
+        [FieldOrder(37)]
+        public ushort Rotator37 { get; set; }
+        [FieldOrder(38)]
+        public ushort Rotator38 { get; set; }
+        [FieldOrder(39)]
+        public ushort Rotator39 { get; set; }
+        [FieldOrder(40)]
+        public ushort Rotator40 { get; set; }
+        [FieldOrder(41)]
+        public ushort Rotator41 { get; set; }
+        [FieldOrder(42)]
+        public ushort Rotator42 { get; set; }
+        [FieldOrder(43)]
+        public ushort Rotator43 { get; set; }
+        [FieldOrder(44)]
+        public ushort Rotator44 { get; set; }
+        [FieldOrder(45)]
+        public ushort Rotator45 { get; set; }
+        [FieldOrder(46)]
+        public ushort Rotator46 { get; set; }
+        [FieldOrder(47)]
+        public ushort Rotator47 { get; set; }
+        [FieldOrder(48)]
+        public ushort Rotator48 { get; set; }
+        [FieldOrder(49)]
+        public ushort Rotator49 { get; set; }
+        [FieldOrder(50)]
+        public ushort Rotator50 { get; set; }
+        [FieldOrder(51)]
+        public ushort Rotator51 { get; set; }
+        [FieldOrder(52)]
+        public ushort Rotator52 { get; set; }
+        [FieldOrder(53)]
+        public ushort Rotator53 { get; set; }
+        [FieldOrder(54)]
+        public ushort Rotator54 { get; set; }
+        [FieldOrder(55)]
+        public ushort Rotator55 { get; set; }
+        [FieldOrder(56)]
+        public ushort Rotator56 { get; set; }
+        [FieldOrder(57)]
+        public ushort Rotator57 { get; set; }
+        [FieldOrder(58)]
+        public ushort Rotator58 { get; set; }
+        [FieldOrder(59)]
+        public ushort Rotator59 { get; set; }
+        [FieldOrder(60)]
+        public ushort Rotator60 { get; set; }
+        [FieldOrder(61)]
+        public ushort Rotator61 { get; set; }
+        [FieldOrder(62)]
+        public ushort Rotator62 { get; set; }
+        [FieldOrder(63)]
+        public ushort Rotator63 { get; set; }
+        [FieldOrder(64)]
+        public ushort Rotator64 { get; set; }
+        [FieldOrder(65)]
+        public ushort Rotator65 { get; set; }
+        [FieldOrder(66)]
+        public ushort Rotator66 { get; set; }
+        [FieldOrder(67)]
+        public byte Count0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72620)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/ft_table_gps", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class FtTableGps : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(67)]
+        public ushort[] Rotator { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(1)]
+        public byte[] Count { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class StkSmsRetryEnableItem
+    {
+        [FieldOrder(0)]
+        public bool StkSmsRetryEnable { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72626)]
+    [EfsFile("/nv/item_files/modem/sms/stk_sms_retry_enable", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class StkSmsRetryEnable : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027142Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72900)]
+    [EfsFile("/nv/item_files/rfnv/00027142", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027142 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027143Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72901)]
+    [EfsFile("/nv/item_files/rfnv/00027143", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027143 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027144Item
+    {
+        [FieldOrder(0)]
+        public byte Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public byte Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public byte Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public byte Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public byte Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public byte Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public byte Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public byte Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public byte Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public byte Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public byte Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public byte Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public byte Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public byte Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public byte Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public byte Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public byte Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public byte Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public byte Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public byte Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public byte Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public byte Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public byte Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public byte Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public byte Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public byte Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public byte Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public byte Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public byte Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public byte Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public byte Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public byte Unknown31 { get; set; }
+        [FieldOrder(32)]
+        public byte Unknown32 { get; set; }
+        [FieldOrder(33)]
+        public byte Unknown33 { get; set; }
+        [FieldOrder(34)]
+        public byte Unknown34 { get; set; }
+        [FieldOrder(35)]
+        public byte Unknown35 { get; set; }
+        [FieldOrder(36)]
+        public byte Unknown36 { get; set; }
+        [FieldOrder(37)]
+        public byte Unknown37 { get; set; }
+        [FieldOrder(38)]
+        public byte Unknown38 { get; set; }
+        [FieldOrder(39)]
+        public byte Unknown39 { get; set; }
+        [FieldOrder(40)]
+        public byte Unknown40 { get; set; }
+        [FieldOrder(41)]
+        public byte Unknown41 { get; set; }
+        [FieldOrder(42)]
+        public byte Unknown42 { get; set; }
+        [FieldOrder(43)]
+        public byte Unknown43 { get; set; }
+        [FieldOrder(44)]
+        public byte Unknown44 { get; set; }
+        [FieldOrder(45)]
+        public byte Unknown45 { get; set; }
+        [FieldOrder(46)]
+        public byte Unknown46 { get; set; }
+        [FieldOrder(47)]
+        public byte Unknown47 { get; set; }
+        [FieldOrder(48)]
+        public byte Unknown48 { get; set; }
+        [FieldOrder(49)]
+        public byte Unknown49 { get; set; }
+        [FieldOrder(50)]
+        public byte Unknown50 { get; set; }
+        [FieldOrder(51)]
+        public byte Unknown51 { get; set; }
+        [FieldOrder(52)]
+        public byte Unknown52 { get; set; }
+        [FieldOrder(53)]
+        public byte Unknown53 { get; set; }
+        [FieldOrder(54)]
+        public byte Unknown54 { get; set; }
+        [FieldOrder(55)]
+        public byte Unknown55 { get; set; }
+        [FieldOrder(56)]
+        public byte Unknown56 { get; set; }
+        [FieldOrder(57)]
+        public byte Unknown57 { get; set; }
+        [FieldOrder(58)]
+        public byte Unknown58 { get; set; }
+        [FieldOrder(59)]
+        public byte Unknown59 { get; set; }
+        [FieldOrder(60)]
+        public byte Unknown60 { get; set; }
+        [FieldOrder(61)]
+        public byte Unknown61 { get; set; }
+        [FieldOrder(62)]
+        public byte Unknown62 { get; set; }
+        [FieldOrder(63)]
+        public byte Unknown63 { get; set; }
+        [FieldOrder(64)]
+        public byte Unknown64 { get; set; }
+        [FieldOrder(65)]
+        public byte Unknown65 { get; set; }
+        [FieldOrder(66)]
+        public byte Unknown66 { get; set; }
+        [FieldOrder(67)]
+        public byte Unknown67 { get; set; }
+        [FieldOrder(68)]
+        public byte Unknown68 { get; set; }
+        [FieldOrder(69)]
+        public byte Unknown69 { get; set; }
+        [FieldOrder(70)]
+        public byte Unknown70 { get; set; }
+        [FieldOrder(71)]
+        public byte Unknown71 { get; set; }
+        [FieldOrder(72)]
+        public byte Unknown72 { get; set; }
+        [FieldOrder(73)]
+        public byte Unknown73 { get; set; }
+        [FieldOrder(74)]
+        public byte Unknown74 { get; set; }
+        [FieldOrder(75)]
+        public byte Unknown75 { get; set; }
+        [FieldOrder(76)]
+        public byte Unknown76 { get; set; }
+        [FieldOrder(77)]
+        public byte Unknown77 { get; set; }
+        [FieldOrder(78)]
+        public byte Unknown78 { get; set; }
+        [FieldOrder(79)]
+        public byte Unknown79 { get; set; }
+        [FieldOrder(80)]
+        public byte Unknown80 { get; set; }
+        [FieldOrder(81)]
+        public byte Unknown81 { get; set; }
+        [FieldOrder(82)]
+        public byte Unknown82 { get; set; }
+        [FieldOrder(83)]
+        public byte Unknown83 { get; set; }
+        [FieldOrder(84)]
+        public byte Unknown84 { get; set; }
+        [FieldOrder(85)]
+        public byte Unknown85 { get; set; }
+        [FieldOrder(86)]
+        public byte Unknown86 { get; set; }
+        [FieldOrder(87)]
+        public byte Unknown87 { get; set; }
+        [FieldOrder(88)]
+        public byte Unknown88 { get; set; }
+        [FieldOrder(89)]
+        public byte Unknown89 { get; set; }
+        [FieldOrder(90)]
+        public byte Unknown90 { get; set; }
+        [FieldOrder(91)]
+        public byte Unknown91 { get; set; }
+        [FieldOrder(92)]
+        public byte Unknown92 { get; set; }
+        [FieldOrder(93)]
+        public byte Unknown93 { get; set; }
+        [FieldOrder(94)]
+        public byte Unknown94 { get; set; }
+        [FieldOrder(95)]
+        public byte Unknown95 { get; set; }
+        [FieldOrder(96)]
+        public byte Unknown96 { get; set; }
+        [FieldOrder(97)]
+        public byte Unknown97 { get; set; }
+        [FieldOrder(98)]
+        public byte Unknown98 { get; set; }
+        [FieldOrder(99)]
+        public byte Unknown99 { get; set; }
+        [FieldOrder(100)]
+        public byte Unknown100 { get; set; }
+        [FieldOrder(101)]
+        public byte Unknown101 { get; set; }
+        [FieldOrder(102)]
+        public byte Unknown102 { get; set; }
+        [FieldOrder(103)]
+        public byte Unknown103 { get; set; }
+        [FieldOrder(104)]
+        public byte Unknown104 { get; set; }
+        [FieldOrder(105)]
+        public byte Unknown105 { get; set; }
+        [FieldOrder(106)]
+        public byte Unknown106 { get; set; }
+        [FieldOrder(107)]
+        public byte Unknown107 { get; set; }
+        [FieldOrder(108)]
+        public byte Unknown108 { get; set; }
+        [FieldOrder(109)]
+        public byte Unknown109 { get; set; }
+        [FieldOrder(110)]
+        public byte Unknown110 { get; set; }
+        [FieldOrder(111)]
+        public byte Unknown111 { get; set; }
+        [FieldOrder(112)]
+        public byte Unknown112 { get; set; }
+        [FieldOrder(113)]
+        public byte Unknown113 { get; set; }
+        [FieldOrder(114)]
+        public byte Unknown114 { get; set; }
+        [FieldOrder(115)]
+        public byte Unknown115 { get; set; }
+        [FieldOrder(116)]
+        public byte Unknown116 { get; set; }
+        [FieldOrder(117)]
+        public byte Unknown117 { get; set; }
+        [FieldOrder(118)]
+        public byte Unknown118 { get; set; }
+        [FieldOrder(119)]
+        public byte Unknown119 { get; set; }
+        [FieldOrder(120)]
+        public byte Unknown120 { get; set; }
+        [FieldOrder(121)]
+        public byte Unknown121 { get; set; }
+        [FieldOrder(122)]
+        public byte Unknown122 { get; set; }
+        [FieldOrder(123)]
+        public byte Unknown123 { get; set; }
+        [FieldOrder(124)]
+        public byte Unknown124 { get; set; }
+        [FieldOrder(125)]
+        public byte Unknown125 { get; set; }
+        [FieldOrder(126)]
+        public byte Unknown126 { get; set; }
+        [FieldOrder(127)]
+        public byte Unknown127 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72902)]
+    [EfsFile("/nv/item_files/rfnv/00027144", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027144 : OneHundredTwentyEightItemsBase<byte>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027145Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72903)]
+    [EfsFile("/nv/item_files/rfnv/00027145", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027145 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027146Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72904)]
+    [EfsFile("/nv/item_files/rfnv/00027146", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027146 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027147Item
+    {
+        [FieldOrder(0)]
+        public byte Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public byte Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public byte Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public byte Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public byte Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public byte Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public byte Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public byte Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public byte Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public byte Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public byte Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public byte Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public byte Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public byte Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public byte Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public byte Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public byte Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public byte Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public byte Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public byte Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public byte Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public byte Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public byte Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public byte Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public byte Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public byte Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public byte Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public byte Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public byte Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public byte Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public byte Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public byte Unknown31 { get; set; }
+        [FieldOrder(32)]
+        public byte Unknown32 { get; set; }
+        [FieldOrder(33)]
+        public byte Unknown33 { get; set; }
+        [FieldOrder(34)]
+        public byte Unknown34 { get; set; }
+        [FieldOrder(35)]
+        public byte Unknown35 { get; set; }
+        [FieldOrder(36)]
+        public byte Unknown36 { get; set; }
+        [FieldOrder(37)]
+        public byte Unknown37 { get; set; }
+        [FieldOrder(38)]
+        public byte Unknown38 { get; set; }
+        [FieldOrder(39)]
+        public byte Unknown39 { get; set; }
+        [FieldOrder(40)]
+        public byte Unknown40 { get; set; }
+        [FieldOrder(41)]
+        public byte Unknown41 { get; set; }
+        [FieldOrder(42)]
+        public byte Unknown42 { get; set; }
+        [FieldOrder(43)]
+        public byte Unknown43 { get; set; }
+        [FieldOrder(44)]
+        public byte Unknown44 { get; set; }
+        [FieldOrder(45)]
+        public byte Unknown45 { get; set; }
+        [FieldOrder(46)]
+        public byte Unknown46 { get; set; }
+        [FieldOrder(47)]
+        public byte Unknown47 { get; set; }
+        [FieldOrder(48)]
+        public byte Unknown48 { get; set; }
+        [FieldOrder(49)]
+        public byte Unknown49 { get; set; }
+        [FieldOrder(50)]
+        public byte Unknown50 { get; set; }
+        [FieldOrder(51)]
+        public byte Unknown51 { get; set; }
+        [FieldOrder(52)]
+        public byte Unknown52 { get; set; }
+        [FieldOrder(53)]
+        public byte Unknown53 { get; set; }
+        [FieldOrder(54)]
+        public byte Unknown54 { get; set; }
+        [FieldOrder(55)]
+        public byte Unknown55 { get; set; }
+        [FieldOrder(56)]
+        public byte Unknown56 { get; set; }
+        [FieldOrder(57)]
+        public byte Unknown57 { get; set; }
+        [FieldOrder(58)]
+        public byte Unknown58 { get; set; }
+        [FieldOrder(59)]
+        public byte Unknown59 { get; set; }
+        [FieldOrder(60)]
+        public byte Unknown60 { get; set; }
+        [FieldOrder(61)]
+        public byte Unknown61 { get; set; }
+        [FieldOrder(62)]
+        public byte Unknown62 { get; set; }
+        [FieldOrder(63)]
+        public byte Unknown63 { get; set; }
+        [FieldOrder(64)]
+        public byte Unknown64 { get; set; }
+        [FieldOrder(65)]
+        public byte Unknown65 { get; set; }
+        [FieldOrder(66)]
+        public byte Unknown66 { get; set; }
+        [FieldOrder(67)]
+        public byte Unknown67 { get; set; }
+        [FieldOrder(68)]
+        public byte Unknown68 { get; set; }
+        [FieldOrder(69)]
+        public byte Unknown69 { get; set; }
+        [FieldOrder(70)]
+        public byte Unknown70 { get; set; }
+        [FieldOrder(71)]
+        public byte Unknown71 { get; set; }
+        [FieldOrder(72)]
+        public byte Unknown72 { get; set; }
+        [FieldOrder(73)]
+        public byte Unknown73 { get; set; }
+        [FieldOrder(74)]
+        public byte Unknown74 { get; set; }
+        [FieldOrder(75)]
+        public byte Unknown75 { get; set; }
+        [FieldOrder(76)]
+        public byte Unknown76 { get; set; }
+        [FieldOrder(77)]
+        public byte Unknown77 { get; set; }
+        [FieldOrder(78)]
+        public byte Unknown78 { get; set; }
+        [FieldOrder(79)]
+        public byte Unknown79 { get; set; }
+        [FieldOrder(80)]
+        public byte Unknown80 { get; set; }
+        [FieldOrder(81)]
+        public byte Unknown81 { get; set; }
+        [FieldOrder(82)]
+        public byte Unknown82 { get; set; }
+        [FieldOrder(83)]
+        public byte Unknown83 { get; set; }
+        [FieldOrder(84)]
+        public byte Unknown84 { get; set; }
+        [FieldOrder(85)]
+        public byte Unknown85 { get; set; }
+        [FieldOrder(86)]
+        public byte Unknown86 { get; set; }
+        [FieldOrder(87)]
+        public byte Unknown87 { get; set; }
+        [FieldOrder(88)]
+        public byte Unknown88 { get; set; }
+        [FieldOrder(89)]
+        public byte Unknown89 { get; set; }
+        [FieldOrder(90)]
+        public byte Unknown90 { get; set; }
+        [FieldOrder(91)]
+        public byte Unknown91 { get; set; }
+        [FieldOrder(92)]
+        public byte Unknown92 { get; set; }
+        [FieldOrder(93)]
+        public byte Unknown93 { get; set; }
+        [FieldOrder(94)]
+        public byte Unknown94 { get; set; }
+        [FieldOrder(95)]
+        public byte Unknown95 { get; set; }
+        [FieldOrder(96)]
+        public byte Unknown96 { get; set; }
+        [FieldOrder(97)]
+        public byte Unknown97 { get; set; }
+        [FieldOrder(98)]
+        public byte Unknown98 { get; set; }
+        [FieldOrder(99)]
+        public byte Unknown99 { get; set; }
+        [FieldOrder(100)]
+        public byte Unknown100 { get; set; }
+        [FieldOrder(101)]
+        public byte Unknown101 { get; set; }
+        [FieldOrder(102)]
+        public byte Unknown102 { get; set; }
+        [FieldOrder(103)]
+        public byte Unknown103 { get; set; }
+        [FieldOrder(104)]
+        public byte Unknown104 { get; set; }
+        [FieldOrder(105)]
+        public byte Unknown105 { get; set; }
+        [FieldOrder(106)]
+        public byte Unknown106 { get; set; }
+        [FieldOrder(107)]
+        public byte Unknown107 { get; set; }
+        [FieldOrder(108)]
+        public byte Unknown108 { get; set; }
+        [FieldOrder(109)]
+        public byte Unknown109 { get; set; }
+        [FieldOrder(110)]
+        public byte Unknown110 { get; set; }
+        [FieldOrder(111)]
+        public byte Unknown111 { get; set; }
+        [FieldOrder(112)]
+        public byte Unknown112 { get; set; }
+        [FieldOrder(113)]
+        public byte Unknown113 { get; set; }
+        [FieldOrder(114)]
+        public byte Unknown114 { get; set; }
+        [FieldOrder(115)]
+        public byte Unknown115 { get; set; }
+        [FieldOrder(116)]
+        public byte Unknown116 { get; set; }
+        [FieldOrder(117)]
+        public byte Unknown117 { get; set; }
+        [FieldOrder(118)]
+        public byte Unknown118 { get; set; }
+        [FieldOrder(119)]
+        public byte Unknown119 { get; set; }
+        [FieldOrder(120)]
+        public byte Unknown120 { get; set; }
+        [FieldOrder(121)]
+        public byte Unknown121 { get; set; }
+        [FieldOrder(122)]
+        public byte Unknown122 { get; set; }
+        [FieldOrder(123)]
+        public byte Unknown123 { get; set; }
+        [FieldOrder(124)]
+        public byte Unknown124 { get; set; }
+        [FieldOrder(125)]
+        public byte Unknown125 { get; set; }
+        [FieldOrder(126)]
+        public byte Unknown126 { get; set; }
+        [FieldOrder(127)]
+        public byte Unknown127 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72905)]
+    [EfsFile("/nv/item_files/rfnv/00027147", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027147 : OneHundredTwentyEightItemsBase<byte>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027148Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72906)]
+    [EfsFile("/nv/item_files/rfnv/00027148", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027148 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027149Item
+    {
+        [FieldOrder(0)]
+        public byte Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public byte Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public byte Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public byte Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public byte Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public byte Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public byte Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public byte Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public byte Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public byte Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public byte Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public byte Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public byte Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public byte Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public byte Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public byte Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public byte Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public byte Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public byte Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public byte Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public byte Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public byte Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public byte Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public byte Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public byte Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public byte Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public byte Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public byte Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public byte Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public byte Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public byte Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public byte Unknown31 { get; set; }
+        [FieldOrder(32)]
+        public byte Unknown32 { get; set; }
+        [FieldOrder(33)]
+        public byte Unknown33 { get; set; }
+        [FieldOrder(34)]
+        public byte Unknown34 { get; set; }
+        [FieldOrder(35)]
+        public byte Unknown35 { get; set; }
+        [FieldOrder(36)]
+        public byte Unknown36 { get; set; }
+        [FieldOrder(37)]
+        public byte Unknown37 { get; set; }
+        [FieldOrder(38)]
+        public byte Unknown38 { get; set; }
+        [FieldOrder(39)]
+        public byte Unknown39 { get; set; }
+        [FieldOrder(40)]
+        public byte Unknown40 { get; set; }
+        [FieldOrder(41)]
+        public byte Unknown41 { get; set; }
+        [FieldOrder(42)]
+        public byte Unknown42 { get; set; }
+        [FieldOrder(43)]
+        public byte Unknown43 { get; set; }
+        [FieldOrder(44)]
+        public byte Unknown44 { get; set; }
+        [FieldOrder(45)]
+        public byte Unknown45 { get; set; }
+        [FieldOrder(46)]
+        public byte Unknown46 { get; set; }
+        [FieldOrder(47)]
+        public byte Unknown47 { get; set; }
+        [FieldOrder(48)]
+        public byte Unknown48 { get; set; }
+        [FieldOrder(49)]
+        public byte Unknown49 { get; set; }
+        [FieldOrder(50)]
+        public byte Unknown50 { get; set; }
+        [FieldOrder(51)]
+        public byte Unknown51 { get; set; }
+        [FieldOrder(52)]
+        public byte Unknown52 { get; set; }
+        [FieldOrder(53)]
+        public byte Unknown53 { get; set; }
+        [FieldOrder(54)]
+        public byte Unknown54 { get; set; }
+        [FieldOrder(55)]
+        public byte Unknown55 { get; set; }
+        [FieldOrder(56)]
+        public byte Unknown56 { get; set; }
+        [FieldOrder(57)]
+        public byte Unknown57 { get; set; }
+        [FieldOrder(58)]
+        public byte Unknown58 { get; set; }
+        [FieldOrder(59)]
+        public byte Unknown59 { get; set; }
+        [FieldOrder(60)]
+        public byte Unknown60 { get; set; }
+        [FieldOrder(61)]
+        public byte Unknown61 { get; set; }
+        [FieldOrder(62)]
+        public byte Unknown62 { get; set; }
+        [FieldOrder(63)]
+        public byte Unknown63 { get; set; }
+        [FieldOrder(64)]
+        public byte Unknown64 { get; set; }
+        [FieldOrder(65)]
+        public byte Unknown65 { get; set; }
+        [FieldOrder(66)]
+        public byte Unknown66 { get; set; }
+        [FieldOrder(67)]
+        public byte Unknown67 { get; set; }
+        [FieldOrder(68)]
+        public byte Unknown68 { get; set; }
+        [FieldOrder(69)]
+        public byte Unknown69 { get; set; }
+        [FieldOrder(70)]
+        public byte Unknown70 { get; set; }
+        [FieldOrder(71)]
+        public byte Unknown71 { get; set; }
+        [FieldOrder(72)]
+        public byte Unknown72 { get; set; }
+        [FieldOrder(73)]
+        public byte Unknown73 { get; set; }
+        [FieldOrder(74)]
+        public byte Unknown74 { get; set; }
+        [FieldOrder(75)]
+        public byte Unknown75 { get; set; }
+        [FieldOrder(76)]
+        public byte Unknown76 { get; set; }
+        [FieldOrder(77)]
+        public byte Unknown77 { get; set; }
+        [FieldOrder(78)]
+        public byte Unknown78 { get; set; }
+        [FieldOrder(79)]
+        public byte Unknown79 { get; set; }
+        [FieldOrder(80)]
+        public byte Unknown80 { get; set; }
+        [FieldOrder(81)]
+        public byte Unknown81 { get; set; }
+        [FieldOrder(82)]
+        public byte Unknown82 { get; set; }
+        [FieldOrder(83)]
+        public byte Unknown83 { get; set; }
+        [FieldOrder(84)]
+        public byte Unknown84 { get; set; }
+        [FieldOrder(85)]
+        public byte Unknown85 { get; set; }
+        [FieldOrder(86)]
+        public byte Unknown86 { get; set; }
+        [FieldOrder(87)]
+        public byte Unknown87 { get; set; }
+        [FieldOrder(88)]
+        public byte Unknown88 { get; set; }
+        [FieldOrder(89)]
+        public byte Unknown89 { get; set; }
+        [FieldOrder(90)]
+        public byte Unknown90 { get; set; }
+        [FieldOrder(91)]
+        public byte Unknown91 { get; set; }
+        [FieldOrder(92)]
+        public byte Unknown92 { get; set; }
+        [FieldOrder(93)]
+        public byte Unknown93 { get; set; }
+        [FieldOrder(94)]
+        public byte Unknown94 { get; set; }
+        [FieldOrder(95)]
+        public byte Unknown95 { get; set; }
+        [FieldOrder(96)]
+        public byte Unknown96 { get; set; }
+        [FieldOrder(97)]
+        public byte Unknown97 { get; set; }
+        [FieldOrder(98)]
+        public byte Unknown98 { get; set; }
+        [FieldOrder(99)]
+        public byte Unknown99 { get; set; }
+        [FieldOrder(100)]
+        public byte Unknown100 { get; set; }
+        [FieldOrder(101)]
+        public byte Unknown101 { get; set; }
+        [FieldOrder(102)]
+        public byte Unknown102 { get; set; }
+        [FieldOrder(103)]
+        public byte Unknown103 { get; set; }
+        [FieldOrder(104)]
+        public byte Unknown104 { get; set; }
+        [FieldOrder(105)]
+        public byte Unknown105 { get; set; }
+        [FieldOrder(106)]
+        public byte Unknown106 { get; set; }
+        [FieldOrder(107)]
+        public byte Unknown107 { get; set; }
+        [FieldOrder(108)]
+        public byte Unknown108 { get; set; }
+        [FieldOrder(109)]
+        public byte Unknown109 { get; set; }
+        [FieldOrder(110)]
+        public byte Unknown110 { get; set; }
+        [FieldOrder(111)]
+        public byte Unknown111 { get; set; }
+        [FieldOrder(112)]
+        public byte Unknown112 { get; set; }
+        [FieldOrder(113)]
+        public byte Unknown113 { get; set; }
+        [FieldOrder(114)]
+        public byte Unknown114 { get; set; }
+        [FieldOrder(115)]
+        public byte Unknown115 { get; set; }
+        [FieldOrder(116)]
+        public byte Unknown116 { get; set; }
+        [FieldOrder(117)]
+        public byte Unknown117 { get; set; }
+        [FieldOrder(118)]
+        public byte Unknown118 { get; set; }
+        [FieldOrder(119)]
+        public byte Unknown119 { get; set; }
+        [FieldOrder(120)]
+        public byte Unknown120 { get; set; }
+        [FieldOrder(121)]
+        public byte Unknown121 { get; set; }
+        [FieldOrder(122)]
+        public byte Unknown122 { get; set; }
+        [FieldOrder(123)]
+        public byte Unknown123 { get; set; }
+        [FieldOrder(124)]
+        public byte Unknown124 { get; set; }
+        [FieldOrder(125)]
+        public byte Unknown125 { get; set; }
+        [FieldOrder(126)]
+        public byte Unknown126 { get; set; }
+        [FieldOrder(127)]
+        public byte Unknown127 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72907)]
+    [EfsFile("/nv/item_files/rfnv/00027149", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027149 : OneHundredTwentyEightItemsBase<byte>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027150Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72908)]
+    [EfsFile("/nv/item_files/rfnv/00027150", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027150 : SixteenItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027151Item
+    {
+        [FieldOrder(0)]
+        public byte Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public byte Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public byte Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public byte Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public byte Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public byte Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public byte Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public byte Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public byte Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public byte Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public byte Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public byte Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public byte Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public byte Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public byte Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public byte Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public byte Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public byte Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public byte Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public byte Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public byte Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public byte Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public byte Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public byte Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public byte Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public byte Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public byte Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public byte Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public byte Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public byte Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public byte Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public byte Unknown31 { get; set; }
+        [FieldOrder(32)]
+        public byte Unknown32 { get; set; }
+        [FieldOrder(33)]
+        public byte Unknown33 { get; set; }
+        [FieldOrder(34)]
+        public byte Unknown34 { get; set; }
+        [FieldOrder(35)]
+        public byte Unknown35 { get; set; }
+        [FieldOrder(36)]
+        public byte Unknown36 { get; set; }
+        [FieldOrder(37)]
+        public byte Unknown37 { get; set; }
+        [FieldOrder(38)]
+        public byte Unknown38 { get; set; }
+        [FieldOrder(39)]
+        public byte Unknown39 { get; set; }
+        [FieldOrder(40)]
+        public byte Unknown40 { get; set; }
+        [FieldOrder(41)]
+        public byte Unknown41 { get; set; }
+        [FieldOrder(42)]
+        public byte Unknown42 { get; set; }
+        [FieldOrder(43)]
+        public byte Unknown43 { get; set; }
+        [FieldOrder(44)]
+        public byte Unknown44 { get; set; }
+        [FieldOrder(45)]
+        public byte Unknown45 { get; set; }
+        [FieldOrder(46)]
+        public byte Unknown46 { get; set; }
+        [FieldOrder(47)]
+        public byte Unknown47 { get; set; }
+        [FieldOrder(48)]
+        public byte Unknown48 { get; set; }
+        [FieldOrder(49)]
+        public byte Unknown49 { get; set; }
+        [FieldOrder(50)]
+        public byte Unknown50 { get; set; }
+        [FieldOrder(51)]
+        public byte Unknown51 { get; set; }
+        [FieldOrder(52)]
+        public byte Unknown52 { get; set; }
+        [FieldOrder(53)]
+        public byte Unknown53 { get; set; }
+        [FieldOrder(54)]
+        public byte Unknown54 { get; set; }
+        [FieldOrder(55)]
+        public byte Unknown55 { get; set; }
+        [FieldOrder(56)]
+        public byte Unknown56 { get; set; }
+        [FieldOrder(57)]
+        public byte Unknown57 { get; set; }
+        [FieldOrder(58)]
+        public byte Unknown58 { get; set; }
+        [FieldOrder(59)]
+        public byte Unknown59 { get; set; }
+        [FieldOrder(60)]
+        public byte Unknown60 { get; set; }
+        [FieldOrder(61)]
+        public byte Unknown61 { get; set; }
+        [FieldOrder(62)]
+        public byte Unknown62 { get; set; }
+        [FieldOrder(63)]
+        public byte Unknown63 { get; set; }
+        [FieldOrder(64)]
+        public byte Unknown64 { get; set; }
+        [FieldOrder(65)]
+        public byte Unknown65 { get; set; }
+        [FieldOrder(66)]
+        public byte Unknown66 { get; set; }
+        [FieldOrder(67)]
+        public byte Unknown67 { get; set; }
+        [FieldOrder(68)]
+        public byte Unknown68 { get; set; }
+        [FieldOrder(69)]
+        public byte Unknown69 { get; set; }
+        [FieldOrder(70)]
+        public byte Unknown70 { get; set; }
+        [FieldOrder(71)]
+        public byte Unknown71 { get; set; }
+        [FieldOrder(72)]
+        public byte Unknown72 { get; set; }
+        [FieldOrder(73)]
+        public byte Unknown73 { get; set; }
+        [FieldOrder(74)]
+        public byte Unknown74 { get; set; }
+        [FieldOrder(75)]
+        public byte Unknown75 { get; set; }
+        [FieldOrder(76)]
+        public byte Unknown76 { get; set; }
+        [FieldOrder(77)]
+        public byte Unknown77 { get; set; }
+        [FieldOrder(78)]
+        public byte Unknown78 { get; set; }
+        [FieldOrder(79)]
+        public byte Unknown79 { get; set; }
+        [FieldOrder(80)]
+        public byte Unknown80 { get; set; }
+        [FieldOrder(81)]
+        public byte Unknown81 { get; set; }
+        [FieldOrder(82)]
+        public byte Unknown82 { get; set; }
+        [FieldOrder(83)]
+        public byte Unknown83 { get; set; }
+        [FieldOrder(84)]
+        public byte Unknown84 { get; set; }
+        [FieldOrder(85)]
+        public byte Unknown85 { get; set; }
+        [FieldOrder(86)]
+        public byte Unknown86 { get; set; }
+        [FieldOrder(87)]
+        public byte Unknown87 { get; set; }
+        [FieldOrder(88)]
+        public byte Unknown88 { get; set; }
+        [FieldOrder(89)]
+        public byte Unknown89 { get; set; }
+        [FieldOrder(90)]
+        public byte Unknown90 { get; set; }
+        [FieldOrder(91)]
+        public byte Unknown91 { get; set; }
+        [FieldOrder(92)]
+        public byte Unknown92 { get; set; }
+        [FieldOrder(93)]
+        public byte Unknown93 { get; set; }
+        [FieldOrder(94)]
+        public byte Unknown94 { get; set; }
+        [FieldOrder(95)]
+        public byte Unknown95 { get; set; }
+        [FieldOrder(96)]
+        public byte Unknown96 { get; set; }
+        [FieldOrder(97)]
+        public byte Unknown97 { get; set; }
+        [FieldOrder(98)]
+        public byte Unknown98 { get; set; }
+        [FieldOrder(99)]
+        public byte Unknown99 { get; set; }
+        [FieldOrder(100)]
+        public byte Unknown100 { get; set; }
+        [FieldOrder(101)]
+        public byte Unknown101 { get; set; }
+        [FieldOrder(102)]
+        public byte Unknown102 { get; set; }
+        [FieldOrder(103)]
+        public byte Unknown103 { get; set; }
+        [FieldOrder(104)]
+        public byte Unknown104 { get; set; }
+        [FieldOrder(105)]
+        public byte Unknown105 { get; set; }
+        [FieldOrder(106)]
+        public byte Unknown106 { get; set; }
+        [FieldOrder(107)]
+        public byte Unknown107 { get; set; }
+        [FieldOrder(108)]
+        public byte Unknown108 { get; set; }
+        [FieldOrder(109)]
+        public byte Unknown109 { get; set; }
+        [FieldOrder(110)]
+        public byte Unknown110 { get; set; }
+        [FieldOrder(111)]
+        public byte Unknown111 { get; set; }
+        [FieldOrder(112)]
+        public byte Unknown112 { get; set; }
+        [FieldOrder(113)]
+        public byte Unknown113 { get; set; }
+        [FieldOrder(114)]
+        public byte Unknown114 { get; set; }
+        [FieldOrder(115)]
+        public byte Unknown115 { get; set; }
+        [FieldOrder(116)]
+        public byte Unknown116 { get; set; }
+        [FieldOrder(117)]
+        public byte Unknown117 { get; set; }
+        [FieldOrder(118)]
+        public byte Unknown118 { get; set; }
+        [FieldOrder(119)]
+        public byte Unknown119 { get; set; }
+        [FieldOrder(120)]
+        public byte Unknown120 { get; set; }
+        [FieldOrder(121)]
+        public byte Unknown121 { get; set; }
+        [FieldOrder(122)]
+        public byte Unknown122 { get; set; }
+        [FieldOrder(123)]
+        public byte Unknown123 { get; set; }
+        [FieldOrder(124)]
+        public byte Unknown124 { get; set; }
+        [FieldOrder(125)]
+        public byte Unknown125 { get; set; }
+        [FieldOrder(126)]
+        public byte Unknown126 { get; set; }
+        [FieldOrder(127)]
+        public byte Unknown127 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72909)]
+    [EfsFile("/nv/item_files/rfnv/00027151", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027151 : OneHundredTwentyEightItemsBase<byte>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027152Item
+    {
+        [FieldOrder(0)]
+        public ulong Unknown { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72910)]
+    [EfsFile("/nv/item_files/rfnv/00027152", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027152 : UInt64ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027153Item
+    {
+        [FieldOrder(0)]
+        public byte TxSplit { get; set; }
+        [FieldOrder(1)]
+        public byte RxSplit { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72911)]
+    [EfsFile("/nv/item_files/rfnv/00027153", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027153 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte TxSplit { get; set; }
+
+        [FieldOrder(1)]
+        public byte RxSplit { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027157Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72915)]
+    [EfsFile("/nv/item_files/rfnv/00027157", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027157 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027158Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72916)]
+    [EfsFile("/nv/item_files/rfnv/00027158", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027158 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027159Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72917)]
+    [EfsFile("/nv/item_files/rfnv/00027159", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027159 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027160Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72918)]
+    [EfsFile("/nv/item_files/rfnv/00027160", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027160 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027171Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72923)]
+    [EfsFile("/nv/item_files/rfnv/00027171", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027171 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027201Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72931)]
+    [EfsFile("/nv/item_files/rfnv/00027201", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027201 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027212Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72942)]
+    [EfsFile("/nv/item_files/rfnv/00027212", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027212 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027213Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72943)]
+    [EfsFile("/nv/item_files/rfnv/00027213", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027213 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027214Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72944)]
+    [EfsFile("/nv/item_files/rfnv/00027214", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027214 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027215Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72945)]
+    [EfsFile("/nv/item_files/rfnv/00027215", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027215 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027216Item
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+        [FieldOrder(1)]
+        public ushort SwitchPwrDbm0 { get; set; }
+        [FieldOrder(2)]
+        public ushort SwitchPwrDbm1 { get; set; }
+        [FieldOrder(3)]
+        public ushort SwitchPwrDbm2 { get; set; }
+        [FieldOrder(4)]
+        public ushort SwitchPwrDbm3 { get; set; }
+        [FieldOrder(5)]
+        public ushort SwitchPwrDbm4 { get; set; }
+        [FieldOrder(6)]
+        public ushort SwitchPwrDbm5 { get; set; }
+        [FieldOrder(7)]
+        public ushort SwitchPwrDbm6 { get; set; }
+        [FieldOrder(8)]
+        public ushort SwitchPwrDbm7 { get; set; }
+        [FieldOrder(9)]
+        public ushort SwitchPwrDbm8 { get; set; }
+        [FieldOrder(10)]
+        public ushort SwitchPwrDbm9 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72946)]
+    [EfsFile("/nv/item_files/rfnv/00027216", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027216 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumSwitchPoints { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(10)]
+        public ushort[] SwitchPwrDbm { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue16Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue17Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue18Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue19Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue20Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue21Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue22Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue23Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue24Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue25Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1ItemValue26Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027224ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027224ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027224ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027224ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027224ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027224ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027224ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027224ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027224ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027224ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027224ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027224ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027224ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027224ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027224ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027224ItemValues1ItemValue15Item Value15 { get; set; }
+        [FieldOrder(16)]
+        public C00027224ItemValues1ItemValue16Item Value16 { get; set; }
+        [FieldOrder(17)]
+        public C00027224ItemValues1ItemValue17Item Value17 { get; set; }
+        [FieldOrder(18)]
+        public C00027224ItemValues1ItemValue18Item Value18 { get; set; }
+        [FieldOrder(19)]
+        public C00027224ItemValues1ItemValue19Item Value19 { get; set; }
+        [FieldOrder(20)]
+        public C00027224ItemValues1ItemValue20Item Value20 { get; set; }
+        [FieldOrder(21)]
+        public C00027224ItemValues1ItemValue21Item Value21 { get; set; }
+        [FieldOrder(22)]
+        public C00027224ItemValues1ItemValue22Item Value22 { get; set; }
+        [FieldOrder(23)]
+        public C00027224ItemValues1ItemValue23Item Value23 { get; set; }
+        [FieldOrder(24)]
+        public C00027224ItemValues1ItemValue24Item Value24 { get; set; }
+        [FieldOrder(25)]
+        public C00027224ItemValues1ItemValue25Item Value25 { get; set; }
+        [FieldOrder(26)]
+        public C00027224ItemValues1ItemValue26Item Value26 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027224Item
+    {
+        [FieldOrder(0)]
+        public C00027224ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72954)]
+    [EfsFile("/nv/item_files/rfnv/00027224", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027224 : ItemBase
+    {
+        [FieldOrder(0)]
+        public C00027224Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue16Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue17Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue18Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue19Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue20Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue21Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue22Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue23Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue24Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue25Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1ItemValue26Item
+    {
+        [FieldOrder(0)]
+        public uint AbsFreqHz { get; set; }
+        [FieldOrder(1)]
+        public byte NotchSetting { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027225ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027225ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027225ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027225ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027225ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027225ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027225ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027225ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027225ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027225ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027225ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027225ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027225ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027225ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027225ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027225ItemValues1ItemValue15Item Value15 { get; set; }
+        [FieldOrder(16)]
+        public C00027225ItemValues1ItemValue16Item Value16 { get; set; }
+        [FieldOrder(17)]
+        public C00027225ItemValues1ItemValue17Item Value17 { get; set; }
+        [FieldOrder(18)]
+        public C00027225ItemValues1ItemValue18Item Value18 { get; set; }
+        [FieldOrder(19)]
+        public C00027225ItemValues1ItemValue19Item Value19 { get; set; }
+        [FieldOrder(20)]
+        public C00027225ItemValues1ItemValue20Item Value20 { get; set; }
+        [FieldOrder(21)]
+        public C00027225ItemValues1ItemValue21Item Value21 { get; set; }
+        [FieldOrder(22)]
+        public C00027225ItemValues1ItemValue22Item Value22 { get; set; }
+        [FieldOrder(23)]
+        public C00027225ItemValues1ItemValue23Item Value23 { get; set; }
+        [FieldOrder(24)]
+        public C00027225ItemValues1ItemValue24Item Value24 { get; set; }
+        [FieldOrder(25)]
+        public C00027225ItemValues1ItemValue25Item Value25 { get; set; }
+        [FieldOrder(26)]
+        public C00027225ItemValues1ItemValue26Item Value26 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027225Item
+    {
+        [FieldOrder(0)]
+        public C00027225ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(72955)]
+    [EfsFile("/nv/item_files/rfnv/00027225", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027225 : ItemBase
+    {
+        [FieldOrder(0)]
+        public C00027225Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027324Item
+    {
+        [FieldOrder(0)]
+        public byte RfcDisableFailureNonfatalDevicesType { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73046)]
+    [EfsFile("/nv/item_files/rfnv/00027324", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027324 : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027344Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DelayLTEBW5Mhz0 { get; set; }
+        [FieldOrder(18)]
+        public uint DelayLTEBW5Mhz1 { get; set; }
+        [FieldOrder(19)]
+        public uint DelayLTEBW5Mhz2 { get; set; }
+        [FieldOrder(20)]
+        public uint DelayLTEBW5Mhz3 { get; set; }
+        [FieldOrder(21)]
+        public uint DelayLTEBW5Mhz4 { get; set; }
+        [FieldOrder(22)]
+        public uint DelayLTEBW5Mhz5 { get; set; }
+        [FieldOrder(23)]
+        public uint DelayLTEBW5Mhz6 { get; set; }
+        [FieldOrder(24)]
+        public uint DelayLTEBW5Mhz7 { get; set; }
+        [FieldOrder(25)]
+        public uint DelayLTEBW5Mhz8 { get; set; }
+        [FieldOrder(26)]
+        public uint DelayLTEBW5Mhz9 { get; set; }
+        [FieldOrder(27)]
+        public uint DelayLTEBW5Mhz10 { get; set; }
+        [FieldOrder(28)]
+        public uint DelayLTEBW5Mhz11 { get; set; }
+        [FieldOrder(29)]
+        public uint DelayLTEBW5Mhz12 { get; set; }
+        [FieldOrder(30)]
+        public uint DelayLTEBW5Mhz13 { get; set; }
+        [FieldOrder(31)]
+        public uint DelayLTEBW5Mhz14 { get; set; }
+        [FieldOrder(32)]
+        public uint DelayLTEBW5Mhz15 { get; set; }
+        [FieldOrder(33)]
+        public uint DelayLTEBW10Mhz0 { get; set; }
+        [FieldOrder(34)]
+        public uint DelayLTEBW10Mhz1 { get; set; }
+        [FieldOrder(35)]
+        public uint DelayLTEBW10Mhz2 { get; set; }
+        [FieldOrder(36)]
+        public uint DelayLTEBW10Mhz3 { get; set; }
+        [FieldOrder(37)]
+        public uint DelayLTEBW10Mhz4 { get; set; }
+        [FieldOrder(38)]
+        public uint DelayLTEBW10Mhz5 { get; set; }
+        [FieldOrder(39)]
+        public uint DelayLTEBW10Mhz6 { get; set; }
+        [FieldOrder(40)]
+        public uint DelayLTEBW10Mhz7 { get; set; }
+        [FieldOrder(41)]
+        public uint DelayLTEBW10Mhz8 { get; set; }
+        [FieldOrder(42)]
+        public uint DelayLTEBW20Mhz0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73066)]
+    [EfsFile("/nv/item_files/rfnv/00027344", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027344 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DelayLTEBW5Mhz { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(9)]
+        public uint[] DelayLTEBW10Mhz { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(1)]
+        public uint[] DelayLTEBW20Mhz { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027345ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027345ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027345ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027345ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027345ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027345ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027345ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027345ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027345ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027345ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027345ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027345ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027345ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027345ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027345ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027345ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027345Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027345ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73067)]
+    [EfsFile("/nv/item_files/rfnv/00027345", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027345 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027345Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027346ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027346ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027346ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027346ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027346ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027346ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027346ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027346ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027346ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027346ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027346ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027346ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027346ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027346ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027346ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027346ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027346Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027346ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73068)]
+    [EfsFile("/nv/item_files/rfnv/00027346", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027346 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027346Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027349ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027349ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027349ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027349ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027349ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027349ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027349ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027349ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027349ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027349ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027349ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027349ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027349ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027349ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027349ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027349ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027349Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027349ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73071)]
+    [EfsFile("/nv/item_files/rfnv/00027349", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027349 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027349Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027350ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027350ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027350ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027350ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027350ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027350ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027350ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027350ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027350ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027350ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027350ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027350ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027350ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027350ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027350ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027350ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027350Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027350ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73072)]
+    [EfsFile("/nv/item_files/rfnv/00027350", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027350 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027350Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027363ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027363ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027363ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027363ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027363ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027363ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027363ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027363ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027363ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027363ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027363ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027363ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027363ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027363ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027363ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027363ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027363Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027363ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73085)]
+    [EfsFile("/nv/item_files/rfnv/00027363", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027363 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027363Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027364ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027364ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027364ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027364ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027364ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027364ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027364ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027364ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027364ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027364ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027364ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027364ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027364ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027364ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027364ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027364ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027364Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027364ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73086)]
+    [EfsFile("/nv/item_files/rfnv/00027364", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027364 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027364Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027379ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027379ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027379ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027379ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027379ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027379ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027379ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027379ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027379ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027379ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027379ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027379ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027379ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027379ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027379ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027379ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027379Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027379ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73101)]
+    [EfsFile("/nv/item_files/rfnv/00027379", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027379 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027379Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027380ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027380ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027380ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027380ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027380ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027380ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027380ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027380ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027380ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027380ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027380ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027380ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027380ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027380ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027380ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027380ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027380Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027380ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73102)]
+    [EfsFile("/nv/item_files/rfnv/00027380", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027380 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027380Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027391ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027391ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027391ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027391ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027391ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027391ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027391ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027391ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027391ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027391ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027391ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027391ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027391ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027391ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027391ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027391ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027391Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027391ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73113)]
+    [EfsFile("/nv/item_files/rfnv/00027391", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027391 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027391Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027393ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027393ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027393ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027393ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027393ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027393ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027393ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027393ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027393ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027393ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027393ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027393ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027393ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027393ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027393ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027393ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027393Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027393ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73115)]
+    [EfsFile("/nv/item_files/rfnv/00027393", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027393 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027393Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027395ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027395ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027395ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027395ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027395ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027395ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027395ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027395ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027395ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027395ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027395ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027395ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027395ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027395ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027395ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027395ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027395Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027395ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73117)]
+    [EfsFile("/nv/item_files/rfnv/00027395", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027395 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027395Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027397ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027397ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027397ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027397ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027397ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027397ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027397ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027397ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027397ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027397ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027397ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027397ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027397ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027397ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027397ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027397ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027397Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027397ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73119)]
+    [EfsFile("/nv/item_files/rfnv/00027397", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027397 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027397Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027398ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027398ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027398ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027398ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027398ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027398ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027398ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027398ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027398ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027398ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027398ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027398ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027398ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027398ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027398ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027398ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027398Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027398ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73120)]
+    [EfsFile("/nv/item_files/rfnv/00027398", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027398 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027398Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027419ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027419ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027419ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027419ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027419ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027419ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027419ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027419ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027419ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027419ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027419ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027419ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027419ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027419ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027419ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027419ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027419Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027419ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73141)]
+    [EfsFile("/nv/item_files/rfnv/00027419", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027419 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027419Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027420ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027420ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027420ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027420ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027420ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027420ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027420ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027420ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027420ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027420ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027420ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027420ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027420ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027420ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027420ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027420ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027420Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027420ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73142)]
+    [EfsFile("/nv/item_files/rfnv/00027420", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027420 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027420Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027421ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027421ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027421ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027421ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027421ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027421ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027421ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027421ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027421ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027421ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027421ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027421ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027421ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027421ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027421ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027421ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027421Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027421ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73143)]
+    [EfsFile("/nv/item_files/rfnv/00027421", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027421 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027421Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027422ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027422ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027422ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027422ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027422ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027422ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027422ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027422ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027422ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027422ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027422ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027422ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027422ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027422ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027422ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027422ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027422Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027422ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73144)]
+    [EfsFile("/nv/item_files/rfnv/00027422", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027422 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027422Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027428ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027428ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027428ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027428ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027428ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027428ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027428ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027428ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027428ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027428ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027428ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027428ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027428ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027428ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027428ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027428ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027428Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027428ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73150)]
+    [EfsFile("/nv/item_files/rfnv/00027428", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027428 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027428Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue12Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue13Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue14Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1ItemValue15Item
+    {
+        [FieldOrder(0)]
+        public uint DcI { get; set; }
+        [FieldOrder(1)]
+        public uint DcQ { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027429ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027429ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027429ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027429ItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public C00027429ItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public C00027429ItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public C00027429ItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public C00027429ItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public C00027429ItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public C00027429ItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public C00027429ItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public C00027429ItemValues1ItemValue11Item Value11 { get; set; }
+        [FieldOrder(12)]
+        public C00027429ItemValues1ItemValue12Item Value12 { get; set; }
+        [FieldOrder(13)]
+        public C00027429ItemValues1ItemValue13Item Value13 { get; set; }
+        [FieldOrder(14)]
+        public C00027429ItemValues1ItemValue14Item Value14 { get; set; }
+        [FieldOrder(15)]
+        public C00027429ItemValues1ItemValue15Item Value15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027429Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public C00027429ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73151)]
+    [EfsFile("/nv/item_files/rfnv/00027429", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027429 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public C00027429Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027472Item
+    {
+        [FieldOrder(0)]
+        public uint FBRxControl { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73194)]
+    [EfsFile("/nv/item_files/rfnv/00027472", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027472 : Int32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027473Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73195)]
+    [EfsFile("/nv/item_files/rfnv/00027473", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027473 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027474Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73196)]
+    [EfsFile("/nv/item_files/rfnv/00027474", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027474 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027475Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73197)]
+    [EfsFile("/nv/item_files/rfnv/00027475", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027475 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027476Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73198)]
+    [EfsFile("/nv/item_files/rfnv/00027476", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027476 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027477Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73199)]
+    [EfsFile("/nv/item_files/rfnv/00027477", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027477 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027478Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73200)]
+    [EfsFile("/nv/item_files/rfnv/00027478", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027478 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027479Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73201)]
+    [EfsFile("/nv/item_files/rfnv/00027479", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027479 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027480Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73202)]
+    [EfsFile("/nv/item_files/rfnv/00027480", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027480 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027481Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73203)]
+    [EfsFile("/nv/item_files/rfnv/00027481", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027481 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027482Item
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+        [FieldOrder(3)]
+        public uint FilterCoeff0 { get; set; }
+        [FieldOrder(4)]
+        public uint FilterCoeff1 { get; set; }
+        [FieldOrder(5)]
+        public uint FilterCoeff2 { get; set; }
+        [FieldOrder(6)]
+        public uint FilterCoeff3 { get; set; }
+        [FieldOrder(7)]
+        public uint FilterCoeff4 { get; set; }
+        [FieldOrder(8)]
+        public uint FilterCoeff5 { get; set; }
+        [FieldOrder(9)]
+        public uint FilterCoeff6 { get; set; }
+        [FieldOrder(10)]
+        public uint FilterCoeff7 { get; set; }
+        [FieldOrder(11)]
+        public uint FilterCoeff8 { get; set; }
+        [FieldOrder(12)]
+        public uint FilterCoeff9 { get; set; }
+        [FieldOrder(13)]
+        public uint FilterCoeff10 { get; set; }
+        [FieldOrder(14)]
+        public uint FilterCoeff11 { get; set; }
+        [FieldOrder(15)]
+        public uint FilterCoeff12 { get; set; }
+        [FieldOrder(16)]
+        public uint FilterCoeff13 { get; set; }
+        [FieldOrder(17)]
+        public uint FilterCoeff14 { get; set; }
+        [FieldOrder(18)]
+        public uint FilterCoeff15 { get; set; }
+        [FieldOrder(19)]
+        public uint FilterCoeff16 { get; set; }
+        [FieldOrder(20)]
+        public uint FilterCoeff17 { get; set; }
+        [FieldOrder(21)]
+        public uint FilterCoeff18 { get; set; }
+        [FieldOrder(22)]
+        public uint FilterCoeff19 { get; set; }
+        [FieldOrder(23)]
+        public uint FilterCoeff20 { get; set; }
+        [FieldOrder(24)]
+        public uint FilterCoeff21 { get; set; }
+        [FieldOrder(25)]
+        public uint FilterCoeff22 { get; set; }
+        [FieldOrder(26)]
+        public uint FilterCoeff23 { get; set; }
+        [FieldOrder(27)]
+        public uint FilterCoeff24 { get; set; }
+        [FieldOrder(28)]
+        public uint FilterCoeff25 { get; set; }
+        [FieldOrder(29)]
+        public uint FilterCoeff26 { get; set; }
+        [FieldOrder(30)]
+        public uint FilterCoeff27 { get; set; }
+        [FieldOrder(31)]
+        public uint FilterCoeff28 { get; set; }
+        [FieldOrder(32)]
+        public uint FilterCoeff29 { get; set; }
+        [FieldOrder(33)]
+        public uint FilterCoeff30 { get; set; }
+        [FieldOrder(34)]
+        public uint FilterCoeff31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73204)]
+    [EfsFile("/nv/item_files/rfnv/00027482", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027482 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Reserved { get; set; }
+
+        [FieldOrder(1)]
+        public byte GroupDelay { get; set; }
+
+        [FieldOrder(2)]
+        public byte NumFilterTaps { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(32)]
+        public uint[] FilterCoeff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027483Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DcDelay0 { get; set; }
+        [FieldOrder(18)]
+        public uint DcDelay1 { get; set; }
+        [FieldOrder(19)]
+        public uint DcDelay2 { get; set; }
+        [FieldOrder(20)]
+        public uint DcDelay3 { get; set; }
+        [FieldOrder(21)]
+        public uint DcDelay4 { get; set; }
+        [FieldOrder(22)]
+        public uint DcDelay5 { get; set; }
+        [FieldOrder(23)]
+        public uint DcDelay6 { get; set; }
+        [FieldOrder(24)]
+        public uint DcDelay7 { get; set; }
+        [FieldOrder(25)]
+        public uint DcDelay8 { get; set; }
+        [FieldOrder(26)]
+        public uint DcDelay9 { get; set; }
+        [FieldOrder(27)]
+        public uint DcDelay10 { get; set; }
+        [FieldOrder(28)]
+        public uint DcDelay11 { get; set; }
+        [FieldOrder(29)]
+        public uint DcDelay12 { get; set; }
+        [FieldOrder(30)]
+        public uint DcDelay13 { get; set; }
+        [FieldOrder(31)]
+        public uint DcDelay14 { get; set; }
+        [FieldOrder(32)]
+        public uint DcDelay15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73205)]
+    [EfsFile("/nv/item_files/rfnv/00027483", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027483 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DcDelay { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027484Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DcDelay0 { get; set; }
+        [FieldOrder(18)]
+        public uint DcDelay1 { get; set; }
+        [FieldOrder(19)]
+        public uint DcDelay2 { get; set; }
+        [FieldOrder(20)]
+        public uint DcDelay3 { get; set; }
+        [FieldOrder(21)]
+        public uint DcDelay4 { get; set; }
+        [FieldOrder(22)]
+        public uint DcDelay5 { get; set; }
+        [FieldOrder(23)]
+        public uint DcDelay6 { get; set; }
+        [FieldOrder(24)]
+        public uint DcDelay7 { get; set; }
+        [FieldOrder(25)]
+        public uint DcDelay8 { get; set; }
+        [FieldOrder(26)]
+        public uint DcDelay9 { get; set; }
+        [FieldOrder(27)]
+        public uint DcDelay10 { get; set; }
+        [FieldOrder(28)]
+        public uint DcDelay11 { get; set; }
+        [FieldOrder(29)]
+        public uint DcDelay12 { get; set; }
+        [FieldOrder(30)]
+        public uint DcDelay13 { get; set; }
+        [FieldOrder(31)]
+        public uint DcDelay14 { get; set; }
+        [FieldOrder(32)]
+        public uint DcDelay15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73206)]
+    [EfsFile("/nv/item_files/rfnv/00027484", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027484 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DcDelay { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027486Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DcDelay0 { get; set; }
+        [FieldOrder(18)]
+        public uint DcDelay1 { get; set; }
+        [FieldOrder(19)]
+        public uint DcDelay2 { get; set; }
+        [FieldOrder(20)]
+        public uint DcDelay3 { get; set; }
+        [FieldOrder(21)]
+        public uint DcDelay4 { get; set; }
+        [FieldOrder(22)]
+        public uint DcDelay5 { get; set; }
+        [FieldOrder(23)]
+        public uint DcDelay6 { get; set; }
+        [FieldOrder(24)]
+        public uint DcDelay7 { get; set; }
+        [FieldOrder(25)]
+        public uint DcDelay8 { get; set; }
+        [FieldOrder(26)]
+        public uint DcDelay9 { get; set; }
+        [FieldOrder(27)]
+        public uint DcDelay10 { get; set; }
+        [FieldOrder(28)]
+        public uint DcDelay11 { get; set; }
+        [FieldOrder(29)]
+        public uint DcDelay12 { get; set; }
+        [FieldOrder(30)]
+        public uint DcDelay13 { get; set; }
+        [FieldOrder(31)]
+        public uint DcDelay14 { get; set; }
+        [FieldOrder(32)]
+        public uint DcDelay15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73208)]
+    [EfsFile("/nv/item_files/rfnv/00027486", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027486 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DcDelay { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027487Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DcDelay0 { get; set; }
+        [FieldOrder(18)]
+        public uint DcDelay1 { get; set; }
+        [FieldOrder(19)]
+        public uint DcDelay2 { get; set; }
+        [FieldOrder(20)]
+        public uint DcDelay3 { get; set; }
+        [FieldOrder(21)]
+        public uint DcDelay4 { get; set; }
+        [FieldOrder(22)]
+        public uint DcDelay5 { get; set; }
+        [FieldOrder(23)]
+        public uint DcDelay6 { get; set; }
+        [FieldOrder(24)]
+        public uint DcDelay7 { get; set; }
+        [FieldOrder(25)]
+        public uint DcDelay8 { get; set; }
+        [FieldOrder(26)]
+        public uint DcDelay9 { get; set; }
+        [FieldOrder(27)]
+        public uint DcDelay10 { get; set; }
+        [FieldOrder(28)]
+        public uint DcDelay11 { get; set; }
+        [FieldOrder(29)]
+        public uint DcDelay12 { get; set; }
+        [FieldOrder(30)]
+        public uint DcDelay13 { get; set; }
+        [FieldOrder(31)]
+        public uint DcDelay14 { get; set; }
+        [FieldOrder(32)]
+        public uint DcDelay15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73209)]
+    [EfsFile("/nv/item_files/rfnv/00027487", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027487 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DcDelay { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027490Item
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+        [FieldOrder(1)]
+        public byte NvgFrameworkEnable { get; set; }
+        [FieldOrder(2)]
+        public byte DetuneCodeSizeInBytes { get; set; }
+        [FieldOrder(3)]
+        public byte DetuneCode10 { get; set; }
+        [FieldOrder(4)]
+        public byte DetuneCode11 { get; set; }
+        [FieldOrder(5)]
+        public byte DetuneCode12 { get; set; }
+        [FieldOrder(6)]
+        public byte DetuneCode13 { get; set; }
+        [FieldOrder(7)]
+        public byte DetuneCode14 { get; set; }
+        [FieldOrder(8)]
+        public byte DetuneCode15 { get; set; }
+        [FieldOrder(9)]
+        public byte DetuneCode16 { get; set; }
+        [FieldOrder(10)]
+        public byte DetuneCode17 { get; set; }
+        [FieldOrder(11)]
+        public uint TxFreqBoundary1Khz { get; set; }
+        [FieldOrder(12)]
+        public byte DetuneCode20 { get; set; }
+        [FieldOrder(13)]
+        public byte DetuneCode21 { get; set; }
+        [FieldOrder(14)]
+        public byte DetuneCode22 { get; set; }
+        [FieldOrder(15)]
+        public byte DetuneCode23 { get; set; }
+        [FieldOrder(16)]
+        public byte DetuneCode24 { get; set; }
+        [FieldOrder(17)]
+        public byte DetuneCode25 { get; set; }
+        [FieldOrder(18)]
+        public byte DetuneCode26 { get; set; }
+        [FieldOrder(19)]
+        public byte DetuneCode27 { get; set; }
+        [FieldOrder(20)]
+        public uint TxFreqBoundary2Khz { get; set; }
+        [FieldOrder(21)]
+        public byte DetuneCode30 { get; set; }
+        [FieldOrder(22)]
+        public byte DetuneCode31 { get; set; }
+        [FieldOrder(23)]
+        public byte DetuneCode32 { get; set; }
+        [FieldOrder(24)]
+        public byte DetuneCode33 { get; set; }
+        [FieldOrder(25)]
+        public byte DetuneCode34 { get; set; }
+        [FieldOrder(26)]
+        public byte DetuneCode35 { get; set; }
+        [FieldOrder(27)]
+        public byte DetuneCode36 { get; set; }
+        [FieldOrder(28)]
+        public byte DetuneCode37 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73212)]
+    [EfsFile("/nv/item_files/rfnv/00027490", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027490 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+
+        [FieldOrder(1)]
+        public byte NvgFrameworkEnable { get; set; }
+
+        [FieldOrder(2)]
+        public byte DetuneCodeSizeInBytes { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public byte[] DetuneCode1 { get; set; }
+
+        [FieldOrder(4)]
+        public uint TxFreqBoundary1Khz { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public byte[] DetuneCode2 { get; set; }
+
+        [FieldOrder(6)]
+        public uint TxFreqBoundary2Khz { get; set; }
+
+        [FieldOrder(7)]
+        [FieldCount(8)]
+        public byte[] DetuneCode3 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027491Item
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+        [FieldOrder(1)]
+        public byte NvgFrameworkEnable { get; set; }
+        [FieldOrder(2)]
+        public byte DetuneCodeSizeInBytes { get; set; }
+        [FieldOrder(3)]
+        public byte DetuneCode10 { get; set; }
+        [FieldOrder(4)]
+        public byte DetuneCode11 { get; set; }
+        [FieldOrder(5)]
+        public byte DetuneCode12 { get; set; }
+        [FieldOrder(6)]
+        public byte DetuneCode13 { get; set; }
+        [FieldOrder(7)]
+        public byte DetuneCode14 { get; set; }
+        [FieldOrder(8)]
+        public byte DetuneCode15 { get; set; }
+        [FieldOrder(9)]
+        public byte DetuneCode16 { get; set; }
+        [FieldOrder(10)]
+        public byte DetuneCode17 { get; set; }
+        [FieldOrder(11)]
+        public uint TxFreqBoundary1Khz { get; set; }
+        [FieldOrder(12)]
+        public byte DetuneCode20 { get; set; }
+        [FieldOrder(13)]
+        public byte DetuneCode21 { get; set; }
+        [FieldOrder(14)]
+        public byte DetuneCode22 { get; set; }
+        [FieldOrder(15)]
+        public byte DetuneCode23 { get; set; }
+        [FieldOrder(16)]
+        public byte DetuneCode24 { get; set; }
+        [FieldOrder(17)]
+        public byte DetuneCode25 { get; set; }
+        [FieldOrder(18)]
+        public byte DetuneCode26 { get; set; }
+        [FieldOrder(19)]
+        public byte DetuneCode27 { get; set; }
+        [FieldOrder(20)]
+        public uint TxFreqBoundary2Khz { get; set; }
+        [FieldOrder(21)]
+        public byte DetuneCode30 { get; set; }
+        [FieldOrder(22)]
+        public byte DetuneCode31 { get; set; }
+        [FieldOrder(23)]
+        public byte DetuneCode32 { get; set; }
+        [FieldOrder(24)]
+        public byte DetuneCode33 { get; set; }
+        [FieldOrder(25)]
+        public byte DetuneCode34 { get; set; }
+        [FieldOrder(26)]
+        public byte DetuneCode35 { get; set; }
+        [FieldOrder(27)]
+        public byte DetuneCode36 { get; set; }
+        [FieldOrder(28)]
+        public byte DetuneCode37 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73213)]
+    [EfsFile("/nv/item_files/rfnv/00027491", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027491 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+
+        [FieldOrder(1)]
+        public byte NvgFrameworkEnable { get; set; }
+
+        [FieldOrder(2)]
+        public byte DetuneCodeSizeInBytes { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public byte[] DetuneCode1 { get; set; }
+
+        [FieldOrder(4)]
+        public uint TxFreqBoundary1Khz { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public byte[] DetuneCode2 { get; set; }
+
+        [FieldOrder(6)]
+        public uint TxFreqBoundary2Khz { get; set; }
+
+        [FieldOrder(7)]
+        [FieldCount(8)]
+        public byte[] DetuneCode3 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027492Item
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+        [FieldOrder(1)]
+        public byte NvgFrameworkEnable { get; set; }
+        [FieldOrder(2)]
+        public byte DetuneCodeSizeInBytes { get; set; }
+        [FieldOrder(3)]
+        public byte DetuneCode10 { get; set; }
+        [FieldOrder(4)]
+        public byte DetuneCode11 { get; set; }
+        [FieldOrder(5)]
+        public byte DetuneCode12 { get; set; }
+        [FieldOrder(6)]
+        public byte DetuneCode13 { get; set; }
+        [FieldOrder(7)]
+        public byte DetuneCode14 { get; set; }
+        [FieldOrder(8)]
+        public byte DetuneCode15 { get; set; }
+        [FieldOrder(9)]
+        public byte DetuneCode16 { get; set; }
+        [FieldOrder(10)]
+        public byte DetuneCode17 { get; set; }
+        [FieldOrder(11)]
+        public uint TxFreqBoundary1Khz { get; set; }
+        [FieldOrder(12)]
+        public byte DetuneCode20 { get; set; }
+        [FieldOrder(13)]
+        public byte DetuneCode21 { get; set; }
+        [FieldOrder(14)]
+        public byte DetuneCode22 { get; set; }
+        [FieldOrder(15)]
+        public byte DetuneCode23 { get; set; }
+        [FieldOrder(16)]
+        public byte DetuneCode24 { get; set; }
+        [FieldOrder(17)]
+        public byte DetuneCode25 { get; set; }
+        [FieldOrder(18)]
+        public byte DetuneCode26 { get; set; }
+        [FieldOrder(19)]
+        public byte DetuneCode27 { get; set; }
+        [FieldOrder(20)]
+        public uint TxFreqBoundary2Khz { get; set; }
+        [FieldOrder(21)]
+        public byte DetuneCode30 { get; set; }
+        [FieldOrder(22)]
+        public byte DetuneCode31 { get; set; }
+        [FieldOrder(23)]
+        public byte DetuneCode32 { get; set; }
+        [FieldOrder(24)]
+        public byte DetuneCode33 { get; set; }
+        [FieldOrder(25)]
+        public byte DetuneCode34 { get; set; }
+        [FieldOrder(26)]
+        public byte DetuneCode35 { get; set; }
+        [FieldOrder(27)]
+        public byte DetuneCode36 { get; set; }
+        [FieldOrder(28)]
+        public byte DetuneCode37 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73214)]
+    [EfsFile("/nv/item_files/rfnv/00027492", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027492 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+
+        [FieldOrder(1)]
+        public byte NvgFrameworkEnable { get; set; }
+
+        [FieldOrder(2)]
+        public byte DetuneCodeSizeInBytes { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public byte[] DetuneCode1 { get; set; }
+
+        [FieldOrder(4)]
+        public uint TxFreqBoundary1Khz { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public byte[] DetuneCode2 { get; set; }
+
+        [FieldOrder(6)]
+        public uint TxFreqBoundary2Khz { get; set; }
+
+        [FieldOrder(7)]
+        [FieldCount(8)]
+        public byte[] DetuneCode3 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027500Item
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73222)]
+    [EfsFile("/nv/item_files/rfnv/00027500", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027500 : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027501Item
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73223)]
+    [EfsFile("/nv/item_files/rfnv/00027501", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027501 : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027502Item
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73224)]
+    [EfsFile("/nv/item_files/rfnv/00027502", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027502 : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027503Item
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73225)]
+    [EfsFile("/nv/item_files/rfnv/00027503", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027503 : ItemBase
+    {
+        [FieldOrder(0)]
+        public ushort GmskPaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(1)]
+        public ushort GmskPaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(2)]
+        public ushort GmskPaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(3)]
+        public ushort GmskPaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(4)]
+        public ushort GmskPaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(5)]
+        public ushort GmskPaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(6)]
+        public ushort GmskPaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(7)]
+        public ushort EdgePaSwptR0ToR1 { get; set; }
+
+        [FieldOrder(8)]
+        public ushort EdgePaSwptR1ToR2 { get; set; }
+
+        [FieldOrder(9)]
+        public ushort EdgePaSwptR2ToR3 { get; set; }
+
+        [FieldOrder(10)]
+        public ushort EdgePaSwptR3ToR4 { get; set; }
+
+        [FieldOrder(11)]
+        public ushort EdgePaSwptR4ToR5 { get; set; }
+
+        [FieldOrder(12)]
+        public ushort EdgePaSwptR5ToR6 { get; set; }
+
+        [FieldOrder(13)]
+        public ushort EdgePaSwptR6ToR7 { get; set; }
+
+        [FieldOrder(14)]
+        public ushort PaPredistSwpt1 { get; set; }
+
+        [FieldOrder(15)]
+        public ushort PaPredistSwpt2 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027508Item
+    {
+        [FieldOrder(0)]
+        public ushort CalSmpsPdmTbl0 { get; set; }
+        [FieldOrder(1)]
+        public ushort CalSmpsPdmTbl1 { get; set; }
+        [FieldOrder(2)]
+        public ushort CalSmpsPdmTbl2 { get; set; }
+        [FieldOrder(3)]
+        public ushort CalSmpsPdmTbl3 { get; set; }
+        [FieldOrder(4)]
+        public ushort CalSmpsPdmTbl4 { get; set; }
+        [FieldOrder(5)]
+        public ushort CalSmpsPdmTbl5 { get; set; }
+        [FieldOrder(6)]
+        public ushort CalSmpsPdmTbl6 { get; set; }
+        [FieldOrder(7)]
+        public ushort CalSmpsPdmTbl7 { get; set; }
+        [FieldOrder(8)]
+        public ushort GsmSmpsPdmTbl0 { get; set; }
+        [FieldOrder(9)]
+        public ushort GsmSmpsPdmTbl1 { get; set; }
+        [FieldOrder(10)]
+        public ushort GsmSmpsPdmTbl2 { get; set; }
+        [FieldOrder(11)]
+        public ushort GsmSmpsPdmTbl3 { get; set; }
+        [FieldOrder(12)]
+        public ushort GsmSmpsPdmTbl4 { get; set; }
+        [FieldOrder(13)]
+        public ushort GsmSmpsPdmTbl5 { get; set; }
+        [FieldOrder(14)]
+        public ushort GsmSmpsPdmTbl6 { get; set; }
+        [FieldOrder(15)]
+        public ushort GsmSmpsPdmTbl7 { get; set; }
+        [FieldOrder(16)]
+        public ushort GsmSmpsPdmTbl8 { get; set; }
+        [FieldOrder(17)]
+        public ushort GsmSmpsPdmTbl9 { get; set; }
+        [FieldOrder(18)]
+        public ushort GsmSmpsPdmTbl10 { get; set; }
+        [FieldOrder(19)]
+        public ushort GsmSmpsPdmTbl11 { get; set; }
+        [FieldOrder(20)]
+        public ushort GsmSmpsPdmTbl12 { get; set; }
+        [FieldOrder(21)]
+        public ushort GsmSmpsPdmTbl13 { get; set; }
+        [FieldOrder(22)]
+        public ushort GsmSmpsPdmTbl14 { get; set; }
+        [FieldOrder(23)]
+        public ushort GsmSmpsPdmTbl15 { get; set; }
+        [FieldOrder(24)]
+        public ushort EdgeSmpsPdmTbl0 { get; set; }
+        [FieldOrder(25)]
+        public ushort EdgeSmpsPdmTbl1 { get; set; }
+        [FieldOrder(26)]
+        public ushort EdgeSmpsPdmTbl2 { get; set; }
+        [FieldOrder(27)]
+        public ushort EdgeSmpsPdmTbl3 { get; set; }
+        [FieldOrder(28)]
+        public ushort EdgeSmpsPdmTbl4 { get; set; }
+        [FieldOrder(29)]
+        public ushort EdgeSmpsPdmTbl5 { get; set; }
+        [FieldOrder(30)]
+        public ushort EdgeSmpsPdmTbl6 { get; set; }
+        [FieldOrder(31)]
+        public ushort EdgeSmpsPdmTbl7 { get; set; }
+        [FieldOrder(32)]
+        public ushort EdgeSmpsPdmTbl8 { get; set; }
+        [FieldOrder(33)]
+        public ushort EdgeSmpsPdmTbl9 { get; set; }
+        [FieldOrder(34)]
+        public ushort EdgeSmpsPdmTbl10 { get; set; }
+        [FieldOrder(35)]
+        public ushort EdgeSmpsPdmTbl11 { get; set; }
+        [FieldOrder(36)]
+        public ushort EdgeSmpsPdmTbl12 { get; set; }
+        [FieldOrder(37)]
+        public ushort EdgeSmpsPdmTbl13 { get; set; }
+        [FieldOrder(38)]
+        public ushort EdgeSmpsPdmTbl14 { get; set; }
+        [FieldOrder(39)]
+        public ushort EdgeSmpsPdmTbl15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73230)]
+    [EfsFile("/nv/item_files/rfnv/00027508", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027508 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] CalSmpsPdmTbl { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] GsmSmpsPdmTbl { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public ushort[] EdgeSmpsPdmTbl { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027509Item
+    {
+        [FieldOrder(0)]
+        public ushort CalSmpsPdmTbl0 { get; set; }
+        [FieldOrder(1)]
+        public ushort CalSmpsPdmTbl1 { get; set; }
+        [FieldOrder(2)]
+        public ushort CalSmpsPdmTbl2 { get; set; }
+        [FieldOrder(3)]
+        public ushort CalSmpsPdmTbl3 { get; set; }
+        [FieldOrder(4)]
+        public ushort CalSmpsPdmTbl4 { get; set; }
+        [FieldOrder(5)]
+        public ushort CalSmpsPdmTbl5 { get; set; }
+        [FieldOrder(6)]
+        public ushort CalSmpsPdmTbl6 { get; set; }
+        [FieldOrder(7)]
+        public ushort CalSmpsPdmTbl7 { get; set; }
+        [FieldOrder(8)]
+        public ushort GsmSmpsPdmTbl0 { get; set; }
+        [FieldOrder(9)]
+        public ushort GsmSmpsPdmTbl1 { get; set; }
+        [FieldOrder(10)]
+        public ushort GsmSmpsPdmTbl2 { get; set; }
+        [FieldOrder(11)]
+        public ushort GsmSmpsPdmTbl3 { get; set; }
+        [FieldOrder(12)]
+        public ushort GsmSmpsPdmTbl4 { get; set; }
+        [FieldOrder(13)]
+        public ushort GsmSmpsPdmTbl5 { get; set; }
+        [FieldOrder(14)]
+        public ushort GsmSmpsPdmTbl6 { get; set; }
+        [FieldOrder(15)]
+        public ushort GsmSmpsPdmTbl7 { get; set; }
+        [FieldOrder(16)]
+        public ushort GsmSmpsPdmTbl8 { get; set; }
+        [FieldOrder(17)]
+        public ushort GsmSmpsPdmTbl9 { get; set; }
+        [FieldOrder(18)]
+        public ushort GsmSmpsPdmTbl10 { get; set; }
+        [FieldOrder(19)]
+        public ushort GsmSmpsPdmTbl11 { get; set; }
+        [FieldOrder(20)]
+        public ushort GsmSmpsPdmTbl12 { get; set; }
+        [FieldOrder(21)]
+        public ushort GsmSmpsPdmTbl13 { get; set; }
+        [FieldOrder(22)]
+        public ushort GsmSmpsPdmTbl14 { get; set; }
+        [FieldOrder(23)]
+        public ushort GsmSmpsPdmTbl15 { get; set; }
+        [FieldOrder(24)]
+        public ushort EdgeSmpsPdmTbl0 { get; set; }
+        [FieldOrder(25)]
+        public ushort EdgeSmpsPdmTbl1 { get; set; }
+        [FieldOrder(26)]
+        public ushort EdgeSmpsPdmTbl2 { get; set; }
+        [FieldOrder(27)]
+        public ushort EdgeSmpsPdmTbl3 { get; set; }
+        [FieldOrder(28)]
+        public ushort EdgeSmpsPdmTbl4 { get; set; }
+        [FieldOrder(29)]
+        public ushort EdgeSmpsPdmTbl5 { get; set; }
+        [FieldOrder(30)]
+        public ushort EdgeSmpsPdmTbl6 { get; set; }
+        [FieldOrder(31)]
+        public ushort EdgeSmpsPdmTbl7 { get; set; }
+        [FieldOrder(32)]
+        public ushort EdgeSmpsPdmTbl8 { get; set; }
+        [FieldOrder(33)]
+        public ushort EdgeSmpsPdmTbl9 { get; set; }
+        [FieldOrder(34)]
+        public ushort EdgeSmpsPdmTbl10 { get; set; }
+        [FieldOrder(35)]
+        public ushort EdgeSmpsPdmTbl11 { get; set; }
+        [FieldOrder(36)]
+        public ushort EdgeSmpsPdmTbl12 { get; set; }
+        [FieldOrder(37)]
+        public ushort EdgeSmpsPdmTbl13 { get; set; }
+        [FieldOrder(38)]
+        public ushort EdgeSmpsPdmTbl14 { get; set; }
+        [FieldOrder(39)]
+        public ushort EdgeSmpsPdmTbl15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73231)]
+    [EfsFile("/nv/item_files/rfnv/00027509", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027509 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] CalSmpsPdmTbl { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] GsmSmpsPdmTbl { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public ushort[] EdgeSmpsPdmTbl { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027510Item
+    {
+        [FieldOrder(0)]
+        public ushort CalSmpsPdmTbl0 { get; set; }
+        [FieldOrder(1)]
+        public ushort CalSmpsPdmTbl1 { get; set; }
+        [FieldOrder(2)]
+        public ushort CalSmpsPdmTbl2 { get; set; }
+        [FieldOrder(3)]
+        public ushort CalSmpsPdmTbl3 { get; set; }
+        [FieldOrder(4)]
+        public ushort CalSmpsPdmTbl4 { get; set; }
+        [FieldOrder(5)]
+        public ushort CalSmpsPdmTbl5 { get; set; }
+        [FieldOrder(6)]
+        public ushort CalSmpsPdmTbl6 { get; set; }
+        [FieldOrder(7)]
+        public ushort CalSmpsPdmTbl7 { get; set; }
+        [FieldOrder(8)]
+        public ushort GsmSmpsPdmTbl0 { get; set; }
+        [FieldOrder(9)]
+        public ushort GsmSmpsPdmTbl1 { get; set; }
+        [FieldOrder(10)]
+        public ushort GsmSmpsPdmTbl2 { get; set; }
+        [FieldOrder(11)]
+        public ushort GsmSmpsPdmTbl3 { get; set; }
+        [FieldOrder(12)]
+        public ushort GsmSmpsPdmTbl4 { get; set; }
+        [FieldOrder(13)]
+        public ushort GsmSmpsPdmTbl5 { get; set; }
+        [FieldOrder(14)]
+        public ushort GsmSmpsPdmTbl6 { get; set; }
+        [FieldOrder(15)]
+        public ushort GsmSmpsPdmTbl7 { get; set; }
+        [FieldOrder(16)]
+        public ushort GsmSmpsPdmTbl8 { get; set; }
+        [FieldOrder(17)]
+        public ushort GsmSmpsPdmTbl9 { get; set; }
+        [FieldOrder(18)]
+        public ushort GsmSmpsPdmTbl10 { get; set; }
+        [FieldOrder(19)]
+        public ushort GsmSmpsPdmTbl11 { get; set; }
+        [FieldOrder(20)]
+        public ushort GsmSmpsPdmTbl12 { get; set; }
+        [FieldOrder(21)]
+        public ushort GsmSmpsPdmTbl13 { get; set; }
+        [FieldOrder(22)]
+        public ushort GsmSmpsPdmTbl14 { get; set; }
+        [FieldOrder(23)]
+        public ushort GsmSmpsPdmTbl15 { get; set; }
+        [FieldOrder(24)]
+        public ushort EdgeSmpsPdmTbl0 { get; set; }
+        [FieldOrder(25)]
+        public ushort EdgeSmpsPdmTbl1 { get; set; }
+        [FieldOrder(26)]
+        public ushort EdgeSmpsPdmTbl2 { get; set; }
+        [FieldOrder(27)]
+        public ushort EdgeSmpsPdmTbl3 { get; set; }
+        [FieldOrder(28)]
+        public ushort EdgeSmpsPdmTbl4 { get; set; }
+        [FieldOrder(29)]
+        public ushort EdgeSmpsPdmTbl5 { get; set; }
+        [FieldOrder(30)]
+        public ushort EdgeSmpsPdmTbl6 { get; set; }
+        [FieldOrder(31)]
+        public ushort EdgeSmpsPdmTbl7 { get; set; }
+        [FieldOrder(32)]
+        public ushort EdgeSmpsPdmTbl8 { get; set; }
+        [FieldOrder(33)]
+        public ushort EdgeSmpsPdmTbl9 { get; set; }
+        [FieldOrder(34)]
+        public ushort EdgeSmpsPdmTbl10 { get; set; }
+        [FieldOrder(35)]
+        public ushort EdgeSmpsPdmTbl11 { get; set; }
+        [FieldOrder(36)]
+        public ushort EdgeSmpsPdmTbl12 { get; set; }
+        [FieldOrder(37)]
+        public ushort EdgeSmpsPdmTbl13 { get; set; }
+        [FieldOrder(38)]
+        public ushort EdgeSmpsPdmTbl14 { get; set; }
+        [FieldOrder(39)]
+        public ushort EdgeSmpsPdmTbl15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73232)]
+    [EfsFile("/nv/item_files/rfnv/00027510", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027510 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] CalSmpsPdmTbl { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] GsmSmpsPdmTbl { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public ushort[] EdgeSmpsPdmTbl { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027511Item
+    {
+        [FieldOrder(0)]
+        public ushort CalSmpsPdmTbl0 { get; set; }
+        [FieldOrder(1)]
+        public ushort CalSmpsPdmTbl1 { get; set; }
+        [FieldOrder(2)]
+        public ushort CalSmpsPdmTbl2 { get; set; }
+        [FieldOrder(3)]
+        public ushort CalSmpsPdmTbl3 { get; set; }
+        [FieldOrder(4)]
+        public ushort CalSmpsPdmTbl4 { get; set; }
+        [FieldOrder(5)]
+        public ushort CalSmpsPdmTbl5 { get; set; }
+        [FieldOrder(6)]
+        public ushort CalSmpsPdmTbl6 { get; set; }
+        [FieldOrder(7)]
+        public ushort CalSmpsPdmTbl7 { get; set; }
+        [FieldOrder(8)]
+        public ushort GsmSmpsPdmTbl0 { get; set; }
+        [FieldOrder(9)]
+        public ushort GsmSmpsPdmTbl1 { get; set; }
+        [FieldOrder(10)]
+        public ushort GsmSmpsPdmTbl2 { get; set; }
+        [FieldOrder(11)]
+        public ushort GsmSmpsPdmTbl3 { get; set; }
+        [FieldOrder(12)]
+        public ushort GsmSmpsPdmTbl4 { get; set; }
+        [FieldOrder(13)]
+        public ushort GsmSmpsPdmTbl5 { get; set; }
+        [FieldOrder(14)]
+        public ushort GsmSmpsPdmTbl6 { get; set; }
+        [FieldOrder(15)]
+        public ushort GsmSmpsPdmTbl7 { get; set; }
+        [FieldOrder(16)]
+        public ushort GsmSmpsPdmTbl8 { get; set; }
+        [FieldOrder(17)]
+        public ushort GsmSmpsPdmTbl9 { get; set; }
+        [FieldOrder(18)]
+        public ushort GsmSmpsPdmTbl10 { get; set; }
+        [FieldOrder(19)]
+        public ushort GsmSmpsPdmTbl11 { get; set; }
+        [FieldOrder(20)]
+        public ushort GsmSmpsPdmTbl12 { get; set; }
+        [FieldOrder(21)]
+        public ushort GsmSmpsPdmTbl13 { get; set; }
+        [FieldOrder(22)]
+        public ushort GsmSmpsPdmTbl14 { get; set; }
+        [FieldOrder(23)]
+        public ushort GsmSmpsPdmTbl15 { get; set; }
+        [FieldOrder(24)]
+        public ushort EdgeSmpsPdmTbl0 { get; set; }
+        [FieldOrder(25)]
+        public ushort EdgeSmpsPdmTbl1 { get; set; }
+        [FieldOrder(26)]
+        public ushort EdgeSmpsPdmTbl2 { get; set; }
+        [FieldOrder(27)]
+        public ushort EdgeSmpsPdmTbl3 { get; set; }
+        [FieldOrder(28)]
+        public ushort EdgeSmpsPdmTbl4 { get; set; }
+        [FieldOrder(29)]
+        public ushort EdgeSmpsPdmTbl5 { get; set; }
+        [FieldOrder(30)]
+        public ushort EdgeSmpsPdmTbl6 { get; set; }
+        [FieldOrder(31)]
+        public ushort EdgeSmpsPdmTbl7 { get; set; }
+        [FieldOrder(32)]
+        public ushort EdgeSmpsPdmTbl8 { get; set; }
+        [FieldOrder(33)]
+        public ushort EdgeSmpsPdmTbl9 { get; set; }
+        [FieldOrder(34)]
+        public ushort EdgeSmpsPdmTbl10 { get; set; }
+        [FieldOrder(35)]
+        public ushort EdgeSmpsPdmTbl11 { get; set; }
+        [FieldOrder(36)]
+        public ushort EdgeSmpsPdmTbl12 { get; set; }
+        [FieldOrder(37)]
+        public ushort EdgeSmpsPdmTbl13 { get; set; }
+        [FieldOrder(38)]
+        public ushort EdgeSmpsPdmTbl14 { get; set; }
+        [FieldOrder(39)]
+        public ushort EdgeSmpsPdmTbl15 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73233)]
+    [EfsFile("/nv/item_files/rfnv/00027511", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027511 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] CalSmpsPdmTbl { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] GsmSmpsPdmTbl { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public ushort[] EdgeSmpsPdmTbl { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027516ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxBetaScaling0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027516ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxAgcOffset7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027516ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027516ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027516ItemValues1ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027516ItemValues2ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxMprBackoff7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027516ItemValues2ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort PaMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling0 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027516ItemValues2Item
+    {
+        [FieldOrder(0)]
+        public C00027516ItemValues2ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027516ItemValues2ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027516Item
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+        [FieldOrder(1)]
+        public C00027516ItemValues1Item Values1 { get; set; }
+        [FieldOrder(2)]
+        public C00027516ItemValues2Item Values2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxBetaScaling7 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(17)]
+        public ushort TxAgcOffset7 { get; set; }
+        [FieldOrder(18)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(19)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(20)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(21)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(22)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(23)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(24)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(25)]
+        public ushort TxMprBackoff7 { get; set; }
+        [FieldOrder(26)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(27)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(28)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(29)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(30)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(31)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(32)]
+        public ushort PaMprBackoff6 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73238)]
+    [EfsFile("/nv/item_files/rfnv/00027516", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027516 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+
+        [FieldOrder(1)]
+        public C00027516Item Values1 { get; set; }
+
+        [FieldOrder(2)]
+        public C00027516Item Values2 { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public ushort[] TxBetaScaling { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(8)]
+        public ushort[] TxAgcOffset { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public ushort[] TxMprBackoff { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(7)]
+        public ushort[] PaMprBackoff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027517ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxBetaScaling0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027517ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxAgcOffset7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027517ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027517ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027517ItemValues1ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027517ItemValues2ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxMprBackoff7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027517ItemValues2ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort PaMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling0 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027517ItemValues2Item
+    {
+        [FieldOrder(0)]
+        public C00027517ItemValues2ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027517ItemValues2ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027517Item
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+        [FieldOrder(1)]
+        public C00027517ItemValues1Item Values1 { get; set; }
+        [FieldOrder(2)]
+        public C00027517ItemValues2Item Values2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxBetaScaling7 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(17)]
+        public ushort TxAgcOffset7 { get; set; }
+        [FieldOrder(18)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(19)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(20)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(21)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(22)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(23)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(24)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(25)]
+        public ushort TxMprBackoff7 { get; set; }
+        [FieldOrder(26)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(27)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(28)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(29)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(30)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(31)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(32)]
+        public ushort PaMprBackoff6 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73239)]
+    [EfsFile("/nv/item_files/rfnv/00027517", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027517 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+
+        [FieldOrder(1)]
+        public C00027517Item Values1 { get; set; }
+
+        [FieldOrder(2)]
+        public C00027517Item Values2 { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public ushort[] TxBetaScaling { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(8)]
+        public ushort[] TxAgcOffset { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public ushort[] TxMprBackoff { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(7)]
+        public ushort[] PaMprBackoff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027519ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxBetaScaling0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027519ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxAgcOffset7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027519ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027519ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027519ItemValues1ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027519ItemValues2ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxMprBackoff7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027519ItemValues2ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort PaMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling0 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027519ItemValues2Item
+    {
+        [FieldOrder(0)]
+        public C00027519ItemValues2ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027519ItemValues2ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027519Item
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+        [FieldOrder(1)]
+        public C00027519ItemValues1Item Values1 { get; set; }
+        [FieldOrder(2)]
+        public C00027519ItemValues2Item Values2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxBetaScaling7 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(17)]
+        public ushort TxAgcOffset7 { get; set; }
+        [FieldOrder(18)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(19)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(20)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(21)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(22)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(23)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(24)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(25)]
+        public ushort TxMprBackoff7 { get; set; }
+        [FieldOrder(26)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(27)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(28)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(29)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(30)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(31)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(32)]
+        public ushort PaMprBackoff6 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73241)]
+    [EfsFile("/nv/item_files/rfnv/00027519", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027519 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+
+        [FieldOrder(1)]
+        public C00027519Item Values1 { get; set; }
+
+        [FieldOrder(2)]
+        public C00027519Item Values2 { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public ushort[] TxBetaScaling { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(8)]
+        public ushort[] TxAgcOffset { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public ushort[] TxMprBackoff { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(7)]
+        public ushort[] PaMprBackoff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027520ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxBetaScaling0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027520ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxAgcOffset7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027520ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027520ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027520ItemValues1ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027520ItemValues2ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxMprBackoff7 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027520ItemValues2ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(1)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(2)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(3)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(4)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(5)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(6)]
+        public ushort PaMprBackoff6 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling0 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027520ItemValues2Item
+    {
+        [FieldOrder(0)]
+        public C00027520ItemValues2ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027520ItemValues2ItemValue1Item Value1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027520Item
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+        [FieldOrder(1)]
+        public C00027520ItemValues1Item Values1 { get; set; }
+        [FieldOrder(2)]
+        public C00027520ItemValues2Item Values2 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxBetaScaling1 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxBetaScaling2 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxBetaScaling3 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxBetaScaling4 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxBetaScaling5 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxBetaScaling6 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxBetaScaling7 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxAgcOffset0 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxAgcOffset1 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxAgcOffset2 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxAgcOffset3 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxAgcOffset4 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxAgcOffset5 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxAgcOffset6 { get; set; }
+        [FieldOrder(17)]
+        public ushort TxAgcOffset7 { get; set; }
+        [FieldOrder(18)]
+        public ushort TxMprBackoff0 { get; set; }
+        [FieldOrder(19)]
+        public ushort TxMprBackoff1 { get; set; }
+        [FieldOrder(20)]
+        public ushort TxMprBackoff2 { get; set; }
+        [FieldOrder(21)]
+        public ushort TxMprBackoff3 { get; set; }
+        [FieldOrder(22)]
+        public ushort TxMprBackoff4 { get; set; }
+        [FieldOrder(23)]
+        public ushort TxMprBackoff5 { get; set; }
+        [FieldOrder(24)]
+        public ushort TxMprBackoff6 { get; set; }
+        [FieldOrder(25)]
+        public ushort TxMprBackoff7 { get; set; }
+        [FieldOrder(26)]
+        public ushort PaMprBackoff0 { get; set; }
+        [FieldOrder(27)]
+        public ushort PaMprBackoff1 { get; set; }
+        [FieldOrder(28)]
+        public ushort PaMprBackoff2 { get; set; }
+        [FieldOrder(29)]
+        public ushort PaMprBackoff3 { get; set; }
+        [FieldOrder(30)]
+        public ushort PaMprBackoff4 { get; set; }
+        [FieldOrder(31)]
+        public ushort PaMprBackoff5 { get; set; }
+        [FieldOrder(32)]
+        public ushort PaMprBackoff6 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73242)]
+    [EfsFile("/nv/item_files/rfnv/00027520", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027520 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte MprTableEntries { get; set; }
+
+        [FieldOrder(1)]
+        public C00027520Item Values1 { get; set; }
+
+        [FieldOrder(2)]
+        public C00027520Item Values2 { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(8)]
+        public ushort[] TxBetaScaling { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(8)]
+        public ushort[] TxAgcOffset { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(8)]
+        public ushort[] TxMprBackoff { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(7)]
+        public ushort[] PaMprBackoff { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027523Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73245)]
+    [EfsFile("/nv/item_files/rfnv/00027523", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027523 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027524Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73246)]
+    [EfsFile("/nv/item_files/rfnv/00027524", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027524 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027525Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73247)]
+    [EfsFile("/nv/item_files/rfnv/00027525", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027525 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027526Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73248)]
+    [EfsFile("/nv/item_files/rfnv/00027526", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027526 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027528Item
+    {
+        [FieldOrder(0)]
+        public byte Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public byte Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public byte Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public byte Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public byte Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public byte Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public byte Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public byte Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public byte Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public byte Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public byte Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public byte Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public byte Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public byte Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public byte Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public byte Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public byte Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public byte Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public byte Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public byte Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public byte Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public byte Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public byte Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public byte Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public byte Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public byte Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public byte Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public byte Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public byte Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public byte Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public byte Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public byte Unknown31 { get; set; }
+        [FieldOrder(32)]
+        public byte Unknown32 { get; set; }
+        [FieldOrder(33)]
+        public byte Unknown33 { get; set; }
+        [FieldOrder(34)]
+        public byte Unknown34 { get; set; }
+        [FieldOrder(35)]
+        public byte Unknown35 { get; set; }
+        [FieldOrder(36)]
+        public byte Unknown36 { get; set; }
+        [FieldOrder(37)]
+        public byte Unknown37 { get; set; }
+        [FieldOrder(38)]
+        public byte Unknown38 { get; set; }
+        [FieldOrder(39)]
+        public byte Unknown39 { get; set; }
+        [FieldOrder(40)]
+        public byte Unknown40 { get; set; }
+        [FieldOrder(41)]
+        public byte Unknown41 { get; set; }
+        [FieldOrder(42)]
+        public byte Unknown42 { get; set; }
+        [FieldOrder(43)]
+        public byte Unknown43 { get; set; }
+        [FieldOrder(44)]
+        public byte Unknown44 { get; set; }
+        [FieldOrder(45)]
+        public byte Unknown45 { get; set; }
+        [FieldOrder(46)]
+        public byte Unknown46 { get; set; }
+        [FieldOrder(47)]
+        public byte Unknown47 { get; set; }
+        [FieldOrder(48)]
+        public byte Unknown48 { get; set; }
+        [FieldOrder(49)]
+        public byte Unknown49 { get; set; }
+        [FieldOrder(50)]
+        public byte Unknown50 { get; set; }
+        [FieldOrder(51)]
+        public byte Unknown51 { get; set; }
+        [FieldOrder(52)]
+        public byte Unknown52 { get; set; }
+        [FieldOrder(53)]
+        public byte Unknown53 { get; set; }
+        [FieldOrder(54)]
+        public byte Unknown54 { get; set; }
+        [FieldOrder(55)]
+        public byte Unknown55 { get; set; }
+        [FieldOrder(56)]
+        public byte Unknown56 { get; set; }
+        [FieldOrder(57)]
+        public byte Unknown57 { get; set; }
+        [FieldOrder(58)]
+        public byte Unknown58 { get; set; }
+        [FieldOrder(59)]
+        public byte Unknown59 { get; set; }
+        [FieldOrder(60)]
+        public byte Unknown60 { get; set; }
+        [FieldOrder(61)]
+        public byte Unknown61 { get; set; }
+        [FieldOrder(62)]
+        public byte Unknown62 { get; set; }
+        [FieldOrder(63)]
+        public byte Unknown63 { get; set; }
+        [FieldOrder(64)]
+        public byte Unknown64 { get; set; }
+        [FieldOrder(65)]
+        public byte Unknown65 { get; set; }
+        [FieldOrder(66)]
+        public byte Unknown66 { get; set; }
+        [FieldOrder(67)]
+        public byte Unknown67 { get; set; }
+        [FieldOrder(68)]
+        public byte Unknown68 { get; set; }
+        [FieldOrder(69)]
+        public byte Unknown69 { get; set; }
+        [FieldOrder(70)]
+        public byte Unknown70 { get; set; }
+        [FieldOrder(71)]
+        public byte Unknown71 { get; set; }
+        [FieldOrder(72)]
+        public byte Unknown72 { get; set; }
+        [FieldOrder(73)]
+        public byte Unknown73 { get; set; }
+        [FieldOrder(74)]
+        public byte Unknown74 { get; set; }
+        [FieldOrder(75)]
+        public byte Unknown75 { get; set; }
+        [FieldOrder(76)]
+        public byte Unknown76 { get; set; }
+        [FieldOrder(77)]
+        public byte Unknown77 { get; set; }
+        [FieldOrder(78)]
+        public byte Unknown78 { get; set; }
+        [FieldOrder(79)]
+        public byte Unknown79 { get; set; }
+        [FieldOrder(80)]
+        public byte Unknown80 { get; set; }
+        [FieldOrder(81)]
+        public byte Unknown81 { get; set; }
+        [FieldOrder(82)]
+        public byte Unknown82 { get; set; }
+        [FieldOrder(83)]
+        public byte Unknown83 { get; set; }
+        [FieldOrder(84)]
+        public byte Unknown84 { get; set; }
+        [FieldOrder(85)]
+        public byte Unknown85 { get; set; }
+        [FieldOrder(86)]
+        public byte Unknown86 { get; set; }
+        [FieldOrder(87)]
+        public byte Unknown87 { get; set; }
+        [FieldOrder(88)]
+        public byte Unknown88 { get; set; }
+        [FieldOrder(89)]
+        public byte Unknown89 { get; set; }
+        [FieldOrder(90)]
+        public byte Unknown90 { get; set; }
+        [FieldOrder(91)]
+        public byte Unknown91 { get; set; }
+        [FieldOrder(92)]
+        public byte Unknown92 { get; set; }
+        [FieldOrder(93)]
+        public byte Unknown93 { get; set; }
+        [FieldOrder(94)]
+        public byte Unknown94 { get; set; }
+        [FieldOrder(95)]
+        public byte Unknown95 { get; set; }
+        [FieldOrder(96)]
+        public byte Unknown96 { get; set; }
+        [FieldOrder(97)]
+        public byte Unknown97 { get; set; }
+        [FieldOrder(98)]
+        public byte Unknown98 { get; set; }
+        [FieldOrder(99)]
+        public byte Unknown99 { get; set; }
+        [FieldOrder(100)]
+        public byte Unknown100 { get; set; }
+        [FieldOrder(101)]
+        public byte Unknown101 { get; set; }
+        [FieldOrder(102)]
+        public byte Unknown102 { get; set; }
+        [FieldOrder(103)]
+        public byte Unknown103 { get; set; }
+        [FieldOrder(104)]
+        public byte Unknown104 { get; set; }
+        [FieldOrder(105)]
+        public byte Unknown105 { get; set; }
+        [FieldOrder(106)]
+        public byte Unknown106 { get; set; }
+        [FieldOrder(107)]
+        public byte Unknown107 { get; set; }
+        [FieldOrder(108)]
+        public byte Unknown108 { get; set; }
+        [FieldOrder(109)]
+        public byte Unknown109 { get; set; }
+        [FieldOrder(110)]
+        public byte Unknown110 { get; set; }
+        [FieldOrder(111)]
+        public byte Unknown111 { get; set; }
+        [FieldOrder(112)]
+        public byte Unknown112 { get; set; }
+        [FieldOrder(113)]
+        public byte Unknown113 { get; set; }
+        [FieldOrder(114)]
+        public byte Unknown114 { get; set; }
+        [FieldOrder(115)]
+        public byte Unknown115 { get; set; }
+        [FieldOrder(116)]
+        public byte Unknown116 { get; set; }
+        [FieldOrder(117)]
+        public byte Unknown117 { get; set; }
+        [FieldOrder(118)]
+        public byte Unknown118 { get; set; }
+        [FieldOrder(119)]
+        public byte Unknown119 { get; set; }
+        [FieldOrder(120)]
+        public byte Unknown120 { get; set; }
+        [FieldOrder(121)]
+        public byte Unknown121 { get; set; }
+        [FieldOrder(122)]
+        public byte Unknown122 { get; set; }
+        [FieldOrder(123)]
+        public byte Unknown123 { get; set; }
+        [FieldOrder(124)]
+        public byte Unknown124 { get; set; }
+        [FieldOrder(125)]
+        public byte Unknown125 { get; set; }
+        [FieldOrder(126)]
+        public byte Unknown126 { get; set; }
+        [FieldOrder(127)]
+        public byte Unknown127 { get; set; }
+        [FieldOrder(128)]
+        public byte Unknown128 { get; set; }
+        [FieldOrder(129)]
+        public byte Unknown129 { get; set; }
+        [FieldOrder(130)]
+        public byte Unknown130 { get; set; }
+        [FieldOrder(131)]
+        public byte Unknown131 { get; set; }
+        [FieldOrder(132)]
+        public byte Unknown132 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73250)]
+    [EfsFile("/nv/item_files/rfnv/00027528", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027528 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(133)]
+        public byte[] Unknown { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027529Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73251)]
+    [EfsFile("/nv/item_files/rfnv/00027529", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027529 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027530Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73252)]
+    [EfsFile("/nv/item_files/rfnv/00027530", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027530 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027643Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73361)]
+    [EfsFile("/nv/item_files/rfnv/00027643", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027643 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027644Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73362)]
+    [EfsFile("/nv/item_files/rfnv/00027644", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027644 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027645Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73363)]
+    [EfsFile("/nv/item_files/rfnv/00027645", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027645 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027646Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73364)]
+    [EfsFile("/nv/item_files/rfnv/00027646", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027646 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027647Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73365)]
+    [EfsFile("/nv/item_files/rfnv/00027647", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027647 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027648Item
+    {
+        [FieldOrder(0)]
+        public ushort Unknown0 { get; set; }
+        [FieldOrder(1)]
+        public ushort Unknown1 { get; set; }
+        [FieldOrder(2)]
+        public ushort Unknown2 { get; set; }
+        [FieldOrder(3)]
+        public ushort Unknown3 { get; set; }
+        [FieldOrder(4)]
+        public ushort Unknown4 { get; set; }
+        [FieldOrder(5)]
+        public ushort Unknown5 { get; set; }
+        [FieldOrder(6)]
+        public ushort Unknown6 { get; set; }
+        [FieldOrder(7)]
+        public ushort Unknown7 { get; set; }
+        [FieldOrder(8)]
+        public ushort Unknown8 { get; set; }
+        [FieldOrder(9)]
+        public ushort Unknown9 { get; set; }
+        [FieldOrder(10)]
+        public ushort Unknown10 { get; set; }
+        [FieldOrder(11)]
+        public ushort Unknown11 { get; set; }
+        [FieldOrder(12)]
+        public ushort Unknown12 { get; set; }
+        [FieldOrder(13)]
+        public ushort Unknown13 { get; set; }
+        [FieldOrder(14)]
+        public ushort Unknown14 { get; set; }
+        [FieldOrder(15)]
+        public ushort Unknown15 { get; set; }
+        [FieldOrder(16)]
+        public ushort Unknown16 { get; set; }
+        [FieldOrder(17)]
+        public ushort Unknown17 { get; set; }
+        [FieldOrder(18)]
+        public ushort Unknown18 { get; set; }
+        [FieldOrder(19)]
+        public ushort Unknown19 { get; set; }
+        [FieldOrder(20)]
+        public ushort Unknown20 { get; set; }
+        [FieldOrder(21)]
+        public ushort Unknown21 { get; set; }
+        [FieldOrder(22)]
+        public ushort Unknown22 { get; set; }
+        [FieldOrder(23)]
+        public ushort Unknown23 { get; set; }
+        [FieldOrder(24)]
+        public ushort Unknown24 { get; set; }
+        [FieldOrder(25)]
+        public ushort Unknown25 { get; set; }
+        [FieldOrder(26)]
+        public ushort Unknown26 { get; set; }
+        [FieldOrder(27)]
+        public ushort Unknown27 { get; set; }
+        [FieldOrder(28)]
+        public ushort Unknown28 { get; set; }
+        [FieldOrder(29)]
+        public ushort Unknown29 { get; set; }
+        [FieldOrder(30)]
+        public ushort Unknown30 { get; set; }
+        [FieldOrder(31)]
+        public ushort Unknown31 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73366)]
+    [EfsFile("/nv/item_files/rfnv/00027648", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027648 : ThirtyTwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class C00027650Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DelayLTEBW5Mhz0 { get; set; }
+        [FieldOrder(18)]
+        public uint DelayLTEBW5Mhz1 { get; set; }
+        [FieldOrder(19)]
+        public uint DelayLTEBW5Mhz2 { get; set; }
+        [FieldOrder(20)]
+        public uint DelayLTEBW5Mhz3 { get; set; }
+        [FieldOrder(21)]
+        public uint DelayLTEBW5Mhz4 { get; set; }
+        [FieldOrder(22)]
+        public uint DelayLTEBW5Mhz5 { get; set; }
+        [FieldOrder(23)]
+        public uint DelayLTEBW5Mhz6 { get; set; }
+        [FieldOrder(24)]
+        public uint DelayLTEBW5Mhz7 { get; set; }
+        [FieldOrder(25)]
+        public uint DelayLTEBW5Mhz8 { get; set; }
+        [FieldOrder(26)]
+        public uint DelayLTEBW5Mhz9 { get; set; }
+        [FieldOrder(27)]
+        public uint DelayLTEBW5Mhz10 { get; set; }
+        [FieldOrder(28)]
+        public uint DelayLTEBW5Mhz11 { get; set; }
+        [FieldOrder(29)]
+        public uint DelayLTEBW5Mhz12 { get; set; }
+        [FieldOrder(30)]
+        public uint DelayLTEBW5Mhz13 { get; set; }
+        [FieldOrder(31)]
+        public uint DelayLTEBW5Mhz14 { get; set; }
+        [FieldOrder(32)]
+        public uint DelayLTEBW5Mhz15 { get; set; }
+        [FieldOrder(33)]
+        public uint DelayLTEBW10Mhz0 { get; set; }
+        [FieldOrder(34)]
+        public uint DelayLTEBW10Mhz1 { get; set; }
+        [FieldOrder(35)]
+        public uint DelayLTEBW10Mhz2 { get; set; }
+        [FieldOrder(36)]
+        public uint DelayLTEBW10Mhz3 { get; set; }
+        [FieldOrder(37)]
+        public uint DelayLTEBW10Mhz4 { get; set; }
+        [FieldOrder(38)]
+        public uint DelayLTEBW10Mhz5 { get; set; }
+        [FieldOrder(39)]
+        public uint DelayLTEBW10Mhz6 { get; set; }
+        [FieldOrder(40)]
+        public uint DelayLTEBW10Mhz7 { get; set; }
+        [FieldOrder(41)]
+        public uint DelayLTEBW10Mhz8 { get; set; }
+        [FieldOrder(42)]
+        public uint DelayLTEBW20Mhz0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73368)]
+    [EfsFile("/nv/item_files/rfnv/00027650", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027650 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DelayLTEBW5Mhz { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(9)]
+        public uint[] DelayLTEBW10Mhz { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(1)]
+        public uint[] DelayLTEBW20Mhz { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027651Item
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+        [FieldOrder(1)]
+        public ushort UpperBoundChannels0 { get; set; }
+        [FieldOrder(2)]
+        public ushort UpperBoundChannels1 { get; set; }
+        [FieldOrder(3)]
+        public ushort UpperBoundChannels2 { get; set; }
+        [FieldOrder(4)]
+        public ushort UpperBoundChannels3 { get; set; }
+        [FieldOrder(5)]
+        public ushort UpperBoundChannels4 { get; set; }
+        [FieldOrder(6)]
+        public ushort UpperBoundChannels5 { get; set; }
+        [FieldOrder(7)]
+        public ushort UpperBoundChannels6 { get; set; }
+        [FieldOrder(8)]
+        public ushort UpperBoundChannels7 { get; set; }
+        [FieldOrder(9)]
+        public ushort UpperBoundChannels8 { get; set; }
+        [FieldOrder(10)]
+        public ushort UpperBoundChannels9 { get; set; }
+        [FieldOrder(11)]
+        public ushort UpperBoundChannels10 { get; set; }
+        [FieldOrder(12)]
+        public ushort UpperBoundChannels11 { get; set; }
+        [FieldOrder(13)]
+        public ushort UpperBoundChannels12 { get; set; }
+        [FieldOrder(14)]
+        public ushort UpperBoundChannels13 { get; set; }
+        [FieldOrder(15)]
+        public ushort UpperBoundChannels14 { get; set; }
+        [FieldOrder(16)]
+        public ushort UpperBoundChannels15 { get; set; }
+        [FieldOrder(17)]
+        public uint DelayLTEBW5Mhz0 { get; set; }
+        [FieldOrder(18)]
+        public uint DelayLTEBW5Mhz1 { get; set; }
+        [FieldOrder(19)]
+        public uint DelayLTEBW5Mhz2 { get; set; }
+        [FieldOrder(20)]
+        public uint DelayLTEBW5Mhz3 { get; set; }
+        [FieldOrder(21)]
+        public uint DelayLTEBW5Mhz4 { get; set; }
+        [FieldOrder(22)]
+        public uint DelayLTEBW5Mhz5 { get; set; }
+        [FieldOrder(23)]
+        public uint DelayLTEBW5Mhz6 { get; set; }
+        [FieldOrder(24)]
+        public uint DelayLTEBW5Mhz7 { get; set; }
+        [FieldOrder(25)]
+        public uint DelayLTEBW5Mhz8 { get; set; }
+        [FieldOrder(26)]
+        public uint DelayLTEBW5Mhz9 { get; set; }
+        [FieldOrder(27)]
+        public uint DelayLTEBW5Mhz10 { get; set; }
+        [FieldOrder(28)]
+        public uint DelayLTEBW5Mhz11 { get; set; }
+        [FieldOrder(29)]
+        public uint DelayLTEBW5Mhz12 { get; set; }
+        [FieldOrder(30)]
+        public uint DelayLTEBW5Mhz13 { get; set; }
+        [FieldOrder(31)]
+        public uint DelayLTEBW5Mhz14 { get; set; }
+        [FieldOrder(32)]
+        public uint DelayLTEBW5Mhz15 { get; set; }
+        [FieldOrder(33)]
+        public uint DelayLTEBW10Mhz0 { get; set; }
+        [FieldOrder(34)]
+        public uint DelayLTEBW10Mhz1 { get; set; }
+        [FieldOrder(35)]
+        public uint DelayLTEBW10Mhz2 { get; set; }
+        [FieldOrder(36)]
+        public uint DelayLTEBW10Mhz3 { get; set; }
+        [FieldOrder(37)]
+        public uint DelayLTEBW10Mhz4 { get; set; }
+        [FieldOrder(38)]
+        public uint DelayLTEBW10Mhz5 { get; set; }
+        [FieldOrder(39)]
+        public uint DelayLTEBW10Mhz6 { get; set; }
+        [FieldOrder(40)]
+        public uint DelayLTEBW10Mhz7 { get; set; }
+        [FieldOrder(41)]
+        public uint DelayLTEBW10Mhz8 { get; set; }
+        [FieldOrder(42)]
+        public uint DelayLTEBW20Mhz0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73369)]
+    [EfsFile("/nv/item_files/rfnv/00027651", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027651 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumActiveEntries { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] UpperBoundChannels { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(16)]
+        public uint[] DelayLTEBW5Mhz { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(9)]
+        public uint[] DelayLTEBW10Mhz { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(1)]
+        public uint[] DelayLTEBW20Mhz { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027656Item
+    {
+        [FieldOrder(0)]
+        public ushort HEADER0 { get; set; }
+        [FieldOrder(1)]
+        public ushort HEADER1 { get; set; }
+        [FieldOrder(2)]
+        public ushort HEADER2 { get; set; }
+        [FieldOrder(3)]
+        public ushort HEADER3 { get; set; }
+        [FieldOrder(4)]
+        public ushort HEADER4 { get; set; }
+        [FieldOrder(5)]
+        public ushort HEADER5 { get; set; }
+        [FieldOrder(6)]
+        public ushort HEADER6 { get; set; }
+        [FieldOrder(7)]
+        public ushort HEADER7 { get; set; }
+        [FieldOrder(8)]
+        public uint P1P4MHZ0 { get; set; }
+        [FieldOrder(9)]
+        public uint P1P4MHZ1 { get; set; }
+        [FieldOrder(10)]
+        public uint P1P4MHZ2 { get; set; }
+        [FieldOrder(11)]
+        public uint P1P4MHZ3 { get; set; }
+        [FieldOrder(12)]
+        public uint P1P4MHZ4 { get; set; }
+        [FieldOrder(13)]
+        public uint P1P4MHZ5 { get; set; }
+        [FieldOrder(14)]
+        public uint P1P4MHZ6 { get; set; }
+        [FieldOrder(15)]
+        public uint P1P4MHZ7 { get; set; }
+        [FieldOrder(16)]
+        public uint P1P4MHZ8 { get; set; }
+        [FieldOrder(17)]
+        public uint P1P4MHZ9 { get; set; }
+        [FieldOrder(18)]
+        public uint P1P4MHZ10 { get; set; }
+        [FieldOrder(19)]
+        public uint P1P4MHZ11 { get; set; }
+        [FieldOrder(20)]
+        public uint P1P4MHZ12 { get; set; }
+        [FieldOrder(21)]
+        public uint P1P4MHZ13 { get; set; }
+        [FieldOrder(22)]
+        public uint P1P4MHZ14 { get; set; }
+        [FieldOrder(23)]
+        public uint P1P4MHZ15 { get; set; }
+        [FieldOrder(24)]
+        public uint P3MHZ0 { get; set; }
+        [FieldOrder(25)]
+        public uint P3MHZ1 { get; set; }
+        [FieldOrder(26)]
+        public uint P3MHZ2 { get; set; }
+        [FieldOrder(27)]
+        public uint P3MHZ3 { get; set; }
+        [FieldOrder(28)]
+        public uint P3MHZ4 { get; set; }
+        [FieldOrder(29)]
+        public uint P3MHZ5 { get; set; }
+        [FieldOrder(30)]
+        public uint P3MHZ6 { get; set; }
+        [FieldOrder(31)]
+        public uint P3MHZ7 { get; set; }
+        [FieldOrder(32)]
+        public uint P3MHZ8 { get; set; }
+        [FieldOrder(33)]
+        public uint P3MHZ9 { get; set; }
+        [FieldOrder(34)]
+        public uint P3MHZ10 { get; set; }
+        [FieldOrder(35)]
+        public uint P3MHZ11 { get; set; }
+        [FieldOrder(36)]
+        public uint P3MHZ12 { get; set; }
+        [FieldOrder(37)]
+        public uint P3MHZ13 { get; set; }
+        [FieldOrder(38)]
+        public uint P5MHZ0 { get; set; }
+        [FieldOrder(39)]
+        public uint P10MHZ0 { get; set; }
+        [FieldOrder(40)]
+        public uint P15MHZ0 { get; set; }
+        [FieldOrder(41)]
+        public uint P20MHZ0 { get; set; }
+        [FieldOrder(42)]
+        public uint P40MHZ0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73374)]
+    [EfsFile("/nv/item_files/rfnv/00027656", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027656 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] HEADER { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public uint[] P1P4MHZ { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(14)]
+        public uint[] P3MHZ { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(1)]
+        public uint[] P5MHZ { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(1)]
+        public uint[] P10MHZ { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(1)]
+        public uint[] P15MHZ { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(1)]
+        public uint[] P20MHZ { get; set; }
+
+        [FieldOrder(7)]
+        [FieldCount(1)]
+        public uint[] P40MHZ { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027658Item
+    {
+        [FieldOrder(0)]
+        public ushort HEADER0 { get; set; }
+        [FieldOrder(1)]
+        public ushort HEADER1 { get; set; }
+        [FieldOrder(2)]
+        public ushort HEADER2 { get; set; }
+        [FieldOrder(3)]
+        public ushort HEADER3 { get; set; }
+        [FieldOrder(4)]
+        public ushort HEADER4 { get; set; }
+        [FieldOrder(5)]
+        public ushort HEADER5 { get; set; }
+        [FieldOrder(6)]
+        public ushort HEADER6 { get; set; }
+        [FieldOrder(7)]
+        public ushort HEADER7 { get; set; }
+        [FieldOrder(8)]
+        public uint P1P4MHZ0 { get; set; }
+        [FieldOrder(9)]
+        public uint P1P4MHZ1 { get; set; }
+        [FieldOrder(10)]
+        public uint P1P4MHZ2 { get; set; }
+        [FieldOrder(11)]
+        public uint P1P4MHZ3 { get; set; }
+        [FieldOrder(12)]
+        public uint P1P4MHZ4 { get; set; }
+        [FieldOrder(13)]
+        public uint P1P4MHZ5 { get; set; }
+        [FieldOrder(14)]
+        public uint P1P4MHZ6 { get; set; }
+        [FieldOrder(15)]
+        public uint P1P4MHZ7 { get; set; }
+        [FieldOrder(16)]
+        public uint P1P4MHZ8 { get; set; }
+        [FieldOrder(17)]
+        public uint P1P4MHZ9 { get; set; }
+        [FieldOrder(18)]
+        public uint P1P4MHZ10 { get; set; }
+        [FieldOrder(19)]
+        public uint P1P4MHZ11 { get; set; }
+        [FieldOrder(20)]
+        public uint P1P4MHZ12 { get; set; }
+        [FieldOrder(21)]
+        public uint P1P4MHZ13 { get; set; }
+        [FieldOrder(22)]
+        public uint P1P4MHZ14 { get; set; }
+        [FieldOrder(23)]
+        public uint P1P4MHZ15 { get; set; }
+        [FieldOrder(24)]
+        public uint P3MHZ0 { get; set; }
+        [FieldOrder(25)]
+        public uint P3MHZ1 { get; set; }
+        [FieldOrder(26)]
+        public uint P3MHZ2 { get; set; }
+        [FieldOrder(27)]
+        public uint P3MHZ3 { get; set; }
+        [FieldOrder(28)]
+        public uint P3MHZ4 { get; set; }
+        [FieldOrder(29)]
+        public uint P3MHZ5 { get; set; }
+        [FieldOrder(30)]
+        public uint P3MHZ6 { get; set; }
+        [FieldOrder(31)]
+        public uint P3MHZ7 { get; set; }
+        [FieldOrder(32)]
+        public uint P3MHZ8 { get; set; }
+        [FieldOrder(33)]
+        public uint P3MHZ9 { get; set; }
+        [FieldOrder(34)]
+        public uint P3MHZ10 { get; set; }
+        [FieldOrder(35)]
+        public uint P3MHZ11 { get; set; }
+        [FieldOrder(36)]
+        public uint P3MHZ12 { get; set; }
+        [FieldOrder(37)]
+        public uint P3MHZ13 { get; set; }
+        [FieldOrder(38)]
+        public uint P5MHZ0 { get; set; }
+        [FieldOrder(39)]
+        public uint P10MHZ0 { get; set; }
+        [FieldOrder(40)]
+        public uint P15MHZ0 { get; set; }
+        [FieldOrder(41)]
+        public uint P20MHZ0 { get; set; }
+        [FieldOrder(42)]
+        public uint P40MHZ0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73376)]
+    [EfsFile("/nv/item_files/rfnv/00027658", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027658 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] HEADER { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public uint[] P1P4MHZ { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(14)]
+        public uint[] P3MHZ { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(1)]
+        public uint[] P5MHZ { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(1)]
+        public uint[] P10MHZ { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(1)]
+        public uint[] P15MHZ { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(1)]
+        public uint[] P20MHZ { get; set; }
+
+        [FieldOrder(7)]
+        [FieldCount(1)]
+        public uint[] P40MHZ { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027662Item
+    {
+        [FieldOrder(0)]
+        public ushort HEADER0 { get; set; }
+        [FieldOrder(1)]
+        public ushort HEADER1 { get; set; }
+        [FieldOrder(2)]
+        public ushort HEADER2 { get; set; }
+        [FieldOrder(3)]
+        public ushort HEADER3 { get; set; }
+        [FieldOrder(4)]
+        public ushort HEADER4 { get; set; }
+        [FieldOrder(5)]
+        public ushort HEADER5 { get; set; }
+        [FieldOrder(6)]
+        public ushort HEADER6 { get; set; }
+        [FieldOrder(7)]
+        public ushort HEADER7 { get; set; }
+        [FieldOrder(8)]
+        public uint P1P4MHZ0 { get; set; }
+        [FieldOrder(9)]
+        public uint P1P4MHZ1 { get; set; }
+        [FieldOrder(10)]
+        public uint P1P4MHZ2 { get; set; }
+        [FieldOrder(11)]
+        public uint P1P4MHZ3 { get; set; }
+        [FieldOrder(12)]
+        public uint P1P4MHZ4 { get; set; }
+        [FieldOrder(13)]
+        public uint P1P4MHZ5 { get; set; }
+        [FieldOrder(14)]
+        public uint P1P4MHZ6 { get; set; }
+        [FieldOrder(15)]
+        public uint P1P4MHZ7 { get; set; }
+        [FieldOrder(16)]
+        public uint P1P4MHZ8 { get; set; }
+        [FieldOrder(17)]
+        public uint P1P4MHZ9 { get; set; }
+        [FieldOrder(18)]
+        public uint P1P4MHZ10 { get; set; }
+        [FieldOrder(19)]
+        public uint P1P4MHZ11 { get; set; }
+        [FieldOrder(20)]
+        public uint P1P4MHZ12 { get; set; }
+        [FieldOrder(21)]
+        public uint P1P4MHZ13 { get; set; }
+        [FieldOrder(22)]
+        public uint P1P4MHZ14 { get; set; }
+        [FieldOrder(23)]
+        public uint P1P4MHZ15 { get; set; }
+        [FieldOrder(24)]
+        public uint P3MHZ0 { get; set; }
+        [FieldOrder(25)]
+        public uint P3MHZ1 { get; set; }
+        [FieldOrder(26)]
+        public uint P3MHZ2 { get; set; }
+        [FieldOrder(27)]
+        public uint P3MHZ3 { get; set; }
+        [FieldOrder(28)]
+        public uint P3MHZ4 { get; set; }
+        [FieldOrder(29)]
+        public uint P3MHZ5 { get; set; }
+        [FieldOrder(30)]
+        public uint P3MHZ6 { get; set; }
+        [FieldOrder(31)]
+        public uint P3MHZ7 { get; set; }
+        [FieldOrder(32)]
+        public uint P3MHZ8 { get; set; }
+        [FieldOrder(33)]
+        public uint P3MHZ9 { get; set; }
+        [FieldOrder(34)]
+        public uint P3MHZ10 { get; set; }
+        [FieldOrder(35)]
+        public uint P3MHZ11 { get; set; }
+        [FieldOrder(36)]
+        public uint P3MHZ12 { get; set; }
+        [FieldOrder(37)]
+        public uint P3MHZ13 { get; set; }
+        [FieldOrder(38)]
+        public uint P5MHZ0 { get; set; }
+        [FieldOrder(39)]
+        public uint P10MHZ0 { get; set; }
+        [FieldOrder(40)]
+        public uint P15MHZ0 { get; set; }
+        [FieldOrder(41)]
+        public uint P20MHZ0 { get; set; }
+        [FieldOrder(42)]
+        public uint P40MHZ0 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73380)]
+    [EfsFile("/nv/item_files/rfnv/00027662", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027662 : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(8)]
+        public ushort[] HEADER { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public uint[] P1P4MHZ { get; set; }
+
+        [FieldOrder(2)]
+        [FieldCount(14)]
+        public uint[] P3MHZ { get; set; }
+
+        [FieldOrder(3)]
+        [FieldCount(1)]
+        public uint[] P5MHZ { get; set; }
+
+        [FieldOrder(4)]
+        [FieldCount(1)]
+        public uint[] P10MHZ { get; set; }
+
+        [FieldOrder(5)]
+        [FieldCount(1)]
+        public uint[] P15MHZ { get; set; }
+
+        [FieldOrder(6)]
+        [FieldCount(1)]
+        public uint[] P20MHZ { get; set; }
+
+        [FieldOrder(7)]
+        [FieldCount(1)]
+        public uint[] P40MHZ { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027751ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027751ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027751ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027751ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027751ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027751ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027751ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027751ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027751ItemValues1ItemValue3Item Value3 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027751Item
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+        [FieldOrder(1)]
+        public ushort TxChan0 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxChan1 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxChan2 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxChan3 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxChan4 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxChan5 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxChan6 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxChan7 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxChan8 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxChan9 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxChan10 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxChan11 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxChan12 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxChan13 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxChan14 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxChan15 { get; set; }
+        [FieldOrder(17)]
+        public C00027751ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73469)]
+    [EfsFile("/nv/item_files/rfnv/00027751", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027751 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] TxChan { get; set; }
+
+        [FieldOrder(2)]
+        public C00027751Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027752ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027752ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027752ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027752ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027752ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027752ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027752ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027752ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027752ItemValues1ItemValue3Item Value3 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027752Item
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+        [FieldOrder(1)]
+        public ushort TxChan0 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxChan1 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxChan2 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxChan3 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxChan4 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxChan5 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxChan6 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxChan7 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxChan8 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxChan9 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxChan10 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxChan11 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxChan12 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxChan13 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxChan14 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxChan15 { get; set; }
+        [FieldOrder(17)]
+        public C00027752ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73470)]
+    [EfsFile("/nv/item_files/rfnv/00027752", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027752 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] TxChan { get; set; }
+
+        [FieldOrder(2)]
+        public C00027752Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027772ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027772ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027772ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027772ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027772ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027772ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027772ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027772ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027772ItemValues1ItemValue3Item Value3 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027772Item
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+        [FieldOrder(1)]
+        public ushort TxChan0 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxChan1 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxChan2 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxChan3 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxChan4 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxChan5 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxChan6 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxChan7 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxChan8 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxChan9 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxChan10 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxChan11 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxChan12 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxChan13 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxChan14 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxChan15 { get; set; }
+        [FieldOrder(17)]
+        public C00027772ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73490)]
+    [EfsFile("/nv/item_files/rfnv/00027772", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027772 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] TxChan { get; set; }
+
+        [FieldOrder(2)]
+        public C00027772Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027773ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027773ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027773ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027773ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027773ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027773ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027773ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027773ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027773ItemValues1ItemValue3Item Value3 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027773Item
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+        [FieldOrder(1)]
+        public ushort TxChan0 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxChan1 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxChan2 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxChan3 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxChan4 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxChan5 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxChan6 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxChan7 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxChan8 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxChan9 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxChan10 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxChan11 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxChan12 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxChan13 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxChan14 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxChan15 { get; set; }
+        [FieldOrder(17)]
+        public C00027773ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73491)]
+    [EfsFile("/nv/item_files/rfnv/00027773", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027773 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] TxChan { get; set; }
+
+        [FieldOrder(2)]
+        public C00027773Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027775ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027775ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027775ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027775ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027775ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027775ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027775ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027775ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027775ItemValues1ItemValue3Item Value3 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027775Item
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+        [FieldOrder(1)]
+        public ushort TxChan0 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxChan1 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxChan2 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxChan3 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxChan4 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxChan5 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxChan6 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxChan7 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxChan8 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxChan9 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxChan10 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxChan11 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxChan12 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxChan13 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxChan14 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxChan15 { get; set; }
+        [FieldOrder(17)]
+        public C00027775ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73493)]
+    [EfsFile("/nv/item_files/rfnv/00027775", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027775 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] TxChan { get; set; }
+
+        [FieldOrder(2)]
+        public C00027775Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class C00027776ItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027776ItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027776ItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+        [FieldOrder(2)]
+        public ushort DelayOffset2 { get; set; }
+        [FieldOrder(3)]
+        public ushort DelayOffset3 { get; set; }
+        [FieldOrder(4)]
+        public ushort DelayOffset4 { get; set; }
+        [FieldOrder(5)]
+        public ushort DelayOffset5 { get; set; }
+        [FieldOrder(6)]
+        public ushort DelayOffset6 { get; set; }
+        [FieldOrder(7)]
+        public ushort DelayOffset7 { get; set; }
+        [FieldOrder(8)]
+        public ushort DelayOffset8 { get; set; }
+        [FieldOrder(9)]
+        public ushort DelayOffset9 { get; set; }
+        [FieldOrder(10)]
+        public ushort DelayOffset10 { get; set; }
+        [FieldOrder(11)]
+        public ushort DelayOffset11 { get; set; }
+        [FieldOrder(12)]
+        public ushort DelayOffset12 { get; set; }
+        [FieldOrder(13)]
+        public ushort DelayOffset13 { get; set; }
+        [FieldOrder(14)]
+        public ushort DelayOffset14 { get; set; }
+        [FieldOrder(15)]
+        public ushort DelayOffset15 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027776ItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public ushort DelayOffset0 { get; set; }
+        [FieldOrder(1)]
+        public ushort DelayOffset1 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027776ItemValues1Item
+    {
+        [FieldOrder(0)]
+        public C00027776ItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public C00027776ItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public C00027776ItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public C00027776ItemValues1ItemValue3Item Value3 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class C00027776Item
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+        [FieldOrder(1)]
+        public ushort TxChan0 { get; set; }
+        [FieldOrder(2)]
+        public ushort TxChan1 { get; set; }
+        [FieldOrder(3)]
+        public ushort TxChan2 { get; set; }
+        [FieldOrder(4)]
+        public ushort TxChan3 { get; set; }
+        [FieldOrder(5)]
+        public ushort TxChan4 { get; set; }
+        [FieldOrder(6)]
+        public ushort TxChan5 { get; set; }
+        [FieldOrder(7)]
+        public ushort TxChan6 { get; set; }
+        [FieldOrder(8)]
+        public ushort TxChan7 { get; set; }
+        [FieldOrder(9)]
+        public ushort TxChan8 { get; set; }
+        [FieldOrder(10)]
+        public ushort TxChan9 { get; set; }
+        [FieldOrder(11)]
+        public ushort TxChan10 { get; set; }
+        [FieldOrder(12)]
+        public ushort TxChan11 { get; set; }
+        [FieldOrder(13)]
+        public ushort TxChan12 { get; set; }
+        [FieldOrder(14)]
+        public ushort TxChan13 { get; set; }
+        [FieldOrder(15)]
+        public ushort TxChan14 { get; set; }
+        [FieldOrder(16)]
+        public ushort TxChan15 { get; set; }
+        [FieldOrder(17)]
+        public C00027776ItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73494)]
+    [EfsFile("/nv/item_files/rfnv/00027776", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class C00027776 : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte NumChansEnabled { get; set; }
+
+        [FieldOrder(1)]
+        [FieldCount(16)]
+        public ushort[] TxChan { get; set; }
+
+        [FieldOrder(2)]
+        public C00027776Item Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class MaxMtMsgsAllowedInEcbmItem
+    {
+        [FieldOrder(0)]
+        public byte MaxMtMsgsAllowedInEcbm { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73498)]
+    [EfsFile("/nv/item_files/modem/sms/max_mt_msgs_allowed_in_ecbm", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class MaxMtMsgsAllowedInEcbm : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcDormancySupportItem
+    {
+        [FieldOrder(0)]
+        public byte WcdmaRrcDormancy { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73499)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_dormancy_support", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcDormancySupport : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaCirEnhItem
+    {
+        [FieldOrder(0)]
+        public bool CirInterpEnable { get; set; }
+        [FieldOrder(1)]
+        public byte OneTapCirAlpha { get; set; }
+        [FieldOrder(2)]
+        public bool EnableDopplerEstimation { get; set; }
+        [FieldOrder(3)]
+        public ushort Doppler { get; set; }
+        [FieldOrder(4)]
+        public byte CirCleanThresh { get; set; }
+        [FieldOrder(5)]
+        public ushort SigmaScale { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73503)]
+    [EfsFile("/nv/item_files/wcdma/cme/wcdma_cir_enh", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaCirEnh : ItemBase
+    {
+        [FieldOrder(0)]
+        public bool CirInterpEnable { get; set; }
+
+        [FieldOrder(1)]
+        public byte OneTapCirAlpha { get; set; }
+
+        [FieldOrder(2)]
+        public bool EnableDopplerEstimation { get; set; }
+
+        [FieldOrder(3)]
+        public ushort Doppler { get; set; }
+
+        [FieldOrder(4)]
+        public byte CirCleanThresh { get; set; }
+
+        [FieldOrder(5)]
+        public ushort SigmaScale { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class RrcSib7ExpTimeItem
+    {
+        [FieldOrder(0)]
+        public uint DefaultSIB7ExpTime { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73514)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_sib7_exp_time", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcSib7ExpTime : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcEnableMeasurementIdExtnItem
+    {
+        [FieldOrder(0)]
+        public bool RrcEnableMeasurementIdExtn { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73526)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_enable_measurement_id_extn", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcEnableMeasurementIdExtn : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class UimExtendedRecoveryConfigItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+        [FieldOrder(1)]
+        public byte NoOfExtendedPowerups { get; set; }
+        [FieldOrder(2)]
+        public uint DelayValue { get; set; }
+        [FieldOrder(3)]
+        public bool IncrementalDelay { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73535)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_extended_recovery_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimExtendedRecoveryConfig : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+
+        [FieldOrder(1)]
+        public byte NoOfExtendedPowerups { get; set; }
+
+        [FieldOrder(2)]
+        public uint DelayValue { get; set; }
+
+        [FieldOrder(3)]
+        public bool IncrementalDelay { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class RpmSysTimeItem
+    {
+        [FieldOrder(0)]
+        public uint RpmSysTime { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73559)]
+    [EfsFile("/nv/item_files/modem/mmode/rpm_sys_time", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RpmSysTime : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1SrchNvItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73569)]
+    [EfsFile("/nv/item_files/wcdma/l1/srch/wl1_srch_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1SrchNv : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcIdleFeatureItem
+    {
+        [FieldOrder(0)]
+        public uint WcdmaRrcIdleFeatures { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73584)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_idle_feature", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcIdleFeature : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class QipcallImsSmsPsiItem
+    {
+        [FieldOrder(0)]
+        public char[] QipcallImsSmsPsi { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73585)]
+    [EfsFile("/nv/item_files/ims/qipcall_ims_sms_psi", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class QipcallImsSmsPsi : OneHundredTwentyEightItemsBase<char>
+    {
+    }
+
+    [Serializable]
+    public sealed class UimHwLdoConfigEfsItem
+    {
+        [FieldOrder(0)]
+        public byte CustomizeLdoSetting { get; set; }
+        [FieldOrder(1)]
+        public byte DesiredVoltageClass { get; set; }
+        [FieldOrder(2)]
+        public byte DesiredVoltage { get; set; }
+        [FieldOrder(3)]
+        public byte PdownAllowedUponCardRemoval { get; set; }
+        [FieldOrder(4)]
+        public byte PdownAllowedUponError { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73588)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_hw_ldo_config_efs", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimHwLdoConfigEfs : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte CustomizeLdoSetting { get; set; }
+
+        [FieldOrder(1)]
+        public byte DesiredVoltageClass { get; set; }
+
+        [FieldOrder(2)]
+        public byte DesiredVoltage { get; set; }
+
+        [FieldOrder(3)]
+        public byte PdownAllowedUponCardRemoval { get; set; }
+
+        [FieldOrder(4)]
+        public byte PdownAllowedUponError { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class WcdmaRrcDbdcBandCombControlItem
+    {
+        [FieldOrder(0)]
+        public ushort WcdmaRrcDbdcBandCombControl { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73595)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_rrc_dbdc_band_comb_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaRrcDbdcBandCombControl : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class UimGpioBasedHotswapItem
+    {
+        [FieldOrder(0)]
+        public byte UimCtrlGpioHotswap0 { get; set; }
+        [FieldOrder(1)]
+        public byte UimCtrlGpioHotswap1 { get; set; }
+        [FieldOrder(2)]
+        public byte UimCtrlGpioHotswap2 { get; set; }
+        [FieldOrder(3)]
+        public byte UimCtrlGpioHotswap3 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73600)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_gpio_based_hotswap", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimGpioBasedHotswap : FourItemsBase<byte>
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaFreqSkipRangeItem
+    {
+        [FieldOrder(0)]
+        public byte WcdmaFreqSkipRange { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73617)]
+    [EfsFile("/nv/item_files/wcdma/rrc/wcdma_freq_skip_range", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaFreqSkipRange : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcHalfDrxLenItem
+    {
+        [FieldOrder(0)]
+        public bool RrcHalfDrxLenNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73619)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_half_drx_len", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcHalfDrxLen : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class UimPowerupLoggingConfigItem
+    {
+        [FieldOrder(0)]
+        public bool DisablePupLogging0 { get; set; }
+        [FieldOrder(1)]
+        public bool DisablePupLogging1 { get; set; }
+        [FieldOrder(2)]
+        public bool DisablePupLogging2 { get; set; }
+        [FieldOrder(3)]
+        public ushort NoOfLogsPerSlot { get; set; }
+        [FieldOrder(4)]
+        public ushort PowerupLoggingTimerInMs { get; set; }
+        [FieldOrder(5)]
+        public byte PupLoggingType { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73635)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_powerup_logging_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimPowerupLoggingConfig : ItemBase
+    {
+        [FieldOrder(0)]
+        [FieldCount(3)]
+        public bool[] DisablePupLogging { get; set; }
+
+        [FieldOrder(1)]
+        public ushort NoOfLogsPerSlot { get; set; }
+
+        [FieldOrder(2)]
+        public ushort PowerupLoggingTimerInMs { get; set; }
+
+        [FieldOrder(3)]
+        public byte PupLoggingType { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class EnableTaForCsDatacallItem
+    {
+        [FieldOrder(0)]
+        public bool EnableTaForCsDatacallNv { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73641)]
+    [EfsFile("/nv/item_files/wcdma/rrc/enable_ta_for_cs_datacall", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class EnableTaForCsDatacall : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaSrpCqiBoostingControlItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73647)]
+    [EfsFile("/nv/item_files/wcdma/wcdma_srp_cqi_boosting_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaSrpCqiBoostingControl : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcNvEnableReadSibsForReselItem
+    {
+        [FieldOrder(0)]
+        public bool RrcNvEnableReadSibsForResel { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73649)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_nv_enable_read_sibs_for_resel", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcNvEnableReadSibsForResel : BoolItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaL2FeatureItem
+    {
+        [FieldOrder(0)]
+        public uint WcdmaL2Feature { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73667)]
+    [EfsFile("/nv/item_files/wcdma/l2/wcdma_l2_feature", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaL2Feature : UInt32ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class WcdmaCmeFeaturesItem
+    {
+        [FieldOrder(0)]
+        public uint IrpmEnable { get; set; }
+        [FieldOrder(1)]
+        public uint VlcEnable { get; set; }
+        [FieldOrder(2)]
+        public uint PcovEnable { get; set; }
+        [FieldOrder(3)]
+        public uint QiceCmEnable { get; set; }
+        [FieldOrder(4)]
+        public uint QiceThermalMitigationEnable { get; set; }
+        [FieldOrder(5)]
+        public byte IrpmMcvsEnable { get; set; }
+        [FieldOrder(6)]
+        public byte CovSSEnable { get; set; }
+        [FieldOrder(7)]
+        public byte SpeEnable { get; set; }
+        [FieldOrder(8)]
+        public uint Reserved { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73683)]
+    [EfsFile("/nv/item_files/wcdma/cme/wcdma_cme_features", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class WcdmaCmeFeatures : ItemBase
+    {
+        [FieldOrder(0)]
+        public uint IrpmEnable { get; set; }
+
+        [FieldOrder(1)]
+        public uint VlcEnable { get; set; }
+
+        [FieldOrder(2)]
+        public uint PcovEnable { get; set; }
+
+        [FieldOrder(3)]
+        public uint QiceCmEnable { get; set; }
+
+        [FieldOrder(4)]
+        public uint QiceThermalMitigationEnable { get; set; }
+
+        [FieldOrder(5)]
+        public byte IrpmMcvsEnable { get; set; }
+
+        [FieldOrder(6)]
+        public byte CovSSEnable { get; set; }
+
+        [FieldOrder(7)]
+        public byte SpeEnable { get; set; }
+
+        [FieldOrder(8)]
+        public uint Reserved { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class RrcNvDeferReselTimerForL2AckItem
+    {
+        [FieldOrder(0)]
+        public ushort RrcNvDeferReselTimerForL2Ack0 { get; set; }
+        [FieldOrder(1)]
+        public ushort RrcNvDeferReselTimerForL2Ack1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73699)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_nv_defer_resel_timer_for_l2_ack", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcNvDeferReselTimerForL2Ack : TwoItemsBase<ushort>
+    {
+    }
+
+    [Serializable]
+    public sealed class QipcallEvsCodecConfigItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73705)]
+    [EfsFile("/nv/item_files/ims/qipcall_evs_codec_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class QipcallEvsCodecConfig : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class QipcallSubscriptionTimersItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73714)]
+    [EfsFile("/nv/item_files/ims/qipcall_subscription_timers", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class QipcallSubscriptionTimers : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class QpImsEmergWifiDisableItem
+    {
+        [FieldOrder(0)]
+        public byte QpImsEmergWifiDisable { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73717)]
+    [EfsFile("/nv/item_files/ims/qp_ims_emerg_wifi_disable", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class QpImsEmergWifiDisable : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1UlFeatureControlItem
+    {
+        [FieldOrder(0)]
+        public ulong Wl1UlFeatureBitmask { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73726)]
+    [EfsFile("/nv/item_files/wcdma/l1/ul/wl1_ul_feature_control", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1UlFeatureControl : UInt64ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class RrcNvTrmChangePriorityTmrItem
+    {
+        [FieldOrder(0)]
+        public ushort RrcNvTrmChangePriorityTmr { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73730)]
+    [EfsFile("/nv/item_files/wcdma/rrc/rrc_nv_trm_change_priority_tmr", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class RrcNvTrmChangePriorityTmr : UInt16ItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class Wl1WcdmaTaConfigItem
+    {
+        [FieldOrder(0)]
+        public byte DisableQta { get; set; }
+        [FieldOrder(1)]
+        public byte DisableQdta { get; set; }
+        [FieldOrder(2)]
+        public byte DisableCxmQta { get; set; }
+        [FieldOrder(3)]
+        public byte DisableRota { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73733)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_wcdma_ta_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1WcdmaTaConfig : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte DisableQta { get; set; }
+
+        [FieldOrder(1)]
+        public byte DisableQdta { get; set; }
+
+        [FieldOrder(2)]
+        public byte DisableCxmQta { get; set; }
+
+        [FieldOrder(3)]
+        public byte DisableRota { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue0Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue1Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue2Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue3Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue4Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue5Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue6Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue7Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue8Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue9Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue10Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue11Item
+    {
+        [FieldOrder(0)]
+        public byte DeltaUl { get; set; }
+        [FieldOrder(1)]
+        public byte DeltaDl { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItemValues1Item
+    {
+        [FieldOrder(0)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue0Item Value0 { get; set; }
+        [FieldOrder(1)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue1Item Value1 { get; set; }
+        [FieldOrder(2)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue2Item Value2 { get; set; }
+        [FieldOrder(3)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue3Item Value3 { get; set; }
+        [FieldOrder(4)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue4Item Value4 { get; set; }
+        [FieldOrder(5)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue5Item Value5 { get; set; }
+        [FieldOrder(6)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue6Item Value6 { get; set; }
+        [FieldOrder(7)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue7Item Value7 { get; set; }
+        [FieldOrder(8)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue8Item Value8 { get; set; }
+        [FieldOrder(9)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue9Item Value9 { get; set; }
+        [FieldOrder(10)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue10Item Value10 { get; set; }
+        [FieldOrder(11)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1ItemValue11Item Value11 { get; set; }
+    }
+
+
+    [Serializable]
+    public sealed class Wl1AntSwitchUldlImbalanceNvItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+        [FieldOrder(1)]
+        public Wl1AntSwitchUldlImbalanceNvItemValues1Item Values1 { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73757)]
+    [EfsFile("/nv/item_files/wcdma/l1/wl1_ant_switch_uldl_imbalance_nv", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class Wl1AntSwitchUldlImbalanceNv : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+
+        [FieldOrder(1)]
+        public Wl1AntSwitchUldlImbalanceNvItem Values1 { get; set; }
+
+    }
+
+    [Serializable]
+    public sealed class QipcallViceConfigItem
+    {
+        [FieldOrder(0)]
+        public byte Version { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73761)]
+    [EfsFile("/nv/item_files/ims/qipcall_vice_config", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class QipcallViceConfig : ByteItemBase
+    {
+    }
+
+    [Serializable]
+    public sealed class UimLastModeAndConfigDelayForRemoteConnectItem
+    {
+        [FieldOrder(0)]
+        public byte PhyConnectionMode { get; set; }
+        [FieldOrder(1)]
+        public byte DelayTimeInsec { get; set; }
+    }
+
+    [Serializable]
+    [NvItemId(73783)]
+    [EfsFile("/nv/item_files/modem/uim/uimdrv/uim_last_mode_and_config_delay_for_remote_connect", true, 0xE1FF)]
+    [Attributes(9)]
+    public sealed class UimLastModeAndConfigDelayForRemoteConnect : ItemBase
+    {
+        [FieldOrder(0)]
+        public byte PhyConnectionMode { get; set; }
+
+        [FieldOrder(1)]
+        public byte DelayTimeInsec { get; set; }
+
+    }
+
 }
