@@ -15,9 +15,10 @@ namespace EfsTools
             args = new[]
             {
                 //"downloadDirectory", "-i", "/", "-v", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test"
-                "setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test_new"
+                //"setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test_new"
                 //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test"
                 //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_130039", "-m", "QipcallConfigItems"
+                "setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0"
             };
             Logger logger = null;
             try

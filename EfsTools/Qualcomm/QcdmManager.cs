@@ -39,7 +39,7 @@ namespace EfsTools.Qualcomm
         public QcdmManager(string port, int baudrate, int timeout)
         {
             _doEventReport = false;
-            var realPort = GetSerialPort(port);
+            var realPort = GetSerialPort(port, baudrate);
             _port = new HdlcSerial(realPort, baudrate, timeout);
             Gsm = new QcdmGsmManager(this);
             CallManager = new QcdmCallManager(this);
@@ -218,12 +218,14 @@ namespace EfsTools.Qualcomm
             try
             {
                 var messageIdRanges = GetMessageIdRanges();
-                var messages = new MessageId[0];
-                foreach (var messageIdRange in messageIdRanges)
+                if (messageIdRanges != null)
                 {
-                    SetMessageMask((int) messageIdRange.Item1, (int) messageIdRange.Item2, messages);
+                    var messages = new MessageId[0];
+                    foreach (var messageIdRange in messageIdRanges)
+                    {
+                        SetMessageMask((int)messageIdRange.Item1, (int)messageIdRange.Item2, messages);
+                    }
                 }
-
                 return true;
             }
             catch
@@ -671,13 +673,13 @@ namespace EfsTools.Qualcomm
             }
         }
 
-        private static string GetSerialPort(string port)
+        private static string GetSerialPort(string port, int baudrate)
         {
             try
             {
                 if (string.IsNullOrEmpty(port) || port.ToLowerInvariant() == "auto")
                 {
-                    return DetectSerialPort();
+                    return DetectSerialPort(baudrate);
                 }
 
                 return port;
@@ -688,12 +690,12 @@ namespace EfsTools.Qualcomm
             }
         }
 
-        private static string DetectSerialPort()
+        private static string DetectSerialPort(int baudrate)
         {
             var ports = SerialPortStream.GetPortNames();
             foreach (var port in ports)
             {
-                if (QualcommSerialPortUtils.IsQualcommPort(port))
+                if (QualcommSerialPortUtils.IsQualcommPort(port, baudrate))
                 {
                     return port;
                 }
