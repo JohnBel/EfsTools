@@ -46,12 +46,15 @@ namespace EfsTools.Items
 
         private static void DeserializeItem(object item, JToken data)
         {
-            var itemType = item.GetType();
-            var json = data.ToString();
-            //var sourceItem = data.Values();
-            foreach (JProperty it in data)
+            if (item != null)
             {
-                SetProperty(item, it);
+                var itemType = item.GetType();
+                var json = data.ToString();
+                //var sourceItem = data.Values();
+                foreach (JProperty it in data)
+                {
+                    SetProperty(item, it);
+                }
             }
         }
 

@@ -577,6 +577,7 @@ namespace EfsTools.Items.Nv
         public byte[] Value2
         {
             get;
+            set;
         }
     }
 
@@ -593,6 +594,7 @@ namespace EfsTools.Items.Nv
         public byte[] Value2
         {
             get;
+            set;
         }
     }
 
@@ -609,6 +611,7 @@ namespace EfsTools.Items.Nv
         public byte[] Value2
         {
             get;
+            set;
         }
     }
 
@@ -625,6 +628,7 @@ namespace EfsTools.Items.Nv
         public byte[] Value2
         {
             get;
+            set;
         }
     }
 
@@ -956,6 +960,7 @@ namespace EfsTools.Items.Nv
         public byte[] Value2
         {
             get;
+            set;
         }
     }
 
@@ -971,7 +976,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -987,7 +992,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1003,7 +1008,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1327,7 +1332,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1343,7 +1348,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1359,7 +1364,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1375,7 +1380,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1776,7 +1781,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1792,7 +1797,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1808,7 +1813,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -1824,7 +1829,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2155,7 +2160,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2171,7 +2176,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2187,7 +2192,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2203,7 +2208,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2534,7 +2539,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2550,7 +2555,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2566,7 +2571,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2582,7 +2587,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2948,7 +2953,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2964,7 +2969,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2980,7 +2985,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -2996,7 +3001,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3327,7 +3332,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3343,7 +3348,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3359,7 +3364,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3375,7 +3380,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3706,7 +3711,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3722,7 +3727,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3738,7 +3743,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -3754,7 +3759,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4162,7 +4167,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4178,7 +4183,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4194,7 +4199,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4210,7 +4215,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4632,7 +4637,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4648,7 +4653,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4664,7 +4669,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4680,7 +4685,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -4997,7 +5002,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -5013,7 +5018,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -5029,7 +5034,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -5045,7 +5050,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public byte[] Value2
         {
-            get;
+            get; set;
         }
     }
 
@@ -17075,7 +17080,7 @@ namespace EfsTools.Items.Nv
         public string StringMode
         {
             get => $"{(DigitalAnalogPreferenceMode) Mode}";
-            set => Mode = EnumUtils.ParseEnumByte(typeof(DigitalAnalogPreferenceMode), value);
+            set => Mode = EnumUtils.ParseEnumUShort(typeof(DigitalAnalogPreferenceMode), value);
         }
     }
 
@@ -35796,6 +35801,7 @@ namespace EfsTools.Items.Nv
         public short[] Value
         {
             get;
+            set;
         }
     }
 

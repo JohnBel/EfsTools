@@ -53,6 +53,17 @@ namespace EfsTools.Items
             return null;
         }
 
+        public static long SizeOfNvItem(int id)
+        {
+            var type = GetNvItemType(id);
+            if (type != null)
+            {
+                var obj = Activator.CreateInstance(type);
+                return ItemsBinarySerializer.SizeOf(obj);
+            }
+            return 0;
+        }
+
         public static Type GetEfsFileType(string path)
         {
             InitilaizeEfsFileMetadata();

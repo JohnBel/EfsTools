@@ -324,7 +324,10 @@ namespace EfsTools.Utils
         {
             foreach (var item in items)
             {
-                LocalSaveItem(directoryPath, subscription, item.Value, logger);
+                if (item.Value != null)
+                {
+                    LocalSaveItem(directoryPath, subscription, item.Value, logger);
+                }
             }
         }
 
@@ -355,14 +358,16 @@ namespace EfsTools.Utils
                 filePath = Path.Combine(path, filePath);
                 using (var input = NvOpenRead(manager, nvItemId))
                 {
-                    using (var output = FileUtils.LocalCreateWrite(filePath))
+                    if (input != null)
                     {
-                        StreamUtils.Copy(input, output);
-                        output.Flush();
-                        output.Close();
+                        using (var output = FileUtils.LocalCreateWrite(filePath))
+                        {
+                            StreamUtils.Copy(input, output);
+                            output.Flush();
+                            output.Close();
+                        }
+                        input.Close();
                     }
-
-                    input.Close();
                 }
             }
             catch

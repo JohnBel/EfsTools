@@ -44,6 +44,20 @@ namespace EfsTools.Items
             }
         }
 
+        public static long SizeOf<T>(T obj)
+        {
+            if (obj != null)
+            {
+                return BinarySerializer.SizeOf(obj);
+            }
+            return 0;
+        }
+
+        public static long SizeOf(Type type)
+        {
+            var obj = Activator.CreateInstance(type);
+            return BinarySerializer.SizeOf(obj);
+        }
         public static void Serialize<T>(T obj, Stream stream)
         {
             if (obj != null)

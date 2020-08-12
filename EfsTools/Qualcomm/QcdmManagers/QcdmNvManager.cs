@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using EfsTools.Items;
 using EfsTools.Qualcomm.QcdmCommands.Requests.Nv;
 using EfsTools.Qualcomm.QcdmCommands.Responses.Nv;
 
@@ -22,6 +23,14 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 {
                     var request = new NvReadCommandRequest(itemId);
                     var response = (NvReadCommandResponse) manager.ExecuteQcdmCommandRequest(request);
+                    var size = ItemsFactory.SizeOfNvItem(itemId);
+                    if (size > 0)
+                    {
+                        size = Math.Min(response.Data.LongLength, size);
+                        var data = new byte[size];
+                        Array.Copy(response.Data, 0, data, 0, size);
+                        return data;
+                    }
                     return response.Data;
                 }
             }
