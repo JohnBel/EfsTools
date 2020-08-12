@@ -28808,7 +28808,7 @@ namespace EfsTools.Items.Efs
     }
 
     [Serializable]
-    [EfsFile("/nv/item_files/rfnv/00021723", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/rfnv/00021723", false, 0x81B6)]
     [Attributes(9)]
     public sealed class CdmaC2Bc01xRxSwitchpoints : ItemBase
     {
@@ -82694,7 +82694,7 @@ namespace EfsTools.Items.Efs
 
         [FieldOrder(9)]
         [FieldCount(20)]
-        public byte[] Reserved { get; set; }
+        public byte[]? Reserved { get; set; }
     }
 
     [Serializable]
@@ -82853,7 +82853,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(71544)]
-    [EfsFile("/nv/item_files/ims/qp_ims_cellid", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_cellid", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsCellid : ItemBase
     {
@@ -82882,7 +82882,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [NvItemId(69750)]
     [Subscription]
-    [EfsFile("/nv/item_files/ims/qp_ims_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsConfig : ItemBase
     {
@@ -82960,7 +82960,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(67261)]
-    [EfsFile("/nv/item_files/ims/qp_ims_dpl_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_dpl_config", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QpImsDplConfig : ItemBase
     {
@@ -83066,7 +83066,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [NvItemId(67332)]
     [Subscription]
-    [EfsFile("/nv/item_files/ims/qp_ims_media_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_media_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsMediaConfig : ItemBase
     {
@@ -83378,7 +83378,7 @@ namespace EfsTools.Items.Efs
 {
     [Serializable]
     [NvItemId(67258)]
-    [EfsFile("/nv/item_files/ims/qp_ims_param_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_param_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsParamConfig : ItemBase
     {
@@ -83597,7 +83597,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [NvItemId(67314)]
     [Subscription]
-    [EfsFile("/nv/item_files/ims/qp_ims_presence_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_presence_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsPresenceConfig : ItemBase
     {
@@ -83671,7 +83671,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(71542)]
-    [EfsFile("/nv/item_files/ims/qp_ims_presence_ext_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_presence_ext_config", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QpImsPresenceExtConfig : ItemBase
     {
@@ -83696,7 +83696,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [NvItemId(70233)]
     [Subscription]
-    [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_auto_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsRcsAutoConfig : ItemBase
     {
@@ -83911,7 +83911,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(71565)]
-    [EfsFile("/nv/item_files/ims/qp_ims_rcs_sm", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_sm", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsRcsSm : ItemBase
     {
@@ -83940,7 +83940,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(73687)]
-    [EfsFile("/nv/item_files/ims/qp_ims_rcs_xdmc_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_rcs_xdmc_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsRcsXdmcConfig : ItemBase
     {
@@ -84012,7 +84012,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(67264)]
-    [EfsFile("/nv/item_files/ims/qp_ims_reg_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_reg_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsRegConfig : ItemBase
     {
@@ -84365,7 +84365,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(71527)]
-    [EfsFile("/nv/item_files/ims/qp_ims_reg_config_db", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_reg_config_db", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsRegConfigDb : ItemBase
     {
@@ -84446,7 +84446,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(70235)]
-    [EfsFile("/nv/item_files/ims/qp_ims_reg_extended_0_config", true, 0x81B6)]
+    [EfsFile("/nv/item_files/ims/qp_ims_reg_extended_0_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsRegExtended0Config : ItemBase
     {
@@ -84663,7 +84663,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(69744)]
-    [EfsFile("/nv/item_files/ims/qp_ims_sip_extended_0_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_sip_extended_0_config", true, 0xE1FF)]
     [Attributes(9)]
     public sealed class QpImsSipExtended0Config : ItemBase
     {
@@ -84872,7 +84872,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(67259)]
-    [EfsFile("/nv/item_files/ims/qp_ims_sms_config", true, 0x81FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_sms_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsSmsConfig : ItemBase
     {
@@ -84956,7 +84956,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(71540)]
-    [EfsFile("/nv/item_files/ims/qp_ims_ussd_config", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_ussd_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsUssdConfig : ItemBase
     {
@@ -84976,7 +84976,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(70263)]
-    [EfsFile("/nv/item_files/ims/qp_ims_ut_config", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_ut_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsUtConfig : ItemBase
     {
@@ -85122,7 +85122,7 @@ namespace EfsTools.Items.Efs
     [Serializable]
     [Subscription]
     [NvItemId(67257)]
-    [EfsFile("/nv/item_files/ims/qp_ims_voip_config", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/ims/qp_ims_voip_config", false, 0x81FF)]
     [Attributes(9)]
     public sealed class QpImsVoipConfig : ItemBase
     {
@@ -95485,7 +95485,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(66010)]
-    [EfsFile("/nv/item_files/modem/tdscdma/rrc/acq_list", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/modem/tdscdma/rrc/acq_list", false, 0x81FF)]
     [Attributes(9)]
     public sealed class AcqList : ItemBase
     {
@@ -97192,7 +97192,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(71531)]
-    [EfsFile("/nv/item_files/modem/mmode/sw_version", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/modem/mmode/sw_version", false, 0x81FF)]
     [Attributes(9)]
     public sealed class SwVersion : SixtyOneItemsBase<byte>
     {
@@ -97792,7 +97792,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(72619)]
-    [EfsFile("/nv/item_files/mcs/tcxomgr/ft_table_wwan", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/ft_table_wwan", false, 0x81FF)]
     [Attributes(9)]
     public sealed class FtTableWwan : ItemBase
     {
@@ -97949,7 +97949,7 @@ namespace EfsTools.Items.Efs
 
     [Serializable]
     [NvItemId(72620)]
-    [EfsFile("/nv/item_files/mcs/tcxomgr/ft_table_gps", true, 0xE1FF)]
+    [EfsFile("/nv/item_files/mcs/tcxomgr/ft_table_gps", false, 0x81FF)]
     [Attributes(9)]
     public sealed class FtTableGps : ItemBase
     {
@@ -111839,7 +111839,7 @@ namespace EfsTools.Items.Efs
     [NvItemId(73705)]
     [EfsFile("/nv/item_files/ims/qipcall_evs_codec_config", true, 0xE1FF)]
     [Attributes(9)]
-    public sealed class QipcallEvsCodecConfig : ByteItemBase
+    public sealed class QipcallEvsCodecConfig : ThirtyTwoByteItemBase
     {
     }
 
@@ -111854,8 +111854,11 @@ namespace EfsTools.Items.Efs
     [NvItemId(73714)]
     [EfsFile("/nv/item_files/ims/qipcall_subscription_timers", true, 0xE1FF)]
     [Attributes(9)]
-    public sealed class QipcallSubscriptionTimers : ByteItemBase
+    public sealed class QipcallSubscriptionTimers : ItemBase
     {
+        [FieldOrder(0)]
+        [FieldCount(21)]
+        public byte Values { get; set; }
     }
 
     [Serializable]

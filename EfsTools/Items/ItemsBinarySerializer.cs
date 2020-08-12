@@ -79,7 +79,7 @@ namespace EfsTools.Items
                 var obj = BinarySerializer.Deserialize(stream, type);
                 return obj;
             }
-            catch (Exception e)
+            catch // (Exception e)
             {
                 return null;
             }

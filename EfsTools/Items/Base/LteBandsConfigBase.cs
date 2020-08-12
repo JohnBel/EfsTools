@@ -319,5 +319,33 @@ namespace EfsTools.Items.Base
             get => BitsUtils.GetBitAsBool(Value, 43);
             set => Value = BitsUtils.SetBitAsBool(Value, 43, value);
         }
+
+        [Ignore]
+        public bool B45
+        {
+            get => BitsUtils.GetBitAsBool(Value, 44);
+            set => Value = BitsUtils.SetBitAsBool(Value, 44, value);
+        }
+
+        [Ignore]
+        public bool B46
+        {
+            get => BitsUtils.GetBitAsBool(Value, 45);
+            set => Value = BitsUtils.SetBitAsBool(Value, 45, value);
+        }
+        
+        [Ignore]
+        public bool B47
+        {
+            get => BitsUtils.GetBitAsBool(Value, 46);
+            set => Value = BitsUtils.SetBitAsBool(Value, 46, value);
+        }
+
+        [Ignore]
+        public bool B48
+        {
+            get => BitsUtils.GetBitAsBool(Value, 47);
+            set => Value = BitsUtils.SetBitAsBool(Value, 47, value);
+        }
     }
 }

@@ -17076,6 +17076,7 @@ namespace EfsTools.Items.Nv
         [FieldOrder(1)]
         public ushort Mode { get; set; }
 
+        [Ignore]
         [FieldOrder(2)]
         public string StringMode
         {
