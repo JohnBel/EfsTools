@@ -83591,6 +83591,7 @@ namespace EfsTools.Items.Efs
 
         [FieldCount(64)]
         [FieldOrder(20)]
+        [JsonIgnore]
         public byte[] Reserved { get; set; }
     }
 
@@ -84858,6 +84859,7 @@ namespace EfsTools.Items.Efs
 
         [FieldCount(424)]
         [FieldOrder(36)]
+        [JsonIgnore]
         public byte[] ReservedBytes { get; set; }
     }
 

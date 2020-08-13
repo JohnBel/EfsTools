@@ -27,7 +27,7 @@ namespace EfsTools.Utils
             return result;
         }
 
-        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription,
+        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription, Logger logger, bool verbose,
             HashSet<string> configItems)
         {
             var items = new Dictionary<string, object>();
@@ -41,6 +41,10 @@ namespace EfsTools.Utils
                     {
                         using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
                         {
+                            if (verbose)
+                            {
+                                logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, filePath));
+                            }
                             var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                             items.Add(itemType.Name, item);
                             stream.Close();
@@ -58,6 +62,10 @@ namespace EfsTools.Utils
                     {
                         if (stream != null)
                         {
+                            if (verbose)
+                            {
+                                logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, itemType.Name));
+                            }
                             var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                             items.Add(itemType.Name, item);
                             stream.Close();
@@ -69,7 +77,7 @@ namespace EfsTools.Utils
             return items;
         }
 
-        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription)
+        public static Dictionary<string, object> PhoneLoadItems(QcdmManager manager, int subscription, Logger logger, bool verbose)
         {
             var items = new Dictionary<string, object>();
             foreach (var filePath in ItemsFactory.SupportedEfsFilePaths)
@@ -78,8 +86,12 @@ namespace EfsTools.Utils
                 if (manager.Efs.FileExists(realFilePath))
                 {
                     var itemType = ItemsFactory.GetEfsFileType(filePath);
-                    using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
+                    using (var stream = FileUtils.PhoneOpenReadMemory(manager, realFilePath))
                     {
+                        if (verbose)
+                        {
+                            logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, filePath));
+                        }
                         var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                         items.Add(itemType.Name, item);
                         stream.Close();
@@ -94,6 +106,10 @@ namespace EfsTools.Utils
                 {
                     if (stream != null)
                     {
+                        if (verbose)
+                        {
+                            logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, itemType));
+                        }
                         var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                         items.Add(itemType.Name, item);
                         stream.Close();
@@ -156,7 +172,8 @@ namespace EfsTools.Utils
             }
         }
 
-        public static Dictionary<string, object> LocalLoadItems(string directoryPath, int subscription, HashSet<string> configItems)
+        public static Dictionary<string, object> LocalLoadItems(string directoryPath, int subscription, Logger logger, bool verbose,
+            HashSet<string> configItems)
         {
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
@@ -185,6 +202,10 @@ namespace EfsTools.Utils
                     {
                         using (var stream = FileUtils.LocalOpenRead(path))
                         {
+                            if (verbose)
+                            {
+                                logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, path));
+                            }
                             var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                             items.Add(itemType.Name, item);
                             stream.Close();
@@ -209,6 +230,10 @@ namespace EfsTools.Utils
                     {
                         using (var stream = FileUtils.LocalOpenRead(path))
                         {
+                            if (verbose)
+                            {
+                                logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, itemType));
+                            }
                             var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                             items.Add(itemType.Name, item);
                             stream.Close();
@@ -225,7 +250,7 @@ namespace EfsTools.Utils
             return items;
         }
 
-        public static Dictionary<string, object> LocalLoadItems(string directoryPath, int subscription)
+        public static Dictionary<string, object> LocalLoadItems(string directoryPath, int subscription, Logger logger, bool verbose)
         {
             var items = new Dictionary<string, object>();
             foreach (var fileUnixPath in ItemsFactory.SupportedEfsFilePaths)
@@ -252,6 +277,10 @@ namespace EfsTools.Utils
                 {
                     using (var stream = FileUtils.LocalOpenRead(path))
                     {
+                        if (verbose)
+                        {
+                            logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, path));
+                        }
                         var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                         items.Add(itemType.Name, item);
                         stream.Close();
@@ -268,6 +297,10 @@ namespace EfsTools.Utils
                 {
                     using (var stream = FileUtils.LocalOpenRead(path))
                     {
+                        if (verbose)
+                        {
+                            logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, itemType));
+                        }
                         var item = ItemsBinarySerializer.Deserialize(stream, itemType);
                         items.Add(itemType.Name, item);
                         stream.Close();

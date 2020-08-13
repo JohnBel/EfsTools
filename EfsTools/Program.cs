@@ -11,15 +11,6 @@ namespace EfsTools
     {
         private static void Main(string[] args)
         {
-            //args = args.Skip(1).ToArray();
-            args = new[]
-            {
-                //"downloadDirectory", "-i", "/", "-v", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test"
-                //"setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-o", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test_new"
-                //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_for_test"
-                //"getModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0", "-i", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\backup_20190307_130039", "-m", "QipcallConfigItems"
-                "setModemConfig", "-p", "C:\\Tmp\\Projects\\EfsTools\\EfsTools\\bin\\Debug\\netcoreapp3.1\\modemConfigS0.json", "-s", "0"
-            };
             Logger logger = null;
             try
             {
@@ -77,7 +68,7 @@ namespace EfsTools
                     cmd.WithParsed<EfsListDirectoryOptions>(opts => tools.EfsListDirectory(opts.Path, opts.Recursive));
                     cmd.WithParsed<GetModemConfigOptions>(opts =>
                         tools.GetModemConfig(opts.OutComputerFilePath, opts.InComputerFilePath, opts.ItemNames,
-                            opts.SubscriptionIndex));
+                            opts.SubscriptionIndex, opts.Verbose));
                     cmd.WithParsed<SetModemConfigOptions>(opts =>
                         tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath,
                             opts.SubscriptionIndex));

@@ -35,6 +35,26 @@ namespace EfsTools.Utils
             return file;
         }
 
+        public static Stream PhoneOpenReadMemory(QcdmManager manager, string path)
+        {
+            var file = manager.Efs.OpenFile(path, EfsFileFlag.Readonly, 0);
+            var size = file.Length;
+            if (size != 0)
+            {
+                var buf = new byte[size];
+                long readed = 0;
+                while (readed < size)
+                {
+                    var r = file.Read(buf, (int)readed, (int)(size - readed));
+                    readed += r;
+                }
+                file.Close();
+                file.Dispose();
+                return new MemoryStream(buf);
+            }
+            return file;
+        }
+
         public static Stream PhoneCreateWrite(QcdmManager manager, string path, int permission, Logger logger)
         {
             var efs = manager.Efs;

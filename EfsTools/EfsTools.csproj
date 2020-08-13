@@ -4,10 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 	<Title>EfsTools</Title>
 	<Description>EFS Tools Application</Description>
-    <Version>0.12.0.12</Version>
+    <Version>0.13.0.13</Version>
     <Copyright>Copyright (c) JohnBel 2020  (http://johnbel.github.io/)</Copyright>
     <Company>JohnBel</Company>
 	<Nullable>disable</Nullable>
+	<PackageProjectUrl>http://johnbel.github.io/</PackageProjectUrl>
+	<Authors>JohnBel</Authors>
+	<PackageTags>EFS,EfsTools</PackageTags>
+	<RepositoryUrl>https://github.com/JohnBel/EfsTools</RepositoryUrl>
+	<RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BinarySerializer" Version="8.5.2" />
