@@ -11,6 +11,7 @@ namespace EfsTools
     {
         private static void Main(string[] args)
         {
+            
             Logger logger = null;
             try
             {
@@ -71,7 +72,7 @@ namespace EfsTools
                             opts.SubscriptionIndex, opts.Verbose));
                     cmd.WithParsed<SetModemConfigOptions>(opts =>
                         tools.SetModemConfig(opts.InComputerFilePath, opts.OutComputerFilePath,
-                            opts.SubscriptionIndex));
+                            opts.SubscriptionIndex, opts.Verbose));
                     cmd.WithParsed<ExtractMbnOptions>(opts =>
                         tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData));
                     cmd.WithParsed<GetLogsOptions>(opts =>

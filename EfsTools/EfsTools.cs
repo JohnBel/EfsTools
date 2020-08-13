@@ -305,7 +305,7 @@ namespace EfsTools
             }
         }
 
-        public void SetModemConfig(string path, string outputDirectory, int subscription)
+        public void SetModemConfig(string path, string outputDirectory, int subscription, bool verbose)
         {
             _logger.LogInfo(Strings.QcdmApplyingModemConfig);
             if (string.IsNullOrEmpty(outputDirectory))
@@ -316,9 +316,9 @@ namespace EfsTools
                     {
                         var configItems = NvItemUtils.GetConfigs(input);
                         input.BaseStream.Seek(0, SeekOrigin.Begin);
-                        var items = NvItemUtils.PhoneLoadItems(manager, subscription, _logger, false, configItems);
+                        var items = NvItemUtils.PhoneLoadItems(manager, subscription, _logger, verbose, configItems);
                         ItemsJsonSerializer.DeserializeItems(items, input);
-                        NvItemUtils.PhoneSaveItems(manager, subscription, items, _logger);
+                        NvItemUtils.PhoneSaveItems(manager, subscription, items, _logger, verbose);
                     }
                 }
             }
@@ -329,9 +329,9 @@ namespace EfsTools
                     Directory.CreateDirectory(outputDirectory);
                     var configItems = NvItemUtils.GetConfigs(input);
                     input.BaseStream.Seek(0, SeekOrigin.Begin);
-                    var items = NvItemUtils.LocalLoadItems(outputDirectory, subscription, _logger, false, configItems);
+                    var items = NvItemUtils.LocalLoadItems(outputDirectory, subscription, _logger, verbose, configItems);
                     ItemsJsonSerializer.DeserializeItems(items, input);
-                    NvItemUtils.LocalSaveItems(outputDirectory, subscription, items, _logger);
+                    NvItemUtils.LocalSaveItems(outputDirectory, subscription, items, _logger, verbose);
                 }
             }
         }

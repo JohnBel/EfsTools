@@ -39,7 +39,7 @@ namespace EfsTools.Utils
                 {
                     if (manager.Efs.FileExists(realFilePath))
                     {
-                        using (var stream = FileUtils.PhoneOpenRead(manager, realFilePath))
+                        using (var stream = FileUtils.PhoneOpenReadMemory(manager, realFilePath))
                         {
                             if (verbose)
                             {
@@ -132,7 +132,7 @@ namespace EfsTools.Utils
         }
 
         public static void PhoneSaveItems(QcdmManager manager, int subscription, Dictionary<string, object> items,
-            Logger logger)
+            Logger logger, bool verbose)
         {
             var efs = manager.Efs;
             foreach (var item in items)
@@ -144,7 +144,11 @@ namespace EfsTools.Utils
                     var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
                     if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= ushort.MaxValue)
                     {
-                        using (var stream = NvOpenWrite(manager, (ushort) nvItemIdAttribute.Id))
+                        if (verbose)
+                        {
+                            logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, type.Name));
+                        }
+                        using (var stream = NvOpenWrite(manager, (ushort)nvItemIdAttribute.Id))
                         {
                             ItemsBinarySerializer.Serialize(item.Value, stream);
                             stream.Flush();
@@ -155,6 +159,11 @@ namespace EfsTools.Utils
                 else
                 {
                     var path = GetEfsFilePath(fileAttribute.Path, subscription);
+                    if (verbose)
+                    {
+                        logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, fileAttribute.Path));
+                    }
+
                     if (efs.FileExists(path))
                     {
                         efs.DeleteFile(path);
@@ -312,7 +321,7 @@ namespace EfsTools.Utils
         }
 
         public static void LocalSaveItem(string directoryPath, int subscription, object item,
-            Logger logger)
+            Logger logger, bool verbose)
         {
             var type = item.GetType();
             var fileAttribute = EfsFileAttributeUtils.Get(type);
@@ -321,6 +330,10 @@ namespace EfsTools.Utils
                 var nvItemIdAttribute = NvItemIdAttributeUtils.Get(type);
                 if (nvItemIdAttribute != null && nvItemIdAttribute.Id <= ushort.MaxValue)
                 {
+                    if (verbose)
+                    {
+                        logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, type.Name));
+                    }
                     var nvItemFileName = PathUtils.GetNvItemFileName((ushort)nvItemIdAttribute.Id);
                     var path = Path.Combine(directoryPath, nvItemFileName);
                     using (var stream = FileUtils.LocalCreateWrite(path))
@@ -333,6 +346,10 @@ namespace EfsTools.Utils
             }
             else
             {
+                if (verbose)
+                {
+                    logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, fileAttribute.Path));
+                }
                 var filePath = GetEfsFilePath(fileAttribute.Path, subscription);
                 var entryType = fileAttribute.IsItemFile ? DirectoryEntryType.ItemFile : DirectoryEntryType.File;
                 var path = PathUtils.BuildPath(directoryPath, filePath, fileAttribute.Permissions, entryType,
@@ -353,13 +370,13 @@ namespace EfsTools.Utils
         }
 
         public static void LocalSaveItems(string directoryPath, int subscription, Dictionary<string, object> items,
-            Logger logger)
+            Logger logger, bool verbose)
         {
             foreach (var item in items)
             {
                 if (item.Value != null)
                 {
-                    LocalSaveItem(directoryPath, subscription, item.Value, logger);
+                    LocalSaveItem(directoryPath, subscription, item.Value, logger, verbose);
                 }
             }
         }

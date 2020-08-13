@@ -21,5 +21,8 @@ namespace EfsTools.CommandLineOptions
         [Option('s', "subscriptionIndex", Required = false,
             HelpText = "Subscription index. 0 - first SIM, 1 - second SIM", Default = 0)]
         public int SubscriptionIndex { get; set; }
+
+        [Option('v', "verbose", Required = false, HelpText = "Verbose output", Default = false)]
+        public bool Verbose { get; set; }
     }
 }
