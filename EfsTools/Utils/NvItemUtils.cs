@@ -148,11 +148,18 @@ namespace EfsTools.Utils
                         {
                             logger.LogInfo(string.Format(Strings.QcdmProcessingFormat, type.Name));
                         }
-                        using (var stream = NvOpenWrite(manager, (ushort)nvItemIdAttribute.Id))
+                        using (var memoryStream = new MemoryStream())
                         {
-                            ItemsBinarySerializer.Serialize(item.Value, stream);
-                            stream.Flush();
-                            stream.Close();
+                            ItemsBinarySerializer.Serialize(item.Value, memoryStream);
+                            memoryStream.Flush();
+                            memoryStream.Position = 0;
+                            using (var stream = NvOpenWrite(manager, (ushort)nvItemIdAttribute.Id))
+                            {
+                                StreamUtils.Copy(memoryStream, stream);
+                                stream.Flush();
+                                stream.Close();
+                            }
+                            memoryStream.Close();
                         }
                     }
                 }
@@ -169,13 +176,20 @@ namespace EfsTools.Utils
                         efs.DeleteFile(path);
                     }
 
-                    using (var stream = fileAttribute.IsItemFile
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        ItemsBinarySerializer.Serialize(item.Value, memoryStream);
+                        memoryStream.Flush();
+                        memoryStream.Position = 0;
+                        using (var stream = fileAttribute.IsItemFile
                         ? FileUtils.PhoneItemCreateWrite(manager, path, fileAttribute.Permissions, logger)
                         : FileUtils.PhoneCreateWrite(manager, path, fileAttribute.Permissions, logger))
-                    {
-                        ItemsBinarySerializer.Serialize(item.Value, stream);
-                        stream.Flush();
-                        stream.Close();
+                        {
+                            StreamUtils.Copy(memoryStream, stream);
+                            stream.Flush();
+                            stream.Close();
+                        }
+                        memoryStream.Close();
                     }
                 }
             }

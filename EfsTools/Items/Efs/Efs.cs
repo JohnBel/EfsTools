@@ -82692,9 +82692,10 @@ namespace EfsTools.Items.Efs
         [FieldOrder(8)]
         public byte QosOptimization { get; set; }
 
-        [FieldOrder(9)]
-        [FieldCount(20)]
-        public byte[]? Reserved { get; set; }
+        /*[FieldOrder(9)]
+        //[FieldCount(3)]
+        [JsonIgnore]
+        public byte[] Reserved { get; set; }*/
     }
 
     [Serializable]
@@ -83593,6 +83594,11 @@ namespace EfsTools.Items.Efs
         [FieldOrder(20)]
         [JsonIgnore]
         public byte[] Reserved { get; set; }
+
+        [FieldCount(85)]
+        [FieldOrder(21)]
+        [JsonIgnore]
+        public byte[] Reserved2 { get; set; }
     }
 
     [Serializable]
@@ -86199,6 +86205,10 @@ namespace EfsTools.Items.Efs
 
         [FieldOrder(22)]
         public byte H264Profile { get; set; }
+
+        [FieldOrder(23)]
+        [FieldCount(34)]
+        public byte[] Data { get; set; }
     }
 
     [Serializable]
@@ -86886,9 +86896,6 @@ namespace EfsTools.Items.Efs
     [Attributes(9)]
     public sealed class SdssscrTimers : ItemBase
     {
-        [FieldCount(50)] private readonly uint[] _value = new uint[50];
-
-
         [Required]
         [FieldOrder(0)]
         public ushort Version { get; set; }
@@ -86897,45 +86904,11 @@ namespace EfsTools.Items.Efs
         [FieldOrder(1)]
         public ushort Count { get; set; }
 
-        [JsonIgnore]
         [FieldOrder(2)]
-        public uint[] RawValue
-        {
-            get => _value;
-            set
-            {
-                if (value != null)
-                {
-                    var len = Math.Min(value.Length, 50);
-                    Array.Copy(value, _value, len);
-                }
-            }
-        }
-
-        [FieldOrder(3)]
+        [FieldCount(50)]
         public uint[] Value
         {
-            get
-            {
-                if (Count == 50)
-                {
-                    return _value;
-                }
-
-                var val = new uint[Count];
-                var len = Math.Min((int) Count, 50);
-                Array.Copy(_value, val, len);
-                return val;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    var len = Math.Min(value.Length, 50);
-                    Array.Copy(value, _value, len);
-                    Count = (ushort) len;
-                }
-            }
+            get; set;
         }
     }
 
