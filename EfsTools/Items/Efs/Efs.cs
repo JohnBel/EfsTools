@@ -84958,7 +84958,7 @@ namespace EfsTools.Items.Efs
 
         [FieldCount(3)]
         [FieldOrder(1)]
-        public sbyte[]? Reserved { get; set; }
+        public sbyte[] Reserved { get; set; }
     }
 
     [Serializable]
@@ -85104,7 +85104,7 @@ namespace EfsTools.Items.Efs
         [JsonIgnore]
         [FieldCount(64)]
         [FieldOrder(18)]
-        public byte[]? Apn2ApnName { get; set; }
+        public byte[] Apn2ApnName { get; set; }
 
         [Ignore]
         public string Apn2ApnNameString

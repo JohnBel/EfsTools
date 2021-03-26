@@ -2,7 +2,7 @@
   "profiles": {
     "EfsTools": {
       "commandName": "Project",
-      "commandLineArgs": "setModemConfig -p C:\\Tmp\\Projects\\EfsToolsRelease\\samples\\ModemConfigs\\mts-volte-items.json -v 1"
+      "commandLineArgs": "targetInfo"
     }
   }
 }

@@ -9,8 +9,11 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses.DiagServ
         public static TChildClass Parse(byte[] data)
         {
             dynamic result = Activator.CreateInstance(typeof(TChildClass));
-            result.CheckResponse(data);
-            result.Value = BitConverter.ToInt32(data, 4);
+            if (result != null)
+            {
+                result.CheckResponse(data);
+                result.Value = BitConverter.ToInt32(data, 4);
+            }
             return result;
         }
     }

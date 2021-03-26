@@ -54,8 +54,11 @@ namespace EfsTools
                     $"StationClassMask: {version.StationClassMask}, SlotCycleIndex: {version.SlotCycleIndex}, HwVersion: {version.HwVersionMajor}.{version.HwVersionMinor}, " +
                     $"MSM: 0x{buildId.Msm:X}, MobileModelId: {buildId.MobileModelId}, MobileModelName: {buildId.MobileModelName}, " +
                     $"Guid: '{guid}', SystemTime: '{systemTime}'");
-                _logger.LogInfo(
-                    $"GSM VocorerDspVersion: 0x{gsmVersion.VocorerDspVersion:X},  MdspVersionRom: 0x{gsmVersion.MdspVersionRom:X},  MdspVersionRam: 0x{gsmVersion.MdspVersionRam:X}");
+                if (gsmVersion != null)
+                {
+                    _logger.LogInfo(
+                        $"GSM VocorerDspVersion: 0x{gsmVersion.VocorerDspVersion:X},  MdspVersionRom: 0x{gsmVersion.MdspVersionRom:X},  MdspVersionRam: 0x{gsmVersion.MdspVersionRam:X}");
+                }
                 _logger.LogInfo($"Call state: 0x{state:X}");
             }
         }
@@ -378,7 +381,8 @@ namespace EfsTools
 
         private QcdmManager OpenQcdmManager()
         {
-            var manager = new QcdmManager(_config.Port, _config.Baudrate, 5000);
+            var manager = new QcdmManager(_config.Port, _config.Baudrate, 5000, 
+                _config.HdlcSendControlChar, _config.IgnoreUnsupportedCommands, _logger);
             if (_config.Port != manager.PortName)
             {
                 _logger.LogInfo(Strings.QcdmUseComPortFormat, manager.PortName);

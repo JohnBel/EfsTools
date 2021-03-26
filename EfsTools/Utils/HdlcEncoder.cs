@@ -23,12 +23,16 @@ namespace EfsTools.Utils
 
         private static readonly Crc16 Crc16Encoder = new Crc16();
 
-        public static byte[] Encode(byte[] data)
+        public static byte[] Encode(byte[] data, bool sendControlChar)
         {
             var crc = Crc16(data);
 
             var buffer = new MemoryStream(data.Length * 2 + HdlcOverheadLength);
-            buffer.WriteByte(HdlcControlChar); // start of frame
+            
+            if (sendControlChar)
+            {
+                buffer.WriteByte(HdlcControlChar); // start of frame
+            }
 
             for (var i = 0; i < data.Length; ++i)
             {

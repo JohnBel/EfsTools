@@ -53,7 +53,8 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
             var maskLength = (numBits + 7) / 8;
             if (data.Length < maskLength + 16)
             {
-                throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+                //throw new QcdmManagerException(Strings.QcdmInvalidResponseCommand);
+                return;
             }
 
             var scopeDelta = result.Scope * 0x1000;

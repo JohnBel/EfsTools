@@ -22,8 +22,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     if (manager.IsOpen)
                     {
                         var request = new GetDebugMessageDroppedCountRequest();
-                        var response = (GetDebugMessageDroppedCountResponse) manager.ExecuteQcdmCommandRequest(request);
-                        return response.Value;
+                        var response = manager.ExecuteQcdmCommandRequest<GetDebugMessageDroppedCountResponse>(request);
+                        if (response != null)
+                        {
+                            return response.Value;
+                        }
                     }
                 }
 
@@ -41,8 +44,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     {
                         var request = new GetDebugMessageAllocationCountRequest();
                         var response =
-                            (GetDebugMessageAllocationCountResponse) manager.ExecuteQcdmCommandRequest(request);
-                        return response.Value;
+                            manager.ExecuteQcdmCommandRequest<GetDebugMessageAllocationCountResponse>(request);
+                        if (response != null)
+                        {
+                            return response.Value;
+                        }
                     }
                 }
 
@@ -59,8 +65,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     if (manager.IsOpen)
                     {
                         var request = new GetEventDroppedCountRequest();
-                        var response = (GetEventDroppedCountResponse) manager.ExecuteQcdmCommandRequest(request);
-                        return response.Value;
+                        var response = manager.ExecuteQcdmCommandRequest<GetEventDroppedCountResponse>(request);
+                        if (response != null)
+                        {
+                            return response.Value;
+                        }
                     }
                 }
 
@@ -77,8 +86,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     if (manager.IsOpen)
                     {
                         var request = new GetEventAllocationCountRequest();
-                        var response = (GetEventAllocationCountResponse) manager.ExecuteQcdmCommandRequest(request);
-                        return response.Value;
+                        var response = manager.ExecuteQcdmCommandRequest<GetEventAllocationCountResponse>(request);
+                        if (response != null)
+                        {
+                            return response.Value;
+                        }
                     }
                 }
 
@@ -95,8 +107,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     if (manager.IsOpen)
                     {
                         var request = new GetLogDroppedCountRequest();
-                        var response = (GetLogDroppedCountResponse) manager.ExecuteQcdmCommandRequest(request);
-                        return response.Value;
+                        var response = manager.ExecuteQcdmCommandRequest<GetLogDroppedCountResponse>(request);
+                        if (response != null)
+                        {
+                            return response.Value;
+                        }
                     }
                 }
 
@@ -113,8 +128,11 @@ namespace EfsTools.Qualcomm.QcdmManagers
                     if (manager.IsOpen)
                     {
                         var request = new GetLogAllocationCountRequest();
-                        var response = (GetLogAllocationCountResponse) manager.ExecuteQcdmCommandRequest(request);
-                        return response.Value;
+                        var response = manager.ExecuteQcdmCommandRequest<GetLogAllocationCountResponse>(request);
+                        if (response != null)
+                        {
+                            return response.Value;
+                        }
                     }
                 }
 

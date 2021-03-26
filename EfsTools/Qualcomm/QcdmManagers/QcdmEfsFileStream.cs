@@ -83,16 +83,19 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 CheckManager();
                 _stat = Stat();
                 var request = new EfsOpenFileCommandRequest(_fileName, _flags, _permission);
-                var response = (EfsOpenFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = _manager.ExecuteQcdmCommandRequest<EfsOpenFileCommandResponse>(request);
+                if (response != null)
                 {
-                    var errorMessage = QcdmEfsErrorsUtils.EfsErrorString(response.Error);
-                    throw new QcdmEfsFileStreamException(string.Format(Strings.QcdmCantOpenEfsFileFormat, _fileName,
-                        errorMessage));
-                }
+                    if (response.IsError)
+                    {
+                        var errorMessage = QcdmEfsErrorsUtils.EfsErrorString(response.Error);
+                        throw new QcdmEfsFileStreamException(string.Format(Strings.QcdmCantOpenEfsFileFormat, _fileName,
+                            errorMessage));
+                    }
 
-                _file = response.File;
-                _position = 0;
+                    _file = response.File;
+                    _position = 0;
+                }
             }
         }
 
@@ -102,9 +105,12 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 CheckManager();
                 var request = new EfsCloseFileCommandRequest(_file);
-                var response = (EfsCloseFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-                QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
-                _file = -1;
+                var response = _manager.ExecuteQcdmCommandRequest<EfsCloseFileCommandResponse>(request);
+                if (response != null)
+                {
+                    QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
+                    _file = -1;
+                }
             }
 
             base.Close();
@@ -113,15 +119,23 @@ namespace EfsTools.Qualcomm.QcdmManagers
         private FileStat Stat()
         {
             var request = new EfsStatFileCommandRequest(_fileName);
-            var response = (EfsStatFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-            return response.Stat;
+            var response = _manager.ExecuteQcdmCommandRequest<EfsStatFileCommandResponse>(request);
+            if (response != null)
+            {
+                return response.Stat;
+            }
+            return null;
         }
 
         private FileStat FStat()
         {
             var request = new EfsFStatFileCommandRequest(_file);
-            var response = (EfsFStatFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-            return response.Stat;
+            var response = _manager.ExecuteQcdmCommandRequest<EfsFStatFileCommandResponse>(request);
+            if (response != null)
+            {
+                return response.Stat;
+            }
+            return null;
         }
 
         private void CheckManager()
@@ -206,25 +220,32 @@ namespace EfsTools.Qualcomm.QcdmManagers
         public override int Read(byte[] buffer, int offset, int count)
         {
             var request = new EfsReadFileCommandRequest(_file, (uint) count, (uint) _position);
-            var response = (EfsReadFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-            QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
-            var data = response.Data;
-            var read = data.Length;
-            Array.Copy(data, 0, buffer, offset, read);
-            _position += read;
-            return read;
+            var response = _manager.ExecuteQcdmCommandRequest<EfsReadFileCommandResponse>(request);
+            if (response != null)
+            {
+                QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
+                var data = response.Data;
+                var read = data.Length;
+                Array.Copy(data, 0, buffer, offset, read);
+                _position += read;
+                return read;
+            }
+            return 0;
         }
 
         public override void Write(byte[] buffer, int offset, int count)
         {
             var request = new EfsWriteFileCommandRequest(_file, (uint) _position, buffer, offset, count);
-            var response = (EfsWriteFileCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-            QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
-            var written = response.BytesWritten;
-            _position += written;
-            if (_stat != null)
+            var response = _manager.ExecuteQcdmCommandRequest<EfsWriteFileCommandResponse>(request);
+            if (response != null)
             {
-                _stat = FStat();
+                QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
+                var written = response.BytesWritten;
+                _position += written;
+                if (_stat != null)
+                {
+                    _stat = FStat();
+                }
             }
         }
     }

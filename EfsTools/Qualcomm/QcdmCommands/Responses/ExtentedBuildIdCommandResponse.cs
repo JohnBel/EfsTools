@@ -26,7 +26,7 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
     }
 
     [QcdmCommand(QcdmCommand.ExtBuildId)]
-    [QcdmMinResponseLength(71)]
+    [QcdmMinResponseLength(14)]
     internal class ExtentedBuildIdCommandResponse : BaseCommandResponse
     {
         private ExtentedBuildIdCommandResponse()
@@ -42,9 +42,16 @@ namespace EfsTools.Qualcomm.QcdmCommands.Responses
 
             var msm = BitConverter.ToUInt32(data, 4);
             var model = BitConverter.ToUInt32(data, 8);
-            var softwareId = Encoding.ASCII.GetString(data, 12, 57);
-            var modelName = BitConverter.ToUInt16(data, 69);
-            result.BuildId = new ExtentedBuildId(msm, model, softwareId, modelName);
+            if (data.Length > 70)
+            {
+                var softwareId = Encoding.ASCII.GetString(data, 12, 57);
+                var modelName = BitConverter.ToUInt16(data, 69);
+                result.BuildId = new ExtentedBuildId(msm, model, softwareId, modelName);
+            }
+            else
+            {
+                result.BuildId = new ExtentedBuildId(msm, model, string.Empty, (UInt16)0);
+            }
             return result;
         }
     }

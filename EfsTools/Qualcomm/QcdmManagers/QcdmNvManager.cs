@@ -22,16 +22,20 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 if (manager.IsOpen)
                 {
                     var request = new NvReadCommandRequest(itemId);
-                    var response = (NvReadCommandResponse) manager.ExecuteQcdmCommandRequest(request);
-                    var size = ItemsFactory.SizeOfNvItem(itemId);
-                    if (size > 0)
+                    var response = manager.ExecuteQcdmCommandRequest<NvReadCommandResponse>(request);
+                    if (response != null)
                     {
-                        size = Math.Min(response.Data.LongLength, size);
-                        var data = new byte[size];
-                        Array.Copy(response.Data, 0, data, 0, size);
-                        return data;
+                        var size = ItemsFactory.SizeOfNvItem(itemId);
+                        if (size > 0)
+                        {
+                            size = Math.Min(response.Data.LongLength, size);
+                            var data = new byte[size];
+                            Array.Copy(response.Data, 0, data, 0, size);
+                            return data;
+                        }
+
+                        return response.Data;
                     }
-                    return response.Data;
                 }
             }
 
@@ -45,7 +49,7 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 if (manager.IsOpen)
                 {
                     var request = new NvWriteCommandRequest(itemId, data);
-                    var response = (NvWriteCommandResponse) manager.ExecuteQcdmCommandRequest(request);
+                    var response = manager.ExecuteQcdmCommandRequest<NvWriteCommandResponse>(request);
                 }
             }
         }

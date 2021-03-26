@@ -10,16 +10,22 @@ namespace EfsTools.Qualcomm
 
         private readonly byte[] _readBuffer = new byte[64 * 1024];
 
-        public HdlcSerial(string port, int baudrate, int timeout)
+        private readonly bool _sendControlChar;
+
+        public HdlcSerial(string port, int baudrate, int timeout, bool sendControlChar)
         {
             _port = new SerialPortStream(port, baudrate)
             {
-                ReadTimeout = timeout
+                ReadTimeout = timeout,
+                ReadBufferSize = _readBuffer.Length
             };
+            _sendControlChar = sendControlChar;
         }
 
         public bool IsOpen => _port.IsOpen;
         public string PortName => _port.PortName;
+
+        public bool SendControlChar => _sendControlChar;
 
         public void Dispose()
         {
@@ -43,7 +49,7 @@ namespace EfsTools.Qualcomm
 
         public void Write(byte[] data)
         {
-            var encoded = HdlcEncoder.Encode(data);
+            var encoded = HdlcEncoder.Encode(data, _sendControlChar);
             WriteRaw(encoded);
         }
 

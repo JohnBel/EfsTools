@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+	<LangVersion>latest</LangVersion>
 	<Title>EfsTools</Title>
 	<Description>EFS Tools Application</Description>
-    <Version>0.13.0.13</Version>
-    <Copyright>Copyright (c) JohnBel 2020  (http://johnbel.github.io/)</Copyright>
+    <Version>0.14.0.14</Version>
+    <Copyright>Copyright (c) JohnBel 2021  (http://johnbel.github.io/)</Copyright>
     <Company>JohnBel</Company>
 	<Nullable>disable</Nullable>
 	<PackageProjectUrl>http://johnbel.github.io/</PackageProjectUrl>
@@ -15,12 +16,13 @@
 	<RepositoryType>GitHub</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BinarySerializer" Version="8.5.2" />
+    <PackageReference Include="BinarySerializer" Version="8.6.0" />
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
-    <PackageReference Include="ELFSharp" Version="2.11.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="3.1.7" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="ELFSharp" Version="2.12.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SerialPortStreamCore" Version="2.1.0" />
   </ItemGroup>
 

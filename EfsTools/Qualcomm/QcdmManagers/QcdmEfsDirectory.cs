@@ -48,15 +48,18 @@ namespace EfsTools.Qualcomm.QcdmManagers
                 CheckManager();
 
                 var request = new EfsOpenDirectoryCommandRequest(_path);
-                var response = (EfsOpenDirectoryCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = _manager.ExecuteQcdmCommandRequest<EfsOpenDirectoryCommandResponse>(request);
+                if (response != null)
                 {
-                    var errorMessage = QcdmEfsErrorsUtils.EfsErrorString(response.Error);
-                    throw new QcdmEfsDirectoryException(string.Format(Strings.QcdmCantOpenEfsDirectoryFormat, _path,
-                        errorMessage));
-                }
+                    if (response.IsError)
+                    {
+                        var errorMessage = QcdmEfsErrorsUtils.EfsErrorString(response.Error);
+                        throw new QcdmEfsDirectoryException(string.Format(Strings.QcdmCantOpenEfsDirectoryFormat, _path,
+                            errorMessage));
+                    }
 
-                _directory = response.Directory;
+                    _directory = response.Directory;
+                }
             }
         }
 
@@ -66,9 +69,12 @@ namespace EfsTools.Qualcomm.QcdmManagers
             {
                 CheckManager();
                 var request = new EfsCloseDirectoryCommandRequest(_directory);
-                var response = (EfsCloseDirectoryCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-                QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
-                _directory = -1;
+                var response = _manager.ExecuteQcdmCommandRequest<EfsCloseDirectoryCommandResponse>(request);
+                if (response != null)
+                {
+                    QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
+                    _directory = -1;
+                }
             }
         }
 
@@ -94,14 +100,18 @@ namespace EfsTools.Qualcomm.QcdmManagers
         private DirectoryEntry GetEntry(int index)
         {
             var request = new EfsReadDirectoryCommandRequest(_directory, index);
-            var response = (EfsReadDirectoryCommandResponse) _manager.ExecuteQcdmCommandRequest(request);
-            if (response.Error == QcdmEfsErrors.InvalidSequence)
+            var response = _manager.ExecuteQcdmCommandRequest<EfsReadDirectoryCommandResponse>(request);
+            if (response != null)
             {
-                return null;
-            }
+                if (response.Error == QcdmEfsErrors.InvalidSequence)
+                {
+                    return null;
+                }
 
-            QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
-            return response.DirectoryEntry;
+                QcdmEfsErrorsUtils.ThrowQcdmEfsErrorsIfNeed(response.Error);
+                return response.DirectoryEntry;
+            }
+            return null;
         }
 
         private void CheckManager()

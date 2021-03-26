@@ -7,14 +7,14 @@ namespace EfsTools.Utils
 {
     internal static class QualcommSerialPortUtils
     {
-        public static bool IsQualcommPort(string port, int baudrate)
+        public static bool IsQualcommPort(string port, int baudrate, bool hdlcSendControlChar, bool ignoreUnsupportedCommands, Logger logger)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 return IsWindowsQualcommPort(port);
             }
 
-            return CheckQualcommPort(port, baudrate);
+            return CheckQualcommPort(port, baudrate, hdlcSendControlChar, ignoreUnsupportedCommands, logger);
         }
 
         private static bool IsWindowsQualcommPort(string port)
@@ -23,11 +23,11 @@ namespace EfsTools.Utils
             return qualcommPorts.Contains(port);
         }
 
-        private static bool CheckQualcommPort(string port, int baudrate)
+        private static bool CheckQualcommPort(string port, int baudrate, bool _hdlcSendControlChar, bool ignoreUnsupportedCommands, Logger logger)
         {
             try
             {
-                using (var manager = new QcdmManager(port, baudrate, 500))
+                using (var manager = new QcdmManager(port, baudrate, 500, _hdlcSendControlChar, ignoreUnsupportedCommands, logger))
                 {
                     manager.Open();
                     var version = manager.Version;

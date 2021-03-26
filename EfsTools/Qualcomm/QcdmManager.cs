@@ -35,12 +35,17 @@ namespace EfsTools.Qualcomm
 
         private readonly HdlcSerial _port;
         private bool _doEventReport;
-
-        public QcdmManager(string port, int baudrate, int timeout)
+        private readonly bool _ignoreUnsupportedCommands;
+        private readonly Logger _logger;
+        
+        public QcdmManager(string port, int baudrate, int timeout, bool sendControlChar, 
+            bool ignoreUnsupportedCommands, Logger logger)
         {
             _doEventReport = false;
-            var realPort = GetSerialPort(port, baudrate);
-            _port = new HdlcSerial(realPort, baudrate, timeout);
+            _logger = logger;
+            _ignoreUnsupportedCommands = ignoreUnsupportedCommands;
+            var realPort = GetSerialPort(port, baudrate, sendControlChar, ignoreUnsupportedCommands, logger);
+            _port = new HdlcSerial(realPort, baudrate, timeout, sendControlChar);
             Gsm = new QcdmGsmManager(this);
             CallManager = new QcdmCallManager(this);
             Efs = new QcdmEfsManager(this);
@@ -58,10 +63,12 @@ namespace EfsTools.Qualcomm
                 if (IsOpen)
                 {
                     var request = new DiagVersionCommandRequest();
-                    var response = (DiagVersionCommandResponse) ExecuteQcdmCommandRequest(request);
-                    return response.Version;
+                    var response = ExecuteQcdmCommandRequest<DiagVersionCommandResponse>(request);
+                    if (response != null)
+                    {
+                        return response.Version;
+                    }
                 }
-
                 return 0;
             }
         }
@@ -73,8 +80,11 @@ namespace EfsTools.Qualcomm
                 if (IsOpen)
                 {
                     var request = new VersionCommandRequest();
-                    var response = (VersionCommandResponse) ExecuteQcdmCommandRequest(request);
-                    return response.Version;
+                    var response = ExecuteQcdmCommandRequest<VersionCommandResponse>(request);
+                    if (response != null)
+                    {
+                        return response.Version;
+                    }
                 }
 
                 return null;
@@ -88,8 +98,11 @@ namespace EfsTools.Qualcomm
                 if (IsOpen)
                 {
                     var request = new GuidCommandRequest();
-                    var response = (GuidCommandResponse) ExecuteQcdmCommandRequest(request);
-                    return response.Guid;
+                    var response = ExecuteQcdmCommandRequest<GuidCommandResponse>(request);
+                    if (response != null)
+                    {
+                        return response.Guid;
+                    }
                 }
 
                 return Guid.Empty;
@@ -103,8 +116,11 @@ namespace EfsTools.Qualcomm
                 if (IsOpen)
                 {
                     var request = new TimeCommandRequest();
-                    var response = (TimeCommandResponse) ExecuteQcdmCommandRequest(request);
-                    return response.Time;
+                    var response = ExecuteQcdmCommandRequest<TimeCommandResponse>(request);
+                    if (response != null)
+                    {
+                        return response.Time;
+                    }
                 }
 
                 return DateTime.MinValue;
@@ -118,8 +134,11 @@ namespace EfsTools.Qualcomm
                 if (IsOpen)
                 {
                     var request = new ExtentedBuildIdCommandRequest();
-                    var response = (ExtentedBuildIdCommandResponse) ExecuteQcdmCommandRequest(request);
-                    return response.BuildId;
+                    var response = ExecuteQcdmCommandRequest<ExtentedBuildIdCommandResponse>(request);
+                    if (response != null)
+                    {
+                        return response.BuildId;
+                    }
                 }
 
                 return null;
@@ -132,22 +151,24 @@ namespace EfsTools.Qualcomm
             {
                 var bytes = Nv.Read(550);
                 var imei = new StringBuilder(15);
-                for (var i = 1; i <= 8; ++i)
+                if (bytes != null && bytes.Length >= 8)
                 {
-                    var b = bytes[i];
-                    var b1 = (b & 0xF0) >> 4;
-                    var b2 = b & 0x0F;
-                    if (i == 1)
+                    for (var i = 1; i <= 8; ++i)
                     {
-                        imei.AppendFormat("{0:X}", b1);
-                    }
-                    else
-                    {
-                        var v = b1 | (b2 << 4);
-                        imei.AppendFormat("{0:X2}", v);
+                        var b = bytes[i];
+                        var b1 = (b & 0xF0) >> 4;
+                        var b2 = b & 0x0F;
+                        if (i == 1)
+                        {
+                            imei.AppendFormat("{0:X}", b1);
+                        }
+                        else
+                        {
+                            var v = b1 | (b2 << 4);
+                            imei.AppendFormat("{0:X2}", v);
+                        }
                     }
                 }
-
                 return imei.ToString();
             }
         }
@@ -189,13 +210,16 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new EventReportCommandRequest(enable);
-                var response = (EventReportCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<EventReportCommandResponse>(request);
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
-                }
+                    if (response.IsError)
+                    {
+                        throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
+                    }
 
-                _doEventReport = enable;
+                    _doEventReport = enable;
+                }
             }
         }
 
@@ -261,13 +285,16 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new EventMaskSetCommandRequest(enabledEvents);
-                var response = (EventMaskSetCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<EventMaskSetCommandResponse>(request);
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
-                }
+                    if (response.IsError)
+                    {
+                        throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
+                    }
 
-                return response.EnabledEvents;
+                    return response.EnabledEvents;
+                }
             }
 
             return null;
@@ -279,13 +306,16 @@ namespace EfsTools.Qualcomm
             {
                 var request = new ExtMessageConfigCommandRequest(ExtMessageConfigOperation.SetMask, start, end,
                     enabledMessageMask);
-                var response = (ExtMessageConfigCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<ExtMessageConfigCommandResponse>(request);
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
-                }
+                    if (response.IsError)
+                    {
+                        throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
+                    }
 
-                return response.Messages;
+                    return response.Messages;
+                }
             }
 
             return null;
@@ -316,25 +346,29 @@ namespace EfsTools.Qualcomm
             {
                 var request =
                     new ExtMessageConfigCommandRequest(ExtMessageConfigOperation.RetrieveIdRanges, 0, 0, null);
-                var response = (ExtMessageConfigCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
-                {
-                    throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
-                }
+                var response = ExecuteQcdmCommandRequest<ExtMessageConfigCommandResponse>(request);
 
-                var messages = response.Messages;
-                if (messages != null)
+                if (response != null)
                 {
-                    var result = new Tuple<MessageId, MessageId>[messages.Length / 2];
-                    var pos = 0;
-                    for (var i = 0; i < result.Length; ++i)
+                    if (response.IsError)
                     {
-                        var pair = new Tuple<MessageId, MessageId>(messages[pos], messages[pos + 1]);
-                        pos += 2;
-                        result[i] = pair;
+                        throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
                     }
 
-                    return result;
+                    var messages = response.Messages;
+                    if (messages != null)
+                    {
+                        var result = new Tuple<MessageId, MessageId>[messages.Length / 2];
+                        var pos = 0;
+                        for (var i = 0; i < result.Length; ++i)
+                        {
+                            var pair = new Tuple<MessageId, MessageId>(messages[pos], messages[pos + 1]);
+                            pos += 2;
+                            result[i] = pair;
+                        }
+
+                        return result;
+                    }
                 }
             }
 
@@ -347,14 +381,17 @@ namespace EfsTools.Qualcomm
             {
                 var request = new ExtMessageConfigCommandRequest(ExtMessageConfigOperation.RetrieveValidMask,
                     (int) start, (int) end, null);
-                var response = (ExtMessageConfigCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<ExtMessageConfigCommandResponse>(request);
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
+                    if (response.IsError)
+                    {
+                        throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
+                    }
+                    
+                    var messages = response.MessageStates;
+                    return messages;
                 }
-
-                var messages = response.MessageStates;
-                return messages;
             }
 
             return null;
@@ -365,25 +402,28 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new EventMaskGetCommandRequest();
-                var response = (EventMaskGetCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<EventMaskGetCommandResponse>(request);
+                
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
-                }
-
-                var events = response.Events;
-                if (events != null)
-                {
-                    var result = new Tuple<EventId, EventId>[events.Length / 2];
-                    var pos = 0;
-                    for (var i = 0; i < result.Length; ++i)
+                    if (response.IsError)
                     {
-                        var pair = new Tuple<EventId, EventId>(events[pos], events[pos + 1]);
-                        pos += 2;
-                        result[i] = pair;
+                        throw new QcdmEfsException(Strings.QcdmErrorOnSetEventMask);
                     }
+                    var events = response.Events;
+                    if (events != null)
+                    {
+                        var result = new Tuple<EventId, EventId>[events.Length / 2];
+                        var pos = 0;
+                        for (var i = 0; i < result.Length; ++i)
+                        {
+                            var pair = new Tuple<EventId, EventId>(events[pos], events[pos + 1]);
+                            pos += 2;
+                            result[i] = pair;
+                        }
 
-                    return result;
+                        return result;
+                    }
                 }
             }
 
@@ -395,10 +435,12 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new LogCommandRequest();
-                var response = (LogCommandResponse) ExecuteQcdmCommandRequest(request);
-                return response.Message;
+                var response = ExecuteQcdmCommandRequest<LogCommandResponse>(request);
+                if (response != null)
+                {
+                    return response.Message;
+                }
             }
-
             return null;
         }
 
@@ -425,15 +467,17 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new LogConfigCommandRequest(LogConfigOperation.SetMask, scopeId, range, enabledLogIds);
-                var response = (LogConfigCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<LogConfigCommandResponse>(request);
+                
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmInvalidLogMask);
+                    if (response.IsError)
+                    {
+                        throw new QcdmEfsException(Strings.QcdmInvalidLogMask);
+                    }
+                    return response.LogIds;
                 }
-
-                return response.LogIds;
             }
-
             return new LogId[0];
         }
 
@@ -442,24 +486,25 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new LogConfigCommandRequest(LogConfigOperation.RetrieveIdRanges, 0, null, null);
-                var response = (LogConfigCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<LogConfigCommandResponse>(request);
+                if (response != null)
                 {
-                    throw new QcdmEfsException(Strings.QcdmInvalidLogMask);
+                    if (response.IsError)
+                    {
+                        throw new QcdmEfsException(Strings.QcdmInvalidLogMask);
+                    }
+                    var logIds = response.LogIds;
+                    var count = logIds.Length / 2;
+                    var pos = 0;
+                    var result = new Tuple<LogId, LogId>[count];
+                    for (var i = 0; i < count; ++i)
+                    {
+                        var pair = new Tuple<LogId, LogId>(logIds[pos], logIds[pos + 1] + 0x1000);
+                        pos += 2;
+                        result[i] = pair;
+                    }
+                    return result;
                 }
-
-                var logIds = response.LogIds;
-                var count = logIds.Length / 2;
-                var pos = 0;
-                var result = new Tuple<LogId, LogId>[count];
-                for (var i = 0; i < count; ++i)
-                {
-                    var pair = new Tuple<LogId, LogId>(logIds[pos], logIds[pos + 1] + 0x1000);
-                    pos += 2;
-                    result[i] = pair;
-                }
-
-                return result;
             }
 
             return new Tuple<LogId, LogId>[0];
@@ -470,8 +515,8 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new SpcCommandRequest(spc);
-                var response = (SpcCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<SpcCommandResponse>(request);
+                if (response != null && response.IsError)
                 {
                     throw new QcdmEfsException(Strings.QcdmInvalidSpc);
                 }
@@ -483,8 +528,8 @@ namespace EfsTools.Qualcomm
             if (IsOpen)
             {
                 var request = new PasswordCommandRequest(password);
-                var response = (PasswordCommandResponse) ExecuteQcdmCommandRequest(request);
-                if (response.IsError)
+                var response = ExecuteQcdmCommandRequest<PasswordCommandResponse>(request);
+                if (response != null && response.IsError)
                 {
                     throw new QcdmEfsException(Strings.QcdmInvalidPassword);
                 }
@@ -496,28 +541,33 @@ namespace EfsTools.Qualcomm
             while (!token.IsCancellationRequested)
             {
                 var response = ReadLogResponse();
-                if (response != null)
+                ProcessLogResponse(logger, response);
+            }
+        }
+
+        public void ProcessLogResponse(Logger logger, IQcdmCommandResponse response)
+        {
+            if (response != null && logger != null)
+            {
+                var command = response.Command;
+                switch (command)
                 {
-                    var command = response.Command;
-                    switch (command)
-                    {
-                        case QcdmCommand.Log:
-                            LogResponse(logger, (LogCommandResponse) response);
-                            LogDelimeter(logger);
-                            break;
-                        case QcdmCommand.Msg:
-                            LogResponse(logger, (MsgCommandResponse) response);
-                            LogDelimeter(logger);
-                            break;
-                        case QcdmCommand.ExtMsg:
-                            LogResponse(logger, (ExtMsgCommandResponse) response);
-                            LogDelimeter(logger);
-                            break;
-                        case QcdmCommand.EventReport:
-                            LogResponse(logger, (EventReportCommandResponse) response);
-                            LogDelimeter(logger);
-                            break;
-                    }
+                    case QcdmCommand.Log:
+                        LogResponse(logger, (LogCommandResponse)response);
+                        LogDelimeter(logger);
+                        break;
+                    case QcdmCommand.Msg:
+                        LogResponse(logger, (MsgCommandResponse)response);
+                        LogDelimeter(logger);
+                        break;
+                    case QcdmCommand.ExtMsg:
+                        LogResponse(logger, (ExtMsgCommandResponse)response);
+                        LogDelimeter(logger);
+                        break;
+                    case QcdmCommand.EventReport:
+                        LogResponse(logger, (EventReportCommandResponse)response);
+                        LogDelimeter(logger);
+                        break;
                 }
             }
         }
@@ -594,6 +644,11 @@ namespace EfsTools.Qualcomm
             LogDebug(sb.ToString());
         }
 
+        public T ExecuteQcdmCommandRequest<T>(IQcdmCommandRequest request) where T : class, IQcdmCommandResponse
+        {
+            var response = ExecuteQcdmCommandRequest(request);
+            return response as T;
+        }
         public IQcdmCommandResponse ExecuteQcdmCommandRequest(IQcdmCommandRequest request)
         {
             if (!IsOpen)
@@ -622,14 +677,20 @@ namespace EfsTools.Qualcomm
                 }
 
                 response = CreateResponse(responseData);
-                doRead = response.Command != request.Command;
+                doRead = response.Command != request.Command &&
+                         response.Command != QcdmCommand.BadCmd &&
+                         response.Command != QcdmCommand.BadLen &&
+                         response.Command != QcdmCommand.BadParm;
+                if (doRead)
+                {
+                    ProcessLogResponse(_logger, response);
+                }
                 ++counter;
-                if (counter > 15)
+                if (counter > 30)
                 {
                     throw new QcdmManagerException(Strings.QcdmManyLogLines);
                 }
             }
-
             return response;
         }
 
@@ -651,10 +712,16 @@ namespace EfsTools.Qualcomm
             switch (command)
             {
                 case QcdmCommand.BadCmd:
-                    message = Strings.QcdmCommandBadCmd;
+                    if (!_ignoreUnsupportedCommands)
+                    {
+                        message = Strings.QcdmCommandBadCmd;
+                    }
                     break;
                 case QcdmCommand.BadParm:
-                    message = Strings.QcdmCommandBadParm;
+                    if (!_ignoreUnsupportedCommands)
+                    {
+                        message = Strings.QcdmCommandBadParm;
+                    }
                     break;
                 case QcdmCommand.BadLen:
                     message = Strings.QcdmCommandBadLen;
@@ -673,13 +740,13 @@ namespace EfsTools.Qualcomm
             }
         }
 
-        private static string GetSerialPort(string port, int baudrate)
+        private static string GetSerialPort(string port, int baudrate, bool hdlcSendControlChar, bool ignoreUnsupportedCommands, Logger logger)
         {
             try
             {
                 if (string.IsNullOrEmpty(port) || port.ToLowerInvariant() == "auto")
                 {
-                    return DetectSerialPort(baudrate);
+                    return DetectSerialPort(baudrate, hdlcSendControlChar, ignoreUnsupportedCommands, logger);
                 }
 
                 return port;
@@ -690,12 +757,12 @@ namespace EfsTools.Qualcomm
             }
         }
 
-        private static string DetectSerialPort(int baudrate)
+        private static string DetectSerialPort(int baudrate, bool hdlcSendControlChar, bool ignoreUnsupportedCommands, Logger logger)
         {
             var ports = SerialPortStream.GetPortNames();
             foreach (var port in ports)
             {
-                if (QualcommSerialPortUtils.IsQualcommPort(port, baudrate))
+                if (QualcommSerialPortUtils.IsQualcommPort(port, baudrate, hdlcSendControlChar, ignoreUnsupportedCommands, logger))
                 {
                     return port;
                 }

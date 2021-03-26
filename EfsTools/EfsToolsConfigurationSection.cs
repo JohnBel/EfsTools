@@ -35,6 +35,17 @@ namespace EfsTools
             set => SetValue("spc", value);
         }
 
+        public bool HdlcSendControlChar
+        {
+            get => bool.Parse(GetValue("hdlcSendControlChar", "False"));
+            set => SetValue("hdlcSendControlChar", $"{value}");
+        }
+        public bool IgnoreUnsupportedCommands
+        {
+            get => bool.Parse(GetValue("ignoreUnsupportedCommands", "False"));
+            set => SetValue("ignoreUnsupportedCommands", $"{value}");
+        }
+
         private string GetValue(string name, string defaultValue)
         {
             if (_configurationSection != null)
