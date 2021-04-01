@@ -2,7 +2,7 @@
   "profiles": {
     "EfsTools": {
       "commandName": "Project",
-      "commandLineArgs": "targetInfo"
+      "commandLineArgs": "downloadDirectory -i / -o C:\\Users\\ivan.belchikov\\AppData\\Local\\Temp\\test"
     }
   }
 }

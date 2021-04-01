@@ -663,35 +663,67 @@ namespace EfsTools.Qualcomm
                 LogCommandRequestDebug(request.Command, data);
             }
 
-            _port.Write(data);
+            var response = WriteCommandAndReadResponse(request, data, logCommands);
+            return response;
+        }
 
-            var doRead = true;
+        private IQcdmCommandResponse WriteCommandAndReadResponse(IQcdmCommandRequest request, byte[] data, bool logCommands)
+        {
             IQcdmCommandResponse response = null;
-            var counter = 0;
-            while (doRead)
+            var counter = 10;
+            while (!TryWriteCommandAndReadResponse(request, data, logCommands, ref response))
             {
-                var responseData = _port.Read();
-                if (logCommands)
+                --counter;
+                if (counter <= 0)
                 {
-                    LogCommandResponseDebug(request.Command, responseData);
-                }
-
-                response = CreateResponse(responseData);
-                doRead = response.Command != request.Command &&
-                         response.Command != QcdmCommand.BadCmd &&
-                         response.Command != QcdmCommand.BadLen &&
-                         response.Command != QcdmCommand.BadParm;
-                if (doRead)
-                {
-                    ProcessLogResponse(_logger, response);
-                }
-                ++counter;
-                if (counter > 30)
-                {
-                    throw new QcdmManagerException(Strings.QcdmManyLogLines);
+                    throw new QcdmManagerException(Strings.InvalidResponseCrc);
                 }
             }
             return response;
+        }
+
+        private bool TryWriteCommandAndReadResponse(IQcdmCommandRequest request, byte[] data, bool logCommands, ref IQcdmCommandResponse response)
+        {
+            try
+            {
+                _port.Write(data);
+
+                var doRead = true;
+                var counter = 30;
+                while (doRead)
+                {
+                    var responseData = _port.Read();
+                    if (logCommands)
+                    {
+                        LogCommandResponseDebug(request.Command, responseData);
+                    }
+
+                    response = CreateResponse(responseData);
+                    doRead = response.Command != request.Command &&
+                             response.Command != QcdmCommand.BadCmd &&
+                             response.Command != QcdmCommand.BadLen &&
+                             response.Command != QcdmCommand.BadParm;
+                    if (doRead)
+                    {
+                        ProcessLogResponse(_logger, response);
+                    }
+
+                    --counter;
+                    if (counter <= 0)
+                    {
+                        throw new QcdmManagerException(Strings.QcdmManyLogLines);
+                    }
+                }
+                return true;
+            }
+            catch (HdlcEncoderException ex)
+            {
+                if (ex.IsInvalidCrc)
+                {
+                    return false;
+                }
+                throw ex;
+            }
         }
 
         private IQcdmCommandResponse CreateResponse(byte[] responseData)

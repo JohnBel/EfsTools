@@ -178,6 +178,15 @@ namespace EfsTools.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Response CRC.
+        /// </summary>
+        internal static string InvalidResponseCrc {
+            get {
+                return ResourceManager.GetString("InvalidResponseCrc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid MBN format. Can&apos;t find magic string &apos;MCFG&apos;.
         /// </summary>
         internal static string MbnExtractorInvalidFormatCantFindMagicString {

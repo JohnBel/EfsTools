@@ -423,4 +423,7 @@
   <data name="QcdmLogSubcribingToMessagesResultFormat" xml:space="preserve">
     <value>Успешно завершена подписка на сообщения: {0}</value>
   </data>
+  <data name="InvalidResponseCrc" xml:space="preserve">
+    <value>Некорретная контрольная сумма CRC</value>
+  </data>
 </root>

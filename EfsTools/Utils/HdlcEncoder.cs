@@ -6,10 +6,13 @@ namespace EfsTools.Utils
 {
     internal class HdlcEncoderException : Exception
     {
-        public HdlcEncoderException(string message)
+        public HdlcEncoderException(string message, bool isInvalidCrc = false)
             : base(message)
         {
+            IsInvalidCrc = isInvalidCrc;
         }
+
+        public bool IsInvalidCrc { get; private set; }
     }
 
     internal static class HdlcEncoder
@@ -112,7 +115,7 @@ namespace EfsTools.Utils
             {
                 var msg = string.Format(Strings.HdlcInvalidResponseCrcFormat, BitConverter.ToUInt16(crc, 0),
                     BitConverter.ToUInt16(resultCrc, 0));
-                throw new HdlcEncoderException(msg);
+                throw new HdlcEncoderException(msg, true);
             }
 
             return result;

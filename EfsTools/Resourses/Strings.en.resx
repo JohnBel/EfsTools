@@ -423,4 +423,7 @@
   <data name="QcdmLogSubcribingToMessagesResultFormat" xml:space="preserve">
     <value>Successfully subscribed to the messages: {0}</value>
   </data>
+  <data name="InvalidResponseCrc" xml:space="preserve">
+    <value>Invalid Response CRC</value>
+  </data>
 </root>

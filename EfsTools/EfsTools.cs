@@ -381,7 +381,7 @@ namespace EfsTools
 
         private QcdmManager OpenQcdmManager()
         {
-            var manager = new QcdmManager(_config.Port, _config.Baudrate, 5000, 
+            var manager = new QcdmManager(_config.Port, _config.Baudrate, 7000, 
                 _config.HdlcSendControlChar, _config.IgnoreUnsupportedCommands, _logger);
             if (_config.Port != manager.PortName)
             {

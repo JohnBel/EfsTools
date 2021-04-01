@@ -8,7 +8,7 @@ namespace EfsTools.Qualcomm
     {
         private readonly SerialPortStream _port;
 
-        private readonly byte[] _readBuffer = new byte[64 * 1024];
+        private readonly byte[] _readBuffer = new byte[1048576];
 
         private readonly bool _sendControlChar;
 
