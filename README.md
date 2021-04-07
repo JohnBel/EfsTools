@@ -110,7 +110,13 @@ EfsTools.exe setModemConfig -p .\items_for_phone.json
 
 ***getLog***
 Начать захват логов и сообщений модема
+
 Пример: EfsTools.exe getLog -l IMS_MESSAGE
+
+***webDavServer***
+Запуск WebDAV сервера
+
+Пример: EfsTools.exe webDavServer  -p 8888 -r 1
   
   
 ***help***
@@ -127,6 +133,8 @@ EfsTools.exe setModemConfig -p .\items_for_phone.json
 Данная программное обеспечение распространяется по лицензии [MIT](/License.md)
 
 Программа использует библиотеку [Commandline](https://github.com/commandlineparser/commandline) Copyright (c) 2005 - 2015 Giacomo Stelluti Scala & Contributors
+
+Программа использует библиотеку [NWebDav](https://github.com/ramondeklein/nwebdav) Copyright (c) 2018 Ramon de Klein
 
 Программа использует библиотеку [Newtonsoft.Json](https://www.newtonsoft.com/json) Copyright (c) 2007 James Newton-King
 
