@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NWebDav.Server.HttpListener</name>
+    </assembly>
+    <members>
+        <member name="T:NWebDav.Server.HttpListener.HttpBasicContext">
+            <inheritdoc />
+        </member>
+        <member name="M:NWebDav.Server.HttpListener.HttpBasicContext.#ctor(System.Net.HttpListenerContext,System.Func{System.Net.HttpListenerBasicIdentity,System.Security.Principal.IPrincipal})">
+            <inheritdoc />
+        </member>
+        <member name="M:NWebDav.Server.HttpListener.HttpBasicContext.#ctor(System.Net.HttpListenerContext,System.Func{System.Net.HttpListenerBasicIdentity,System.Boolean})">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

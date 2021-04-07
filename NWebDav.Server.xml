@@ -1,0 +1,3000 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NWebDav.Server</name>
+    </assembly>
+    <members>
+        <member name="T:NWebDav.Server.DavStatusCode">
+            <summary>
+            DAV status return codes.
+            </summary>
+            <remarks>
+            <para>
+            The DAV status codes are a related to the <see cref="T:System.Net.HttpStatusCode"/>
+            and will be the main status return code for each WebDAV operation. It
+            is actually a subset of the <see cref="T:System.Net.HttpStatusCode"/> and extended
+            with some WebDAV specific return codes.
+            </para>
+            <para>
+            Each <see cref="T:NWebDav.Server.DavStatusCode"/> is annotated with a
+            <see cref="T:NWebDav.Server.Helpers.DavStatusCodeAttribute"/> containing the human readable
+            status. It will be sent with the response if the underlying HTTP server
+            allows custom HTTP return codes. Clients should parse the numeric
+            status code, because it's not guaranteed that the textual version is
+            returned. If the human readable version is required, then it can be
+            obtained using the <see cref="T:NWebDav.Server.Helpers.DavStatusCodeHelper"/> helper class.
+            </para>
+            <para>
+            The HTTP status codes are documented on
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"/>.
+            A detailed list of the extended WebDAV status codes can be found on
+            <see href="http://www.webdav.org/specs/rfc2518.html#status.code.extensions.to.http11"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Processing">
+            <summary>
+            <para>
+            The 102 (Processing) status code is an interim response used to 
+            inform the client that the server has accepted the complete
+            request, but has not yet completed it. This status code  should
+            only be sent when the server has a reasonable expectation that the
+            request will take significant time to complete. As guidance, if a
+            method is taking longer than 20 seconds (a reasonable, but
+            arbitrary value) to process the server should return a 102
+            (Processing) response. The server must send a final response after
+            the request has been completed.
+            </para>
+            <para>
+            Methods can potentially take a long period of time to process,
+            especially methods that support the Depth header. In such cases
+            the client may time-out the connection while waiting for a
+            response. To prevent this the server may return a 102
+            (Processing) status code to indicate to the client that the server
+            is still processing the method.
+            </para>
+            <para>
+            This status code is a WebDAV specific result code.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Ok">
+            <summary>
+            <para>
+            The request has succeeded.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Created">
+            <summary>
+            <para>
+            The request has been fulfilled and resulted in a new resource being
+            created. The newly created resource can be referenced by the URI(s)
+            returned in the entity of the response, with the most specific URI
+            for the resource given by a 
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30">Location</see> 
+            header field. The response SHOULD include an entity containing a
+            list of resource characteristics and location(s) from which the
+            user or user agent can choose the one most appropriate. The entity
+            format is specified by the media type given in the
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</see> 
+            header field. The origin server MUST create the resource before
+            returning the 201 status code. If the action cannot be carried out
+            immediately, the server SHOULD respond with 202 (Accepted) response
+            instead.
+            </para>
+            <para>
+            A 201 response MAY contain an 
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">Etag</see> 
+            response header field indicating the current value of the entity
+            tag for the requested variant just created.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Accepted">
+            <summary>
+            <para>
+            The request has been accepted for processing, but the processing
+            has not been completed. The request might or might not eventually
+            be acted upon, as it might be disallowed when processing actually
+            takes place. There is no facility for re-sending a status code
+            from an asynchronous operation such as this. 
+            </para>
+            <para>
+            The 202 response is intentionally non-committal. Its purpose is
+            to allow a server to accept a request for some other process
+            (perhaps a batch-oriented process that is only run once per day)
+            without requiring that the user agent's connection to the server
+            persist until the process is completed. The entity returned with
+            this response SHOULD include an indication of the request's current
+            status and either a pointer to a status monitor or some estimate of
+            when the user can expect the request to be fulfilled. 
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.NoContent">
+            <summary>
+            <para>
+            The server has fulfilled the request but does not need to return an
+            entity-body, and might want to return updated meta information. The
+            response MAY include new or updated meta information in the form of
+            entity-headers, which if present SHOULD be associated with the
+            requested variant.
+            </para>
+            <para>
+            If the client is a user agent, it SHOULD NOT change its document
+            view from that which caused the request to be sent. This response
+            is primarily intended to allow input for actions to take place
+            without causing a change to the user agent's active document view,
+            although any new or updated meta information SHOULD be applied to
+            the document currently in the user agent's active view.
+            </para>
+            <para>
+            The 204 response MUST NOT include a message-body, and thus is
+            always terminated by the first empty line after the header fields.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.PartialContent">
+            <summary>
+            <para>
+            The server has fulfilled the partial GET request for the resource.
+            The request MUST have included a
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">Range</see>
+            header field indicating the desired range, and MAY have included an
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.27">If-Range</see>
+            header field to make the request conditional. 
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.MultiStatus">
+            <summary>
+            <para>
+            The 207 (Multi-Status) status code provides status for multiple
+            independent operations.
+            </para>
+            <para>
+            The default 207 (Multi-Status) response body is a text/xml or
+            application/xml HTTP entity that contains a single XML element
+            called multi-status, which contains a set of XML elements called
+            response which contain 200, 300, 400, and 500 series status codes
+            generated during the method invocation. 100 series status codes
+            should not be recorded in a response XML element.
+            </para>
+            <para>
+            This status code is a WebDAV specific result code.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.NotModified">
+            <summary>
+            <para>
+            This is used for caching purposes. It is telling to client that
+            response has not been modified. So, client can continue to use
+            same cached version of response.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.BadRequest">
+            <summary>
+            <para>
+            The request could not be understood by the server due to malformed
+            syntax. The client SHOULD NOT repeat the request without
+            modifications.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Unauthorized">
+            <summary>
+            <para>
+            The request requires user authentication. The response MUST include a
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.47">WWW-Authenticate</see>
+            header field containing a challenge applicable to the requested
+            resource. The client MAY repeat the request with a suitable
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8">Authorization</see>
+            header field. If the request already included Authorization
+            credentials, then the 401 response indicates that authorization has
+            been refused for those credentials. If the 401 response contains
+            the same challenge as the prior response, and the user agent has
+            already attempted authentication at least once, then the user
+            SHOULD be presented the entity that was given in the response,
+            since that entity might include relevant diagnostic information.
+            </para>
+            <para>
+            HTTP access authentication is explained in
+            "<see href="http://www.ietf.org/rfc/rfc2617.txt">HTTP Authentication: Basic and Digest Access Authentication</see>".
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Forbidden">
+            <summary>
+            <para>
+            The server understood the request, but is refusing to fulfill it.
+            Authorization will not help and the request SHOULD NOT be
+            repeated. If the request method was not HEAD and the server wishes
+            to make public why the request has not been fulfilled, it SHOULD
+            describe the reason for the refusal in the entity. If the server
+            does not wish to make this information available to the client,
+            the status code 404 (<see cref="F:NWebDav.Server.DavStatusCode.NotFound">Not Found</see>) can be
+            used instead.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.NotFound">
+            <summary>
+            <para>
+            The server has not found anything matching the Request-URI. No
+            indication is given of whether the condition is temporary or
+            permanent. The 410 (Gone) status code SHOULD be used if the
+            server knows, through some internally configurable mechanism,
+            that an old resource is permanently unavailable and has no
+            forwarding address. This status code is commonly used when the
+            server does not wish to reveal exactly why the request has been
+            refused, or when no other response is applicable.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Conflict">
+            <summary>
+            <para>
+            The request could not be completed due to a conflict with the
+            current state of the resource. This code is only allowed in
+            situations where it is expected that the user might be able to
+            resolve the conflict and resubmit the request. The response body
+            SHOULD include enough information for the user to recognize the
+            source of the conflict. Ideally, the response entity would
+            include enough information for the user or user agent to fix the
+            problem; however, that might not be possible and is not required.
+            </para>
+            <para>
+            Conflicts are most likely to occur in response to a PUT request.
+            For example, if versioning were being used and the entity being
+            PUT included changes to a resource which conflict with those made
+            by an earlier (third-party) request, the server might use the
+            409 response to indicate that it can't complete the request. In
+            this case, the response entity would likely contain a list of the
+            differences between the two versions in a format defined by the
+            response 
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</see>.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Gone">
+            <summary>
+            <para>
+            The requested resource is no longer available at the server and no
+            forwarding address is known. This condition is expected to be
+            considered permanent. Clients with link editing capabilities SHOULD
+            delete references to the Request-URI after user approval. If the
+            server does not know, or has no facility to determine, whether or
+            not the condition is permanent, the status code 404
+            (<see cref="F:NWebDav.Server.DavStatusCode.NotFound">Not Found</see>) SHOULD be used instead. This
+            response is cacheable unless indicated otherwise.
+            </para>
+            <para>
+            The 410 response is primarily intended to assist the task of web
+            maintenance by notifying the recipient that the resource is
+            intentionally unavailable and that the server owners desire that
+            remote links to that resource be removed. Such an event is common
+            for limited-time, promotional services and for resources belonging
+            to individuals no longer working at the server's site. It is not
+            necessary to mark all permanently unavailable resources as "gone"
+            or to keep the mark for any length of time -- that is left to the
+            discretion of the server owner.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.PreconditionFailed">
+            <summary>
+            <para>
+            The precondition given in one or more of the request-header fields
+            evaluated to false when it was tested on the server. This response
+            code allows the client to place preconditions on the current
+            resource meta information (header field data) and thus prevent the
+            requested method from being applied to a resource other than the
+            one intended.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.UnprocessableEntity">
+            <summary>
+            <para>
+            The 422 (Unprocessable Entity) status code means the server
+            understands the content type of the request entity (hence a 415
+            (Unsupported Media Type) status code is inappropriate), and the
+            syntax of the request entity is correct (thus a 400 (Bad Request)
+            status code is inappropriate) but was unable to process the
+            contained instructions. For example, this error condition may occur
+            if an XML request body contains well-formed (i.e., syntactically
+            correct), but semantically erroneous XML instructions.
+            </para>
+            <para>
+            This status code is a WebDAV specific result code.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.Locked">
+            <summary>
+            <para>
+            The 423 (Locked) status code means the source or destination
+            resource of a method is locked.
+            </para>
+            <para>
+            This status code is a WebDAV specific result code.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.FailedDependency">
+            <summary>
+            <para>
+            The 424 (Failed Dependency) status code means that the method could
+            not be performed on the resource because the requested action
+            depended on another action and that action failed. For example, if
+            a command in a PROPPATCH method fails then, at minimum, the rest of
+            the commands will also fail with 424 (Failed Dependency).
+            </para>
+            <para>
+            This status code is a WebDAV specific result code.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.InternalServerError">
+            <summary>
+            <para>
+            The server encountered an unexpected condition which prevented it
+            from fulfilling the request.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.NotImplemented">
+            <summary>
+            <para>
+            The server does not support the functionality required to fulfill
+            the request. This is the appropriate response when the server does
+            not recognize the request method and is not capable of supporting
+            it for any resource.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.BadGateway">
+            <summary>
+            <para>
+            The server, while acting as a gateway or proxy, received an invalid
+            response from the upstream server it accessed in attempting to
+            fulfill the request.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.ServiceUnavailable">
+            <summary>
+            <para>
+            The server is currently unable to handle the request due to a
+            temporary overloading or maintenance of the server. The implication
+            is that this is a temporary condition which will be alleviated
+            after some delay. If known, the length of the delay MAY be
+            indicated in a 
+            <see href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.37">Retry-After</see>
+            header. If no Retry-After is given, the client SHOULD handle the
+            response as it would for a 500 response 
+            <see cref="F:NWebDav.Server.DavStatusCode.InternalServerError">(Internal Server Error)</see>.
+            </para>
+            <para>
+            The existence of the 503 status code does not imply that a server
+            must use it when becoming overloaded. Some servers may wish to
+            simply refuse the connection.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.DavStatusCode.InsufficientStorage">
+            <summary>
+            <para>
+            The 507 (Insufficient Storage) status code means the method could
+            not be performed on the resource because the server is unable to
+            store the representation needed to successfully complete the
+            request. This condition is considered to be temporary. If the 
+            request which received this status code was the result of a user 
+            action, the request must not be repeated until it is requested by
+            a separate user action.
+            </para>
+            <para>
+            This status code is a WebDAV specific result code.
+            </para>
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.CopyHandler">
+            <summary>
+            Implementation of the COPY method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV COPY method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_COPY">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.CopyHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a COPY request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous COPY operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.DeleteHandler">
+            <summary>
+            Implementation of the DELETE method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV DELETE method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.DeleteHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a DELETE request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous DELETE operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.GetAndHeadHandler">
+            <summary>
+            Implementation of the GET and HEAD method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV GET and HEAD methods for collections
+            can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#rfc.section.8.4">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.GetAndHeadHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a GET or HEAD request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous GET or HEAD operation. The
+            task will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.LockHandler">
+            <summary>
+            Implementation of the LOCK method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV LOCK method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_LOCK">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.LockHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a LOCK request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous LOCK operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.MkcolHandler">
+            <summary>
+            Implementation of the MKCOL method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV MKCOL method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.MkcolHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a MKCOL request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous MKCOL operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.MoveHandler">
+            <summary>
+            Implementation of the MOVE method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV MOVE method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.MoveHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a MOVE request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous MOVE operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.NamespaceDoc">
+            <summary>
+            This namespace defines all the default WebDAV handler implementations.
+            </summary>
+            <seealso cref="T:NWebDav.Server.IRequestHandler"/>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.OptionsHandler">
+            <summary>
+            Implementation of the OPTIONS method.
+            </summary>
+            <remarks>
+            This implementation reports a class 1 and 2 compliant WebDAV server
+            that supports all the standard WebDAV methods.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.OptionsHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a OPTIONS request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous OPTIONS operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.PropFindHandler">
+            <summary>
+            Implementation of the PROPFIND method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV PROPFIND method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.PropFindHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a PROPFIND request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous PROPFIND operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.PropPatchHandler">
+            <summary>
+            Implementation of the PROPPATCH method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV PROPFIND method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.PropPatchHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a PROPPATCH request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous PROPPATCH operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.PutHandler">
+            <summary>
+            Implementation of the PUT method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV PUT method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_PUT">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.PutHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a PUT request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous PUT operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Handlers.UnlockHandler">
+            <summary>
+            Implementation of the UNLOCK method.
+            </summary>
+            <remarks>
+            The specification of the WebDAV UNLOCK method can be found in the
+            <see href="http://www.webdav.org/specs/rfc2518.html#METHOD_UNLOCK">
+            WebDAV specification
+            </see>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Handlers.UnlockHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle a UNLOCK request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous UNLOCK operation. The task
+            will always return <see langword="true"/> upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.DavStatusCodeHelper">
+            <summary>
+            Helper methods for the <see cref="T:NWebDav.Server.DavStatusCode"/> enumeration.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.DavStatusCodeHelper.GetStatusDescription(NWebDav.Server.DavStatusCode)">
+            <summary>
+            Obtain the human-readable status description for the specified
+            <see cref="T:NWebDav.Server.DavStatusCode"/>.
+            </summary>
+            <param name="davStatusCode">
+            Code for which the description should be obtained.
+            </param>
+            <returns>
+            Human-readable representation of the WebDAV status code.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.MimeTypeHelper">
+            <summary>
+            Helper class to determine the MIME type based on the file extension.
+            </summary>
+            <remarks>
+            This class is derived from <see href="https://github.com/khellang/MimeTypes"/>
+            by <see href="mailto:kristian@hellang.com">Kristian Hellang (kristian@hellang.com)</see>.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Helpers.MimeTypeHelper.FallbackMimeType">
+            <summary>
+            The fallback MIME-type (efaults to <c>application/octet-stream</c>).
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.MimeTypeHelper.GetMimeType(System.String)">
+            <summary>
+            Gets the MIME-type for the given file name,
+            or <see cref="P:NWebDav.Server.Helpers.MimeTypeHelper.FallbackMimeType"/> if a mapping doesn't exist.
+            </summary>
+            <param name="fileName">The name of the file.</param>
+            <returns>The MIME-type for the given file name.</returns>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.NamespaceDoc">
+            <summary>
+            This namespace defines all the helper classes to implement the NWebDAV
+            library.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.SplitUri">
+            <summary>
+            Split URI consisting of a collection URI and a name string.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Helpers.SplitUri.CollectionUri">
+            <summary>
+            Collection URI that holds the collection/document.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Helpers.SplitUri.Name">
+            <summary>
+            Name of the collection/document within its container collection.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.Range">
+            <summary>
+            Range
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Helpers.Range.Start">
+            <summary>
+            Optional start value.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Helpers.Range.End">
+            <summary>
+            Optional end value.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Helpers.Range.If">
+            <summary>
+            Optional conditional date/time.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.RequestHelper">
+            <summary>
+            Helper methods for <see cref="T:NWebDav.Server.Http.IHttpRequest"/> objects.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.SplitUri(System.Uri)">
+            <summary>
+            Split an URI into a collection and name part.
+            </summary>
+            <param name="uri">URI that should be split.</param>
+            <returns>
+            Split URI in a collection URI and a name string.
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetDestinationUri(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the destination uri from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            Destination for this HTTP request (or <see langword="null"/> if no
+            destination is specified).
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetDepth(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the depth value from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            Depth of the HTTP request (<c>int.MaxValue</c> if infinity).
+            </returns>
+            <remarks>
+            If the Depth header is not set, then the specification specifies
+            that it should be interpreted as infinity.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetOverwrite(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the overwrite value from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            Flag indicating whether or not to overwrite the destination
+            if it already exists.
+            </returns>
+            <remarks>
+            If the Overwrite header is not set, then the specification
+            specifies that it should be interpreted as 
+            <see langwordk="true"/>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetTimeouts(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the list of timeout values from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            List of timeout values in seconds (<c>-1</c> if infinite).
+            </returns>
+            <remarks>
+            If the Timeout header is not set, then <see langword="null"/> is
+            returned.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetLockToken(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the lock-token URI from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            Lock token URI (<see langword="null"/> if not set).
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetIfLockToken(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the if-lock-token URI from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            If lock token URI (<see langword="null"/> if not set).
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.GetRange(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Obtain the range value from the request.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            Range value (start/end) with an option if condition.
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.RequestHelper.LoadXmlDocument(NWebDav.Server.Http.IHttpRequest)">
+            <summary>
+            Load an XML document from the HTTP request body.
+            </summary>
+            <param name="request">HTTP request.</param>
+            <returns>
+            XML document that represents the body content (or 
+            <see langword="null"/> if no body content is specified).
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Helpers.ResponseHelper">
+            <summary>
+            Helper methods for <see cref="T:NWebDav.Server.Http.IHttpResponse"/> objects.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.ResponseHelper.SetStatus(NWebDav.Server.Http.IHttpResponse,NWebDav.Server.DavStatusCode,System.String)">
+            <summary>
+            Set status of the HTTP response.
+            </summary>
+            <param name="response">
+            The HTTP response that should be changed.
+            </param>
+            <param name="statusCode">
+            WebDAV status code that should be set.
+            </param>
+            <param name="statusDescription">
+            The human-readable WebDAV status description. If no status
+            description is set (or <see langword="null"/>), then the
+            default status description is written. 
+            </param>
+            <remarks>
+            Not all HTTP infrastructures allow to set the status description,
+            so it should only be used for informational purposes.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Helpers.ResponseHelper.SendResponseAsync(NWebDav.Server.Http.IHttpResponse,NWebDav.Server.DavStatusCode,System.Xml.Linq.XDocument)">
+            <summary>
+            Send an HTTP response with an XML body content.
+            </summary>
+            <param name="response">
+            The HTTP response that needs to be sent.
+            </param>
+            <param name="statusCode">
+            WebDAV status code that should be set.
+            </param>
+            <param name="xDocument">
+            XML document that should be sent as the body of the message.
+            </param>
+            <returns>
+            A task that represents the asynchronous response send.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Http.IHttpContext">
+            <summary>
+            HTTP context interface.
+            </summary>
+            <remarks>
+            <para>
+            The HTTP context specifies the context for the current WebDAV request.
+            It's an abstraction of the underlying HTTP context implementation and
+            it should contain the request, response and the session information.
+            </para>
+            <para>
+            The HTTP context will typically be created after receiving the HTTP
+            message from the HTTP listener. It is passed to the
+            <see cref="T:NWebDav.Server.IWebDavDispatcher">WebDAV dispatcher</see>, so it can be
+            processed. The dispatcher passes it to the appropriate handler.
+            Although the internal NWebDAV code will serialize access to the
+            context (and its underlying request, response and session), it should
+            be accessible from an arbitrary thread and not rely internally on the
+            synchronization context (i.e. a call to a static property that returns
+            the thread's current HTTP context might result in a <c>null</c> or
+            invalid HTTP context.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpContext.Request">
+            <summary>
+            Gets the current HTTP request message.
+            </summary>
+            <value>HTTP request.</value>
+            <remarks>
+            Each HTTP context should have a valid request.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpContext.Response">
+            <summary>
+            Gets the current HTTP response message.
+            </summary>
+            <value>HTTP response.</value>
+            <remarks>
+            Each HTTP context should have a valid response.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpContext.Session">
+            <summary>
+            Gets the session belonging to the current request.
+            </summary>
+            <value>Session associated with this HTTP request.</value>
+            <remarks>
+            If sessions and/or authorization is not used, then it is allowed to
+            set this property to <see langword="null"/>.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Http.IHttpContext.CloseAsync">
+            <summary>
+            Close the context.
+            </summary>
+            <remarks>
+            <para>
+            Each request will have its own HTTP context and the
+            <seealso cref="T:NWebDav.Server.IWebDavDispatcher"/> dispatching the request should
+            make sure the context is closed at the end of the request. When
+            this method completes the response should have been sent or it
+            should be ready, so the underlying HTTP infrastructure can send
+            it.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.Http.IHttpRequest">
+            <summary>
+            HTTP request message interface.
+            </summary>
+            <remarks>
+            This interface contains all the HTTP request message related
+            information for a request. It's important to distinguish the difference
+            between the request and the session. The request is information that is
+            unique per call, while session information is typically consistent
+            during multiple calls within that session. The HTTP request message
+            should be considered as a read-only object.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpRequest.HttpMethod">
+            <summary>
+            Gets the HTTP method of the request.
+            </summary>
+            <value>The HTTP method.</value>
+            <remarks>
+            The <see cref="T:NWebDav.Server.RequestHandlerFactory"/> uses this method to
+            determine which handler should be called based on this property.
+            A description of all the HTTP methods (verbs) can be found in 
+            <see href="http://www.webdav.org/specs/rfc2518.html#http.methods.for.distributed.authoring">chapter 8 of the WebDAV specification</see>.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpRequest.Url">
+            <summary>
+            Gets the URL of the request.
+            </summary>
+            <value>URL of the collection and/or document.</value>
+            <remarks>
+            The URL in a WebDAV request typically specifies which document or
+            collection should be used for the request.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpRequest.RemoteEndPoint">
+            <summary>
+            Gets the remote end point of the request.
+            </summary>
+            <value>
+            The remote endpoint of the originator of the request.
+            </value>
+            <remarks>
+            <para>
+            The remote endpoint is only used for logging by the internal
+            NWebDAV code. Not all HTTP frameworks provide the remote endpoint
+            and it might have been changed by (reverse) proxies, so don't rely
+            on this information for any other use then logging.
+            </para>
+            <para>
+            If you are implementing this interface for your own HTTP framework
+            and you can't get the remote endpoint, then don't throw a
+            <see cref="T:System.NotSupportedException"/> (or any other exception),
+            because this will cause the request to fail.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpRequest.Headers">
+            <summary>
+            Gets all headers of the request.
+            </summary>
+            <value>All headers (key only) of this request.</value>
+            <remarks>
+            All HTTP headers keys should be returned as they appear in the
+            request message. Although headers are case insensitive, they should
+            be returned in the case as they appear in the request message
+            (if supported by the underlying HTTP infrastructure).
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Http.IHttpRequest.GetHeaderValue(System.String)">
+            <summary>
+            Gets the value of a request header.
+            </summary>
+            <returns>The header value.</returns>
+            <param name="header">
+            Name of the header that should be obtained.
+            </param>
+            <remarks>
+            <para>
+            All header values should be returned as a string without any
+            processing or rewriting.
+            </para>
+            <para>
+            HTTP header keys are case insensitive, so fetching headers should
+            no rely on casing.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpRequest.Stream">
+            <summary>
+            Gets the HTTP request body stream.
+            </summary>
+            <value>HTTP request body stream.</value>
+            <remarks>
+            <para>
+            The HTTP request body stream only needs to support forward-only
+            reading of the stream. The internal NWebDAV code doesn't require
+            to know the length of the stream and/or use positioning (seeking)
+            within the stream.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.Http.IHttpResponse">
+            <summary>
+            HTTP response message interface.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpResponse.Status">
+            <summary>
+            Gets or sets the HTTP status code of the response.
+            </summary>
+            <value>HTTP response to the matching request.</value>
+            <remarks>
+            The WebDAV specification extends the standard HTTP status
+            codes. These additional codes have been defined in the
+            <seealso cref="T:NWebDav.Server.DavStatusCode"/> enumeration. Although it is
+            possible to return an arbitrary integer value, it is recommended
+            to stick to the values defined in <seealso cref="T:NWebDav.Server.DavStatusCode"/>.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpResponse.StatusDescription">
+            <summary>
+            Gets or sets the HTTP status description of the response.
+            </summary>
+            <value>The HTTP status description.</value>
+            <remarks>
+            If this value is not set, then it will automatically determine
+            the HTTP status description based upon the
+            <seealso cref="P:NWebDav.Server.Http.IHttpResponse.Status"/> value. The description is based on the
+            value of the 
+            <see cref="T:NWebDav.Server.Helpers.DavStatusCodeAttribute"/>
+            attribute for this status.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Http.IHttpResponse.SetHeaderValue(System.String,System.String)">
+            <summary>
+            Sets a header to a specific value.
+            </summary>
+            <param name="header">Name of the header.</param>
+            <param name="value">Value of the header.</param>
+            <remarks>
+            The <paramref name="header"/> is case insensitive, but it is
+            recommended to adhere to the casing as defined in the WebDAV
+            specification.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpResponse.Stream">
+            <summary>
+            Gets the stream that represents the response body.
+            </summary>
+            <value>Response body stream.</value>
+            <remarks>
+            <para>
+            It's important not to write to the stream, until the status,
+            status description and all headers have been written. Most
+            implementations cannot handle setting headers after the
+            stream is written (i.e. Mono).
+            </para>
+            <para>
+            The HTTP response body stream should only support forward-only
+            writing of the stream. The internal NWebDAV code doesn't use
+            positioning (seeking) within the stream.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.Http.IHttpSession">
+            <summary>
+            HTTP session interface.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Http.IHttpSession.Principal">
+            <summary>
+            Gets the principal of the current request.
+            </summary>
+            <value>Principal of the current request.</value>
+        </member>
+        <member name="T:NWebDav.Server.Http.NamespaceDoc">
+            <summary>
+            This namespace defines all the interfaces to abstract the underlying
+            HTTP infrastructure.
+            </summary>
+            <remarks>
+            NWebDAV does not depend on a specific HTTP implementation. It can be
+            used with different HTTP implementations and it communicates with the
+            underlying HTTP implementation via the interfaces in this namespace.
+            Specific implementations have been created for ASP.NET,
+            <see cref="T:System.Net.HttpListener"/> and the Kestrel webserver.
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.IRequestHandler">
+            <summary>
+            Interface for all request handlers.
+            </summary>
+            <remarks>
+            <para>
+            Each HTTP request will be handled by a single object implementing this
+            interface. A request handler is generally handling only one HTTP method
+            (i.e. PROPPATCH), but it can also choose to implement multiple HTTP
+            methods, because there is a lot of overlap between the two methods
+            (i.e. GET and HEAD).
+            </para>
+            <para>
+            It is possible to re-use request handlers, but care must be taken that
+            the handler is re-entrant, because it can be called multiple times in
+            parallel.
+            </para>
+            <para>
+            Request handlers are typically created via request handler factories
+            implementing the <see cref="T:NWebDav.Server.IRequestHandlerFactory"/> interface.
+            </para>
+            </remarks>
+            <seealso cref="T:NWebDav.Server.IRequestHandlerFactory"/>
+        </member>
+        <member name="M:NWebDav.Server.IRequestHandler.HandleRequestAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStore)">
+            <summary>
+            Handle an incoming WebDAV request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context of the request.
+            </param>
+            <param name="store">
+            Store that is used to access the collections and items.
+            </param>
+            <returns>
+            A task that represents the asynchronous handle request operation.
+            The task will return a boolean upon completion of the task that
+            is <see langword="true"/> if the request was handled or
+            <see langword="false"/> if the request wasn't handled. If a request
+            is not handled, then the status code
+            <see cref="F:NWebDav.Server.DavStatusCode.NotImplemented"/> is returned to the
+            requester.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.IRequestHandlerFactory">
+            <summary>
+            Factory responsible for returning the proper
+            <see cref="T:NWebDav.Server.IRequestHandler"/> instance to handle the request.
+            </summary>
+            <remarks>
+            <para>
+            This interface is used by the <see cref="T:NWebDav.Server.WebDavDispatcher"/> to create
+            the appropriate request handler. If the <see cref="T:NWebDav.Server.WebDavDispatcher"/> 
+            is replaced by a custom implementation, then this factory might never
+            be used at all.
+            </para>
+            <para>
+            The NWebDAV library provides a default implementation
+            (<see cref="T:NWebDav.Server.RequestHandlerFactory"/>) that
+            should be suitable for most situations. You can provide your own
+            implementation if you wish to change the default mapping or replace
+            a handler with your own.
+            </para>
+            </remarks>
+            <seealso cref="T:NWebDav.Server.IRequestHandler"/>
+            <seealso cref="T:NWebDav.Server.RequestHandlerFactory"/>
+        </member>
+        <member name="M:NWebDav.Server.IRequestHandlerFactory.GetRequestHandler(NWebDav.Server.Http.IHttpContext)">
+            <summary>
+            Obtain the <seealso cref="T:NWebDav.Server.IRequestHandler">request handler</seealso>
+            that can process the specified request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context specifies the entire HTTP context for this
+            request. In most cases only the <see cref="P:NWebDav.Server.Http.IHttpRequest.HttpMethod"/>
+            of the request will specify which handler should be used.
+            </param>
+            <returns>
+            The request handler that will further process the request.
+            </returns>
+            <remarks>
+            <para>
+            Each incoming HTTP request use a single request handler, so the
+            factory is called for each HTTP request exactly one time (unless
+            the request is not allowed due to authorization issues).
+            </para>
+            <para>
+            Request handlers may either be created for each request or they can
+            be reused. Multiple requests might be processed at the same time,
+            so if a request handler is reused, then it must be thread-safe and
+            re-entrant.
+            </para>
+            <para>
+            If <see langword="null"/> is returned, then the status code
+            <see cref="F:NWebDav.Server.DavStatusCode.NotImplemented"/> is returned to the
+            requester.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.IWebDavDispatcher">
+            <summary>
+            Interface that is responsible for dispatching WebDAV requests.
+            </summary>
+            <remarks>
+            The WebDAV dispatcher handles the processing of a WebDAV request. The
+            library provides a default implementations (<see cref="T:NWebDav.Server.WebDavDispatcher"/>)
+            that dispatches WebDAV request based on the <see cref="T:NWebDav.Server.IRequestHandler"/> and
+            <see cref="T:NWebDav.Server.IRequestHandlerFactory"/> interfaces. Although this implementation
+            should suffice for most situations, it is possible to completely replace the
+            request handling by using your own implementation.
+            </remarks>
+            <seealso cref="T:NWebDav.Server.WebDavDispatcher"/>
+        </member>
+        <member name="M:NWebDav.Server.IWebDavDispatcher.DispatchRequestAsync(NWebDav.Server.Http.IHttpContext)">
+            <summary>
+            Dispatch the WebDAV request based on the given HTTP context.
+            </summary>
+            <param name="httpContext">
+            HTTP context for this request.
+            </param>
+            <returns>
+            A task that represents the request dispatching operation.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Logging.ILogger">
+            <summary>
+            Interface for logging events for a specific type.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Logging.ILogger.IsLogEnabled(NWebDav.Server.Logging.LogLevel)">
+            <summary>
+            Check if the specified log level is enabled.
+            </summary>
+            <param name="logLevel">Log level that should be checked.</param>
+            <returns>
+            Flag indicating whether the specified log-level is enabled.
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Logging.ILogger.Log(NWebDav.Server.Logging.LogLevel,System.Func{System.String},System.Exception)">
+            <summary>
+            Log a message and an optional exception with the specified log level.
+            </summary>
+            <param name="logLevel">
+            Log level that specified the priority of the event.
+            </param>
+            <param name="messageFunc">
+            Function that returns the message that should be logged if the log
+            level is enabled.
+            </param>
+            <param name="exception">
+            Optional exception that is logged with the event.
+            </param>
+            <remarks>
+            This method uses a function for the <paramref name="messageFunc"/>
+            parameter that is only evaluated if the log level is enabled. This
+            reduces excessive string formatting for disabled log levels.
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.Logging.ILoggerFactory">
+            <summary>
+            Interface to create <see cref="T:NWebDav.Server.Logging.ILogger"/> instances.
+            </summary>
+            <seealso cref="T:NWebDav.Server.Logging.ILogger"/>
+        </member>
+        <member name="M:NWebDav.Server.Logging.ILoggerFactory.CreateLogger(System.Type)">
+            <summary>
+            Create a logger for the specified type.
+            </summary>
+            <param name="type">Type for which a logger should be created.</param>
+            <returns>Logger object.</returns>
+        </member>
+        <member name="T:NWebDav.Server.Logging.LoggerFactory">
+            <summary>
+            Helper class to specify the default logger for the NWebDAV code.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Logging.LoggerFactory.Factory">
+            <summary>
+            Get and set the default logger factory.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Logging.LogLevel">
+            <summary>
+            The log level specifies the priority of the log event.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Logging.LogLevel.Debug">
+            <summary>
+            Debug level designates fine-grained informational events that are most useful to debug an application.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Logging.LogLevel.Info">
+            <summary>
+            Info level designates informational messages that highlight the progress of the application at coarse-grained level.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Logging.LogLevel.Warning">
+            <summary>
+            Warning level designates potentially harmful situations.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Logging.LogLevel.Error">
+            <summary>
+            Error level designates error events that might still allow the application to continue running.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Logging.LogLevel.Fatal">
+            <summary>
+            Fatal level designates very severe error events that will presumably lead the application to abort.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Logging.NamespaceDoc">
+            <summary>
+            This namespace defines all the logging related classes.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Logging.NullLoggerFactory">
+            <summary>
+            Implementation of a logger factory that creates <see cref="T:NWebDav.Server.Logging.ILogger"/>
+            instances that don't log anything.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Logging.NullLoggerFactory.CreateLogger(System.Type)">
+            <summary>
+            Create a dummy logger for the specified type.
+            </summary>
+            <param name="type">Type for which a logger should be created.</param>
+            <returns>Logger object (doesn't do anything).</returns>
+        </member>
+        <member name="T:NWebDav.Server.NamespaceDoc">
+            <summary>
+            Top-level namespace for the NWebDav.Server assembly.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionChildCount`1">
+            <summary>
+            Specifies the number of contained resources.
+            </summary>
+            <remarks>
+            <para>
+            This property identifies the number of resources contained in a given
+            collection.It contains a single integer value with the count of
+            contained resources. This property includes child collections in the
+            count.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionChildCount`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionChildCount`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionDefaultDocument`1">
+            <summary>
+            Specifies the default document for a collection.
+            </summary>
+            <remarks>
+            <para>
+            This property contains a URL that identifies the default document for
+            a collection. This is intended for collection owners to be able to set
+            a default document, for example index.html or default.html.If this
+            property is absent, other means must be found to determine the default
+            document. If this property is present but null, the collection does
+            not have a default document and the collection member listing should
+            be used (or nothing).
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionDefaultDocument`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionDefaultDocument`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionId`1">
+            <summary>
+            Specifies a unique identifier for this resource.
+            </summary>
+            <remarks>
+            <para>
+            This property contains a globally unique string that identifies this
+            resource. This property MUST be unique across the entire Internet.
+            The id property does not change if the resource changes. This
+            property is intended to aid in recognition of a resource even when
+            moved, updated or renamed. The value of this property is a URI.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionId`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionId`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionIsFolder`1">
+            <summary>
+            Specifies whether or not a collection should appear as a folder.
+            </summary>
+            <remarks>
+            <para>
+            This property identifies whether or not a collection should appear as
+            a folder. If true (or absent), the collection should be displayed as a
+            folder. If false, the collection should NOT be displayed as a folder.
+            For example, a structured document should have "isfolder" set to false.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionIsFolder`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionIsFolder`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionIsHidden`1">
+            <summary>
+            Specifies whether or not a resource is hidden.
+            </summary>
+            <remarks>
+            <para>
+            This property identifies whether or not a resource is hidden. This can
+            be considered a hint to the client UI: under normal conditions, for
+            non-expert users, hidden files should not be exposed to users. The
+            server may omit the hidden resource from some presentational listings,
+            otherwise the client is responsible for removing hidden resources when
+            displaying to the user. If this property is absent, the collection is
+            not hidden. Since this property provides no actual form of protection
+            to the resources, this MUST NOT be used as a form of access control
+            and should only be used for presentation purposes.
+            </para>
+            <para>
+            Many file systems have the option to hide files from the user, but the
+            user can, with special commands, override the hiding.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionIsHidden`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionIsHidden`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionIsStructuredDocument`1">
+            <summary>
+            Specifies whether the resource is a structured document.
+            </summary>
+            <remarks>
+            <para>
+            A structured document is a collection (iscollection should also be
+            true), so COPY, MOVE and DELETE work as for a collection. The
+            structured document may behave at times like a document. For example,
+            clients may wish to display the resource as a document rather than as a
+            collection. If this property is absent, the collection is not a
+            structured document.
+            </para>
+            <para>
+            This property can also be considered a hint for the client UI: if the
+            value of "isstructureddocument" is true, then the client UI may display
+            this to the user as if it were single document. This can be very useful
+            when the default document of a collection is an HTML page with a bunch
+            of images which are the other resources in the collection: only the
+            default document is intended to be viewed as a document, so the entire
+            structure can appear as one document. A Structured document may contain
+            collections.  A structured document must have a default document (if
+            the "defaultdocument" property is absent, the default document is
+            assumed by the client to be index.html).
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionIsStructuredDocument`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionIsStructuredDocument`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionHasSubs`1">
+            <summary>
+            Identifies whether this collection contains any collections which are
+            folders (see <see cref="T:NWebDav.Server.Props.DavExtCollectionIsFolder`1"/>).
+            </summary>
+            <remarks>
+            <para>
+            This property identifies whether or not a folder contains sub-folders,
+            from the point of view of client display. Sub-folders are child
+            collections for which "isfolder" is true.
+            </para>
+            <para>
+            If absent, nothing can be guessed about whether the collection has
+            sub-folders. This property is useful for the efficient display of
+            hierarchy user interfaces. If "hassubs" is true, then "isfolder" should
+            also be true so that clients understand that the folder can be expanded
+            to view its children.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionHasSubs`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionHasSubs`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionNoSubs`1">
+            <summary>
+            Identifies whether this collection allows child collections to be
+            created.
+            </summary>
+            <remarks>
+            <para>
+            This property identifies whether or not a collection allows child
+            collections to be created. True indicates that the collection does not
+            allow child collections). While this data is redundant with that
+            returned by the OPTIONS method, providing this information as a
+            property allows better performance since the client can verify the
+            behavior ahead of time without having to issue an individual OPTIONS
+            request on every collection it encounters. If absent, nothing can be
+            guessed about whether the collection allows sub-collections.
+            </para>
+            <para>
+            This property can also be considered to be a hint to the UI about
+            displaying options to the user (the UI might eliminate the option to
+            create a child collection). It is different from a "create child"
+            access right, because the client UI may want to display a "create
+            child collection" option without trying to find out if the user has
+            permissions. This property can be used to suggest that creating
+            child collections just doesn't make sense on this collection no matter
+            what rights the user has. It is most useful on special-purpose
+            collections, such as a deleted files collection or a collection which
+            represents a device such as a printer.
+            </para>
+            <para>
+            This property should not be construed as meaning that sub-collections
+            do not already exist on the collection. It simply prevents new
+            collections from being created by the client.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionNoSubs`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionNoSubs`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionObjectCount`1">
+            <summary>
+            To count the number of non-folder resources in the collection.
+            created.
+            </summary>
+            <remarks>
+            <para>
+            This is different from childcount in that it omits counting child
+            collections for which "isfolder" is true.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionObjectCount`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionObjectCount`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionReserved`1">
+            <summary>
+            Specifies whether or not the collection is reserved.
+            </summary>
+            <remarks>
+            <para>
+            A reserved collection is one that is specially managed by the server
+            and cannot be deleted, renamed, or moved by the client. Attempts to
+            MOVE or DELETE a reserved collection will fail, and this SHOULD be
+            reflected in the client UI. If absent, the collection should NOT be
+            reserved. The server may allow clients to set this property. It may
+            make sense to also specify that this collection is reserved in the
+            resourcetype; however, in most ways this behaves like a normal
+            collection.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionReserved`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionReserved`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavExtCollectionVisibleCount`1">
+            <summary>
+            Counts the number of visible non-folder resources in the collection.
+            </summary>
+            <remarks>
+            <para>
+            This is the most immediately useful property for the client UI to use
+            to display the sizes of collections for users. The client UI could
+            also display progess when downloading a long list of children in a
+            collection if it knows the total number in advance. This counts all
+            children for which "ishidden" is false and "isfolder" is false.
+            </para>
+            <para>
+            This is an extend WebDAV collection property as defined in the
+            <see href="https://tools.ietf.org/html/draft-hopmann-collection-props-00#section-1.2">
+            draft document of Alex Hopmann (Microsoft) and Lisa Lippert (Microsoft)
+            </see>.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavExtCollectionVisibleCount`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavExtCollectionVisibleCount`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavProperty`1">
+            <summary>
+            Abstract base class representing a single DAV property.
+            </summary>
+            <remarks>
+            Although it is possible to derive directly from this class, it is more
+            convenient to derive from the typed classes.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavProperty`1.Name">
+            <summary>
+            Full name of the property
+            </summary>
+            <value>Full name of the property (including the namespace).</value>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavProperty`1.GetterAsync">
+            <summary>
+            Gets or sets the delegate that is responsible to obtain the
+            property's value of a store item/collection.
+            </summary>
+            <returns>Delegate to obtain the property value.</returns>
+            <remarks>
+            An <see cref="T:NWebDav.Server.Http.IHttpContext"/> object is passed to the getter
+            delegate that contains the HTTP context. It is typically used
+            to deal with compatibility of certain WebDAV clients (can be
+            determined using the user agent).
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavProperty`1.SetterAsync">
+            <summary>
+            Gets or sets the delegate that is responsible to set the property
+            value of a store item/collection.
+            </summary>
+            <returns>Delegate to set the property value.</returns>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavProperty`1.IsExpensive">
+            <summary>
+            Gets or sets the flag whether or not the property is expensive.
+            </summary>
+            <returns>
+            <see langword="true"/> if the property is expensive to calculate or
+            <see langword="false"/> (default) otherwise.
+            </returns>
+            <remarks>
+            <para>
+            A property should be considered expensive if it takes a
+            considerable amount of CPU cycles to determine its value. It is
+            also considered expensive if the calculation doesn't require a
+            lot of CPU cycles, but takes a lot of time. Calculating a hash
+            value of an item is considered expensive, because it requires to
+            scan the entire file to determine the value.
+            </para>
+            <para>
+            Expensive properties are not returned in the GET or HEAD headers
+            to prevent excessive load on the server. They are also skipped
+            when requesting all the properties of an item.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavTypedProperty`2">
+            <summary>
+            Abstract base class representing a single DAV property with a specific
+            CLR type.
+            </summary>
+            <remarks>
+            A dedicated converter should be implemented to convert the property 
+            value to/from an XML value. This class supports both synchronous and
+            asynchronous accessor methods. To improve scalability, it is
+            recommended to use the asynchronous methods for properties that require
+            some time to get/set.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+            <typeparam name="TType">
+            CLR type of the property.
+            </typeparam>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavTypedProperty`2.IConverter">
+            <summary>
+            Converter defining methods to convert property values from/to XML.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Props.DavTypedProperty`2.IConverter.ToXml(NWebDav.Server.Http.IHttpContext,`1)">
+            <summary>
+            Get the XML representation of the specified value.
+            </summary>
+            <param name="httpContext">
+            Current HTTP context.
+            </param>
+            <param name="value">
+            Value that needs to be converted to XML output.
+            </param>
+            <returns>
+            The XML representation of the <paramref name="value"/>. The
+            XML output should either be a <see cref="T:System.String"/> or
+            an <see cref="T:System.Xml.Linq.XElement"/>.
+            </returns>
+            <remarks>
+            The current HTTP context can be used to generate XML that is
+            compatible with the requesting WebDAV client.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Props.DavTypedProperty`2.IConverter.FromXml(NWebDav.Server.Http.IHttpContext,System.Object)">
+            <summary>
+            Get the typed value of the specified XML representation.
+            </summary>
+            <param name="httpContext">
+            Current HTTP context.
+            </param>
+            <param name="value">
+            The XML value that needs to be converted to the target
+            type. This value is always a <see cref="T:System.String"/>
+            or an <see cref="T:System.Xml.Linq.XElement"/>.
+            </param>
+            <returns>
+            The typed value of the XML representation.
+            </returns>
+            <remarks>
+            The current HTTP context can be used to generate XML that is
+            compatible with the requesting WebDAV client.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavTypedProperty`2.Converter">
+            <summary>
+            Converter to convert property values from/to XML for this type.
+            </summary>
+            <remarks>
+            This property should be set from the derived typed property implementation.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavTypedProperty`2.Getter">
+            <summary>
+            Synchronous getter to obtain the property value.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavTypedProperty`2.Setter">
+            <summary>
+            Synchronous setter to set the property value.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavTypedProperty`2.GetterAsync">
+            <summary>
+            Asynchronous getter to obtain the property value.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavTypedProperty`2.SetterAsync">
+            <summary>
+            Asynchronous setter to set the property value.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavRfc1123Date`1">
+            <summary>
+            Abstract base class representing a single DAV property using an
+            RFC1123 date type (mapped to <see cref="T:System.DateTime"/>).
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavRfc1123Date`1.Converter">
+            <summary>
+            Converter to map RFC1123 dates to/from a <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavIso8601Date`1">
+            <summary>
+            Abstract base class representing a single DAV property using an
+            ISO 8601 date type (mapped to <see cref="T:System.DateTime"/>).
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavIso8601Date`1.Converter">
+            <summary>
+            Converter to map ISO 8601 dates to/from a <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavBoolean`1">
+            <summary>
+            Abstract base class representing a single DAV property using a
+            <see cref="T:System.Boolean"/> type.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavBoolean`1.Converter">
+            <summary>
+            Converter to map an XML boolean to/from a <see cref="T:System.Boolean"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavString`1">
+            <summary>
+            Abstract base class representing a single DAV property using a
+            <see cref="T:System.String"/> type.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavString`1.Converter">
+            <summary>
+            Converter to map an XML string to/from a <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavInt32`1">
+            <summary>
+            Abstract base class representing a single DAV property using an
+            <see cref="T:System.Int32"/> type.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavInt32`1.Converter">
+            <summary>
+            Converter to map an XML number to/from a <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavInt64`1">
+            <summary>
+            Abstract base class representing a single DAV property using a
+            <see cref="T:System.Int64"/> type.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavInt64`1.Converter">
+            <summary>
+            Converter to map an XML number to/from a <see cref="T:System.Int64"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavXElementArray`1">
+            <summary>
+            Abstract base class representing a single DAV property using an
+            <see cref="T:System.Xml.Linq.XElement"/> array.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavXElementArray`1.Converter">
+            <summary>
+            Converter to map an XML number to/from an <see cref="T:System.Xml.Linq.XElement"/> array.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavXElement`1">
+            <summary>
+            Abstract base class representing a single DAV property using an
+            <see cref="T:System.Xml.Linq.XElement"/> type.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavXElement`1.Converter">
+            <summary>
+            Converter to map an XML number to/from a <see cref="T:System.Xml.Linq.XElement"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavUri`1">
+            <summary>
+            Abstract base class representing a single DAV property using an
+            <see cref="T:System.Uri"/> type.
+            </summary>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavUri`1.Converter">
+            <summary>
+            Converter to map an XML string to/from a <see cref="T:System.Uri"/>.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavLockDiscoveryDefault`1">
+            <summary>
+            Default implementation to describe the active locks on a resource.
+            </summary>
+            <remarks>
+            This property implementation calls the
+            <see cref="M:NWebDav.Server.Locking.ILockingManager.GetActiveLockInfo(NWebDav.Server.Stores.IStoreItem)"/>
+            of the item's <see cref="P:NWebDav.Server.Stores.IStoreItem.LockingManager"/> to determine the
+            active locks.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="M:NWebDav.Server.Props.DavLockDiscoveryDefault`1.#ctor">
+            <summary>
+            Create an instance of the <see cref="T:NWebDav.Server.Props.DavLockDiscovery`1"/>
+            property that implements the property using the
+            <see cref="M:NWebDav.Server.Locking.ILockingManager.GetActiveLockInfo(NWebDav.Server.Stores.IStoreItem)"/> 
+            method of the item's locking manager.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavSupportedLockDefault`1">
+            <summary>
+            Default implementation to describe the supported locks on a resource.
+            </summary>
+            <remarks>
+            This property implementation calls the
+            <see cref="M:NWebDav.Server.Locking.ILockingManager.GetSupportedLocks(NWebDav.Server.Stores.IStoreItem)"/>
+            of the item's <see cref="P:NWebDav.Server.Stores.IStoreItem.LockingManager"/> to determine the
+            supported locks.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="M:NWebDav.Server.Props.DavSupportedLockDefault`1.#ctor">
+            <summary>
+            Create an instance of the <see cref="T:NWebDav.Server.Props.DavSupportedLock`1"/>
+            property that implements the property using the
+            <see cref="M:NWebDav.Server.Locking.ILockingManager.GetSupportedLocks(NWebDav.Server.Stores.IStoreItem)"/>
+            method of the item's locking manager.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.IPropertyManager">
+            <summary>
+            This interface defines the property manager that is responsible to
+            handle all the properties for store items and collections.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.IPropertyManager.Properties">
+            <summary>
+            Obtain the list of all implemented properties.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Props.IPropertyManager.GetPropertyAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStoreItem,System.Xml.Linq.XName,System.Boolean)">
+            <summary>
+            Get the value of the specified property for the given item.
+            </summary>
+            <param name="httpContext">
+            HTTP context of the current request.
+            </param>
+            <param name="item">
+            Store item/collection for which the property should be obtained.
+            </param>
+            <param name="propertyName">
+            Name of the property (including namespace).
+            </param>
+            <param name="skipExpensive">
+            Flag indicating whether to skip the property if it is too expensive
+            to compute.
+            </param>
+            <returns>
+            A task that represents the get property operation. The task will
+            return the property value or <see langword="null"/> if
+            <paramref name="skipExpensive"/> is set to <see langword="true"/>
+            and the parameter is expensive to compute.
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Props.IPropertyManager.SetPropertyAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStoreItem,System.Xml.Linq.XName,System.Object)">
+            <summary>
+            Set the value of the specified property for the given item.
+            </summary>
+            <param name="httpContext">
+            HTTP context of the current request.
+            </param>
+            <param name="item">
+            Store item/collection for which the property should be obtained.
+            </param>
+            <param name="propertyName">
+            Name of the property (including namespace).
+            </param>
+            <param name="value">
+            New value of the property.
+            </param>
+            <returns>
+            A task that represents the set property operation. The task will
+            return the WebDAV status code of the set operation upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Props.NamespaceDoc">
+            <summary>
+            This namespace contains all the DAV property related classes.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.PropertyInfo">
+            <summary>
+            Information structure about a property.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.PropertyInfo.Name">
+            <summary>
+            Name of the property.
+            </summary>
+            <remarks>
+            The name of the property contains of a namespace and the actual name.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.Props.PropertyInfo.IsExpensive">
+            <summary>
+            Flag indicating whether or not it's expensive to determine the
+            property's value.
+            </summary>
+            <remarks>
+            Properties should be marked as expensive, when it is expensive (in
+            terms of CPU cycles, I/O or duration) to determine its value.
+            Expensive values are skipped when obtaining all property values to
+            keep the server fast.
+            </remarks>
+        </member>
+        <member name="M:NWebDav.Server.Props.PropertyInfo.#ctor(System.Xml.Linq.XName,System.Boolean)">
+            <summary>
+            Initializes a new property information object.
+            </summary>
+            <param name="name">
+            Name of the property.
+            </param>
+            <param name="isExpensive">
+            Flag indicating whether or not it's expensive to determine the
+            property's value.
+            </param>
+        </member>
+        <member name="T:NWebDav.Server.Props.PropertyManager`1">
+            <summary>
+            Property manager that handles all the properties for a specific store
+            item and collection. 
+            </summary>
+            <remarks>
+            The default property manager is used to define the root property
+            manager for a store.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="M:NWebDav.Server.Props.PropertyManager`1.#ctor(System.Collections.Generic.IEnumerable{NWebDav.Server.Props.DavProperty{`0}})">
+            <summary>
+            Create an instance of the default property manager implementation.
+            </summary>
+            <param name="properties">
+            Set of WebDAV properties that are implemented by the property
+            manager for the store item/collection type.
+            </param>
+        </member>
+        <member name="P:NWebDav.Server.Props.PropertyManager`1.Properties">
+            <summary>
+            Obtain the list of all implemented properties.
+            </summary>
+        </member>
+        <member name="M:NWebDav.Server.Props.PropertyManager`1.GetPropertyAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStoreItem,System.Xml.Linq.XName,System.Boolean)">
+            <summary>
+            Get the value of the specified property for the given item.
+            </summary>
+            <param name="httpContext">
+            HTTP context of the current request.
+            </param>
+            <param name="item">
+            Store item/collection for which the property should be obtained.
+            </param>
+            <param name="propertyName">
+            Name of the property (including namespace).
+            </param>
+            <param name="skipExpensive">
+            Flag indicating whether to skip the property if it is too expensive
+            to compute.
+            </param>
+            <returns>
+            A task that represents the get property operation. The task will
+            return the property value or <see langword="null"/> if
+            <paramref name="skipExpensive"/> is set to <see langword="true"/>
+            and the parameter is expensive to compute.
+            </returns>
+        </member>
+        <member name="M:NWebDav.Server.Props.PropertyManager`1.SetPropertyAsync(NWebDav.Server.Http.IHttpContext,NWebDav.Server.Stores.IStoreItem,System.Xml.Linq.XName,System.Object)">
+            <summary>
+            Set the value of the specified property for the given item.
+            </summary>
+            <param name="httpContext">
+            HTTP context of the current request.
+            </param>
+            <param name="item">
+            Store item/collection for which the property should be obtained.
+            </param>
+            <param name="propertyName">
+            Name of the property (including namespace).
+            </param>
+            <param name="value">
+            New value of the property.
+            </param>
+            <returns>
+            A task that represents the set property operation. The task will
+            return the WebDAV status code of the set operation upon completion.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavQuotaAvailableBytes`1">
+            <summary>
+            Indicates the maximum amount of additional storage available to be
+            allocated to a resource.
+            </summary>
+            <remarks>
+            <para>
+            The <c>DAV:quota-available-bytes</c> property value is the value in
+            octets representing the amount of additional disk space beyond the
+            current allocation that can be allocated to this resource before
+            further allocations will be refused.It is understood that this space
+            may be consumed by allocations to other resources.
+            </para>
+            <para>
+            Support for this property is REQUIRED on collections, and OPTIONAL on
+            other resources.A server SHOULD implement this property for each
+            resource that has the <c>DAV:quota-used-bytes</c> property.
+            </para>
+            <para>
+            Clients SHOULD expect that as the <c>DAV:quota-available-bytes</c> on
+            a resource approaches 0, further allocations to that resource may be
+            refused. A value of 0 indicates that users will probably not be able
+            to perform operations that write additional information (e.g., a PUT
+            inside a collection), but may be able to replace through overwrite an
+            existing resource of equal size.
+            </para>
+            <para>
+            Note that there may be a number of distinct but overlapping limits,
+            which may even include physical media limits. When reporting
+            <c>DAV:quota-available-bytes</c>, the server is at liberty to choose
+            any of those limits but SHOULD do so in a repeatable way. The rule may
+            be configured per repository, or may be "choose the smallest number".
+            </para>
+            <para>
+            If a resource has no quota enforced or unlimited storage ("infinite
+            limits"), the server MAY choose not to return this property (404 Not
+            Found response in Multi-Status), although this specification
+            RECOMMENDS that servers return some appropriate value (e.g., the
+            amount of free disk space). A client cannot entirely assume that
+            there is no quota enforced on a resource that does not have this
+            property, but might as well act as if there is no quota.
+            </para>
+            <para>
+            The value of this property is protected (see Section 1.4.2 of
+            [RFC3253] for the definition of protected properties). A 403
+            Forbidden response is RECOMMENDED for attempts to write a protected
+            property, and the server SHOULD include an XML error body as defined
+            by DeltaV[RFC3253] with the 
+            <c>&lt;DAV:cannot-modify-protected-property/&gt;</c>
+            precondition tag.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavQuotaAvailableBytes`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavQuotaAvailableBytes`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavQuotaUsedBytes`1">
+            <summary>
+            Contains the amount of storage counted against the quota on a resource.
+            </summary>
+            <remarks>
+            <para>
+            The <c>DAV:quota-used-bytes</c> value is the value in octets
+            representing the amount of space used by this resource and possibly a
+            number of other similar resources, where the set of "similar" meets
+            at least the criterion that allocating space to any resource in the
+            set will count against the <c>DAV:quota-available-bytes</c>. It MUST
+            include the total count including usage derived from sub-resources if
+            appropriate. It SHOULD include metadata storage size if metadata
+            storage is counted against the DAV:quota-available-bytes.
+            </para>
+            <para>
+            SNote that there may be a number of distinct but overlapping sets of
+            resources for which a <c>DAV:quota-used-bytes</c> is maintained
+            (e.g., "all files with a given owner", "all files with a given group
+            owner", etc.). The server is at liberty to choose any of those sets
+            but SHOULD do so in a repeatable way. The rule may be configured per
+            repository.
+            </para>
+            <para>
+            Support for this property is REQUIRED on collections, and OPTIONAL on
+            other resources. A server SHOULD implement this property for each
+            resource that has the DAV:quota-available-bytes property.
+            </para>
+            <para>
+            This value of this property is computed (see Section 1.4.3 of
+            [RFC3253] for the definition of computed property). A 403
+            Forbidden response is RECOMMENDED for attempts to write a protected
+            property, and the server SHOULD include an XML error body as defined
+            by DeltaV [RFC3253] with the 
+            <c>&lt;DAV:cannot-modify-protected-property/&gt;</c>
+            precondition tag.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavQuotaUsedBytes`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavQuotaUsedBytes`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavCreationDate`1">
+            <summary>
+            Records the time and date the resource was created (ISO 8601 format).
+            </summary>
+            <remarks>
+            <para>
+            The creationdate property should be defined on all DAV compliant
+            resources. If present, it contains a timestamp of the moment when
+            the resource was created (i.e., the moment it had non-null state).
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavCreationDate`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavCreationDate`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavDisplayName`1">
+            <summary>
+            Provides a name for the resource that is suitable for presentation to a
+            user.
+            </summary>
+            <remarks>
+            The displayname property should be defined on all DAV compliant
+            resources. If present, the property contains a description of the
+            resource that is suitable for presentation to a user.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavDisplayName`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavDisplayName`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavGetContentLanguage`1">
+            <summary>
+            Contains the Content-Language header returned by a GET without accept
+            headers.
+            </summary>
+            <remarks>
+            The getcontentlanguage property must be defined on any DAV compliant
+            resource that returns the Content-Language header on a GET. The 
+            format of a language-tag is defined in 
+            <see href="http://tools.ietf.org/html/rfc2068#section-14.13">section 14.13 of RFC 2068</see>.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavGetContentLanguage`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavGetContentLanguage`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavGetContentLength`1">
+            <summary>
+            Contains the Content-Length header returned by a GET without accept
+            headers.
+            </summary>
+            <remarks>
+            The getcontentlength property must be defined on any DAV compliant
+            resource that returns the Content-Length header in response to a GET.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavGetContentLength`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavGetContentLength`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavGetContentType`1">
+            <summary>
+            Contains the Content-Type header returned by a GET without accept
+            headers.
+            </summary>
+            <remarks>
+            This getcontenttype property must be defined on any DAV compliant
+            resource that returns the Content-Type header in response to a GET.
+            Media types are defined in
+            <see href="http://tools.ietf.org/html/rfc2068#section-3.7">section 3.7 of RFC 2068</see>.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavGetContentType`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavGetContentType`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavGetEtag`1">
+            <summary>
+            Contains the ETag header returned by a GET without accept headers.
+            </summary>
+            <remarks>
+            The getetag property must be defined on any DAV compliant resource that
+            returns the Etag header. Entity tags are defined in
+            <see href="http://tools.ietf.org/html/rfc2068#section-3.11">secion 3.11 of RFC 2068</see>.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavGetEtag`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavGetEtag`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavGetLastModified`1">
+            <summary>
+            Contains the Last-Modified header returned by a GET method without
+            accept headers (HTTP date).
+            </summary>
+            <remarks>
+            <para>
+            Note that the last-modified date on a resource may reflect changes in
+            any part of the state of the resource, not necessarily just a change
+            to the response to the GET method. For example, a change in a property
+            may cause the last-modified date to change. The getlastmodified
+            property must be defined on any DAV compliant resource that returns
+            the Last-Modified header in response to a GET.
+            </para>
+            <para>
+            Note that this property returns the date in HTTP format, which is
+            different from the standard XML representation as in ISO 8601.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavGetLastModified`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavGetLastModified`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavLockDiscovery`1">
+            <summary>
+            Describes the active locks on a resource.
+            </summary>
+            <remarks>
+            This property returns a listing of who has a lock, what type of lock he
+            has, the timeout type and the time remaining on the timeout, and the
+            associated lock token. The server is free to withhold any or all of
+            this information if the requesting principal does not have sufficient
+            access rights to see the requested data.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavLockDiscovery`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavLockDiscovery`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavGetResourceType`1">
+            <summary>
+            Specifies the nature of the resource.
+            </summary>
+            <remarks>
+            The resourcetype property must be defined on all DAV compliant
+            resources. The default value is empty.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavGetResourceType`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavGetResourceType`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavSource`1">
+            <summary>
+            The destination of the source link identifies the resource that
+            contains the unprocessed source of the link's source.
+            </summary>
+            <remarks>
+            <para>
+            The source of the link (src) is typically the URI of the output
+            resource on which the link is defined, and there is typically only one
+            destination (dst) of the link, which is the URI where the unprocessed
+            source of the resource may be accessed. When more than one link
+            destination exists, this specification asserts no policy on ordering.
+            </para>
+            <para>
+            See 
+            <see href="http://www.webdav.org/specs/rfc2518.html#rfc.section.13.10">section 13.10 of RFC 2418</see>
+            for more information and an example of a source result.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavSource`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavSource`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.DavSupportedLock`1">
+            <summary>
+            Provides a listing of the lock capabilities supported by the resource.
+            </summary>
+            <remarks>
+            <para>
+            This property of a resource returns a listing of the combinations of
+            scope and access types which may be specified in a lock request on the
+            resource. Note that the actual contents are themselves controlled by
+            access controls so a server is not required to provide information the
+            client is not authorized to see.
+            </para>
+            <para>
+            See 
+            <see href="http://www.webdav.org/specs/rfc2518.html#rfc.section.13.11.1">section 13.11 of RFC 2418</see>
+            for more information and an example of a source result.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.DavSupportedLock`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.DavSupportedLock`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.Win32CreationTime`1">
+            <summary>
+            Contains the creation time of the collection or item.
+            </summary>
+            <remarks>
+            Note that this property returns the date in HTTP format, which is
+            different from the standard XML representation as in ISO 8601.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.Win32CreationTime`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.Win32CreationTime`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.Win32LastAccessTime`1">
+            <summary>
+            Contains the time that the collection or item was accessed for the last
+            time.
+            </summary>
+            <remarks>
+            Note that this property returns the date in HTTP format, which is
+            different from the standard XML representation as in ISO 8601.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.Win32LastAccessTime`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.Win32LastAccessTime`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.Win32LastModifiedTime`1">
+            <summary>
+            Contains the time that the collection or item was modfied for the last
+            time.
+            </summary>
+            <remarks>
+            Note that this property returns the date in HTTP format, which is
+            different from the standard XML representation as in ISO 8601.
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.Win32LastModifiedTime`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.Win32LastModifiedTime`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Props.Win32FileAttributes`1">
+            <summary>
+            Contains the hexadecimal representation of the collection or item's
+            file attributes.
+            time.
+            </summary>
+            <remarks>
+            <para>
+            The file attributes are returned as an 8-character hexadecimal number
+            representing a 32-bit value, where each bit has a specific meaning.
+            </para>
+            <list type="table">
+            <listheader>
+            <term>Bit</term>
+            <term>Value</term>
+            <term>Description</term>
+            </listheader>
+            <item><term>0</term><term>1</term><term>ReadOnly</term></item>
+            <item><term>1</term><term>2</term><term>Hidden</term></item>
+            <item><term>2</term><term>4</term><term>System</term></item>
+            <item><term>4</term><term>16</term><term>Directory</term></item>
+            <item><term>5</term><term>32</term><term>Archive</term></item>
+            <item><term>6</term><term>64</term><term>Device</term></item>
+            <item><term>7</term><term>128</term><term>Normal</term></item>
+            <item><term>8</term><term>256</term><term>Temporary</term></item>
+            <item><term>9</term><term>512</term><term>SparseFile</term></item>
+            <item><term>10</term><term>1024</term><term>ReparsePoint</term></item>
+            <item><term>11</term><term>2048</term><term>Compressed</term></item>
+            <item><term>12</term><term>4096</term><term>Offline</term></item>
+            <item><term>13</term><term>8192</term><term>NotContentIndexed</term></item>
+            <item><term>14</term><term>16384</term><term>Encrypted</term></item>
+            <item><term>15</term><term>32768</term><term>IntegrityStream</term></item>
+            <item><term>17</term><term>131072</term><term>NoScrubData</term></item>
+            </list>
+            <para>
+            When programming on the Windows platform the integer representation of
+            <see cref="T:System.IO.FileAttributes"/> can be used.
+            </para>
+            </remarks>
+            <typeparam name="TEntry">
+            Store item or collection to which this DAV property applies.
+            </typeparam>
+        </member>
+        <member name="F:NWebDav.Server.Props.Win32FileAttributes`1.PropertyName">
+            <summary>
+            Name of the property (static).
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.Win32FileAttributes`1.Name">
+            <summary>
+            Name of the property.
+            </summary>
+        </member>
+        <member name="P:NWebDav.Server.Props.Win32FileAttributes`1.Converter">
+            <summary>
+            Converter that is used to convert the actual value into the XML
+            format that is required by WebDAV.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.RequestHandlerFactory">
+            <summary>
+            Default implementation of the <see cref="T:NWebDav.Server.IRequestHandlerFactory"/>
+            interface to create WebDAV request handlers. 
+            </summary>
+            <seealso cref="T:NWebDav.Server.IRequestHandler"/>
+            <seealso cref="T:NWebDav.Server.IRequestHandlerFactory"/>
+        </member>
+        <member name="M:NWebDav.Server.RequestHandlerFactory.GetRequestHandler(NWebDav.Server.Http.IHttpContext)">
+            <summary>
+            Obtain the <seealso cref="T:NWebDav.Server.IRequestHandler">request handler</seealso>
+            that can process the specified request.
+            </summary>
+            <param name="httpContext">
+            The HTTP context specifies the entire HTTP context for this
+            request. In most cases only the <see cref="P:NWebDav.Server.Http.IHttpRequest.HttpMethod"/>
+            of the request will specify which handler should be used.
+            </param>
+            <returns>
+            The request handler that will further process the request.
+            </returns>
+            <remarks>
+            This implementation creates a new instance of the appropriate
+            request handler for each request.
+            </remarks>
+        </member>
+        <member name="P:NWebDav.Server.RequestHandlerFactory.AllowedMethods">
+            <summary>
+            Gets a list of supported HTTP methods.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.Stores.InfiniteDepthMode">
+            <summary>
+            When the Depth is set to infinite, then this enumeration specifies
+            how to deal with this.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Stores.InfiniteDepthMode.Allowed">
+            <summary>
+            Infinite depth is allowed (this is according spec).
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Stores.InfiniteDepthMode.Rejected">
+            <summary>
+            Infinite depth is not allowed (this results in HTTP 403 Forbidden).
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Stores.InfiniteDepthMode.Assume0">
+            <summary>
+            Infinite depth is handled as Depth 0.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.Stores.InfiniteDepthMode.Assume1">
+            <summary>
+            Infinite depth is handled as Depth 1.
+            </summary>
+        </member>
+        <member name="T:NWebDav.Server.WebDavDispatcher">
+            <summary>
+            Default implementation of the <see cref="T:NWebDav.Server.IWebDavDispatcher"/>
+            interface to dispatch WebDAV requests.
+            </summary>
+            <remarks>
+            The default implementation uses <see cref="T:NWebDav.Server.IRequestHandlerFactory"/>
+            to create request handlers and invokes the handler for each request. It
+            also adds some logging to each call and it takes care of closing the
+            HTTP context after the request has been processed.
+            </remarks>
+            <seealso cref="T:NWebDav.Server.IWebDavDispatcher"/>
+        </member>
+        <member name="M:NWebDav.Server.WebDavDispatcher.#ctor(NWebDav.Server.Stores.IStore,NWebDav.Server.IRequestHandlerFactory)">
+            <summary>
+            Create an instance of the default WebDavDispatcher implementation.
+            </summary>
+            <param name="store">
+            Store that should be used to obtain the collections and/or
+            documents.
+            </param>
+            <param name="requestHandlerFactory">
+            Optional request handler factory that is used to find the proper
+            <see cref="T:NWebDav.Server.IRequestHandler"/> for the current WebDAV request. This
+            is an optional parameter (default <see langword="null"/>). If no
+            value is specified (or <see langword="null"/>) then the default
+            implementation (<see cref="T:NWebDav.Server.RequestHandlerFactory"/>) is used.
+            </param>
+        </member>
+        <member name="M:NWebDav.Server.WebDavDispatcher.DispatchRequestAsync(NWebDav.Server.Http.IHttpContext)">
+            <summary>
+            Dispatch the WebDAV request based on the given HTTP context.
+            </summary>
+            <param name="httpContext">
+            HTTP context for this request.
+            </param>
+            <returns>
+            A task that represents the request dispatching operation.
+            </returns>
+        </member>
+        <member name="T:NWebDav.Server.WebDavNamespaces">
+            <summary>
+            Defines all the XML namespaces that are typically used in WebDAV
+            requests and responses.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.WebDavNamespaces.DavNs">
+            <summary>
+            Main DAV namespace (<c>DAV:</c>).
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.WebDavNamespaces.DavNsPrefix">
+            <summary>
+            Main DAV namespace prefix (<c>D</c>).
+            Some WebDAV clients don't parse the server generated XML properly
+            and expect that all DAV nodes use the "D" prefix. Although it is
+            perfectly legal to use a different namespace prefix, we do use it
+            to maximize compatibility.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.WebDavNamespaces.Win32Ns">
+            <summary>
+            Win32 extension namespace (<c>urn:schemas-microsoft-com:</c>). 
+            Its primary use is to add date/time and attributes to file-system
+            based entries. More information can be found at
+            <see href="https://msdn.microsoft.com/en-us/library/jj557737(v=office.12).aspx"/>.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.WebDavNamespaces.Win32NsPrefix">
+            <summary>
+            Win32 namespace prefix (<c>Z</c>). Some WebDAV clients don't parse
+            the server generated XML properly and expect that the Win32 nodes
+            use the <c>Z</c> prefix. Although it is perfectly legal to use a
+            different namespace prefix, we do use it to maximize compatibility.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.WebDavNamespaces.ReplNs">
+            <summary>
+            WebDAV replication namespace (<c>http://schemas.microsoft.com/repl</c>).
+            It defines fields used for WebDAV replication. More information can
+            be found at
+            <see href="https://msdn.microsoft.com/en-us/library/ms875925(v=exchg.65).aspx"/>.
+            </summary>
+        </member>
+        <member name="F:NWebDav.Server.WebDavNamespaces.OfficeNs">
+            <summary>
+            Office namespace (<c>urn:schemas-microsoft-com:office:office</c>).
+            It defines properties for use with Microsoft Office applications.
+            More information can be found at
+            <see href="https://msdn.microsoft.com/en-us/library/ms875215(v=exchg.65).aspx"/>.
+            </summary>
+        </member>
+    </members>
+</doc>
