@@ -392,7 +392,6 @@ namespace EfsTools.Utils
         {
             if (!string.IsNullOrEmpty(efsPath))
             {
-                using (var input = PhoneOpenRead(manager, efsPath))
                 {
                     string efsPathSub = PathUtils.GetEfsFilePath(efsPath, subscription);
                     using (var input = PhoneOpenRead(manager, efsPathSub))
