@@ -15,8 +15,8 @@
 
 ## Системные требования
 
-- Windows 8.1, Windows 10 1607 и новее, Windows Server 2012 R2 и новее, Mac OS X 10.13 и новее, Red Hat Enterprise Linux 7 и новее, CentOS 7 и новее, Ubuntu 16.04 и новее, Fedora 30 и новее, Debian 9 и новее, OpenSUSE 15 и новее
-- [DotNetCore 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1/runtime) и выше.
+- Windows 10 1607 и новее, Windows Server 2012 R2 и новее, Mac OS X 10.13 и новее, Red Hat Enterprise Linux 7 и новее, CentOS 7 и новее, Ubuntu 16.04 и новее, Fedora 30 и новее, Debian 9 и новее, OpenSUSE 15 и новее
+- [DotNet 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) и выше.
 
 ## Установка
 Необходимо скачать архив релиза с [сайта разработчика](http://johnbel.github.io/). Затем распаковать его.
