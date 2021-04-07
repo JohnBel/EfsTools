@@ -1,0 +1,3 @@
+[submodule "libs/nwebdav"]
+	path = libs/nwebdav
+	url = https://github.com/JohnBel/nwebdav.git

@@ -426,4 +426,79 @@
   <data name="InvalidResponseCrc" xml:space="preserve">
     <value>Invalid Response CRC</value>
   </data>
+  <data name="WebDavCopyFormat" xml:space="preserve">
+    <value>Copy data from "{0}" to "{1}" ...</value>
+  </data>
+  <data name="WebDavCreateCollectionFormat" xml:space="preserve">
+    <value>Creating directory "{0}" ...</value>
+  </data>
+  <data name="WebDavCreateItemFormat" xml:space="preserve">
+    <value>Creating file "{0}" ...</value>
+  </data>
+  <data name="WebDavDeleteItemFormat" xml:space="preserve">
+    <value>Deleting "{0}" ...</value>
+  </data>
+  <data name="WebDavErrorCalculationETagFormat" xml:space="preserve">
+    <value>Error on calculation ETag. {0}</value>
+  </data>
+  <data name="WebDavErrorCopyStreamFormat" xml:space="preserve">
+    <value>Error on copy file to "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorCreateCollectionFormat" xml:space="preserve">
+    <value>Error create directory "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorCreateItemFormat" xml:space="preserve">
+    <value>Error create file "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorDeleteItemFormat" xml:space="preserve">
+    <value>Error on delete file "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorGetItemFormat" xml:space="preserve">
+    <value>Error get file "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorGetItemsFormat" xml:space="preserve">
+    <value>Error get files "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorGetReadableStreamFormat" xml:space="preserve">
+    <value>Error on open file "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorMoveItemFormat" xml:space="preserve">
+    <value>Error on move file "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorOnProcessCollectionRequestFormat" xml:space="preserve">
+    <value>Error on process collection request "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorOnProcessItemRequestFormat" xml:space="preserve">
+    <value>Error on process item request "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorUploadFromStreamFormat" xml:space="preserve">
+    <value>Error on write file "{0}". {1}</value>
+  </data>
+  <data name="WebDavGetItemFormat" xml:space="preserve">
+    <value>Getting "{0}" ...</value>
+  </data>
+  <data name="WebDavGetItemsFormat" xml:space="preserve">
+    <value>Gettings items from "{0}" ...</value>
+  </data>
+  <data name="WebDavGetReadableStreamFormat" xml:space="preserve">
+    <value>Getting "{0}" for read ...</value>
+  </data>
+  <data name="WebDavMoveItemFormat" xml:space="preserve">
+    <value>Moving file "{0}" ...</value>
+  </data>
+  <data name="WebDavProcessingCollectionRequestFormat" xml:space="preserve">
+    <value>Processing collection request {1} "{0}"...</value>
+  </data>
+  <data name="WebDavProcessingItemRequestFormat" xml:space="preserve">
+    <value>Processing item request {1} "{0}"...</value>
+  </data>
+  <data name="WebDavServerStartedFormat" xml:space="preserve">
+    <value>WebDAV server is available at "{0}"</value>
+  </data>
+  <data name="WebDavUploadFromStreamFormat" xml:space="preserve">
+    <value>Writing to "{0}" ...</value>
+  </data>
+  <data name="WebDavWarningPathNotFoundFormat" xml:space="preserve">
+    <value>Path "{0}" not found</value>
+  </data>
 </root>

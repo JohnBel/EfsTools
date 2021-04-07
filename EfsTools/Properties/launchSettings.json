@@ -2,7 +2,7 @@
   "profiles": {
     "EfsTools": {
       "commandName": "Project",
-      "commandLineArgs": "downloadDirectory -i / -o C:\\Users\\ivan.belchikov\\AppData\\Local\\Temp\\test"
+      "commandLineArgs": "webDavServer -p 8888 -r 0"
     }
   }
 }

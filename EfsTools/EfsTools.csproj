@@ -26,6 +26,10 @@
     <PackageReference Include="SerialPortStreamCore" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libs\nwebdav\NWebDav.Server.HttpListener\NWebDav.Server.HttpListener.csproj" />
+    <ProjectReference Include="..\libs\nwebdav\NWebDav.Server\NWebDav.Server.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Resourses\Strings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

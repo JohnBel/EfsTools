@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -11,7 +12,12 @@ using EfsTools.Qualcomm;
 using EfsTools.Qualcomm.QcdmCommands.Base;
 using EfsTools.Resourses;
 using EfsTools.Utils;
+using EfsTools.WebDAV;
 using Microsoft.Extensions.Configuration;
+using NWebDav.Server;
+using NWebDav.Server.Http;
+using NWebDav.Server.HttpListener;
+using NWebDav.Server.Stores;
 
 namespace EfsTools
 {
@@ -377,6 +383,52 @@ namespace EfsTools
             }
 
             return path;
+        }
+
+        public void StartWebDavServer(int port, LogLevel logLevel, bool readOnly)
+        {
+            using (var manager = OpenQcdmManager())
+            {
+                EfsFileManager.Instance.UpdateEntries(manager, "/");
+                using (var httpListener = new HttpListener())
+                {
+                    var uri = $"http://127.0.0.1:{port}/";
+                    httpListener.Prefixes.Add(uri);
+                    httpListener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
+                    httpListener.Start();
+                    if (_logger != null && logLevel >= LogLevel.Info)
+                    {
+                        _logger.LogInfo(Strings.WebDavServerStartedFormat, uri);
+                    }
+
+                    var cancellationTokenSource = new CancellationTokenSource();
+                    var cancellationToken = cancellationTokenSource.Token;
+                    Console.CancelKeyPress += ((sender, args) => cancellationTokenSource.Cancel());
+
+                    var requestHandlerFactory = new RequestHandlerFactory();
+                    var webDavDispatcher = new WebDavDispatcher(new EfsStore(manager, readOnly, _logger, logLevel), requestHandlerFactory);
+                    //var homeFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                    //var webDavDispatcher = new WebDavDispatcher(new DiskStore(homeFolder), requestHandlerFactory);
+                    while (!cancellationToken.IsCancellationRequested)
+                    {
+                        var contextTask = httpListener.GetContextAsync();
+                        contextTask.Wait(cancellationToken);
+                        var httpListenerContext = contextTask.Result;
+                        if (httpListenerContext != null)
+                        {
+                            var httpContext = new HttpContext(httpListenerContext);
+                            var dispatchRequestTask =  webDavDispatcher.DispatchRequestAsync(httpContext);
+                            dispatchRequestTask.Wait(cancellationToken);
+                        }
+                    }
+                }
+                manager.Close();
+            }
+        }
+
+        private void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private QcdmManager OpenQcdmManager()

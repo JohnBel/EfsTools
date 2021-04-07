@@ -986,5 +986,230 @@ namespace EfsTools.Resourses {
                 return ResourceManager.GetString("Usage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy data from &quot;{0}&quot; to &quot;{1}&quot; ....
+        /// </summary>
+        internal static string WebDavCopyFormat {
+            get {
+                return ResourceManager.GetString("WebDavCopyFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating directory &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavCreateCollectionFormat {
+            get {
+                return ResourceManager.GetString("WebDavCreateCollectionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating file &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavCreateItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavCreateItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleting &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavDeleteItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavDeleteItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on calculation ETag. {0}.
+        /// </summary>
+        internal static string WebDavErrorCalculationETagFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorCalculationETagFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on copy file to &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorCopyStreamFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorCopyStreamFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error create directory &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorCreateCollectionFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorCreateCollectionFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error create file &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorCreateItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorCreateItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on delete file &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorDeleteItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorDeleteItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error get file &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorGetItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorGetItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error get files &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorGetItemsFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorGetItemsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on open file &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorGetReadableStreamFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorGetReadableStreamFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on move file &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorMoveItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorMoveItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on process collection request &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorOnProcessCollectionRequestFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorOnProcessCollectionRequestFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on process item request &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorOnProcessItemRequestFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorOnProcessItemRequestFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on write file &quot;{0}&quot;. {1}.
+        /// </summary>
+        internal static string WebDavErrorUploadFromStreamFormat {
+            get {
+                return ResourceManager.GetString("WebDavErrorUploadFromStreamFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavGetItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavGetItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gettings items from &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavGetItemsFormat {
+            get {
+                return ResourceManager.GetString("WebDavGetItemsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting &quot;{0}&quot; for read ....
+        /// </summary>
+        internal static string WebDavGetReadableStreamFormat {
+            get {
+                return ResourceManager.GetString("WebDavGetReadableStreamFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moving file &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavMoveItemFormat {
+            get {
+                return ResourceManager.GetString("WebDavMoveItemFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing collection request {1} &quot;{0}&quot;....
+        /// </summary>
+        internal static string WebDavProcessingCollectionRequestFormat {
+            get {
+                return ResourceManager.GetString("WebDavProcessingCollectionRequestFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing item request {1} &quot;{0}&quot;....
+        /// </summary>
+        internal static string WebDavProcessingItemRequestFormat {
+            get {
+                return ResourceManager.GetString("WebDavProcessingItemRequestFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WebDAV server is available at &quot;{0}&quot;.
+        /// </summary>
+        internal static string WebDavServerStartedFormat {
+            get {
+                return ResourceManager.GetString("WebDavServerStartedFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Writing to &quot;{0}&quot; ....
+        /// </summary>
+        internal static string WebDavUploadFromStreamFormat {
+            get {
+                return ResourceManager.GetString("WebDavUploadFromStreamFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path &quot;{0}&quot; not found.
+        /// </summary>
+        internal static string WebDavWarningPathNotFoundFormat {
+            get {
+                return ResourceManager.GetString("WebDavWarningPathNotFoundFormat", resourceCulture);
+            }
+        }
     }
 }

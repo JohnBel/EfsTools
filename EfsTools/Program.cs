@@ -28,24 +28,25 @@ namespace EfsTools
                     settings.HelpWriter = Console.Out;
                 }))
                 {
-                    var cmd = commandLineParser.ParseArguments<
-                        GetTargetInfoOptions,
-                        GetEfsInfoOptions,
-                        EfsReadFileOptions,
-                        EfsWriteFileOptions,
-                        EfsRenameFileOptions,
-                        EfsDeleteFileOptions,
-                        EfsFixFileNamesOptions,
-                        EfsCreateDirectoryOptions,
-                        EfsDeleteDirectoryOptions,
-                        EfsListDirectoryOptions,
-                        EfsDownloadDirectoryOptions,
-                        EfsUploadDirectoryOptions,
-                        GetModemConfigOptions,
-                        SetModemConfigOptions,
-                        ExtractMbnOptions,
-                        GetLogsOptions
-                    >(args);
+                    var cmd = commandLineParser.ParseArguments(args,
+                        typeof(GetTargetInfoOptions),
+                        typeof(GetEfsInfoOptions),
+                        typeof(EfsReadFileOptions),
+                        typeof(EfsWriteFileOptions),
+                        typeof(EfsRenameFileOptions),
+                        typeof(EfsDeleteFileOptions),
+                        typeof(EfsFixFileNamesOptions),
+                        typeof(EfsCreateDirectoryOptions),
+                        typeof(EfsDeleteDirectoryOptions),
+                        typeof(EfsListDirectoryOptions),
+                        typeof(EfsDownloadDirectoryOptions),
+                        typeof(EfsUploadDirectoryOptions),
+                        typeof(GetModemConfigOptions),
+                        typeof(SetModemConfigOptions),
+                        typeof(ExtractMbnOptions),
+                        typeof(StartWebDavServerOptions),
+                        typeof(GetLogsOptions)
+                    );
 
                     cmd.WithParsed<GetTargetInfoOptions>(opts => tools.GetTargetInfo());
                     cmd.WithParsed<GetEfsInfoOptions>(opts => tools.GetEfsInfo());
@@ -77,6 +78,8 @@ namespace EfsTools
                         tools.ExtractMbn(opts.InputMbnFilePath, opts.OutputComputerDirectoryPath, opts.NoExtraData));
                     cmd.WithParsed<GetLogsOptions>(opts =>
                         tools.GetLog(opts.MessageMask, opts.LogMask, opts.Verbose));
+                    cmd.WithParsed<StartWebDavServerOptions>(opts =>
+                        tools.StartWebDavServer(opts.Port, opts.LogLevel, opts.ReadOnly != 0));
                     cmd.WithNotParsed(errors => { });
                 }
             }

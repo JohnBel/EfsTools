@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfsTools", "EfsTools\EfsTools.csproj", "{AFDECBE3-B1B0-43FC-9496-567F86E89B23}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NWebDav.Server", "libs\nwebdav\NWebDav.Server\NWebDav.Server.csproj", "{1D38471E-A05F-4711-8E13-B648FAF0BD5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NWebDav.Server.HttpListener", "libs\nwebdav\NWebDav.Server.HttpListener\NWebDav.Server.HttpListener.csproj", "{BCEAC943-9629-4D14-A326-2DF1FCF5516A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{AFDECBE3-B1B0-43FC-9496-567F86E89B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFDECBE3-B1B0-43FC-9496-567F86E89B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFDECBE3-B1B0-43FC-9496-567F86E89B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D38471E-A05F-4711-8E13-B648FAF0BD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D38471E-A05F-4711-8E13-B648FAF0BD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D38471E-A05F-4711-8E13-B648FAF0BD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D38471E-A05F-4711-8E13-B648FAF0BD5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCEAC943-9629-4D14-A326-2DF1FCF5516A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCEAC943-9629-4D14-A326-2DF1FCF5516A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCEAC943-9629-4D14-A326-2DF1FCF5516A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCEAC943-9629-4D14-A326-2DF1FCF5516A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

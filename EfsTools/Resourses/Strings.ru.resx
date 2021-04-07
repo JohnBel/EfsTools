@@ -426,4 +426,79 @@
   <data name="InvalidResponseCrc" xml:space="preserve">
     <value>Некорретная контрольная сумма CRC</value>
   </data>
+  <data name="WebDavCopyFormat" xml:space="preserve">
+    <value>Копирование из "{0}" в "{1}" ...</value>
+  </data>
+  <data name="WebDavCreateCollectionFormat" xml:space="preserve">
+    <value>Создание директории"{0}" ...</value>
+  </data>
+  <data name="WebDavCreateItemFormat" xml:space="preserve">
+    <value>Создание файла "{0}" ...</value>
+  </data>
+  <data name="WebDavDeleteItemFormat" xml:space="preserve">
+    <value>Удаление "{0}" ...</value>
+  </data>
+  <data name="WebDavErrorCalculationETagFormat" xml:space="preserve">
+    <value>Ошибка при расчете ETag. {0}</value>
+  </data>
+  <data name="WebDavErrorCopyStreamFormat" xml:space="preserve">
+    <value>Ошибка при копировании файла в "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorCreateCollectionFormat" xml:space="preserve">
+    <value>Ошибка при создании директории "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorCreateItemFormat" xml:space="preserve">
+    <value>Ошибка при создании файла "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorDeleteItemFormat" xml:space="preserve">
+    <value>Ошибка при удалении файла "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorGetItemFormat" xml:space="preserve">
+    <value>Ошибка при получении файла "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorGetItemsFormat" xml:space="preserve">
+    <value>Ошибка при получении файлов "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorGetReadableStreamFormat" xml:space="preserve">
+    <value>Ошибка при открытии файла "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorMoveItemFormat" xml:space="preserve">
+    <value>Ошибка при перемещении файла "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorOnProcessCollectionRequestFormat" xml:space="preserve">
+    <value>Ошибка при выполнении запроса в директорию "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorOnProcessItemRequestFormat" xml:space="preserve">
+    <value>Ошибка при выполнении запроса для файла "{0}". {1}</value>
+  </data>
+  <data name="WebDavErrorUploadFromStreamFormat" xml:space="preserve">
+    <value>Ошибка при записи в файл "{0}". {1}</value>
+  </data>
+  <data name="WebDavGetItemFormat" xml:space="preserve">
+    <value>Получение "{0}" ...</value>
+  </data>
+  <data name="WebDavGetItemsFormat" xml:space="preserve">
+    <value>Получение содержимого "{0}" ...</value>
+  </data>
+  <data name="WebDavGetReadableStreamFormat" xml:space="preserve">
+    <value>Получение "{0}" для чтения ...</value>
+  </data>
+  <data name="WebDavMoveItemFormat" xml:space="preserve">
+    <value>Перемещение файла "{0}" ...</value>
+  </data>
+  <data name="WebDavProcessingCollectionRequestFormat" xml:space="preserve">
+    <value>Выполенение запроса {1} "{0}"...</value>
+  </data>
+  <data name="WebDavProcessingItemRequestFormat" xml:space="preserve">
+    <value>Выполнение запроса {1} "{0}"...</value>
+  </data>
+  <data name="WebDavServerStartedFormat" xml:space="preserve">
+    <value>WebDAV сервер доступен по адресу "{0}"</value>
+  </data>
+  <data name="WebDavUploadFromStreamFormat" xml:space="preserve">
+    <value>Запись в "{0}" ...</value>
+  </data>
+  <data name="WebDavWarningPathNotFoundFormat" xml:space="preserve">
+    <value>Путь "{0}" не найден</value>
+  </data>
 </root>
