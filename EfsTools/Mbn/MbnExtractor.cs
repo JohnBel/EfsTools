@@ -38,9 +38,9 @@ namespace EfsTools.Mbn
                     ParseImage(stream, outputDirectory, noExtraData, logger);
                 }
             }
-            catch (MbnExtractorException e)
+            catch (MbnExtractorException)
             {
-                throw e;
+                throw;
             }
             catch (Exception e)
             {

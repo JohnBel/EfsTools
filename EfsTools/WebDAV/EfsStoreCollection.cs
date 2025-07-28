@@ -226,6 +226,38 @@ namespace EfsTools.WebDAV
             });
         }
 
+        Task<IEnumerable<IStoreItem>> IStoreCollection.GetItemsAsync(IHttpContext httpContext)
+        {
+            try
+            {
+                LogInfo(Strings.WebDavGetItemsFormat, _path);
+
+                var items = new List<IStoreItem>();
+                var efsItems = EfsFileManager.Instance.GetEntries(_manager, _path);
+
+                foreach (var efsItem in efsItems)
+                {
+                    var path = _path == "/" ? $"{_path}{efsItem.Name}" : $"{_path}/{efsItem.Name}";
+
+                    if (efsItem.EntryType == DirectoryEntryType.Directory)
+                    {
+                        items.Add(EfsStoreCollection.Create(_manager, efsItem.Name, path, path, _isReadOnly, _logger, _logLevel));
+                    }
+                    else
+                    {
+                        items.Add(EfsStoreItem.Create(_manager, efsItem.Name, path, path, _isReadOnly, _logger, _logLevel));
+                    }
+                }
+
+                return Task.FromResult<IEnumerable<IStoreItem>>(items);
+            }
+            catch (Exception ex)
+            {
+                LogError(Strings.WebDavErrorGetItemsFormat, _path, ex.Message);
+                return Task.FromResult(Enumerable.Empty<IStoreItem>());
+            }
+        }
+
         public Task<StoreItemResult> CreateItemAsync(string name, bool overwrite, IHttpContext httpContext)
         {
             return Task.Run(() =>
@@ -378,7 +410,6 @@ namespace EfsTools.WebDAV
                 _logger.LogError(format, args);
             }
         }
-
 
         private readonly QcdmManager _manager;
         private PropertyManager<EfsStoreCollection> _propertyManager;

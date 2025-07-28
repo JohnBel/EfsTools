@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using EfsTools.Qualcomm;
+﻿using EfsTools.Qualcomm;
 using Microsoft.Win32;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace EfsTools.Utils
 {
@@ -17,6 +18,7 @@ namespace EfsTools.Utils
             return CheckQualcommPort(port, baudrate, hdlcSendControlChar, ignoreUnsupportedCommands, logger);
         }
 
+        [SupportedOSPlatform("windows")]
         private static bool IsWindowsQualcommPort(string port)
         {
             var qualcommPorts = InitializeQualcommPorts();
@@ -41,6 +43,7 @@ namespace EfsTools.Utils
             return false;
         }
 
+        [SupportedOSPlatform("windows")]
         private static HashSet<string> InitializeQualcommPorts()
         {
             try
@@ -69,6 +72,8 @@ namespace EfsTools.Utils
             }
         }
 
+
+        [SupportedOSPlatform("windows")]
         private static void ProcessRegistryKey(RegistryKey portsKey, string keyName, HashSet<string> qualcommPorts)
         {
             try

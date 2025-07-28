@@ -722,7 +722,7 @@ namespace EfsTools.Qualcomm
                 {
                     return false;
                 }
-                throw ex;
+                throw;
             }
         }
 
